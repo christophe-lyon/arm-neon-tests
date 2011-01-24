@@ -1,0 +1,56 @@
+ARM Neon reference tests
+========================
+This package contains extensive tests for the ARM/Neon instructions.
+
+It works by building a program which uses all of them, and then
+executing it on an actual target or a simulator.
+
+It can be used to validate the simulator against an actual HW target,
+or to validate C compilers in presence of Neon intrinsics calls.
+
+The supplied Makefile enables to build with both ARM RVCT compiler and
+GNU GCC (for the ARM target), and supports execution with ARM RVDEBUG
+on an ARM simulator and with QEMU.
+
+For convenience, the ARM ELF binary file (as compiled with RVCT) is
+supplied (compute_ref.axf), as well as expected outputs
+(ref-rvct.txt).
+
+Typical usage when used to debug QEmu:
+$ make all # to build the test program with ARM rvct and execute with QEmu
+$ make check # to compare the results with the expected output
+
+
+Known issues:
+-------------
+The tests currently fail to build with GCC/ARM:
+- no support for Neon_Overflow/fpsrc register
+- ICE when compiling ref_vldX.c, ref_vldX_lane.c, ref_vstX_lane.c
+- fails to compile vst1_lane.c
+- missing include files: dspfns.h, armdsp.h
+
+VS[LR]I.64 tests are disabled because QEmu aborts.
+
+Engineering:
+------------
+In order to cover all the Neon instructions extensively, these tests
+make intensive use of the C-preprocessor, to save maintenance efforts.
+
+Most tests (the more regular ones) share a common basic structure. In
+general, variable names are suffixed by their type name, so as to
+differentiate variables with the same purpose but of differente types.
+Hence vector1_int8x8, vector1_int16x4 etc...
+
+For instance in ref_vmul.c the layout of the code is as follows:
+
+- declare input and output vectors (named 'vector1', 'vector2' and
+  'vector_res') of each possible type (s/u, 8/16/32/64 bits).
+
+- clean the result buffers.
+
+- initialize input vectors 'vector1' and 'vector2'.
+
+- call each variant of the intrinsic and store the result in a buffer
+  named 'buffer', whose contents is printed after execution.
+
+One can then compare the actual result with the expected one.

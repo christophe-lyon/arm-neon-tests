@@ -1,0 +1,29 @@
+;;  Copyright ARM Ltd 2005. All rights reserved.
+
+ROM_LOAD 0x2000
+{
+
+    ROM_EXEC 0x2000
+    {
+        init.o (CortexA8, +First)     ; Create Translation Table
+        * (InRoot$$Sections)          ; this section must be in a root region
+    }
+
+    I-TCM 0x30000 FIXED ; 0x1E000     ; built at 0x100 to avoid vector space
+    {                                 ; assumes 32K I-TCM
+
+        * (+RO)                       ; any remaining code inc C lib.
+    }
+
+    D-TCM 0x200000 0x40000            ; 8 Kb of D-TCM used for RW/ZI
+    {
+        * (+RW,+ZI)
+    }
+
+    HEAP 0x4E0000 EMPTY 0x100000 {}   ; 8Kb Heap follows direcly after RW/ZI
+
+    STACK 0x300000 EMPTY -0x8000 {}   ; 32KB Stack, starts after DTCM block.
+
+    TTB 0x20000 EMPTY 0x4000 {}       ; place translation table at 0x28000, 16Kb required
+
+}
