@@ -68,6 +68,10 @@ $(REFRVCT): compute_ref.axf
 
 $(REFRVCT).qemu: compute_ref.axf
 	qemu-system-arm -cpu cortex-a9 -semihosting -nographic -kernel $^
+# Avoid rebuilding compute_ref.axf if already present, for users who
+# don't have rvct
+.INTERMEDIATE: compute_ref.rvct.o retarget.rvct.o InitCache.o Init.o	\
+	$(REFOBJS.rvct)
 
 compute_ref.axf: scatter.scat compute_ref.rvct.o retarget.rvct.o	\
 	InitCache.o Init.o $(REFOBJS.rvct)
@@ -76,7 +80,7 @@ compute_ref.axf: scatter.scat compute_ref.rvct.o retarget.rvct.o	\
 compute_ref.rvct.o retarget.rvct.o: %.rvct.o: %.c
 	$(CC.rvct) $(CFLAGS.rvct) -c $^ -o $@ -DREFFILE=\"$(REFRVCT)\"
 
-ref_%.rvct.o: ref_%.c stm-arm-neon-ref.h $(NEONINCLUDE)
+ref_%.rvct.o: ref_%.c stm-arm-neon-ref.h
 	$(CC.rvct) $(CFLAGS.rvct) -c $< -o $@
 
 InitCache.o Init.o: %.o: %.s
