@@ -127,7 +127,7 @@ ref_vqdmlsl.*.o: ref_vqdmlal.c
 ref_vqdmlsl_lane.*.o: ref_vqdmlal_lane.c
 ref_vqdmlsl_n.*.o: ref_vqdmlal_n.c
 ref_vtrn.*.o ref_vzip.*.o: ref_vuzp.c
-ref_vsri_n.*.o: ref_vsli_n.c
+ref_vsli_n.*.o ref_vsri_n.*.o: ref_vsXi_n.c
 ref_vraddhn.*.o ref_vsubhn.*.o ref_vrsubhn.*.o: ref_vaddhn.c
 ref_vsubl.*.o: ref_vaddl.c
 ref_vsubw.*.o: ref_vaddw.c

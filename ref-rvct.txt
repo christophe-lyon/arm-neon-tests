@@ -4203,6 +4203,26 @@ VSLI_N:15:result_uint32x4 [] = { 1bfffff0, 1bfffff1, 1bfffff2, 1bfffff3,  }
 VSLI_N:16:result_uint64x2 [] = { 7ffffffffffff0, 7ffffffffffff1,  }
 VSLI_N:17:result_float32x4 [] = { 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08,  }
 
+VSLI_Nmax shift amount output:
+VSLI_N:0:result_int8x8 [] = { 70, 71, 72, 73, 74, 75, 76, 77,  }
+VSLI_N:1:result_int16x4 [] = { 7ff0, 7ff1, 7ff2, 7ff3,  }
+VSLI_N:2:result_int32x2 [] = { fffffff0, fffffff1,  }
+VSLI_N:3:result_int64x1 [] = { 7ffffffffffffff0,  }
+VSLI_N:4:result_uint8x8 [] = { 70, 71, 72, 73, 74, 75, 76, 77,  }
+VSLI_N:5:result_uint16x4 [] = { 7ff0, 7ff1, 7ff2, 7ff3,  }
+VSLI_N:6:result_uint32x2 [] = { 7ffffff0, 7ffffff1,  }
+VSLI_N:7:result_uint64x1 [] = { 7ffffffffffffff0,  }
+VSLI_N:8:result_float32x2 [] = { 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08,  }
+VSLI_N:9:result_int8x16 [] = { 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 7a, 7b, 7c, 7d, 7e, 7f,  }
+VSLI_N:10:result_int16x8 [] = { 7ff0, 7ff1, 7ff2, 7ff3, 7ff4, 7ff5, 7ff6, 7ff7,  }
+VSLI_N:11:result_int32x4 [] = { 7ffffff0, 7ffffff1, 7ffffff2, 7ffffff3,  }
+VSLI_N:12:result_int64x2 [] = { 7ffffffffffffff0, 7ffffffffffffff1,  }
+VSLI_N:13:result_uint8x16 [] = { 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 7a, 7b, 7c, 7d, 7e, 7f,  }
+VSLI_N:14:result_uint16x8 [] = { fff0, fff1, fff2, fff3, fff4, fff5, fff6, fff7,  }
+VSLI_N:15:result_uint32x4 [] = { fffffff0, fffffff1, fffffff2, fffffff3,  }
+VSLI_N:16:result_uint64x2 [] = { fffffffffffffff0, fffffffffffffff1,  }
+VSLI_N:17:result_float32x4 [] = { 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08,  }
+
 VSRI_N output:
 VSRI_N:0:result_int8x8 [] = { fffffff0, fffffff0, fffffff0, fffffff0, fffffff0, fffffff0, fffffff0, fffffff0,  }
 VSRI_N:1:result_int16x4 [] = { ffffffff, ffffffff, ffffffff, ffffffff,  }
@@ -4221,6 +4241,26 @@ VSRI_N:13:result_uint8x16 [] = { e1, e1, e1, e1, e1, e1, e1, e1, e1, e1, e1, e1,
 VSRI_N:14:result_uint16x8 [] = { fff0, fff0, fff0, fff0, fff0, fff0, fff0, fff0,  }
 VSRI_N:15:result_uint32x4 [] = { fffffe00, fffffe00, fffffe00, fffffe00,  }
 VSRI_N:16:result_uint64x2 [] = { fffffffffffff800, fffffffffffff800,  }
+VSRI_N:17:result_float32x4 [] = { 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08,  }
+
+VSRI_Nmax shift amount output:
+VSRI_N:0:result_int8x8 [] = { fffffff0, fffffff1, fffffff2, fffffff3, fffffff4, fffffff5, fffffff6, fffffff7,  }
+VSRI_N:1:result_int16x4 [] = { fffffff0, fffffff1, fffffff2, fffffff3,  }
+VSRI_N:2:result_int32x2 [] = { fffffff0, fffffff1,  }
+VSRI_N:3:result_int64x1 [] = { fffffffffffffff0,  }
+VSRI_N:4:result_uint8x8 [] = { f0, f1, f2, f3, f4, f5, f6, f7,  }
+VSRI_N:5:result_uint16x4 [] = { fff0, fff1, fff2, fff3,  }
+VSRI_N:6:result_uint32x2 [] = { fffffff0, fffffff1,  }
+VSRI_N:7:result_uint64x1 [] = { fffffffffffffff0,  }
+VSRI_N:8:result_float32x2 [] = { 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08,  }
+VSRI_N:9:result_int8x16 [] = { fffffff0, fffffff1, fffffff2, fffffff3, fffffff4, fffffff5, fffffff6, fffffff7, fffffff8, fffffff9, fffffffa, fffffffb, fffffffc, fffffffd, fffffffe, ffffffff,  }
+VSRI_N:10:result_int16x8 [] = { fffffff0, fffffff1, fffffff2, fffffff3, fffffff4, fffffff5, fffffff6, fffffff7,  }
+VSRI_N:11:result_int32x4 [] = { fffffff0, fffffff1, fffffff2, fffffff3,  }
+VSRI_N:12:result_int64x2 [] = { fffffffffffffff0, fffffffffffffff1,  }
+VSRI_N:13:result_uint8x16 [] = { f0, f1, f2, f3, f4, f5, f6, f7, f8, f9, fa, fb, fc, fd, fe, ff,  }
+VSRI_N:14:result_uint16x8 [] = { fff0, fff1, fff2, fff3, fff4, fff5, fff6, fff7,  }
+VSRI_N:15:result_uint32x4 [] = { fffffff0, fffffff1, fffffff2, fffffff3,  }
+VSRI_N:16:result_uint64x2 [] = { fffffffffffffff0, fffffffffffffff1,  }
 VSRI_N:17:result_float32x4 [] = { 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08,  }
 
 VTST/VTSTQ (signed input) output:

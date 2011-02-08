@@ -26,4 +26,63 @@ THE SOFTWARE.
 #define INSN_NAME vsri
 #define TEST_MSG "VSRI_N"
 
-#include "ref_vsli_n.c"
+/* Extra tests for functions requiring corner cases tests */
+void vsri_extra(void);
+#define EXTRA_TESTS vsri_extra
+
+#include "ref_vsXi_n.c"
+
+void vsri_extra(void)
+{
+    /* Test cases with maximum shift amount (this amount is different
+     * from vsli.  */
+
+  /* With ARM RVCT, we need to declare variables before any executable
+     statement */
+  DECL_VARIABLE_ALL_VARIANTS(vector);
+  DECL_VARIABLE_ALL_VARIANTS(vector2);
+  DECL_VARIABLE_ALL_VARIANTS(vector_res);
+
+  clean_results ();
+
+  /* Initialize input "vector" from "buffer"  */
+  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
+
+  /* Fill input vector2 with arbitrary values */
+  TEST_VDUP(vector2, , int, s, 8, 8, 2);
+  TEST_VDUP(vector2, , int, s, 16, 4, -4);
+  TEST_VDUP(vector2, , int, s, 32, 2, 3);
+  TEST_VDUP(vector2, , int, s, 64, 1, 100);
+  TEST_VDUP(vector2, , uint, u, 8, 8, 20);
+  TEST_VDUP(vector2, , uint, u, 16, 4, 30);
+  TEST_VDUP(vector2, , uint, u, 32, 2, 40);
+  TEST_VDUP(vector2, , uint, u, 64, 1, 2);
+  TEST_VDUP(vector2, q, int, s, 8, 16, -10);
+  TEST_VDUP(vector2, q, int, s, 16, 8, -20);
+  TEST_VDUP(vector2, q, int, s, 32, 4, -30);
+  TEST_VDUP(vector2, q, int, s, 64, 2, 24);
+  TEST_VDUP(vector2, q, uint, u, 8, 16, 12);
+  TEST_VDUP(vector2, q, uint, u, 16, 8, 3);
+  TEST_VDUP(vector2, q, uint, u, 32, 4, 55);
+  TEST_VDUP(vector2, q, uint, u, 64, 2, 3);
+
+  /* Use maximum allowed shift amount */
+  TEST_VSXI_N(INSN_NAME, , int, s, 8, 8, 8);
+  TEST_VSXI_N(INSN_NAME, , int, s, 16, 4, 16);
+  TEST_VSXI_N(INSN_NAME, , int, s, 32, 2, 32);
+  TEST_VSXI_N(INSN_NAME, , int, s, 64, 1, 64);
+  TEST_VSXI_N(INSN_NAME, , uint, u, 8, 8, 8);
+  TEST_VSXI_N(INSN_NAME, , uint, u, 16, 4, 16);
+  TEST_VSXI_N(INSN_NAME, , uint, u, 32, 2, 32);
+  TEST_VSXI_N(INSN_NAME, , uint, u, 64, 1, 64);
+  TEST_VSXI_N(INSN_NAME, q, int, s, 8, 16, 8);
+  TEST_VSXI_N(INSN_NAME, q, int, s, 16, 8, 16);
+  TEST_VSXI_N(INSN_NAME, q, int, s, 32, 4, 32);
+  TEST_VSXI_N(INSN_NAME, q, int, s, 64, 2, 64);
+  TEST_VSXI_N(INSN_NAME, q, uint, u, 8, 16, 8);
+  TEST_VSXI_N(INSN_NAME, q, uint, u, 16, 8, 16);
+  TEST_VSXI_N(INSN_NAME, q, uint, u, 32, 4, 32);
+  TEST_VSXI_N(INSN_NAME, q, uint, u, 64, 2, 64);
+
+  dump_results_hex2 (TEST_MSG, "max shift amount");
+}

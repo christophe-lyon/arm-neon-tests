@@ -287,10 +287,8 @@ int main ()
   exec_vmls_lane ();
   exec_vmla_n ();
   exec_vmls_n ();
-#if 0
   exec_vsli_n ();
   exec_vsri_n ();
-#endif
   exec_vtst ();
   exec_vaddhn ();
   exec_vraddhn ();

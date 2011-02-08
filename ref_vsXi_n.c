@@ -23,19 +23,35 @@ THE SOFTWARE.
 
 */
 
+#ifdef __arm__
+#include <arm_neon.h>
+#else
+#error Target not supported
+#endif
+
+#include "stm-arm-neon-ref.h"
+
+#ifndef INSN_NAME
 #define INSN_NAME vsli
 #define TEST_MSG "VSLI_N"
+#endif
 
-/* Extra tests for functions requiring corner cases tests */
-void vsli_extra(void);
-#define EXTRA_TESTS vsli_extra
+#define FNNAME1(NAME) void exec_ ## NAME ##_n (void)
+#define FNNAME(NAME) FNNAME1(NAME)
 
-#include "ref_vsXi_n.c"
-
-void vsli_extra(void)
+FNNAME (INSN_NAME)
 {
-    /* Test cases with maximum shift amount (this amount is different
-     * from vsri.  */
+  /* vector_res = vsxi_n(vector, vector2, val),
+     then store the result.  */
+#define TEST_VSXI_N1(INSN, Q, T1, T2, W, N, V)				\
+  VECT_VAR(vector_res, T1, W, N) =					\
+    INSN##Q##_n_##T2##W(VECT_VAR(vector, T1, W, N),			\
+			VECT_VAR(vector2, T1, W, N),			\
+			V);						\
+  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N), VECT_VAR(vector_res, T1, W, N))
+
+#define TEST_VSXI_N(INSN, Q, T1, T2, W, N, V)	\
+  TEST_VSXI_N1(INSN, Q, T1, T2, W, N, V)
 
   /* With ARM RVCT, we need to declare variables before any executable
      statement */
@@ -66,23 +82,27 @@ void vsli_extra(void)
   TEST_VDUP(vector2, q, uint, u, 32, 4, 55);
   TEST_VDUP(vector2, q, uint, u, 64, 2, 3);
 
-  /* Use maximum allowed shift amount */
-  TEST_VSXI_N(INSN_NAME, , int, s, 8, 8, 7);
-  TEST_VSXI_N(INSN_NAME, , int, s, 16, 4, 15);
-  TEST_VSXI_N(INSN_NAME, , int, s, 32, 2, 31);
-  TEST_VSXI_N(INSN_NAME, , int, s, 64, 1, 63);
-  TEST_VSXI_N(INSN_NAME, , uint, u, 8, 8, 7);
-  TEST_VSXI_N(INSN_NAME, , uint, u, 16, 4, 15);
-  TEST_VSXI_N(INSN_NAME, , uint, u, 32, 2, 31);
-  TEST_VSXI_N(INSN_NAME, , uint, u, 64, 1, 63);
-  TEST_VSXI_N(INSN_NAME, q, int, s, 8, 16, 7);
-  TEST_VSXI_N(INSN_NAME, q, int, s, 16, 8, 15);
-  TEST_VSXI_N(INSN_NAME, q, int, s, 32, 4, 31);
-  TEST_VSXI_N(INSN_NAME, q, int, s, 64, 2, 63);
-  TEST_VSXI_N(INSN_NAME, q, uint, u, 8, 16, 7);
-  TEST_VSXI_N(INSN_NAME, q, uint, u, 16, 8, 15);
-  TEST_VSXI_N(INSN_NAME, q, uint, u, 32, 4, 31);
-  TEST_VSXI_N(INSN_NAME, q, uint, u, 64, 2, 63);
+  /* Choose shift amount arbitrarily */
+  TEST_VSXI_N(INSN_NAME, , int, s, 8, 8, 4);
+  TEST_VSXI_N(INSN_NAME, , int, s, 16, 4, 3);
+  TEST_VSXI_N(INSN_NAME, , int, s, 32, 2, 1);
+  TEST_VSXI_N(INSN_NAME, , int, s, 64, 1, 32);
+  TEST_VSXI_N(INSN_NAME, , uint, u, 8, 8, 2);
+  TEST_VSXI_N(INSN_NAME, , uint, u, 16, 4, 10);
+  TEST_VSXI_N(INSN_NAME, , uint, u, 32, 2, 30);
+  TEST_VSXI_N(INSN_NAME, , uint, u, 64, 1, 3);
+  TEST_VSXI_N(INSN_NAME, q, int, s, 8, 16, 5);
+  TEST_VSXI_N(INSN_NAME, q, int, s, 16, 8, 3);
+  TEST_VSXI_N(INSN_NAME, q, int, s, 32, 4, 20);
+  TEST_VSXI_N(INSN_NAME, q, int, s, 64, 2, 16);
+  TEST_VSXI_N(INSN_NAME, q, uint, u, 8, 16, 3);
+  TEST_VSXI_N(INSN_NAME, q, uint, u, 16, 8, 12);
+  TEST_VSXI_N(INSN_NAME, q, uint, u, 32, 4, 23);
+  TEST_VSXI_N(INSN_NAME, q, uint, u, 64, 2, 53);
 
-  dump_results_hex2 (TEST_MSG, "max shift amount");
+  dump_results_hex (TEST_MSG);
+
+#ifdef EXTRA_TESTS
+  EXTRA_TESTS();
+#endif
 }
