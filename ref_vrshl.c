@@ -162,7 +162,7 @@ void exec_vrshl (void)
 
   dump_results_hex2 (TEST_MSG, " (checking round_const overflow: shift by -1)");
 
-  /* Use -1 shift amount to check overflow with round_const */
+  /* Use -3 shift amount to check overflow with round_const */
   TEST_VDUP(vector_shift, , int, s, 8, 8, -3);
   TEST_VDUP(vector_shift, , int, s, 16, 4, -3);
   TEST_VDUP(vector_shift, , int, s, 32, 2, -3);
