@@ -70,8 +70,8 @@ $(REFRVCT).qemu: compute_ref.axf
 	qemu-system-arm -cpu cortex-a9 -semihosting -nographic -kernel $^
 # Avoid rebuilding compute_ref.axf if already present, for users who
 # don't have rvct
-.INTERMEDIATE: compute_ref.rvct.o retarget.rvct.o InitCache.o Init.o	\
-	$(REFOBJS.rvct)
+.PRECIOUS .INTERMEDIATE: compute_ref.rvct.o retarget.rvct.o	\
+	InitCache.o Init.o $(REFOBJS.rvct)
 
 compute_ref.axf: scatter.scat compute_ref.rvct.o retarget.rvct.o	\
 	InitCache.o Init.o $(REFOBJS.rvct)
