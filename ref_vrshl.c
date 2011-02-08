@@ -176,6 +176,20 @@ void exec_vrshl (void)
 
   dump_results_hex2 (TEST_MSG, " (checking round_const overflow: shift by -3)");
 
+  /* Use negative shift amount as large as input vector width */
+  TEST_VDUP(vector_shift, , int, s, 8, 8, -8);
+  TEST_VDUP(vector_shift, , int, s, 16, 4, -16);
+  TEST_VDUP(vector_shift, , int, s, 32, 2, -32);
+  TEST_VDUP(vector_shift, , int, s, 64, 1, -64);
+  TEST_VDUP(vector_shift, q, int, s, 8, 16, -8);
+  TEST_VDUP(vector_shift, q, int, s, 16, 8, -16);
+  TEST_VDUP(vector_shift, q, int, s, 32, 4, -32);
+  TEST_VDUP(vector_shift, q, int, s, 64, 2, -64);
+
+  TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
+
+  dump_results_hex2 (TEST_MSG, " (checking negative shift amount as large as input vector width)");
+
   /* Test large shift amount */
   TEST_VDUP(vector_shift, , int, s, 8, 8, 10);
   TEST_VDUP(vector_shift, , int, s, 16, 4, 20);

@@ -1829,25 +1829,45 @@ VRSHL/VRSHLQ:105:result_uint32x4 [] = { 20000000, 20000000, 20000000, 20000000, 
 VRSHL/VRSHLQ:106:result_uint64x2 [] = { 2000000000000000, 2000000000000000,  }
 VRSHL/VRSHLQ:107:result_float32x4 [] = { 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08,  }
 
-VRSHL/VRSHLQ (large shift amount) output:
+VRSHL/VRSHLQ (checking negative shift amount as large as input vector width) output:
 VRSHL/VRSHLQ:108:result_int8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
 VRSHL/VRSHLQ:109:result_int16x4 [] = { 0, 0, 0, 0,  }
 VRSHL/VRSHLQ:110:result_int32x2 [] = { 0, 0,  }
 VRSHL/VRSHLQ:111:result_int64x1 [] = { 0,  }
-VRSHL/VRSHLQ:112:result_uint8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
-VRSHL/VRSHLQ:113:result_uint16x4 [] = { 0, 0, 0, 0,  }
-VRSHL/VRSHLQ:114:result_uint32x2 [] = { 0, 0,  }
-VRSHL/VRSHLQ:115:result_uint64x1 [] = { 0,  }
+VRSHL/VRSHLQ:112:result_uint8x8 [] = { 1, 1, 1, 1, 1, 1, 1, 1,  }
+VRSHL/VRSHLQ:113:result_uint16x4 [] = { 1, 1, 1, 1,  }
+VRSHL/VRSHLQ:114:result_uint32x2 [] = { 1, 1,  }
+VRSHL/VRSHLQ:115:result_uint64x1 [] = { 1,  }
 VRSHL/VRSHLQ:116:result_float32x2 [] = { 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08,  }
 VRSHL/VRSHLQ:117:result_int8x16 [] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  }
 VRSHL/VRSHLQ:118:result_int16x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
 VRSHL/VRSHLQ:119:result_int32x4 [] = { 0, 0, 0, 0,  }
 VRSHL/VRSHLQ:120:result_int64x2 [] = { 0, 0,  }
-VRSHL/VRSHLQ:121:result_uint8x16 [] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  }
-VRSHL/VRSHLQ:122:result_uint16x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
-VRSHL/VRSHLQ:123:result_uint32x4 [] = { 0, 0, 0, 0,  }
-VRSHL/VRSHLQ:124:result_uint64x2 [] = { 0, 0,  }
+VRSHL/VRSHLQ:121:result_uint8x16 [] = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  }
+VRSHL/VRSHLQ:122:result_uint16x8 [] = { 1, 1, 1, 1, 1, 1, 1, 1,  }
+VRSHL/VRSHLQ:123:result_uint32x4 [] = { 1, 1, 1, 1,  }
+VRSHL/VRSHLQ:124:result_uint64x2 [] = { 1, 1,  }
 VRSHL/VRSHLQ:125:result_float32x4 [] = { 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08,  }
+
+VRSHL/VRSHLQ (large shift amount) output:
+VRSHL/VRSHLQ:126:result_int8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:127:result_int16x4 [] = { 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:128:result_int32x2 [] = { 0, 0,  }
+VRSHL/VRSHLQ:129:result_int64x1 [] = { 0,  }
+VRSHL/VRSHLQ:130:result_uint8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:131:result_uint16x4 [] = { 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:132:result_uint32x2 [] = { 0, 0,  }
+VRSHL/VRSHLQ:133:result_uint64x1 [] = { 0,  }
+VRSHL/VRSHLQ:134:result_float32x2 [] = { 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08,  }
+VRSHL/VRSHLQ:135:result_int8x16 [] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:136:result_int16x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:137:result_int32x4 [] = { 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:138:result_int64x2 [] = { 0, 0,  }
+VRSHL/VRSHLQ:139:result_uint8x16 [] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:140:result_uint16x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:141:result_uint32x4 [] = { 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:142:result_uint64x2 [] = { 0, 0,  }
+VRSHL/VRSHLQ:143:result_float32x4 [] = { 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08, 33333333 0x1.666666p-25 4.17233e-08,  }
 
 VLD2/VLD2Q chunk 0 output:
 VLD2/VLD2Q:0:result_int8x8 [] = { fffffff0, fffffff1, fffffff2, fffffff3, fffffff4, fffffff5, fffffff6, fffffff7,  }
