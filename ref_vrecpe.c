@@ -30,6 +30,7 @@ THE SOFTWARE.
 #endif
 
 #include "stm-arm-neon-ref.h"
+#include <math.h>
 
 #define TEST_MSG "VRECPE/VRECPEQ"
 void exec_vrecpe(void)
@@ -92,6 +93,42 @@ void exec_vrecpe(void)
   fprintf (ref_file, "\n%s %s output:\n", TEST_MSG, " (negative input)");
   DUMP(TEST_MSG, uint, 32, 2, PRIx32);
   DUMP(TEST_MSG, uint, 32, 4, PRIx32);
+  DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
+  DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
+
+  /* Test FP variants with special input values (NaN, infinity) */
+  TEST_VDUP(vector, , float, f, 32, 2, NAN);
+  TEST_VDUP(vector, q, float, f, 32, 4, HUGE_VALF);
+
+  /* Apply the operator */
+  TEST_VRECPE(, float, f, 32, 2);
+  TEST_VRECPE(q, float, f, 32, 4);
+
+  fprintf (ref_file, "\n%s %s output:\n", TEST_MSG, " FP special (NaN, infinity)");
+  DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
+  DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
+
+  /* Test FP variants with special input values (zero, large value) */
+  TEST_VDUP(vector, , float, f, 32, 2, 0.0);
+  TEST_VDUP(vector, q, float, f, 32, 4, 9.0e37);
+
+  /* Apply the operator */
+  TEST_VRECPE(, float, f, 32, 2);
+  TEST_VRECPE(q, float, f, 32, 4);
+
+  fprintf (ref_file, "\n%s %s output:\n", TEST_MSG, " FP special (zero, large value)");
+  DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
+  DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
+
+  /* Test FP variants with special input values (-0, -infinity) */
+  TEST_VDUP(vector, , float, f, 32, 2, -0.0);
+  TEST_VDUP(vector, q, float, f, 32, 4, -HUGE_VALF);
+
+  /* Apply the operator */
+  TEST_VRECPE(, float, f, 32, 2);
+  TEST_VRECPE(q, float, f, 32, 4);
+
+  fprintf (ref_file, "\n%s %s output:\n", TEST_MSG, " FP special (-0, -infinity)");
   DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
   DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
 }
