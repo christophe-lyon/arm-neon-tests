@@ -5885,10 +5885,25 @@ VRECPE/VRECPEQ:5:result_uint32x4 [] = { ee800000, ee800000, ee800000, ee800000, 
 VRECPE/VRECPEQ:6:result_float32x2 [] = { bdcc8000 -0x1.99p-4 -0.0998535, bdcc8000 -0x1.99p-4 -0.0998535,  }
 VRECPE/VRECPEQ:7:result_float32x4 [] = { bc030000 -0x1.06p-7 -0.00799561, bc030000 -0x1.06p-7 -0.00799561, bc030000 -0x1.06p-7 -0.00799561, bc030000 -0x1.06p-7 -0.00799561,  }
 
+VRECPE/VRECPEQ  FP special (NaN, infinity) output:
+VRECPE/VRECPEQ:8:result_float32x2 [] = { 7fc00000 nan nan, 7fc00000 nan nan,  }
+VRECPE/VRECPEQ:9:result_float32x4 [] = { 0 0x0p+0 0, 0 0x0p+0 0, 0 0x0p+0 0, 0 0x0p+0 0,  }
+
+VRECPE/VRECPEQ  FP special (zero, large value) output:
+VRECPE/VRECPEQ:10:result_float32x2 [] = { 7f800000 inf inf, 7f800000 inf inf,  }
+VRECPE/VRECPEQ:11:result_float32x4 [] = { 0 0x0p+0 0, 0 0x0p+0 0, 0 0x0p+0 0, 0 0x0p+0 0,  }
+
+VRECPE/VRECPEQ  FP special (-0, -infinity) output:
+VRECPE/VRECPEQ:12:result_float32x2 [] = { ff800000 -inf -inf, ff800000 -inf -inf,  }
+VRECPE/VRECPEQ:13:result_float32x4 [] = { 80000000 -0x0p+0 -0, 80000000 -0x0p+0 -0, 80000000 -0x0p+0 -0, 80000000 -0x0p+0 -0,  }
+
+VRECPE/VRECPEQ  FP special (large negative value) output:
+VRECPE/VRECPEQ:14:result_float32x2 [] = { 80000000 -0x0p+0 -0, 80000000 -0x0p+0 -0,  }
+
 VRSQRTE/VRSQRTEQ output:
 VRSQRTE/VRSQRTEQ:0:result_uint32x2 [] = { ffffffff, ffffffff,  }
 VRSQRTE/VRSQRTEQ:1:result_uint32x4 [] = { 9c800000, 9c800000, 9c800000, 9c800000,  }
-VRSQRTE/VRSQRTEQ:2:result_float32x2 [] = { 3e8e8000 0x1.1dp-2 0.27832, 3e8e8000 0x1.1dp-2 0.27832,  }
+VRSQRTE/VRSQRTEQ:2:result_float32x2 [] = { 3e498000 0x1.93p-3 0.196777, 3e498000 0x1.93p-3 0.196777,  }
 VRSQRTE/VRSQRTEQ:3:result_float32x4 [] = { 3e700000 0x1.ep-3 0.234375, 3e700000 0x1.ep-3 0.234375, 3e700000 0x1.ep-3 0.234375, 3e700000 0x1.ep-3 0.234375,  }
 
 VRSQRTE/VRSQRTEQ (2) output:
@@ -5898,6 +5913,18 @@ VRSQRTE/VRSQRTEQ:5:result_uint32x4 [] = { ae800000, ae800000, ae800000, ae800000
 VRSQRTE/VRSQRTEQ (3) output:
 VRSQRTE/VRSQRTEQ:6:result_uint32x2 [] = { b4800000, b4800000,  }
 VRSQRTE/VRSQRTEQ:7:result_uint32x4 [] = { ed000000, ed000000, ed000000, ed000000,  }
+
+VRSQRTE/VRSQRTEQ FP special (NaN, 0) output:
+VRSQRTE/VRSQRTEQ:8:result_float32x2 [] = { 7fc00000 nan nan, 7fc00000 nan nan,  }
+VRSQRTE/VRSQRTEQ:9:result_float32x4 [] = { 7f800000 inf inf, 7f800000 inf inf, 7f800000 inf inf, 7f800000 inf inf,  }
+
+VRSQRTE/VRSQRTEQ FP special (negative, infinity) output:
+VRSQRTE/VRSQRTEQ:10:result_float32x2 [] = { 7fc00000 nan nan, 7fc00000 nan nan,  }
+VRSQRTE/VRSQRTEQ:11:result_float32x4 [] = { 0 0x0p+0 0, 0 0x0p+0 0, 0 0x0p+0 0, 0 0x0p+0 0,  }
+
+VRSQRTE/VRSQRTEQ FP special (-0, -infinity) output:
+VRSQRTE/VRSQRTEQ:12:result_float32x2 [] = { ff800000 -inf -inf, ff800000 -inf -inf,  }
+VRSQRTE/VRSQRTEQ:13:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
 
 
 Integer (non-NEON) intrinsics

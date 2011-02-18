@@ -131,4 +131,13 @@ void exec_vrecpe(void)
   fprintf (ref_file, "\n%s %s output:\n", TEST_MSG, " FP special (-0, -infinity)");
   DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
   DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
+
+  /* Test FP variants with special input values (large negative value) */
+  TEST_VDUP(vector, , float, f, 32, 2, -9.0e37);
+
+  /* Apply the operator */
+  TEST_VRECPE(, float, f, 32, 2);
+
+  fprintf (ref_file, "\n%s %s output:\n", TEST_MSG, " FP special (large negative value)");
+  DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
 }

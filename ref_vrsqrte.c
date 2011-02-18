@@ -30,6 +30,7 @@ THE SOFTWARE.
 #endif
 
 #include "stm-arm-neon-ref.h"
+#include <math.h>
 
 #define TEST_MSG "VRSQRTE/VRSQRTEQ"
 void exec_vrsqrte(void)
@@ -61,7 +62,7 @@ void exec_vrsqrte(void)
 
   /* Choose init value arbitrarily */
   TEST_VDUP(vector, , uint, u, 32, 2, 0x12345678);
-  TEST_VDUP(vector, , float, f, 32, 2, 12.9);
+  TEST_VDUP(vector, , float, f, 32, 2, 25.799999);
   TEST_VDUP(vector, q, uint, u, 32, 4, 0xABCDEF10);
   TEST_VDUP(vector, q, float, f, 32, 4, 18.2);
 
@@ -102,4 +103,40 @@ void exec_vrsqrte(void)
   fprintf (ref_file, "\n%s output:\n", TEST_MSG " (3)");
   DUMP(TEST_MSG, uint, 32, 2, PRIx32);
   DUMP(TEST_MSG, uint, 32, 4, PRIx32);
+
+  /* Test FP variants with special input values (NaNs, ...) */
+  TEST_VDUP(vector, , float, f, 32, 2, NAN);
+  TEST_VDUP(vector, q, float, f, 32, 4, 0.0);
+
+  /* Apply the operator */
+  TEST_VRSQRTE(, float, f, 32, 2);
+  TEST_VRSQRTE(q, float, f, 32, 4);
+
+  fprintf (ref_file, "\n%s output:\n", TEST_MSG " FP special (NaN, 0)");
+  DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
+  DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
+
+  /* Test FP variants with special input values (negative, infinity) */
+  TEST_VDUP(vector, , float, f, 32, 2, -1.0);
+  TEST_VDUP(vector, q, float, f, 32, 4, HUGE_VALF);
+
+  /* Apply the operator */
+  TEST_VRSQRTE(, float, f, 32, 2);
+  TEST_VRSQRTE(q, float, f, 32, 4);
+
+  fprintf (ref_file, "\n%s output:\n", TEST_MSG " FP special (negative, infinity)");
+  DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
+  DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
+
+  /* Test FP variants with special input values (-0, -infinity) */
+  TEST_VDUP(vector, , float, f, 32, 2, -0.0);
+  TEST_VDUP(vector, q, float, f, 32, 4, -HUGE_VALF);
+
+  /* Apply the operator */
+  TEST_VRSQRTE(, float, f, 32, 2);
+  TEST_VRSQRTE(q, float, f, 32, 4);
+
+  fprintf (ref_file, "\n%s output:\n", TEST_MSG " FP special (-0, -infinity)");
+  DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
+  DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
 }
