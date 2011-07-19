@@ -116,7 +116,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, , uint, u, 8, 8, 0xF3);
   TEST_VDUP(vector2, , uint, u, 16, 4, 0xFFF2);
   TEST_VDUP(vector2, , uint, u, 32, 2, 0xFFFFFFF1);
-  TEST_VDUP(vector2, , float, f, 32, 2, -15.0);
+  TEST_VDUP(vector2, , float, f, 32, 2, -15.0f);
 
   TEST_VDUP(vector2, q, int, s, 8, 16, -4);
   TEST_VDUP(vector2, q, int, s, 16, 8, -10);
@@ -124,7 +124,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, q, uint, u, 8, 16, 0xF4);
   TEST_VDUP(vector2, q, uint, u, 16, 8, 0xFFF6);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 0xFFFFFFF2);
-  TEST_VDUP(vector2, q, float, f, 32, 4, -14.0);
+  TEST_VDUP(vector2, q, float, f, 32, 4, -14.0f);
 
   /* The same result buffers are used multiple times, so output them
      before overwriting them  */
@@ -172,7 +172,7 @@ FNNAME (INSN_NAME)
   TEST_VCOMP(INSN_NAME, , int, s, uint, 32, 2);
   DUMP(TEST_MSG, uint, 32, 2, PRIx32);
 
-  TEST_VDUP(vector2, , float, f, 32, 2, -16.0);
+  TEST_VDUP(vector2, , float, f, 32, 2, -16.0f);
   TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
   DUMP(TEST_MSG, uint, 32, 2, PRIx32);
 }

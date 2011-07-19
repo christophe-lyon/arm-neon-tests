@@ -80,10 +80,10 @@ void exec_vcvt (void)
 
   /* Make sure some elements have a fractional part, to exercise
      integer conversions */
-  TEST_VSET_LANE(vector, , float, f, 32, 2, 0, -15.3);
-  TEST_VSET_LANE(vector, , float, f, 32, 2, 1, 5.3);
-  TEST_VSET_LANE(vector, q, float, f, 32, 4, 2, -15.3);
-  TEST_VSET_LANE(vector, q, float, f, 32, 4, 3, 5.3);
+  TEST_VSET_LANE(vector, , float, f, 32, 2, 0, -15.3f);
+  TEST_VSET_LANE(vector, , float, f, 32, 2, 1, 5.3f);
+  TEST_VSET_LANE(vector, q, float, f, 32, 4, 2, -15.3f);
+  TEST_VSET_LANE(vector, q, float, f, 32, 4, 3, 5.3f);
 
   /* The same result buffers are used multiple times, so we output
      them before overwriting them  */
@@ -131,8 +131,8 @@ void exec_vcvt (void)
 #undef TEST_MSG
 #define TEST_MSG "VCVT/VCVTQ"
   fprintf(ref_file, "\n%s output:\n", TEST_MSG " (check rounding)");
-  TEST_VDUP(vector, , float, f, 32, 2, 10.4);
-  TEST_VDUP(vector, q, float, f, 32, 4, 125.9);
+  TEST_VDUP(vector, , float, f, 32, 2, 10.4f);
+  TEST_VDUP(vector, q, float, f, 32, 4, 125.9f);
   /* vcvt_xx_f32 */
   TEST_VCVT(, int, s, 32, 2, float, f);
   TEST_VCVT(, uint, u, 32, 2, float, f);

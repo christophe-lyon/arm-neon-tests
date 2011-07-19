@@ -101,14 +101,14 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, , uint, u, 8, 8, 0x44);
   TEST_VDUP(vector2, , uint, u, 16, 4, 0x55);
   TEST_VDUP(vector2, , uint, u, 32, 2, 0x66);
-  TEST_VDUP(vector2, , float, f, 32, 2, 33.1);
+  TEST_VDUP(vector2, , float, f, 32, 2, 33.1f);
   TEST_VDUP(vector2, q, int, s, 8, 16, 0x77);
   TEST_VDUP(vector2, q, int, s, 16, 8, 0x88);
   TEST_VDUP(vector2, q, int, s, 32, 4, 0x99);
   TEST_VDUP(vector2, q, uint, u, 8, 16, 0xAA);
   TEST_VDUP(vector2, q, uint, u, 16, 8, 0xBB);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 0xCC);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 99.2);
+  TEST_VDUP(vector2, q, float, f, 32, 4, 99.2f);
 
   TEST_VDUP(vector3, , int, s, 8, 8, 0xFF);
   TEST_VDUP(vector3, , int, s, 16, 4, 0xEE);
@@ -116,14 +116,14 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector3, , uint, u, 8, 8, 0xCC);
   TEST_VDUP(vector3, , uint, u, 16, 4, 0xBB);
   TEST_VDUP(vector3, , uint, u, 32, 2, 0xAA);
-  TEST_VDUP(vector3, , float, f, 32, 2, 10.23);
+  TEST_VDUP(vector3, , float, f, 32, 2, 10.23f);
   TEST_VDUP(vector3, q, int, s, 8, 16, 0x99);
   TEST_VDUP(vector3, q, int, s, 16, 8, 0x88);
   TEST_VDUP(vector3, q, int, s, 32, 4, 0x77);
   TEST_VDUP(vector3, q, uint, u, 8, 16, 0x66);
   TEST_VDUP(vector3, q, uint, u, 16, 8, 0x55);
   TEST_VDUP(vector3, q, uint, u, 32, 4, 0x44);
-  TEST_VDUP(vector3, q, float, f, 32, 4, 77.8);
+  TEST_VDUP(vector3, q, float, f, 32, 4, 77.8f);
 
   TEST_VMLX(INSN_NAME, , int, s, 8, 8);
   TEST_VMLX(INSN_NAME, , int, s, 16, 4);

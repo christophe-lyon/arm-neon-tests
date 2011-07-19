@@ -102,7 +102,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, , uint, u, 8, 8, 0x55);
   TEST_VDUP(vector2, , uint, u, 16, 4, 0x66);
   TEST_VDUP(vector2, , uint, u, 32, 2, 0x77);
-  TEST_VDUP(vector2, , float, f, 32, 2, 33.6);
+  TEST_VDUP(vector2, , float, f, 32, 2, 33.6f);
 
   TEST_VDUP(vector2, q, int, s, 8, 16, 0x11);
   TEST_VDUP(vector2, q, int, s, 16, 8, 0x22);
@@ -110,7 +110,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, q, uint, u, 8, 16, 0x55);
   TEST_VDUP(vector2, q, uint, u, 16, 8, 0x66);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 0x77);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 33.8);
+  TEST_VDUP(vector2, q, float, f, 32, 4, 33.8f);
 
 #define TEST_ALL_VUZP(INSN)			\
   TEST_VUZP(INSN, , int, s, 8, 8);		\

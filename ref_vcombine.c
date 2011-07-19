@@ -59,7 +59,7 @@ void exec_vcombine (void)
   TEST_VDUP(vector64_b, , uint, u, 16, 4, 0x66);
   TEST_VDUP(vector64_b, , uint, u, 32, 2, 0x77);
   TEST_VDUP(vector64_b, , uint, u, 64, 1, 0x88);
-  TEST_VDUP(vector64_b, , float, f, 32, 2, 3.3);
+  TEST_VDUP(vector64_b, , float, f, 32, 2, 3.3f);
 
   clean_results ();
 

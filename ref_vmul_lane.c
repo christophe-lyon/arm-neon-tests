@@ -85,7 +85,7 @@ void exec_vmul_lane (void)
   TEST_VDUP(vector2, , int, s, 32, 2, 0x22);
   TEST_VDUP(vector2, , uint, u, 16, 4, 0x444);
   TEST_VDUP(vector2, , uint, u, 32, 2, 0x532);
-  TEST_VDUP(vector2, , float, f, 32, 2, 22.8);
+  TEST_VDUP(vector2, , float, f, 32, 2, 22.8f);
 
   /* Choose lane arbitrarily */
   TEST_VMUL_LANE(, int, s, 16, 4, 4, 2);

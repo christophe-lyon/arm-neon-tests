@@ -88,14 +88,14 @@ void exec_vabd (void)
   TEST_VDUP(vector2, , uint, u, 8, 8, 1);
   TEST_VDUP(vector2, , uint, u, 16, 4, 13);
   TEST_VDUP(vector2, , uint, u, 32, 2, 8);
-  TEST_VDUP(vector2, , float, f, 32, 2, 8.3);
+  TEST_VDUP(vector2, , float, f, 32, 2, 8.3f);
   TEST_VDUP(vector2, q, int, s, 8, 16, 10);
   TEST_VDUP(vector2, q, int, s, 16, 8, -12);
   TEST_VDUP(vector2, q, int, s, 32, 4, 32);
   TEST_VDUP(vector2, q, uint, u, 8, 16, 10);
   TEST_VDUP(vector2, q, uint, u, 16, 8, 12);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 32);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 32.12);
+  TEST_VDUP(vector2, q, float, f, 32, 4, 32.12f);
 
   TEST_VABD(, int, s, 8, 8);
   TEST_VABD(, int, s, 16, 4);

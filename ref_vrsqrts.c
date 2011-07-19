@@ -60,11 +60,11 @@ void exec_vrsqrts(void)
   clean_results ();
 
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector, , float, f, 32, 2, 12.9);
-  TEST_VDUP(vector, q, float, f, 32, 4, 9.1);
+  TEST_VDUP(vector, , float, f, 32, 2, 12.9f);
+  TEST_VDUP(vector, q, float, f, 32, 4, 9.1f);
 
-  TEST_VDUP(vector2, , float, f, 32, 2, 9.9);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 1.9);
+  TEST_VDUP(vector2, , float, f, 32, 2, 9.9f);
+  TEST_VDUP(vector2, q, float, f, 32, 4, 1.9f);
 
   /* Apply the operator */
   TEST_VRSQRTS(, float, f, 32, 2);

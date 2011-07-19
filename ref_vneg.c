@@ -42,8 +42,8 @@ void exec_vneg_f32(void)
   DECL_VARIABLE(vector_res, float, 32, 2);
   DECL_VARIABLE(vector_res, float, 32, 4);
 
-  TEST_VDUP(vector, , float, f, 32, 2, 2.3);
-  TEST_VDUP(vector, q, float, f, 32, 4, 3.4);
+  TEST_VDUP(vector, , float, f, 32, 2, 2.3f);
+  TEST_VDUP(vector, q, float, f, 32, 4, 3.4f);
 
   TEST_UNARY_OP(INSN_NAME, , float, f, 32, 2);
   TEST_UNARY_OP(INSN_NAME, q, float, f, 32, 4);

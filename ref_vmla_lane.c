@@ -96,18 +96,18 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, , int, s, 32, 2, 0x55);
   TEST_VDUP(vector2, , uint, u, 16, 4, 0x55);
   TEST_VDUP(vector2, , uint, u, 32, 2, 0x55);
-  TEST_VDUP(vector2, , float, f, 32, 2, 55.3);
+  TEST_VDUP(vector2, , float, f, 32, 2, 55.3f);
   TEST_VDUP(vector2, q, int, s, 16, 8, 0x55);
   TEST_VDUP(vector2, q, int, s, 32, 4, 0x55);
   TEST_VDUP(vector2, q, uint, u, 16, 8, 0x55);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 0x55);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 55.8);
+  TEST_VDUP(vector2, q, float, f, 32, 4, 55.8f);
 
   TEST_VDUP(vector3, , int, s, 16, 4, 0xBB);
   TEST_VDUP(vector3, , int, s, 32, 2, 0xBB);
   TEST_VDUP(vector3, , uint, u, 16, 4, 0xBB);
   TEST_VDUP(vector3, , uint, u, 32, 2, 0xBB);
-  TEST_VDUP(vector3, , float, f, 32, 2, 11.34);
+  TEST_VDUP(vector3, , float, f, 32, 2, 11.34f);
 
   /* Choose lane arbitrarily */
   TEST_VMLX_LANE(INSN_NAME, , int, s, 16, 4, 4, 2);

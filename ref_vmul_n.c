@@ -78,12 +78,12 @@ void exec_vmul_n (void)
   TEST_VMUL_N(, int, s, 32, 2, 0x22);
   TEST_VMUL_N(, uint, u, 16, 4, 0x33);
   TEST_VMUL_N(, uint, u, 32, 2, 0x44);
-  TEST_VMUL_N(, float, f, 32, 2, 22.3);
+  TEST_VMUL_N(, float, f, 32, 2, 22.3f);
   TEST_VMUL_N(q, int, s, 16, 8, 0x55);
   TEST_VMUL_N(q, int, s, 32, 4, 0x66);
   TEST_VMUL_N(q, uint, u, 16, 8, 0x77);
   TEST_VMUL_N(q, uint, u, 32, 4, 0x88);
-  TEST_VMUL_N(q, float, f, 32, 4, 88.9);
+  TEST_VMUL_N(q, float, f, 32, 4, 88.9f);
 
   /* FIXME: only a subset of the result buffers are used, but we
      output all of them */

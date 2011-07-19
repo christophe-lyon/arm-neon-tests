@@ -82,8 +82,8 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, q, uint, u, 16, 8, 0xfff2);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 0xfffffff1);
 #ifndef NO_FLOAT_VARIANT
-  TEST_VDUP(vector2, , float, f, 32, 2, -15.5);
-  TEST_VDUP(vector2, q, float, f, 32, 4, -14.5);
+  TEST_VDUP(vector2, , float, f, 32, 2, -15.5f);
+  TEST_VDUP(vector2, q, float, f, 32, 4, -14.5f);
 #endif
 
 #ifndef NO_FLOAT_VARIANT

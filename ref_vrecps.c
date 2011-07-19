@@ -60,11 +60,11 @@ void exec_vrecps(void)
   clean_results ();
 
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector, , float, f, 32, 2, 12.9);
-  TEST_VDUP(vector, q, float, f, 32, 4, 9.2);
+  TEST_VDUP(vector, , float, f, 32, 2, 12.9f);
+  TEST_VDUP(vector, q, float, f, 32, 4, 9.2f);
 
-  TEST_VDUP(vector2, , float, f, 32, 2, 8.9);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 3.2);
+  TEST_VDUP(vector2, , float, f, 32, 2, 8.9f);
+  TEST_VDUP(vector2, q, float, f, 32, 4, 3.2f);
 
   /* Apply the operator */
   TEST_VRECPS(, float, f, 32, 2);

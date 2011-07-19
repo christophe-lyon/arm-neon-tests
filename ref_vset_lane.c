@@ -62,7 +62,7 @@ void exec_vset_lane (void)
   TEST_VSET_LANE_HERE(, uint, u, 16, 4, 0x66, 2);
   TEST_VSET_LANE_HERE(, uint, u, 32, 2, 0x77, 1);
   TEST_VSET_LANE_HERE(, uint, u, 64, 1, 0x88, 0);
-  TEST_VSET_LANE_HERE(, float, f, 32, 2, 33.2, 1);
+  TEST_VSET_LANE_HERE(, float, f, 32, 2, 33.2f, 1);
 
   TEST_VSET_LANE_HERE(q, int, s, 8, 16, 0x99, 15);
   TEST_VSET_LANE_HERE(q, int, s, 16, 8, 0xAA, 5);
@@ -72,7 +72,7 @@ void exec_vset_lane (void)
   TEST_VSET_LANE_HERE(q, uint, u, 16, 8, 0xEE, 6);
   TEST_VSET_LANE_HERE(q, uint, u, 32, 4, 0xFF, 2);
   TEST_VSET_LANE_HERE(q, uint, u, 64, 2, 0x11, 1);
-  TEST_VSET_LANE_HERE(q, float, f, 32, 4, 11.2, 3);
+  TEST_VSET_LANE_HERE(q, float, f, 32, 4, 11.2f, 3);
 
   dump_results_hex (TEST_MSG);
 }

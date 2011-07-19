@@ -67,7 +67,7 @@ void exec_vbsl (void)
   TEST_VDUP(vector2, , uint, u, 16, 4, 0xFFF2);
   TEST_VDUP(vector2, , uint, u, 32, 2, 0xFFFFFFF0);
   TEST_VDUP(vector2, , uint, u, 64, 1, 0xFFFFFFF3);
-  TEST_VDUP(vector2, , float, f, 32, 2, -30.3);
+  TEST_VDUP(vector2, , float, f, 32, 2, -30.3f);
 
   TEST_VDUP(vector2, q, int, s, 8, 16, -10);
   TEST_VDUP(vector2, q, int, s, 16, 8, -14);
@@ -77,7 +77,7 @@ void exec_vbsl (void)
   TEST_VDUP(vector2, q, uint, u, 16, 8, 0xFFF2);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 0xFFFFFFF0);
   TEST_VDUP(vector2, q, uint, u, 64, 2, 0xFFFFFFF3);
-  TEST_VDUP(vector2, q, float, f, 32, 4, -30.4);
+  TEST_VDUP(vector2, q, float, f, 32, 4, -30.4f);
 
   TEST_VDUP(vector_first, , uint, u, 8, 8, 0xF4);
   TEST_VDUP(vector_first, , uint, u, 16, 4, 0xFFF6);
