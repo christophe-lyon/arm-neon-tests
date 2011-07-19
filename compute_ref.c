@@ -186,6 +186,13 @@ extern void exec_dspfns(void); /* DSP FNS (non-NEON/ITU) intrinsics */
 
 int main (void)
 {
+#if defined(_MSC_VER)
+    /* When compiled with MSVC, force output of FP numbers with only 2
+     * digits for the exponent, for easier comparison of the results
+     * with GCC.  */
+    _set_output_format(_TWO_DIGIT_EXPONENT);
+#endif
+
   log_file = fopen (LOGFILE, "w");
   if (log_file == NULL) {
     fprintf (stderr, "Error opening log file "LOGFILE"\n");
