@@ -36,7 +36,7 @@ FILE* ref_file = NULL;
 
 #define LOGFILE "stm-arm-neon-ref.log"
 
-void cleanup ()
+void cleanup (void)
 {
   if (log_file) fclose (log_file);
   if (ref_file) fclose (ref_file);
@@ -184,7 +184,7 @@ extern void exec_vrsqrts(void);
 extern void exec_dsp(void); /* DSP (non-NEON) intrinsics */
 extern void exec_dspfns(void); /* DSP FNS (non-NEON/ITU) intrinsics */
 
-int main ()
+int main (void)
 {
   log_file = fopen (LOGFILE, "w");
   if (log_file == NULL) {
