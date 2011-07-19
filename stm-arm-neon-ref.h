@@ -32,7 +32,11 @@ THE SOFTWARE.
 #include <cstring>
 #else
 #include <stdio.h>
+#if defined(_MSC_VER)
+#include "msinttypes.h"
+#else
 #include <inttypes.h>
+#endif
 #include <string.h>
 #endif
 

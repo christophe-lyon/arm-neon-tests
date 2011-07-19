@@ -28,7 +28,11 @@ THE SOFTWARE.
 #include <cstdint>
 #else
 #include <stdio.h>
+#if defined(_MSC_VER)
+#include "msstdint.h"
+#else
 #include <stdint.h>
+#endif
 #endif
 
 #ifndef __arm__

@@ -34,7 +34,11 @@ THE SOFTWARE.
 #if defined(__cplusplus)
 #include <cstdint>
 #else
+#if defined(_MSC_VER)
+#include "msstdint.h"
+#else
 #include <stdint.h>
+#endif
 #endif
 
 #ifndef INSN_NAME
