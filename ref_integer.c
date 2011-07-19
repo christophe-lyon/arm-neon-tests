@@ -36,9 +36,9 @@ THE SOFTWARE.
 #endif
 
 #ifndef __arm__
-#error Target not supported
+#include "stm-arm.h"
 #endif
-#include <dspfns.h> /* For Overflow */
+#include "stm-dspfns.h" /* For Overflow */
 
 extern FILE* ref_file;
 

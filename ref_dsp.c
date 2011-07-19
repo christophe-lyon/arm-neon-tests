@@ -40,7 +40,7 @@ THE SOFTWARE.
 #else
 #include "stm-armdsp.h"
 #endif
-#include <dspfns.h> /* For Overflow */
+#include "stm-dspfns.h" /* For Overflow */
 
 extern FILE* ref_file;
 

@@ -26,7 +26,7 @@ THE SOFTWARE.
 #ifdef __arm__
 #include <arm_neon.h>
 #else
-#error Target not supported
+#include "stm-arm-neon.h"
 #endif
 
 #include "stm-arm-neon-ref.h"

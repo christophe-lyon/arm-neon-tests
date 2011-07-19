@@ -38,7 +38,7 @@ THE SOFTWARE.
 #ifdef __arm__
 #include <dspfns.h>
 #else
-#include <dspfns.h>
+#include "stm-dspfns.h"
 #endif
 
 extern FILE* ref_file;
