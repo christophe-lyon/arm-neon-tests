@@ -23,8 +23,13 @@ THE SOFTWARE.
 
 */
 
+#if defined(__cplusplus)
+#include <cstdio>
+#include <cstdint>
+#else
 #include <stdio.h>
 #include <stdint.h>
+#endif
 
 #ifdef __arm__
 #include <armdsp.h>

@@ -26,9 +26,15 @@ THE SOFTWARE.
 #ifndef _STM_ARM_NEON_REF_H_
 #define _STM_ARM_NEON_REF_H_
 
+#if defined(__cplusplus)
+#include <cstdio>
+#include <cinttypes>
+#include <cstring>
+#else
 #include <stdio.h>
 #include <inttypes.h>
 #include <string.h>
+#endif
 
 #define xSTR(X) #X
 #define STR(X) xSTR(X)
@@ -183,7 +189,7 @@ static void dump_results (char *test_name)
 }
 
 /* Dump results in hex (generic function) */
-static void dump_results_hex2 (char *test_name, char* comment)
+static void dump_results_hex2 (const char *test_name, const char* comment)
 {
   int i;
 
@@ -210,7 +216,7 @@ static void dump_results_hex2 (char *test_name, char* comment)
   DUMP_FP(test_name, float, 32, 4, PRIx32);
 }
 
-static void dump_results_hex (char *test_name)
+static void dump_results_hex (const char *test_name)
 {
   dump_results_hex2(test_name, "");
 }
@@ -258,7 +264,7 @@ extern int errno;
 
 #endif /* STM_ARM_NEON_MODELS */
 
-static void dump_neon_overflow(char* msg, char *name)
+static void dump_neon_overflow(const char* msg, const char *name)
 {
   fprintf(ref_file, "%s:%d:%s Neon overflow %d\n", msg, result_idx++,
 	  name, Neon_Overflow);

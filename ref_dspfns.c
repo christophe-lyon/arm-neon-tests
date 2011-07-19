@@ -23,8 +23,13 @@ THE SOFTWARE.
 
 */
 
+#if defined(__cplusplus)
+#include <cstdio>
+#include <cstdint>
+#else
 #include <stdio.h>
 #include <stdint.h>
+#endif
 
 #ifdef __arm__
 #include <dspfns.h>
@@ -43,7 +48,7 @@ typedef int32_t func32_32_32_ptr(int32_t, int32_t);
 typedef int16_t func16_32_ptr(int32_t);
 typedef int32_t func32_32_16_16_ptr(int32_t, int16_t, int16_t);
 
-void test_16_fn_32(func16_32_ptr func, char* func_name,
+void test_16_fn_32(func16_32_ptr func, const char* func_name,
 		   int init_Overflow, int init_Carry)
 {
   int32_t svar32_a;
@@ -88,7 +93,7 @@ void test_16_fn_32(func16_32_ptr func, char* func_name,
 	  func_name, svar32_a, svar16_a, Overflow, Carry);
 }
 
-void test_32_fn_32_32(func32_32_32_ptr func, char* func_name,
+void test_32_fn_32_32(func32_32_32_ptr func, const char* func_name,
 		      int init_Overflow, int init_Carry)
 {
   int32_t svar32_a, svar32_b, svar32_c;
@@ -161,7 +166,7 @@ void test_32_fn_32_32(func32_32_32_ptr func, char* func_name,
 	  func_name, svar32_a, svar32_b, svar32_c, Overflow, Carry);
 }
 
-void test_32_fn_32_16_16(func32_32_16_16_ptr func, char* func_name,
+void test_32_fn_32_16_16(func32_32_16_16_ptr func, const char* func_name,
 		      int init_Overflow, int init_Carry)
 {
   int32_t svar32_a, svar32_b;

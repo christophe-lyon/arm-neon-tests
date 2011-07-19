@@ -2,7 +2,11 @@
 ** Copyright (C) ARM Limited, 2005. All rights reserved.
 */
 
+#if defined(__cplusplus)
+#include <cstdio>
+#else
 #include <stdio.h>
+#endif
 #include <rt_misc.h>
 
 // Heap base from scatter file

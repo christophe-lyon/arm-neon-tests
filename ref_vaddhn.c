@@ -31,7 +31,11 @@ THE SOFTWARE.
 
 #include "stm-arm-neon-ref.h"
 
+#if defined(__cplusplus)
+#include <cstdint>
+#else
 #include <stdint.h>
+#endif
 
 #ifndef INSN_NAME
 #define INSN_NAME vaddhn

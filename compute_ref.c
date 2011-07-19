@@ -23,8 +23,13 @@ THE SOFTWARE.
 
 */
 
+#if defined(__cplusplus)
+#include <cstdio>
+#include <cstdlib>
+#else
 #include <stdio.h>
 #include <stdlib.h>
+#endif
 
 FILE* log_file = NULL;
 FILE* ref_file = NULL;
