@@ -37,10 +37,11 @@ THE SOFTWARE.
 
 #ifdef __arm__
 #include <armdsp.h>
+#include <dspfns.h> /* For Overflow */
 #else
 #include "stm-armdsp.h"
-#endif
 #include "stm-dspfns.h" /* For Overflow */
+#endif
 
 extern FILE* ref_file;
 
