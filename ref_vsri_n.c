@@ -84,5 +84,5 @@ void vsri_extra(void)
   TEST_VSXI_N(INSN_NAME, q, uint, u, 32, 4, 32);
   TEST_VSXI_N(INSN_NAME, q, uint, u, 64, 2, 64);
 
-  dump_results_hex2 (TEST_MSG, "max shift amount");
+  dump_results_hex2 (TEST_MSG, " max shift amount");
 }
