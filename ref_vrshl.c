@@ -203,4 +203,18 @@ void exec_vrshl (void)
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
 
   dump_results_hex2 (TEST_MSG, " (large shift amount)");
+
+  /* Test large negative shift amount */
+  TEST_VDUP(vector_shift, , int, s, 8, 8, -10);
+  TEST_VDUP(vector_shift, , int, s, 16, 4, -20);
+  TEST_VDUP(vector_shift, , int, s, 32, 2, -33);
+  TEST_VDUP(vector_shift, , int, s, 64, 1, -65);
+  TEST_VDUP(vector_shift, q, int, s, 8, 16, -9);
+  TEST_VDUP(vector_shift, q, int, s, 16, 8, -16);
+  TEST_VDUP(vector_shift, q, int, s, 32, 4, -32);
+  TEST_VDUP(vector_shift, q, int, s, 64, 2, -64);
+
+  TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
+
+  dump_results_hex2 (TEST_MSG, " (large negative shift amount)");
 }
