@@ -196,4 +196,73 @@ FNNAME (INSN)
 	  TEST_MSG " (checking overflow: shift by -3)");
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQRSHL, int);
   dump_results_hex2 (TEST_MSG, " (checking overflow: shift by -3)");
+
+
+  /* Use large shift amount  */
+  TEST_VDUP(vector_shift, , int, s, 8, 8, 10);
+  TEST_VDUP(vector_shift, , int, s, 16, 4, 20);
+  TEST_VDUP(vector_shift, , int, s, 32, 2, 40);
+  TEST_VDUP(vector_shift, , int, s, 64, 1, 70);
+  TEST_VDUP(vector_shift, q, int, s, 8, 16, 10);
+  TEST_VDUP(vector_shift, q, int, s, 16, 8, 20);
+  TEST_VDUP(vector_shift, q, int, s, 32, 4, 40);
+  TEST_VDUP(vector_shift, q, int, s, 64, 2, 70);
+
+  fprintf(ref_file, "\n%s overflow output:\n",
+	  TEST_MSG " (checking overflow: large shift amount)");
+  TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQRSHL, int);
+  dump_results_hex2 (TEST_MSG, " (checking overflow: large shift amount)");
+
+
+  /* Fill input vector with negative values, to check saturation on limits */
+  TEST_VDUP(vector, , int, s, 8, 8, 0x80);
+  TEST_VDUP(vector, , int, s, 16, 4, 0x8000);
+  TEST_VDUP(vector, , int, s, 32, 2, 0x80000000);
+  TEST_VDUP(vector, , int, s, 64, 1, 0x8000000000000000LL);
+  TEST_VDUP(vector, q, int, s, 8, 16, 0x80);
+  TEST_VDUP(vector, q, int, s, 16, 8, 0x8000);
+  TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
+  TEST_VDUP(vector, q, int, s, 64, 2, 0x8000000000000000LL);
+
+  /* Use large shift amount  */
+  TEST_VDUP(vector_shift, , int, s, 8, 8, 10);
+  TEST_VDUP(vector_shift, , int, s, 16, 4, 20);
+  TEST_VDUP(vector_shift, , int, s, 32, 2, 40);
+  TEST_VDUP(vector_shift, , int, s, 64, 1, 70);
+  TEST_VDUP(vector_shift, q, int, s, 8, 16, 10);
+  TEST_VDUP(vector_shift, q, int, s, 16, 8, 20);
+  TEST_VDUP(vector_shift, q, int, s, 32, 4, 40);
+  TEST_VDUP(vector_shift, q, int, s, 64, 2, 70);
+
+  fprintf(ref_file, "\n%s overflow output:\n",
+	  TEST_MSG " (checking overflow: large shift amount with negative input)");
+  TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQRSHL, int);
+  dump_results_hex2 (TEST_MSG, " (checking overflow: large shift amount with negative input)");
+
+
+  /* Fill input vector with negative and positive values, to check
+   * saturation on limits */
+  TEST_VDUP(vector, , int, s, 8, 8, 0x7F);
+  TEST_VDUP(vector, , int, s, 16, 4, 0x7FFF);
+  TEST_VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
+  TEST_VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
+  TEST_VDUP(vector, q, int, s, 8, 16, 0x80);
+  TEST_VDUP(vector, q, int, s, 16, 8, 0x8000);
+  TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
+  TEST_VDUP(vector, q, int, s, 64, 2, 0x8000000000000000LL);
+
+  /* Use large negative shift amount  */
+  TEST_VDUP(vector_shift, , int, s, 8, 8, -10);
+  TEST_VDUP(vector_shift, , int, s, 16, 4, -20);
+  TEST_VDUP(vector_shift, , int, s, 32, 2, -40);
+  TEST_VDUP(vector_shift, , int, s, 64, 1, -70);
+  TEST_VDUP(vector_shift, q, int, s, 8, 16, -10);
+  TEST_VDUP(vector_shift, q, int, s, 16, 8, -20);
+  TEST_VDUP(vector_shift, q, int, s, 32, 4, -40);
+  TEST_VDUP(vector_shift, q, int, s, 64, 2, -70);
+
+  fprintf(ref_file, "\n%s overflow output:\n",
+	  TEST_MSG " (checking overflow: large negative shift amount)");
+  TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQRSHL, int);
+  dump_results_hex2 (TEST_MSG, " (checking overflow: large negative shift amount)");
 }
