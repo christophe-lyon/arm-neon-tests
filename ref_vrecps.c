@@ -30,6 +30,7 @@ THE SOFTWARE.
 #endif
 
 #include "stm-arm-neon-ref.h"
+#include <math.h>
 
 #define TEST_MSG "VRECPS/VRECPSQ"
 void exec_vrecps(void)
@@ -71,6 +72,48 @@ void exec_vrecps(void)
   TEST_VRECPS(q, float, f, 32, 4);
 
   fprintf (ref_file, "\n%s output:\n", TEST_MSG);
+  DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
+  DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
+
+
+  /* Test FP variants with special input values (NaN) */
+  TEST_VDUP(vector, , float, f, 32, 2, NAN);
+  TEST_VDUP(vector2, q, float, f, 32, 4, NAN);
+
+  /* Apply the operator */
+  TEST_VRECPS(, float, f, 32, 2);
+  TEST_VRECPS(q, float, f, 32, 4);
+
+  fprintf (ref_file, "\n%s output:\n", TEST_MSG " FP special (NAN) and normal values");
+  DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
+  DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
+
+
+  /* Test FP variants with special input values (infinity, 0) */
+  TEST_VDUP(vector, , float, f, 32, 2, HUGE_VALF);
+  TEST_VDUP(vector, q, float, f, 32, 4, 0.0f);
+  TEST_VDUP(vector2, q, float, f, 32, 4, 3.2f); /* Restore a normal value */
+
+  /* Apply the operator */
+  TEST_VRECPS(, float, f, 32, 2);
+  TEST_VRECPS(q, float, f, 32, 4);
+
+  fprintf (ref_file, "\n%s output:\n", TEST_MSG " FP special (infinity, 0) and normal values");
+  DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
+  DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
+
+
+  /* Test FP variants with only special input values (infinity, 0) */
+  TEST_VDUP(vector, , float, f, 32, 2, HUGE_VALF);
+  TEST_VDUP(vector, q, float, f, 32, 4, 0.0f);
+  TEST_VDUP(vector2, , float, f, 32, 2, 0.0f);
+  TEST_VDUP(vector2, q, float, f, 32, 4, HUGE_VALF);
+
+  /* Apply the operator */
+  TEST_VRECPS(, float, f, 32, 2);
+  TEST_VRECPS(q, float, f, 32, 4);
+
+  fprintf (ref_file, "\n%s output:\n", TEST_MSG " FP special (infinity, 0)");
   DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
   DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
 }
