@@ -30,10 +30,13 @@ THE SOFTWARE.
 #endif
 
 #include "stm-arm-neon-ref.h"
+#include <math.h>
 
 #define TEST_MSG "VABD/VABDQ"
 void exec_vabd (void)
 {
+  int i;
+
   /* Basic test: v4=vabd(v1,v2), then store the result.  */
 #define TEST_VABD(Q, T1, T2, W, N)					\
   VECT_VAR(vector_res, T1, W, N) =					\
@@ -113,4 +116,18 @@ void exec_vabd (void)
   TEST_VABD(q, float, f, 32, 4);
 
   dump_results_hex (TEST_MSG);
+
+
+  /* Extra FP tests with special values (-0.0, ....) */
+  TEST_VDUP(vector1, q, float, f, 32, 4, -0.0f);
+  TEST_VDUP(vector2, q, float, f, 32, 4, 0.0);
+  TEST_VABD(q, float, f, 32, 4);
+  DUMP_FP(TEST_MSG " FP special (-0.0)", float, 32, 4, PRIx32);
+
+
+  /* Extra FP tests with special values (-0.0, ....) */
+  TEST_VDUP(vector1, q, float, f, 32, 4, 0.0f);
+  TEST_VDUP(vector2, q, float, f, 32, 4, -0.0);
+  TEST_VABD(q, float, f, 32, 4);
+  DUMP_FP(TEST_MSG " FP special (-0.0)", float, 32, 4, PRIx32);
 }

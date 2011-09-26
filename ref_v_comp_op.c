@@ -30,6 +30,7 @@ THE SOFTWARE.
 #endif
 
 #include "stm-arm-neon-ref.h"
+#include <math.h>
 
 
 #define FNNAME1(NAME) void exec_ ## NAME (void)
@@ -175,4 +176,31 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, , float, f, 32, 2, -16.0f);
   TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
   DUMP(TEST_MSG, uint, 32, 2, PRIx32);
+
+
+  /* Extra FP tests with special values (NaN, ....) */
+  TEST_VDUP(vector, , float, f, 32, 2, 1.0);
+  TEST_VDUP(vector2, , float, f, 32, 2, NAN);
+  TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
+  DUMP(TEST_MSG " FP special (NAN)", uint, 32, 2, PRIx32);
+
+  TEST_VDUP(vector, , float, f, 32, 2, NAN);
+  TEST_VDUP(vector2, , float, f, 32, 2, 1.0);
+  TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
+  DUMP(TEST_MSG " FP special (NAN)", uint, 32, 2, PRIx32);
+
+  TEST_VDUP(vector, , float, f, 32, 2, 1.0);
+  TEST_VDUP(vector2, , float, f, 32, 2, HUGE_VALF);
+  TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
+  DUMP(TEST_MSG " FP special (inf)", uint, 32, 2, PRIx32);
+
+  TEST_VDUP(vector, , float, f, 32, 2, HUGE_VALF);
+  TEST_VDUP(vector2, , float, f, 32, 2, 1.0);
+  TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
+  DUMP(TEST_MSG " FP special (inf)", uint, 32, 2, PRIx32);
+
+  TEST_VDUP(vector, , float, f, 32, 2, -0.0);
+  TEST_VDUP(vector2, , float, f, 32, 2, 0.0);
+  TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
+  DUMP(TEST_MSG " FP special (-0.0)", uint, 32, 2, PRIx32);
 }

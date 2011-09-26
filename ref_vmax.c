@@ -30,6 +30,7 @@ THE SOFTWARE.
 #endif
 
 #include "stm-arm-neon-ref.h"
+#include <math.h>
 
 #ifndef INSN_NAME
 #define INSN_NAME vmax
@@ -43,6 +44,8 @@ THE SOFTWARE.
 
 FNNAME (INSN_NAME)
 {
+  int i;
+
   /* Basic test: y=OP(x,x), then store the result.  */
 #define TEST_BINARY_OP1(INSN, Q, T1, T2, W, N)				\
   VECT_VAR(vector_res, T1, W, N) =                                      \
@@ -113,4 +116,28 @@ FNNAME (INSN_NAME)
   TEST_MACRO_NO64BIT_VARIANT_1_5(TEST_BINARY_OP, INSN_NAME);
 
   dump_results_hex (TEST_MSG);
+
+
+#ifndef NO_FLOAT_VARIANT
+  /* Extra FP tests with special values (NaN, ....) */
+  TEST_VDUP(vector, q, float, f, 32, 4, 1.0f);
+  TEST_VDUP(vector2, q, float, f, 32, 4, NAN);
+  TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
+  DUMP_FP(TEST_MSG " FP special (NAN)", float, 32, 4, PRIx32);
+
+  TEST_VDUP(vector, q, float, f, 32, 4, NAN);
+  TEST_VDUP(vector2, q, float, f, 32, 4, 1.0f);
+  TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
+  DUMP_FP(TEST_MSG " FP special (NAN)", float, 32, 4, PRIx32);
+
+  TEST_VDUP(vector, q, float, f, 32, 4, 0.0f);
+  TEST_VDUP(vector2, q, float, f, 32, 4, -0.0f);
+  TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
+  DUMP_FP(TEST_MSG " FP special (-0.0)", float, 32, 4, PRIx32);
+
+  TEST_VDUP(vector, q, float, f, 32, 4, -0.0f);
+  TEST_VDUP(vector2, q, float, f, 32, 4, 0.0f);
+  TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
+  DUMP_FP(TEST_MSG " FP special (-0.0)", float, 32, 4, PRIx32);
+#endif
 }

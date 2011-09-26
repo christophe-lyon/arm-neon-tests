@@ -106,7 +106,7 @@ void exec_vrsqrts(void)
   /* Test FP variants with only special input values (infinity, 0) */
   TEST_VDUP(vector, , float, f, 32, 2, HUGE_VALF);
   TEST_VDUP(vector, q, float, f, 32, 4, 0.0f);
-  TEST_VDUP(vector2, , float, f, 32, 2, 0.0f);
+  TEST_VDUP(vector2, , float, f, 32, 2, -0.0f);
   TEST_VDUP(vector2, q, float, f, 32, 4, HUGE_VALF);
 
   /* Apply the operator */

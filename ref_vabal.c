@@ -100,4 +100,29 @@ void exec_vabal (void)
   TEST_VABAL(uint, u, 32, 64, 2);
 
   dump_results_hex (TEST_MSG);
+
+  /* Use values that could lead to overflow intermediate
+   * calculations.  */
+  TEST_VDUP(vector2, , int, s, 8, 8, 0x80);
+  TEST_VDUP(vector2, , int, s, 16, 4, 0x8000);
+  TEST_VDUP(vector2, , int, s, 32, 2, 0x80000000);
+  TEST_VDUP(vector2, , uint, u, 8, 8, 1);
+  TEST_VDUP(vector2, , uint, u, 16, 4, 13);
+  TEST_VDUP(vector2, , uint, u, 32, 2, 8);
+
+  TEST_VDUP(vector3, , int, s, 8, 8, 0x7f);
+  TEST_VDUP(vector3, , int, s, 16, 4, 0x7fff);
+  TEST_VDUP(vector3, , int, s, 32, 2, 0x7fffffff);
+  TEST_VDUP(vector3, , uint, u, 8, 8, 0xff);
+  TEST_VDUP(vector3, , uint, u, 16, 4, 0xffff);
+  TEST_VDUP(vector3, , uint, u, 32, 2, 0xffffffff);
+
+  TEST_VABAL(int, s, 8, 16, 8);
+  TEST_VABAL(int, s, 16, 32, 4);
+  TEST_VABAL(int, s, 32, 64, 2);
+  TEST_VABAL(uint, u, 8, 16, 8);
+  TEST_VABAL(uint, u, 16, 32, 4);
+  TEST_VABAL(uint, u, 32, 64, 2);
+
+  dump_results_hex2 (TEST_MSG, " test intermediate overflow");
 }
