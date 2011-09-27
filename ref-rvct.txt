@@ -1152,6 +1152,11 @@ VCEQ/VCEQQ:13:result_uint32x4 [] = { 0, 0, ffffffff, 0,  }
 VCEQ/VCEQQ:14:result_uint32x2 [] = { ffffffff, 0,  }
 VCEQ/VCEQQ:15:result_uint32x2 [] = { 0, ffffffff,  }
 VCEQ/VCEQQ:16:result_uint32x2 [] = { ffffffff, 0,  }
+VCEQ/VCEQQ FP special (NAN):17:result_uint32x2 [] = { 0, 0,  }
+VCEQ/VCEQQ FP special (NAN):18:result_uint32x2 [] = { 0, 0,  }
+VCEQ/VCEQQ FP special (inf):19:result_uint32x2 [] = { 0, 0,  }
+VCEQ/VCEQQ FP special (inf):20:result_uint32x2 [] = { 0, 0,  }
+VCEQ/VCEQQ FP special (-0.0):21:result_uint32x2 [] = { ffffffff, ffffffff,  }
 
 VCGE/VCGEQ output:
 VCGE/VCGEQ:0:result_uint8x8 [] = { 0, 0, 0, 0, 0, 0, ff, ff,  }
@@ -1171,6 +1176,11 @@ VCGE/VCGEQ:13:result_uint32x4 [] = { 0, 0, ffffffff, ffffffff,  }
 VCGE/VCGEQ:14:result_uint32x2 [] = { ffffffff, ffffffff,  }
 VCGE/VCGEQ:15:result_uint32x2 [] = { 0, ffffffff,  }
 VCGE/VCGEQ:16:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCGE/VCGEQ FP special (NAN):17:result_uint32x2 [] = { 0, 0,  }
+VCGE/VCGEQ FP special (NAN):18:result_uint32x2 [] = { 0, 0,  }
+VCGE/VCGEQ FP special (inf):19:result_uint32x2 [] = { 0, 0,  }
+VCGE/VCGEQ FP special (inf):20:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCGE/VCGEQ FP special (-0.0):21:result_uint32x2 [] = { ffffffff, ffffffff,  }
 
 VCLE/VCLEQ output:
 VCLE/VCLEQ:0:result_uint8x8 [] = { ff, ff, ff, ff, ff, ff, ff, 0,  }
@@ -1190,6 +1200,11 @@ VCLE/VCLEQ:13:result_uint32x4 [] = { ffffffff, ffffffff, ffffffff, 0,  }
 VCLE/VCLEQ:14:result_uint32x2 [] = { ffffffff, 0,  }
 VCLE/VCLEQ:15:result_uint32x2 [] = { ffffffff, ffffffff,  }
 VCLE/VCLEQ:16:result_uint32x2 [] = { ffffffff, 0,  }
+VCLE/VCLEQ FP special (NAN):17:result_uint32x2 [] = { 0, 0,  }
+VCLE/VCLEQ FP special (NAN):18:result_uint32x2 [] = { 0, 0,  }
+VCLE/VCLEQ FP special (inf):19:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCLE/VCLEQ FP special (inf):20:result_uint32x2 [] = { 0, 0,  }
+VCLE/VCLEQ FP special (-0.0):21:result_uint32x2 [] = { ffffffff, ffffffff,  }
 
 VCGT/VCGTQ output:
 VCGT/VCGTQ:0:result_uint8x8 [] = { 0, 0, 0, 0, 0, 0, 0, ff,  }
@@ -1209,6 +1224,11 @@ VCGT/VCGTQ:13:result_uint32x4 [] = { 0, 0, 0, ffffffff,  }
 VCGT/VCGTQ:14:result_uint32x2 [] = { 0, ffffffff,  }
 VCGT/VCGTQ:15:result_uint32x2 [] = { 0, 0,  }
 VCGT/VCGTQ:16:result_uint32x2 [] = { 0, ffffffff,  }
+VCGT/VCGTQ FP special (NAN):17:result_uint32x2 [] = { 0, 0,  }
+VCGT/VCGTQ FP special (NAN):18:result_uint32x2 [] = { 0, 0,  }
+VCGT/VCGTQ FP special (inf):19:result_uint32x2 [] = { 0, 0,  }
+VCGT/VCGTQ FP special (inf):20:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCGT/VCGTQ FP special (-0.0):21:result_uint32x2 [] = { 0, 0,  }
 
 VCLT/VCLTQ output:
 VCLT/VCLTQ:0:result_uint8x8 [] = { ff, ff, ff, ff, ff, ff, 0, 0,  }
@@ -1228,6 +1248,11 @@ VCLT/VCLTQ:13:result_uint32x4 [] = { ffffffff, ffffffff, 0, 0,  }
 VCLT/VCLTQ:14:result_uint32x2 [] = { 0, 0,  }
 VCLT/VCLTQ:15:result_uint32x2 [] = { ffffffff, 0,  }
 VCLT/VCLTQ:16:result_uint32x2 [] = { 0, 0,  }
+VCLT/VCLTQ FP special (NAN):17:result_uint32x2 [] = { 0, 0,  }
+VCLT/VCLTQ FP special (NAN):18:result_uint32x2 [] = { 0, 0,  }
+VCLT/VCLTQ FP special (inf):19:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCLT/VCLTQ FP special (inf):20:result_uint32x2 [] = { 0, 0,  }
+VCLT/VCLTQ FP special (-0.0):21:result_uint32x2 [] = { 0, 0,  }
 
 VBSL/VBSLQ output:
 VBSL/VBSLQ:0:result_int8x8 [] = { fffffff2, fffffff2, fffffff2, fffffff2, fffffff6, fffffff6, fffffff6, fffffff6,  }
@@ -1869,6 +1894,26 @@ VRSHL/VRSHLQ:141:result_uint32x4 [] = { 0, 0, 0, 0,  }
 VRSHL/VRSHLQ:142:result_uint64x2 [] = { 0, 0,  }
 VRSHL/VRSHLQ:143:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
+VRSHL/VRSHLQ (large negative shift amount) output:
+VRSHL/VRSHLQ:144:result_int8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:145:result_int16x4 [] = { 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:146:result_int32x2 [] = { 0, 0,  }
+VRSHL/VRSHLQ:147:result_int64x1 [] = { 0,  }
+VRSHL/VRSHLQ:148:result_uint8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:149:result_uint16x4 [] = { 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:150:result_uint32x2 [] = { 0, 0,  }
+VRSHL/VRSHLQ:151:result_uint64x1 [] = { 0,  }
+VRSHL/VRSHLQ:152:result_float32x2 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+VRSHL/VRSHLQ:153:result_int8x16 [] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:154:result_int16x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:155:result_int32x4 [] = { 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:156:result_int64x2 [] = { 0, 0,  }
+VRSHL/VRSHLQ:157:result_uint8x16 [] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  }
+VRSHL/VRSHLQ:158:result_uint16x8 [] = { 1, 1, 1, 1, 1, 1, 1, 1,  }
+VRSHL/VRSHLQ:159:result_uint32x4 [] = { 1, 1, 1, 1,  }
+VRSHL/VRSHLQ:160:result_uint64x2 [] = { 1, 1,  }
+VRSHL/VRSHLQ:161:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+
 VLD2/VLD2Q chunk 0 output:
 VLD2/VLD2Q:0:result_int8x8 [] = { fffffff0, fffffff1, fffffff2, fffffff3, fffffff4, fffffff5, fffffff6, fffffff7,  }
 VLD2/VLD2Q:1:result_int16x4 [] = { fffffff0, fffffff1, fffffff2, fffffff3,  }
@@ -2362,6 +2407,10 @@ VMAX/VMAXQ:14:result_uint16x8 [] = { fff2, fff2, fff2, fff3, fff4, fff5, fff6, f
 VMAX/VMAXQ:15:result_uint32x4 [] = { fffffff1, fffffff1, fffffff2, fffffff3,  }
 VMAX/VMAXQ:16:result_uint64x2 [] = { 3333333333333333, 3333333333333333,  }
 VMAX/VMAXQ:17:result_float32x4 [] = { c1680000 -0x1.d000000p+3 -14.5, c1680000 -0x1.d000000p+3 -14.5, c1600000 -0x1.c000000p+3 -14, c1500000 -0x1.a000000p+3 -13,  }
+VMAX/VMAXQ FP special (NAN):18:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
+VMAX/VMAXQ FP special (NAN):19:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
+VMAX/VMAXQ FP special (-0.0):20:result_float32x4 [] = { 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0,  }
+VMAX/VMAXQ FP special (-0.0):21:result_float32x4 [] = { 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0,  }
 
 VMIN/VMINQ output:
 VMIN/VMINQ:0:result_int8x8 [] = { fffffff0, fffffff1, fffffff2, fffffff3, fffffff3, fffffff3, fffffff3, fffffff3,  }
@@ -2382,6 +2431,10 @@ VMIN/VMINQ:14:result_uint16x8 [] = { fff0, fff1, fff2, fff2, fff2, fff2, fff2, f
 VMIN/VMINQ:15:result_uint32x4 [] = { fffffff0, fffffff1, fffffff1, fffffff1,  }
 VMIN/VMINQ:16:result_uint64x2 [] = { 3333333333333333, 3333333333333333,  }
 VMIN/VMINQ:17:result_float32x4 [] = { c1800000 -0x1.0000000p+4 -16, c1700000 -0x1.e000000p+3 -15, c1680000 -0x1.d000000p+3 -14.5, c1680000 -0x1.d000000p+3 -14.5,  }
+VMIN/VMINQ FP special (NAN):18:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
+VMIN/VMINQ FP special (NAN):19:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
+VMIN/VMINQ FP special (-0.0):20:result_float32x4 [] = { 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0,  }
+VMIN/VMINQ FP special (-0.0):21:result_float32x4 [] = { 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0,  }
 
 VNEG/VNEGQ output:
 VNEG/VNEGQ:0:result_int8x8 [] = { 10, f, e, d, c, b, a, 9,  }
@@ -3457,6 +3510,158 @@ VQRSHL/VQRSHLQ:201:result_uint32x4 [] = { 20000000, 20000000, 20000000, 20000000
 VQRSHL/VQRSHLQ:202:result_uint64x2 [] = { 2000000000000000, 2000000000000000,  }
 VQRSHL/VQRSHLQ:203:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
+VQRSHL/VQRSHLQ (checking overflow: large shift amount) overflow output:
+VQRSHL/VQRSHLQ:204:vqrshl_s8 Neon overflow 1
+VQRSHL/VQRSHLQ:205:vqrshl_s16 Neon overflow 1
+VQRSHL/VQRSHLQ:206:vqrshl_s32 Neon overflow 1
+VQRSHL/VQRSHLQ:207:vqrshl_s64 Neon overflow 1
+VQRSHL/VQRSHLQ:208:vqrshl_u8 Neon overflow 1
+VQRSHL/VQRSHLQ:209:vqrshl_u16 Neon overflow 1
+VQRSHL/VQRSHLQ:210:vqrshl_u32 Neon overflow 1
+VQRSHL/VQRSHLQ:211:vqrshl_u64 Neon overflow 1
+VQRSHL/VQRSHLQ:212:vqrshlq_s8 Neon overflow 1
+VQRSHL/VQRSHLQ:213:vqrshlq_s16 Neon overflow 1
+VQRSHL/VQRSHLQ:214:vqrshlq_s32 Neon overflow 1
+VQRSHL/VQRSHLQ:215:vqrshlq_s64 Neon overflow 1
+VQRSHL/VQRSHLQ:216:vqrshlq_u8 Neon overflow 1
+VQRSHL/VQRSHLQ:217:vqrshlq_u16 Neon overflow 1
+VQRSHL/VQRSHLQ:218:vqrshlq_u32 Neon overflow 1
+VQRSHL/VQRSHLQ:219:vqrshlq_u64 Neon overflow 1
+
+VQRSHL/VQRSHLQ (checking overflow: large shift amount) output:
+VQRSHL/VQRSHLQ:220:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
+VQRSHL/VQRSHLQ:221:result_int16x4 [] = { 7fff, 7fff, 7fff, 7fff,  }
+VQRSHL/VQRSHLQ:222:result_int32x2 [] = { 7fffffff, 7fffffff,  }
+VQRSHL/VQRSHLQ:223:result_int64x1 [] = { 7fffffffffffffff,  }
+VQRSHL/VQRSHLQ:224:result_uint8x8 [] = { ff, ff, ff, ff, ff, ff, ff, ff,  }
+VQRSHL/VQRSHLQ:225:result_uint16x4 [] = { ffff, ffff, ffff, ffff,  }
+VQRSHL/VQRSHLQ:226:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VQRSHL/VQRSHLQ:227:result_uint64x1 [] = { ffffffffffffffff,  }
+VQRSHL/VQRSHLQ:228:result_float32x2 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+VQRSHL/VQRSHLQ:229:result_int8x16 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
+VQRSHL/VQRSHLQ:230:result_int16x8 [] = { 7fff, 7fff, 7fff, 7fff, 7fff, 7fff, 7fff, 7fff,  }
+VQRSHL/VQRSHLQ:231:result_int32x4 [] = { 7fffffff, 7fffffff, 7fffffff, 7fffffff,  }
+VQRSHL/VQRSHLQ:232:result_int64x2 [] = { 7fffffffffffffff, 7fffffffffffffff,  }
+VQRSHL/VQRSHLQ:233:result_uint8x16 [] = { ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff,  }
+VQRSHL/VQRSHLQ:234:result_uint16x8 [] = { ffff, ffff, ffff, ffff, ffff, ffff, ffff, ffff,  }
+VQRSHL/VQRSHLQ:235:result_uint32x4 [] = { ffffffff, ffffffff, ffffffff, ffffffff,  }
+VQRSHL/VQRSHLQ:236:result_uint64x2 [] = { ffffffffffffffff, ffffffffffffffff,  }
+VQRSHL/VQRSHLQ:237:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+
+VQRSHL/VQRSHLQ (checking overflow: large shift amount with negative input) overflow output:
+VQRSHL/VQRSHLQ:238:vqrshl_s8 Neon overflow 1
+VQRSHL/VQRSHLQ:239:vqrshl_s16 Neon overflow 1
+VQRSHL/VQRSHLQ:240:vqrshl_s32 Neon overflow 1
+VQRSHL/VQRSHLQ:241:vqrshl_s64 Neon overflow 1
+VQRSHL/VQRSHLQ:242:vqrshl_u8 Neon overflow 1
+VQRSHL/VQRSHLQ:243:vqrshl_u16 Neon overflow 1
+VQRSHL/VQRSHLQ:244:vqrshl_u32 Neon overflow 1
+VQRSHL/VQRSHLQ:245:vqrshl_u64 Neon overflow 1
+VQRSHL/VQRSHLQ:246:vqrshlq_s8 Neon overflow 1
+VQRSHL/VQRSHLQ:247:vqrshlq_s16 Neon overflow 1
+VQRSHL/VQRSHLQ:248:vqrshlq_s32 Neon overflow 1
+VQRSHL/VQRSHLQ:249:vqrshlq_s64 Neon overflow 1
+VQRSHL/VQRSHLQ:250:vqrshlq_u8 Neon overflow 1
+VQRSHL/VQRSHLQ:251:vqrshlq_u16 Neon overflow 1
+VQRSHL/VQRSHLQ:252:vqrshlq_u32 Neon overflow 1
+VQRSHL/VQRSHLQ:253:vqrshlq_u64 Neon overflow 1
+
+VQRSHL/VQRSHLQ (checking overflow: large shift amount with negative input) output:
+VQRSHL/VQRSHLQ:254:result_int8x8 [] = { ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80,  }
+VQRSHL/VQRSHLQ:255:result_int16x4 [] = { ffff8000, ffff8000, ffff8000, ffff8000,  }
+VQRSHL/VQRSHLQ:256:result_int32x2 [] = { 80000000, 80000000,  }
+VQRSHL/VQRSHLQ:257:result_int64x1 [] = { 8000000000000000,  }
+VQRSHL/VQRSHLQ:258:result_uint8x8 [] = { ff, ff, ff, ff, ff, ff, ff, ff,  }
+VQRSHL/VQRSHLQ:259:result_uint16x4 [] = { ffff, ffff, ffff, ffff,  }
+VQRSHL/VQRSHLQ:260:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VQRSHL/VQRSHLQ:261:result_uint64x1 [] = { ffffffffffffffff,  }
+VQRSHL/VQRSHLQ:262:result_float32x2 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+VQRSHL/VQRSHLQ:263:result_int8x16 [] = { ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80,  }
+VQRSHL/VQRSHLQ:264:result_int16x8 [] = { ffff8000, ffff8000, ffff8000, ffff8000, ffff8000, ffff8000, ffff8000, ffff8000,  }
+VQRSHL/VQRSHLQ:265:result_int32x4 [] = { 80000000, 80000000, 80000000, 80000000,  }
+VQRSHL/VQRSHLQ:266:result_int64x2 [] = { 8000000000000000, 8000000000000000,  }
+VQRSHL/VQRSHLQ:267:result_uint8x16 [] = { ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff, ff,  }
+VQRSHL/VQRSHLQ:268:result_uint16x8 [] = { ffff, ffff, ffff, ffff, ffff, ffff, ffff, ffff,  }
+VQRSHL/VQRSHLQ:269:result_uint32x4 [] = { ffffffff, ffffffff, ffffffff, ffffffff,  }
+VQRSHL/VQRSHLQ:270:result_uint64x2 [] = { ffffffffffffffff, ffffffffffffffff,  }
+VQRSHL/VQRSHLQ:271:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+
+VQRSHL/VQRSHLQ (checking overflow: large negative shift amount) overflow output:
+VQRSHL/VQRSHLQ:272:vqrshl_s8 Neon overflow 0
+VQRSHL/VQRSHLQ:273:vqrshl_s16 Neon overflow 0
+VQRSHL/VQRSHLQ:274:vqrshl_s32 Neon overflow 0
+VQRSHL/VQRSHLQ:275:vqrshl_s64 Neon overflow 0
+VQRSHL/VQRSHLQ:276:vqrshl_u8 Neon overflow 0
+VQRSHL/VQRSHLQ:277:vqrshl_u16 Neon overflow 0
+VQRSHL/VQRSHLQ:278:vqrshl_u32 Neon overflow 0
+VQRSHL/VQRSHLQ:279:vqrshl_u64 Neon overflow 0
+VQRSHL/VQRSHLQ:280:vqrshlq_s8 Neon overflow 0
+VQRSHL/VQRSHLQ:281:vqrshlq_s16 Neon overflow 0
+VQRSHL/VQRSHLQ:282:vqrshlq_s32 Neon overflow 0
+VQRSHL/VQRSHLQ:283:vqrshlq_s64 Neon overflow 0
+VQRSHL/VQRSHLQ:284:vqrshlq_u8 Neon overflow 0
+VQRSHL/VQRSHLQ:285:vqrshlq_u16 Neon overflow 0
+VQRSHL/VQRSHLQ:286:vqrshlq_u32 Neon overflow 0
+VQRSHL/VQRSHLQ:287:vqrshlq_u64 Neon overflow 0
+
+VQRSHL/VQRSHLQ (checking overflow: large negative shift amount) output:
+VQRSHL/VQRSHLQ:288:result_int8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:289:result_int16x4 [] = { 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:290:result_int32x2 [] = { 0, 0,  }
+VQRSHL/VQRSHLQ:291:result_int64x1 [] = { 0,  }
+VQRSHL/VQRSHLQ:292:result_uint8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:293:result_uint16x4 [] = { 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:294:result_uint32x2 [] = { 0, 0,  }
+VQRSHL/VQRSHLQ:295:result_uint64x1 [] = { 0,  }
+VQRSHL/VQRSHLQ:296:result_float32x2 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+VQRSHL/VQRSHLQ:297:result_int8x16 [] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:298:result_int16x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:299:result_int32x4 [] = { 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:300:result_int64x2 [] = { 0, 0,  }
+VQRSHL/VQRSHLQ:301:result_uint8x16 [] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:302:result_uint16x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:303:result_uint32x4 [] = { 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:304:result_uint64x2 [] = { 0, 0,  }
+VQRSHL/VQRSHLQ:305:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+
+VQRSHL/VQRSHLQ (checking overflow: large shift amount with 0 input) overflow output:
+VQRSHL/VQRSHLQ:306:vqrshl_s8 Neon overflow 0
+VQRSHL/VQRSHLQ:307:vqrshl_s16 Neon overflow 0
+VQRSHL/VQRSHLQ:308:vqrshl_s32 Neon overflow 0
+VQRSHL/VQRSHLQ:309:vqrshl_s64 Neon overflow 0
+VQRSHL/VQRSHLQ:310:vqrshl_u8 Neon overflow 0
+VQRSHL/VQRSHLQ:311:vqrshl_u16 Neon overflow 0
+VQRSHL/VQRSHLQ:312:vqrshl_u32 Neon overflow 0
+VQRSHL/VQRSHLQ:313:vqrshl_u64 Neon overflow 0
+VQRSHL/VQRSHLQ:314:vqrshlq_s8 Neon overflow 0
+VQRSHL/VQRSHLQ:315:vqrshlq_s16 Neon overflow 0
+VQRSHL/VQRSHLQ:316:vqrshlq_s32 Neon overflow 0
+VQRSHL/VQRSHLQ:317:vqrshlq_s64 Neon overflow 0
+VQRSHL/VQRSHLQ:318:vqrshlq_u8 Neon overflow 0
+VQRSHL/VQRSHLQ:319:vqrshlq_u16 Neon overflow 0
+VQRSHL/VQRSHLQ:320:vqrshlq_u32 Neon overflow 0
+VQRSHL/VQRSHLQ:321:vqrshlq_u64 Neon overflow 0
+
+VQRSHL/VQRSHLQ (checking overflow: large shift amount with 0 input) output:
+VQRSHL/VQRSHLQ:322:result_int8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:323:result_int16x4 [] = { 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:324:result_int32x2 [] = { 0, 0,  }
+VQRSHL/VQRSHLQ:325:result_int64x1 [] = { 0,  }
+VQRSHL/VQRSHLQ:326:result_uint8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:327:result_uint16x4 [] = { 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:328:result_uint32x2 [] = { 0, 0,  }
+VQRSHL/VQRSHLQ:329:result_uint64x1 [] = { 0,  }
+VQRSHL/VQRSHLQ:330:result_float32x2 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+VQRSHL/VQRSHLQ:331:result_int8x16 [] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:332:result_int16x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:333:result_int32x4 [] = { 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:334:result_int64x2 [] = { 0, 0,  }
+VQRSHL/VQRSHLQ:335:result_uint8x16 [] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:336:result_uint16x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:337:result_uint32x4 [] = { 0, 0, 0, 0,  }
+VQRSHL/VQRSHLQ:338:result_uint64x2 [] = { 0, 0,  }
+VQRSHL/VQRSHLQ:339:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+
 VABA/VABAQ output:
 VABA/VABAQ:0:result_int8x8 [] = { fffffff6, fffffff7, fffffff8, fffffff9, fffffffa, fffffffb, fffffffc, fffffffd,  }
 VABA/VABAQ:1:result_int16x4 [] = { 16, 17, 18, 19,  }
@@ -3497,6 +3702,26 @@ VABAL:15:result_uint32x4 [] = { 907, 908, 909, 90a,  }
 VABAL:16:result_uint64x2 [] = { ffffffe7, ffffffe8,  }
 VABAL:17:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
+VABAL test intermediate overflow output:
+VABAL:18:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
+VABAL:19:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
+VABAL:20:result_int32x2 [] = { 33333333, 33333333,  }
+VABAL:21:result_int64x1 [] = { 3333333333333333,  }
+VABAL:22:result_uint8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
+VABAL:23:result_uint16x4 [] = { 3333, 3333, 3333, 3333,  }
+VABAL:24:result_uint32x2 [] = { 33333333, 33333333,  }
+VABAL:25:result_uint64x1 [] = { 3333333333333333,  }
+VABAL:26:result_float32x2 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+VABAL:27:result_int8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,  }
+VABAL:28:result_int16x8 [] = { ef, f0, f1, f2, f3, f4, f5, f6,  }
+VABAL:29:result_int32x4 [] = { ffef, fff0, fff1, fff2,  }
+VABAL:30:result_int64x2 [] = { ffffffef, fffffff0,  }
+VABAL:31:result_uint8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,  }
+VABAL:32:result_uint16x8 [] = { ee, ef, f0, f1, f2, f3, f4, f5,  }
+VABAL:33:result_uint32x4 [] = { ffe2, ffe3, ffe4, ffe5,  }
+VABAL:34:result_uint64x2 [] = { ffffffe7, ffffffe8,  }
+VABAL:35:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+
 VABD/VABDQ output:
 VABD/VABDQ:0:result_int8x8 [] = { 11, 10, f, e, d, c, b, a,  }
 VABD/VABDQ:1:result_int16x4 [] = { 3, 2, 1, 0,  }
@@ -3516,6 +3741,8 @@ VABD/VABDQ:14:result_uint16x8 [] = { ffe4, ffe5, ffe6, ffe7, ffe8, ffe9, ffea, f
 VABD/VABDQ:15:result_uint32x4 [] = { ffffffd0, ffffffd1, ffffffd2, ffffffd3,  }
 VABD/VABDQ:16:result_uint64x2 [] = { 3333333333333333, 3333333333333333,  }
 VABD/VABDQ:17:result_float32x4 [] = { 42407ae1 0x1.80f5c20p+5 48.12, 423c7ae1 0x1.78f5c20p+5 47.12, 42387ae1 0x1.70f5c20p+5 46.12, 42347ae1 0x1.68f5c20p+5 45.12,  }
+VABD/VABDQ FP special (-0.0):18:result_float32x4 [] = { 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0,  }
+VABD/VABDQ FP special (-0.0):19:result_float32x4 [] = { 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0,  }
 
 VABDL output:
 VABDL:0:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -4263,7 +4490,7 @@ VSRI_N:15:result_uint32x4 [] = { fffffe00, fffffe00, fffffe00, fffffe00,  }
 VSRI_N:16:result_uint64x2 [] = { fffffffffffff800, fffffffffffff800,  }
 VSRI_N:17:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VSRI_Nmax shift amount output:
+VSRI_N max shift amount output:
 VSRI_N:0:result_int8x8 [] = { fffffff0, fffffff1, fffffff2, fffffff3, fffffff4, fffffff5, fffffff6, fffffff7,  }
 VSRI_N:1:result_int16x4 [] = { fffffff0, fffffff1, fffffff2, fffffff3,  }
 VSRI_N:2:result_int32x2 [] = { fffffff0, fffffff1,  }
@@ -6067,9 +6294,33 @@ VRECPS/VRECPSQ output:
 VRECPS/VRECPSQ:0:result_float32x2 [] = { c2e19eb7 -0x1.c33d6e0p+6 -112.81, c2e19eb7 -0x1.c33d6e0p+6 -112.81,  }
 VRECPS/VRECPSQ:1:result_float32x4 [] = { c1db851f -0x1.b70a3e0p+4 -27.44, c1db851f -0x1.b70a3e0p+4 -27.44, c1db851f -0x1.b70a3e0p+4 -27.44, c1db851f -0x1.b70a3e0p+4 -27.44,  }
 
+VRECPS/VRECPSQ FP special (NAN) and normal values output:
+VRECPS/VRECPSQ:2:result_float32x2 [] = { 7fc00000 nan nan, 7fc00000 nan nan,  }
+VRECPS/VRECPSQ:3:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
+
+VRECPS/VRECPSQ FP special (infinity, 0) and normal values output:
+VRECPS/VRECPSQ:4:result_float32x2 [] = { ff800000 -inf -inf, ff800000 -inf -inf,  }
+VRECPS/VRECPSQ:5:result_float32x4 [] = { 40000000 0x1.0000000p+1 2, 40000000 0x1.0000000p+1 2, 40000000 0x1.0000000p+1 2, 40000000 0x1.0000000p+1 2,  }
+
+VRECPS/VRECPSQ FP special (infinity, 0) output:
+VRECPS/VRECPSQ:6:result_float32x2 [] = { 40000000 0x1.0000000p+1 2, 40000000 0x1.0000000p+1 2,  }
+VRECPS/VRECPSQ:7:result_float32x4 [] = { 40000000 0x1.0000000p+1 2, 40000000 0x1.0000000p+1 2, 40000000 0x1.0000000p+1 2, 40000000 0x1.0000000p+1 2,  }
+
 VRSQRTS/VRSQRTSQ output:
 VRSQRTS/VRSQRTSQ:0:result_float32x2 [] = { c2796b84 -0x1.f2d7080p+5 -62.355, c2796b84 -0x1.f2d7080p+5 -62.355,  }
 VRSQRTS/VRSQRTSQ:1:result_float32x4 [] = { c0e4a3d8 -0x1.c947b00p+2 -7.145, c0e4a3d8 -0x1.c947b00p+2 -7.145, c0e4a3d8 -0x1.c947b00p+2 -7.145, c0e4a3d8 -0x1.c947b00p+2 -7.145,  }
+
+VRSQRTS/VRSQRTSQ FP special (NAN) and normal values output:
+VRSQRTS/VRSQRTSQ:2:result_float32x2 [] = { 7fc00000 nan nan, 7fc00000 nan nan,  }
+VRSQRTS/VRSQRTSQ:3:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
+
+VRSQRTS/VRSQRTSQ FP special (infinity, 0) and normal values output:
+VRSQRTS/VRSQRTSQ:4:result_float32x2 [] = { ff800000 -inf -inf, ff800000 -inf -inf,  }
+VRSQRTS/VRSQRTSQ:5:result_float32x4 [] = { 3fc00000 0x1.8000000p+0 1.5, 3fc00000 0x1.8000000p+0 1.5, 3fc00000 0x1.8000000p+0 1.5, 3fc00000 0x1.8000000p+0 1.5,  }
+
+VRSQRTS/VRSQRTSQ FP special (infinity, 0) output:
+VRSQRTS/VRSQRTSQ:6:result_float32x2 [] = { 3fc00000 0x1.8000000p+0 1.5, 3fc00000 0x1.8000000p+0 1.5,  }
+VRSQRTS/VRSQRTSQ:7:result_float32x4 [] = { 3fc00000 0x1.8000000p+0 1.5, 3fc00000 0x1.8000000p+0 1.5, 3fc00000 0x1.8000000p+0 1.5, 3fc00000 0x1.8000000p+0 1.5,  }
 
 
 DSP (non-NEON) intrinsics
