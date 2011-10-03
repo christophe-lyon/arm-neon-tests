@@ -34,6 +34,9 @@ THE SOFTWARE.
 #include <stdio.h>
 #if defined(_MSC_VER)
 #include "msinttypes.h"
+#include <float.h> /* for isnan() ... */
+#define NAN 0x7fc00000L
+#define HUGE_VALF 0x7f800000L
 #else
 #include <inttypes.h>
 #endif
