@@ -182,17 +182,27 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector, , float, f, 32, 2, 1.0);
   TEST_VDUP(vector2, , float, f, 32, 2, NAN);
   TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
-  DUMP(TEST_MSG " FP special (NAN)", uint, 32, 2, PRIx32);
+  DUMP(TEST_MSG " FP special (NaN)", uint, 32, 2, PRIx32);
+
+  TEST_VDUP(vector, , float, f, 32, 2, 1.0);
+  TEST_VDUP(vector2, , float, f, 32, 2, -NAN);
+  TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
+  DUMP(TEST_MSG " FP special (-NaN)", uint, 32, 2, PRIx32);
 
   TEST_VDUP(vector, , float, f, 32, 2, NAN);
   TEST_VDUP(vector2, , float, f, 32, 2, 1.0);
   TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
-  DUMP(TEST_MSG " FP special (NAN)", uint, 32, 2, PRIx32);
+  DUMP(TEST_MSG " FP special (NaN)", uint, 32, 2, PRIx32);
 
   TEST_VDUP(vector, , float, f, 32, 2, 1.0);
   TEST_VDUP(vector2, , float, f, 32, 2, HUGE_VALF);
   TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
   DUMP(TEST_MSG " FP special (inf)", uint, 32, 2, PRIx32);
+
+  TEST_VDUP(vector, , float, f, 32, 2, 1.0);
+  TEST_VDUP(vector2, , float, f, 32, 2, -HUGE_VALF);
+  TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
+  DUMP(TEST_MSG " FP special (-inf)", uint, 32, 2, PRIx32);
 
   TEST_VDUP(vector, , float, f, 32, 2, HUGE_VALF);
   TEST_VDUP(vector2, , float, f, 32, 2, 1.0);

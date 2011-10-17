@@ -123,12 +123,22 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector, q, float, f, 32, 4, 1.0f);
   TEST_VDUP(vector2, q, float, f, 32, 4, NAN);
   TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
-  DUMP_FP(TEST_MSG " FP special (NAN)", float, 32, 4, PRIx32);
+  DUMP_FP(TEST_MSG " FP special (NaN)", float, 32, 4, PRIx32);
 
-  TEST_VDUP(vector, q, float, f, 32, 4, NAN);
+  TEST_VDUP(vector, q, float, f, 32, 4, -NAN);
   TEST_VDUP(vector2, q, float, f, 32, 4, 1.0f);
   TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
-  DUMP_FP(TEST_MSG " FP special (NAN)", float, 32, 4, PRIx32);
+  DUMP_FP(TEST_MSG " FP special (-NaN)", float, 32, 4, PRIx32);
+
+  TEST_VDUP(vector, q, float, f, 32, 4, 1.0f);
+  TEST_VDUP(vector2, q, float, f, 32, 4, HUGE_VALF);
+  TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
+  DUMP_FP(TEST_MSG " FP special (inf)", float, 32, 4, PRIx32);
+
+  TEST_VDUP(vector, q, float, f, 32, 4, -HUGE_VALF);
+  TEST_VDUP(vector2, q, float, f, 32, 4, 1.0f);
+  TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
+  DUMP_FP(TEST_MSG " FP special (-inf)", float, 32, 4, PRIx32);
 
   TEST_VDUP(vector, q, float, f, 32, 4, 0.0f);
   TEST_VDUP(vector2, q, float, f, 32, 4, -0.0f);
