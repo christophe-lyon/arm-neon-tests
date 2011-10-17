@@ -35,8 +35,11 @@ THE SOFTWARE.
 #if defined(_MSC_VER)
 #include "msinttypes.h"
 #include <float.h> /* for isnan() ... */
-#define NAN 0x7fc00000L
-#define HUGE_VALF 0x7f800000L
+static int32_t _ptrNan[]={0x7fc00000L};
+#define NAN (*(float*)_ptrNan)
+static int32_t _ptrInf[]={0x7f800000L};
+#define INFINITY (*(float*)_ptrInf)
+#define HUGE_VALF INFINITY
 #else
 #include <inttypes.h>
 #endif
@@ -265,8 +268,8 @@ register _ARM_FPSCR _afpscr_for_qc __asm("fpscr");
 #define Neon_Overflow _afpscr_for_qc.b.QC
 #else
 /* Fake declaration because GCC/ARM does not know this register */
-extern int errno;
-#define Neon_Overflow errno
+ int myerrno;
+#define Neon_Overflow myerrno
 #endif
 
 #endif /* STM_ARM_NEON_MODELS */
