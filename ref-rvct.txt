@@ -1152,11 +1152,13 @@ VCEQ/VCEQQ:13:result_uint32x4 [] = { 0, 0, ffffffff, 0,  }
 VCEQ/VCEQQ:14:result_uint32x2 [] = { ffffffff, 0,  }
 VCEQ/VCEQQ:15:result_uint32x2 [] = { 0, ffffffff,  }
 VCEQ/VCEQQ:16:result_uint32x2 [] = { ffffffff, 0,  }
-VCEQ/VCEQQ FP special (NAN):17:result_uint32x2 [] = { 0, 0,  }
-VCEQ/VCEQQ FP special (NAN):18:result_uint32x2 [] = { 0, 0,  }
-VCEQ/VCEQQ FP special (inf):19:result_uint32x2 [] = { 0, 0,  }
+VCEQ/VCEQQ FP special (NaN):17:result_uint32x2 [] = { 0, 0,  }
+VCEQ/VCEQQ FP special (-NaN):18:result_uint32x2 [] = { 0, 0,  }
+VCEQ/VCEQQ FP special (NaN):19:result_uint32x2 [] = { 0, 0,  }
 VCEQ/VCEQQ FP special (inf):20:result_uint32x2 [] = { 0, 0,  }
-VCEQ/VCEQQ FP special (-0.0):21:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCEQ/VCEQQ FP special (-inf):21:result_uint32x2 [] = { 0, 0,  }
+VCEQ/VCEQQ FP special (inf):22:result_uint32x2 [] = { 0, 0,  }
+VCEQ/VCEQQ FP special (-0.0):23:result_uint32x2 [] = { ffffffff, ffffffff,  }
 
 VCGE/VCGEQ output:
 VCGE/VCGEQ:0:result_uint8x8 [] = { 0, 0, 0, 0, 0, 0, ff, ff,  }
@@ -1176,11 +1178,13 @@ VCGE/VCGEQ:13:result_uint32x4 [] = { 0, 0, ffffffff, ffffffff,  }
 VCGE/VCGEQ:14:result_uint32x2 [] = { ffffffff, ffffffff,  }
 VCGE/VCGEQ:15:result_uint32x2 [] = { 0, ffffffff,  }
 VCGE/VCGEQ:16:result_uint32x2 [] = { ffffffff, ffffffff,  }
-VCGE/VCGEQ FP special (NAN):17:result_uint32x2 [] = { 0, 0,  }
-VCGE/VCGEQ FP special (NAN):18:result_uint32x2 [] = { 0, 0,  }
-VCGE/VCGEQ FP special (inf):19:result_uint32x2 [] = { 0, 0,  }
-VCGE/VCGEQ FP special (inf):20:result_uint32x2 [] = { ffffffff, ffffffff,  }
-VCGE/VCGEQ FP special (-0.0):21:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCGE/VCGEQ FP special (NaN):17:result_uint32x2 [] = { 0, 0,  }
+VCGE/VCGEQ FP special (-NaN):18:result_uint32x2 [] = { 0, 0,  }
+VCGE/VCGEQ FP special (NaN):19:result_uint32x2 [] = { 0, 0,  }
+VCGE/VCGEQ FP special (inf):20:result_uint32x2 [] = { 0, 0,  }
+VCGE/VCGEQ FP special (-inf):21:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCGE/VCGEQ FP special (inf):22:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCGE/VCGEQ FP special (-0.0):23:result_uint32x2 [] = { ffffffff, ffffffff,  }
 
 VCLE/VCLEQ output:
 VCLE/VCLEQ:0:result_uint8x8 [] = { ff, ff, ff, ff, ff, ff, ff, 0,  }
@@ -1200,11 +1204,13 @@ VCLE/VCLEQ:13:result_uint32x4 [] = { ffffffff, ffffffff, ffffffff, 0,  }
 VCLE/VCLEQ:14:result_uint32x2 [] = { ffffffff, 0,  }
 VCLE/VCLEQ:15:result_uint32x2 [] = { ffffffff, ffffffff,  }
 VCLE/VCLEQ:16:result_uint32x2 [] = { ffffffff, 0,  }
-VCLE/VCLEQ FP special (NAN):17:result_uint32x2 [] = { 0, 0,  }
-VCLE/VCLEQ FP special (NAN):18:result_uint32x2 [] = { 0, 0,  }
-VCLE/VCLEQ FP special (inf):19:result_uint32x2 [] = { ffffffff, ffffffff,  }
-VCLE/VCLEQ FP special (inf):20:result_uint32x2 [] = { 0, 0,  }
-VCLE/VCLEQ FP special (-0.0):21:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCLE/VCLEQ FP special (NaN):17:result_uint32x2 [] = { 0, 0,  }
+VCLE/VCLEQ FP special (-NaN):18:result_uint32x2 [] = { 0, 0,  }
+VCLE/VCLEQ FP special (NaN):19:result_uint32x2 [] = { 0, 0,  }
+VCLE/VCLEQ FP special (inf):20:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCLE/VCLEQ FP special (-inf):21:result_uint32x2 [] = { 0, 0,  }
+VCLE/VCLEQ FP special (inf):22:result_uint32x2 [] = { 0, 0,  }
+VCLE/VCLEQ FP special (-0.0):23:result_uint32x2 [] = { ffffffff, ffffffff,  }
 
 VCGT/VCGTQ output:
 VCGT/VCGTQ:0:result_uint8x8 [] = { 0, 0, 0, 0, 0, 0, 0, ff,  }
@@ -1224,11 +1230,13 @@ VCGT/VCGTQ:13:result_uint32x4 [] = { 0, 0, 0, ffffffff,  }
 VCGT/VCGTQ:14:result_uint32x2 [] = { 0, ffffffff,  }
 VCGT/VCGTQ:15:result_uint32x2 [] = { 0, 0,  }
 VCGT/VCGTQ:16:result_uint32x2 [] = { 0, ffffffff,  }
-VCGT/VCGTQ FP special (NAN):17:result_uint32x2 [] = { 0, 0,  }
-VCGT/VCGTQ FP special (NAN):18:result_uint32x2 [] = { 0, 0,  }
-VCGT/VCGTQ FP special (inf):19:result_uint32x2 [] = { 0, 0,  }
-VCGT/VCGTQ FP special (inf):20:result_uint32x2 [] = { ffffffff, ffffffff,  }
-VCGT/VCGTQ FP special (-0.0):21:result_uint32x2 [] = { 0, 0,  }
+VCGT/VCGTQ FP special (NaN):17:result_uint32x2 [] = { 0, 0,  }
+VCGT/VCGTQ FP special (-NaN):18:result_uint32x2 [] = { 0, 0,  }
+VCGT/VCGTQ FP special (NaN):19:result_uint32x2 [] = { 0, 0,  }
+VCGT/VCGTQ FP special (inf):20:result_uint32x2 [] = { 0, 0,  }
+VCGT/VCGTQ FP special (-inf):21:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCGT/VCGTQ FP special (inf):22:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCGT/VCGTQ FP special (-0.0):23:result_uint32x2 [] = { 0, 0,  }
 
 VCLT/VCLTQ output:
 VCLT/VCLTQ:0:result_uint8x8 [] = { ff, ff, ff, ff, ff, ff, 0, 0,  }
@@ -1248,11 +1256,13 @@ VCLT/VCLTQ:13:result_uint32x4 [] = { ffffffff, ffffffff, 0, 0,  }
 VCLT/VCLTQ:14:result_uint32x2 [] = { 0, 0,  }
 VCLT/VCLTQ:15:result_uint32x2 [] = { ffffffff, 0,  }
 VCLT/VCLTQ:16:result_uint32x2 [] = { 0, 0,  }
-VCLT/VCLTQ FP special (NAN):17:result_uint32x2 [] = { 0, 0,  }
-VCLT/VCLTQ FP special (NAN):18:result_uint32x2 [] = { 0, 0,  }
-VCLT/VCLTQ FP special (inf):19:result_uint32x2 [] = { ffffffff, ffffffff,  }
-VCLT/VCLTQ FP special (inf):20:result_uint32x2 [] = { 0, 0,  }
-VCLT/VCLTQ FP special (-0.0):21:result_uint32x2 [] = { 0, 0,  }
+VCLT/VCLTQ FP special (NaN):17:result_uint32x2 [] = { 0, 0,  }
+VCLT/VCLTQ FP special (-NaN):18:result_uint32x2 [] = { 0, 0,  }
+VCLT/VCLTQ FP special (NaN):19:result_uint32x2 [] = { 0, 0,  }
+VCLT/VCLTQ FP special (inf):20:result_uint32x2 [] = { ffffffff, ffffffff,  }
+VCLT/VCLTQ FP special (-inf):21:result_uint32x2 [] = { 0, 0,  }
+VCLT/VCLTQ FP special (inf):22:result_uint32x2 [] = { 0, 0,  }
+VCLT/VCLTQ FP special (-0.0):23:result_uint32x2 [] = { 0, 0,  }
 
 VBSL/VBSLQ output:
 VBSL/VBSLQ:0:result_int8x8 [] = { fffffff2, fffffff2, fffffff2, fffffff2, fffffff6, fffffff6, fffffff6, fffffff6,  }
@@ -2407,10 +2417,12 @@ VMAX/VMAXQ:14:result_uint16x8 [] = { fff2, fff2, fff2, fff3, fff4, fff5, fff6, f
 VMAX/VMAXQ:15:result_uint32x4 [] = { fffffff1, fffffff1, fffffff2, fffffff3,  }
 VMAX/VMAXQ:16:result_uint64x2 [] = { 3333333333333333, 3333333333333333,  }
 VMAX/VMAXQ:17:result_float32x4 [] = { c1680000 -0x1.d000000p+3 -14.5, c1680000 -0x1.d000000p+3 -14.5, c1600000 -0x1.c000000p+3 -14, c1500000 -0x1.a000000p+3 -13,  }
-VMAX/VMAXQ FP special (NAN):18:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
-VMAX/VMAXQ FP special (NAN):19:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
-VMAX/VMAXQ FP special (-0.0):20:result_float32x4 [] = { 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0,  }
-VMAX/VMAXQ FP special (-0.0):21:result_float32x4 [] = { 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0,  }
+VMAX/VMAXQ FP special (NaN):18:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
+VMAX/VMAXQ FP special (-NaN):19:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
+VMAX/VMAXQ FP special (inf):20:result_float32x4 [] = { 7f800000 inf inf, 7f800000 inf inf, 7f800000 inf inf, 7f800000 inf inf,  }
+VMAX/VMAXQ FP special (-inf):21:result_float32x4 [] = { 3f800000 0x1.0000000p+0 1, 3f800000 0x1.0000000p+0 1, 3f800000 0x1.0000000p+0 1, 3f800000 0x1.0000000p+0 1,  }
+VMAX/VMAXQ FP special (-0.0):22:result_float32x4 [] = { 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0,  }
+VMAX/VMAXQ FP special (-0.0):23:result_float32x4 [] = { 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0, 0 0x0.0000000p+0 0,  }
 
 VMIN/VMINQ output:
 VMIN/VMINQ:0:result_int8x8 [] = { fffffff0, fffffff1, fffffff2, fffffff3, fffffff3, fffffff3, fffffff3, fffffff3,  }
@@ -2431,10 +2443,12 @@ VMIN/VMINQ:14:result_uint16x8 [] = { fff0, fff1, fff2, fff2, fff2, fff2, fff2, f
 VMIN/VMINQ:15:result_uint32x4 [] = { fffffff0, fffffff1, fffffff1, fffffff1,  }
 VMIN/VMINQ:16:result_uint64x2 [] = { 3333333333333333, 3333333333333333,  }
 VMIN/VMINQ:17:result_float32x4 [] = { c1800000 -0x1.0000000p+4 -16, c1700000 -0x1.e000000p+3 -15, c1680000 -0x1.d000000p+3 -14.5, c1680000 -0x1.d000000p+3 -14.5,  }
-VMIN/VMINQ FP special (NAN):18:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
-VMIN/VMINQ FP special (NAN):19:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
-VMIN/VMINQ FP special (-0.0):20:result_float32x4 [] = { 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0,  }
-VMIN/VMINQ FP special (-0.0):21:result_float32x4 [] = { 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0,  }
+VMIN/VMINQ FP special (NaN):18:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
+VMIN/VMINQ FP special (-NaN):19:result_float32x4 [] = { 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan, 7fc00000 nan nan,  }
+VMIN/VMINQ FP special (inf):20:result_float32x4 [] = { 3f800000 0x1.0000000p+0 1, 3f800000 0x1.0000000p+0 1, 3f800000 0x1.0000000p+0 1, 3f800000 0x1.0000000p+0 1,  }
+VMIN/VMINQ FP special (-inf):21:result_float32x4 [] = { ff800000 -inf -inf, ff800000 -inf -inf, ff800000 -inf -inf, ff800000 -inf -inf,  }
+VMIN/VMINQ FP special (-0.0):22:result_float32x4 [] = { 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0,  }
+VMIN/VMINQ FP special (-0.0):23:result_float32x4 [] = { 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0, 80000000 -0x0.0000000p+0 -0,  }
 
 VNEG/VNEGQ output:
 VNEG/VNEGQ:0:result_int8x8 [] = { 10, f, e, d, c, b, a, 9,  }
