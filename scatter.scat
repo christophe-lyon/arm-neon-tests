@@ -15,7 +15,7 @@ ROM_LOAD 0x2000
         * (+RO)                       ; any remaining code inc C lib.
     }
 
-    D-TCM 0x200000 0x40000            ; 8 Kb of D-TCM used for RW/ZI
+    D-TCM 0x200000 FIXED ; 0x40000            ; 8 Kb of D-TCM used for RW/ZI
     {
         * (+RW,+ZI)
     }
