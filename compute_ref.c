@@ -22,7 +22,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 */
-
+#define _AEABI_PORTABILITY_LEVEL 1
+#undef _AEABI_PORTABLE
 #if defined(__cplusplus)
 #include <cstdio>
 #include <cstdlib>
