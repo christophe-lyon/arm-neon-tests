@@ -40,7 +40,7 @@ FNNAME (INSN_NAME)
 {
   /* Basic test: y=OP(x), then store the result.  */
 #define TEST_UNARY_SAT_OP1(INSN, Q, T1, T2, W, N)	\
-  Neon_Overflow = 0;					\
+  Set_Neon_Overflow(0);					\
   VECT_VAR(vector_res, T1, W, N) =			\
     INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N));	\
   vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),		\

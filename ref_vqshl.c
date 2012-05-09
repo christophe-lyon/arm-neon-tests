@@ -41,7 +41,7 @@ FNNAME (INSN)
 {
   /* Basic test: v3=vqshl(v1,v2), then store the result.  */
 #define TEST_VQSHL2(INSN, T3, Q, T1, T2, W, N)			\
-  Neon_Overflow = 0;						\
+  Set_Neon_Overflow(0);						\
   VECT_VAR(vector_res, T1, W, N) =				\
     INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N),		\
 		      VECT_VAR(vector_shift, T3, W, N));	\

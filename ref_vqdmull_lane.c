@@ -42,7 +42,7 @@ FNNAME (INSN)
 
   /* vector_res = vqdmull_lane(vector,vector2,lane), then store the result.  */
 #define TEST_VQDMULL_LANE2(INSN, T1, T2, W, W2, N, L)			\
-  Neon_Overflow = 0;							\
+  Set_Neon_Overflow(0);							\
   VECT_VAR(vector_res, T1, W2, N) =					\
     INSN##_lane_##T2##W(VECT_VAR(vector, T1, W, N),			\
 			VECT_VAR(vector2, T1, W, N),			\

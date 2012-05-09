@@ -238,7 +238,7 @@ static void dump_results_hex (const char *test_name)
 typedef union {
   struct {
     int _xxx:27;
-    int QC:1;
+    unsigned int QC:1;
     int V:1;
     int C:1;
     int Z:1;
@@ -255,7 +255,7 @@ typedef union {
     int Z:1;
     int C:1;
     int V:1;
-    int QC:1;
+    unsigned int QC:1;
     int _dnm:27;
   } b;
   unsigned int word;
@@ -266,10 +266,24 @@ typedef union {
 #ifdef __ARMCC_VERSION
 register _ARM_FPSCR _afpscr_for_qc __asm("fpscr");
 #define Neon_Overflow _afpscr_for_qc.b.QC
+#define Set_Neon_Overflow(x)  {Neon_Overflow = (x);}
 #else
-/* Fake declaration because GCC/ARM does not know this register */
- int myerrno;
-#define Neon_Overflow myerrno
+/* GCC/ARM does not know this register */
+#define Neon_Overflow  __read_neon_overflow()
+static int __read_neon_overflow() {
+    _ARM_FPSCR _afpscr_for_qc;
+    asm("vmrs %0,fpscr" : "=r" (_afpscr_for_qc));
+    return _afpscr_for_qc.b.QC;
+}
+#define Set_Neon_Overflow(x)  __set_neon_overflow((x))
+static void __set_neon_overflow(int x) {
+    _ARM_FPSCR _afpscr_for_qc;
+    asm("vmrs %0,fpscr" : "=r" (_afpscr_for_qc));
+    _afpscr_for_qc.b.QC = x;
+    asm("vmsr fpscr,%0" : : "r" (_afpscr_for_qc));
+    return;
+}
+
 #endif
 
 #endif /* STM_ARM_NEON_MODELS */

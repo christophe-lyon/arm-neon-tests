@@ -23,13 +23,12 @@ $ make check # to compare the results with the expected output
 
 Known issues:
 -------------
-The tests currently fail to build with GCC/ARM:
-- no support for Neon_Overflow/fpsrc register
-- ICE when compiling ref_vldX.c, ref_vldX_lane.c, ref_vstX_lane.c
-- fails to compile vst1_lane.c
+Some tests currently fail to build with GCC/ARM:
 - missing include files: dspfns.h, armdsp.h
 
-VS[LR]I.64 tests are disabled because QEmu aborts.
+As GCC/ARM provides no support for the Neon_Overflow/fpsrc register,
+auxiliary accessor functions have been implemented in
+stm-arm-neon-ref.h.
 
 Engineering:
 ------------

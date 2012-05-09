@@ -45,7 +45,7 @@ FNNAME (INSN_NAME)
   /* vector_res = OP(vector, vector3, vector4),
      then store the result.  */
 #define TEST_VQDMLXL1(INSN, T1, T2, W, W2, N)		\
-  Neon_Overflow = 0;					\
+  Set_Neon_Overflow(0);					\
   VECT_VAR(vector_res, T1, W, N) =			\
     INSN##_##T2##W2(VECT_VAR(vector, T1, W, N),		\
 		    VECT_VAR(vector3, T1, W2, N),	\
