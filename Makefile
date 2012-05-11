@@ -27,9 +27,11 @@ LDFLAGS.rvct := --cpu=cortex-a9 --entry 0x2000
 
 # GCC/ARM cross compiler
 CC.gccarm := arm-none-eabi-gcc
-CFLAGS.gccarm := -g -Wall -mcpu=cortex-a9 -mfloat-abi=softfp -mfpu=neon -fshort-wchar -Wno-unused-variable -Wno-unused-function
-LD.gccarm := armlink
-LDFLAGS.gccarm := --cpu=cortex-a9 --entry 0x2000
+CFLAGS.gccarm := -g -Wall -mcpu=cortex-a9 -mfloat-abi=softfp -mfpu=neon -Wno-unused-variable -Wno-unused-function -ffast-math
+#LD.gccarm := $(LD.rvct)
+#LDFLAGS.gccarm := $(LDFLAGS.rvct)
+LD.gccarm := $(CC.gccarm)
+LDFLAGS.gccarm := $(CFLAGS.gccarm) -Tmop500-pm.ld
 
 # List of validated intrinsics
 REFNAMES = vld1 vadd vld1_lane vld1_dup vdup vget_high vget_low		\
@@ -48,20 +50,25 @@ REFNAMES = vld1 vadd vld1_lane vld1_dup vdup vget_high vget_low		\
 	   vhadd vrhadd vhsub vsubl vsubw vsubhn vrsubhn vmvn vqmovn	\
 	   vqmovun vrshr_n vrsra_n vshll_n vpaddl vpadd vpadal		\
 	   vqshlu_n vclz vcls vcnt vqshrn_n vpmax vpmin vqshrun_n	\
-	   vqrshrun_n vstX_lane vtbX vrecpe vrsqrte integer vcage	\
-	   vcagt vcale vcalt vrecps vrsqrts vcvt dsp dspfns
+	   vqrshrun_n vstX_lane vtbX vrecpe vrsqrte vcage vcagt vcale	\
+	   vcalt vrecps vrsqrts vcvt
 REFLIST = $(addprefix ref_, $(REFNAMES))
+
+REFNAMES_INT = integer dsp dspfns
+REFLIST_INT = $(addprefix ref_, $(REFNAMES_INT))
 
 all: ref-rvct.qemu
 
-check:
-	diff stm-arm-neon.refrvct ref-rvct.txt
+check: check-rvct check-gccarm check-gccarm-rvct
 
 # Building reference files with RVCT
-REFOBJS.rvct = $(addsuffix .rvct.o, $(REFLIST))
+REFOBJS.rvct = $(addsuffix .rvct.o, $(REFLIST) $(REFLIST_INT))
 REFRVCT=stm-arm-neon.refrvct
 ref-rvct: $(REFRVCT)
 ref-rvct.qemu: $(REFRVCT).qemu
+
+check-rvct: $(REFRVCT)
+	diff $(REFRVCT) ref-rvct.txt
 
 $(REFRVCT): compute_ref.axf
 	rvdebug -stdiolog=stdio.log -jou=journal.log -log=log.log -nologo -cmd -init @coretile.core.cpu0@RTSM -inc armscript.inc -exec $^
@@ -87,20 +94,39 @@ InitCache.o Init.o: %.o: %.s
 	$(CC.rvct) $(CFLAGS.rvct) -c $^ -o $@
 
 
-# Building reference files with GCC/ARM
+# Building reference files with GCC/ARM. Link with GCC/ld.
 REFOBJS.gccarm = $(addsuffix .gccarm.o, $(REFLIST))
 REFGCCARM=stm-arm-neon.gccarm
 ref-gccarm: $(REFGCCARM)
 
+check-gccarm: $(REFGCCARM)
+	diff  $(REFGCCARM) ref-rvct-neon.txt
+
 $(REFGCCARM): compute_ref.gccarm
 	rvdebug -stdiolog=stdio.log -jou=journal.log -log=log.log -nologo -cmd -init @coretile.core.cpu0@RTSM -inc armscript.inc -exec $^
 
-compute_ref.gccarm: scatter.scat compute_ref.gccarm.o retarget.rvct.o	\
-	InitCache.o Init.o $(REFOBJS.gccarm)
-	$(LD.rvct) $(LDFLAG.rvct) --scatter $^ -o $@
+compute_ref.gccarm: compute_ref.gccarm.o $(REFOBJS.gccarm)
+	$(LD.gccarm) $(LDFLAGS.gccarm) $^ -o $@
 
 compute_ref.gccarm.o: %.gccarm.o: %.c
 	$(CC.gccarm) $(CFLAGS.gccarm) -c $^ -o $@ -DREFFILE=\"$(REFGCCARM)\"
+
+# Building reference files with GCC/ARM. Link with armlink.
+REFGCCARM_RVCT=stm-arm-neon.gccarm-rvct
+ref-gccarm-rvct: $(REFGCCARM_RVCT)
+
+check-gccarm-rvct: $(REFGCCARM_RVCT)
+	diff $(REFGCCARM_RVCT) ref-rvct-neon.txt
+
+$(REFGCCARM_RVCT): compute_ref.gccarm-rvct
+	rvdebug -stdiolog=stdio.log -jou=journal.log -log=log.log -nologo -cmd -init @coretile.core.cpu0@RTSM -inc armscript.inc -exec $^
+
+compute_ref.gccarm-rvct: scatter.scat compute_ref.gccarm-rvct.o	\
+	retarget.rvct.o InitCache.o Init.o $(REFOBJS.gccarm)
+	$(LD.rvct) $(LDFLAGS.rvct) --no_strict_wchar_size --scatter $^ -o $@
+
+compute_ref.gccarm-rvct.o: %.gccarm-rvct.o: %.c
+	$(CC.gccarm) $(CFLAGS.gccarm) -c $^ -o $@ -DREFFILE=\"$(REFGCCARM_RVCT)\"
 
 ref_%.gccarm.o: ref_%.c stm-arm-neon-ref.h
 	$(CC.gccarm) $(CFLAGS.gccarm) -c $< -o $@

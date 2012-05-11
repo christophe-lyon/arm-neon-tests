@@ -172,7 +172,6 @@ extern void exec_vstX_lane(void);
 extern void exec_vtbX(void);
 extern void exec_vrecpe(void);
 extern void exec_vrsqrte(void);
-extern void exec_integer(void); /* Integer (non-NEON) intrinsics */
 
 extern void exec_vcage(void);
 extern void exec_vcagt(void);
@@ -182,8 +181,11 @@ extern void exec_vcvt(void);
 extern void exec_vrecps(void);
 extern void exec_vrsqrts(void);
 
+#ifdef __ARMCC_VERSION
+extern void exec_integer(void); /* Integer (non-NEON) intrinsics */
 extern void exec_dsp(void); /* DSP (non-NEON) intrinsics */
 extern void exec_dspfns(void); /* DSP FNS (non-NEON/ITU) intrinsics */
+#endif
 
 int main (void)
 {
@@ -337,7 +339,6 @@ int main (void)
   exec_vrecpe ();
   exec_vrsqrte ();
 
-  exec_integer ();
 
   exec_vcage ();
   exec_vcale ();
@@ -347,8 +348,11 @@ int main (void)
   exec_vrecps ();
   exec_vrsqrts ();
 
+#ifdef __ARMCC_VERSION
+  exec_integer ();
   exec_dsp ();
   exec_dspfns ();
+#endif
 
   fprintf (log_file, "Finished\n");
 

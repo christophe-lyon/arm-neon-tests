@@ -13,8 +13,13 @@ GNU GCC (for the ARM target), and supports execution with ARM RVDEBUG
 on an ARM simulator and with QEMU.
 
 For convenience, the ARM ELF binary file (as compiled with RVCT) is
-supplied (compute_ref.axf), as well as expected outputs
-(ref-rvct.txt).
+supplied (compute_ref.axf), as well as expected output (ref-rvct.txt).
+
+A second file containing expected output is also supplied:
+ref-rvct-neon.txt, which contains only the results of the Neon
+instrinsics tests. It is aimed at being used to check GCC's results,
+since this compiler does not support the integer & dsp builtins whose
+results are also present in ref-rvct.txt.
 
 Typical usage when used to debug QEmu:
 $ make all # to build the test program with ARM rvct and execute with QEmu
