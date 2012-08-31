@@ -233,7 +233,21 @@ static void dump_results_hex (const char *test_name)
 
 #ifndef STM_ARM_NEON_MODELS
 
-#ifndef __BIG_ENDIAN
+/* This hack is to cope with various compilers/libc which may not
+   provide endian.h or cross-compilers such as llvm which includes the
+   host's endian.h.  */
+#ifndef __arm__
+#include <endian.h>
+#define THIS_ENDIAN __BYTE_ORDER
+#else /* __arm__ */
+#ifdef __ARMEL__
+#define THIS_ENDIAN __LITTLE_ENDIAN
+#else /* __ARMEL__ */
+#define THIS_ENDIAN __BIG_ENDIAN
+#endif
+#endif /* __arm__ */
+
+#if THIS_ENDIAN == __LITTLE_ENDIAN
 
 typedef union {
   struct {
