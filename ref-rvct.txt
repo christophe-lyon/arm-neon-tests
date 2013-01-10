@@ -5410,7 +5410,7 @@ VCLS/VCLSQ:15:result_uint32x4 [] = { 33333333, 33333333, 33333333, 33333333,  }
 VCLS/VCLSQ:16:result_uint64x2 [] = { 3333333333333333, 3333333333333333,  }
 VCLS/VCLSQ:17:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VCLS/VCLSQ (positive input) output:
+VCLS/VCLSQ (negative input) output:
 VCLS/VCLSQ:18:result_int8x8 [] = { 7, 7, 7, 7, 7, 7, 7, 7,  }
 VCLS/VCLSQ:19:result_int16x4 [] = { 1, 1, 1, 1,  }
 VCLS/VCLSQ:20:result_int32x2 [] = { 1, 1,  }

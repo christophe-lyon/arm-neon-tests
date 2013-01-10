@@ -103,5 +103,5 @@ FNNAME (INSN_NAME)
   TEST_UNARY_OP(INSN_NAME, q, int, s, 16, 8);
   TEST_UNARY_OP(INSN_NAME, q, int, s, 32, 4);
 
-  dump_results_hex2 (TEST_MSG, " (positive input)");
+  dump_results_hex2 (TEST_MSG, " (negative input)");
 }
