@@ -109,4 +109,34 @@ FNNAME (INSN_NAME)
   TEST_UNARY_OP(INSN_NAME, q, uint, u, 32, 4);
 
   dump_results_hex (TEST_MSG);
+
+  /* Test with zero as input.  */
+  TEST_VDUP(vector, , int, s, 8, 8, 0);
+  TEST_VDUP(vector, , int, s, 16, 4, 0);
+  TEST_VDUP(vector, , int, s, 32, 2, 0);
+  TEST_VDUP(vector, , uint, u, 8, 8, 0);
+  TEST_VDUP(vector, , uint, u, 16, 4, 0);
+  TEST_VDUP(vector, , uint, u, 32, 2, 0);
+  TEST_VDUP(vector, q, int, s, 8, 16, 0);
+  TEST_VDUP(vector, q, int, s, 16, 8, 0);
+  TEST_VDUP(vector, q, int, s, 32, 4, 0);
+  TEST_VDUP(vector, q, uint, u, 8, 16, 0);
+  TEST_VDUP(vector, q, uint, u, 16, 8, 0);
+  TEST_VDUP(vector, q, uint, u, 32, 4, 0);
+
+  /* Apply a unary operator named INSN_NAME  */
+  TEST_UNARY_OP(INSN_NAME, , int, s, 8, 8);
+  TEST_UNARY_OP(INSN_NAME, , int, s, 16, 4);
+  TEST_UNARY_OP(INSN_NAME, , int, s, 32, 2);
+  TEST_UNARY_OP(INSN_NAME, , uint, u, 8, 8);
+  TEST_UNARY_OP(INSN_NAME, , uint, u, 16, 4);
+  TEST_UNARY_OP(INSN_NAME, , uint, u, 32, 2);
+  TEST_UNARY_OP(INSN_NAME, q, int, s, 8, 16);
+  TEST_UNARY_OP(INSN_NAME, q, int, s, 16, 8);
+  TEST_UNARY_OP(INSN_NAME, q, int, s, 32, 4);
+  TEST_UNARY_OP(INSN_NAME, q, uint, u, 8, 16);
+  TEST_UNARY_OP(INSN_NAME, q, uint, u, 16, 8);
+  TEST_UNARY_OP(INSN_NAME, q, uint, u, 32, 4);
+
+  dump_results_hex2 (TEST_MSG, " (input=0)");
 }

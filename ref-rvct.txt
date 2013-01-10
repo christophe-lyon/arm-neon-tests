@@ -5390,6 +5390,26 @@ VCLZ/VCLZQ:15:result_uint32x4 [] = { 1f, 1f, 1f, 1f,  }
 VCLZ/VCLZQ:16:result_uint64x2 [] = { 3333333333333333, 3333333333333333,  }
 VCLZ/VCLZQ:17:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
+VCLZ/VCLZQ (input=0) output:
+VCLZ/VCLZQ:18:result_int8x8 [] = { 8, 8, 8, 8, 8, 8, 8, 8,  }
+VCLZ/VCLZQ:19:result_int16x4 [] = { 10, 10, 10, 10,  }
+VCLZ/VCLZQ:20:result_int32x2 [] = { 20, 20,  }
+VCLZ/VCLZQ:21:result_int64x1 [] = { 3333333333333333,  }
+VCLZ/VCLZQ:22:result_uint8x8 [] = { 8, 8, 8, 8, 8, 8, 8, 8,  }
+VCLZ/VCLZQ:23:result_uint16x4 [] = { 10, 10, 10, 10,  }
+VCLZ/VCLZQ:24:result_uint32x2 [] = { 20, 20,  }
+VCLZ/VCLZQ:25:result_uint64x1 [] = { 3333333333333333,  }
+VCLZ/VCLZQ:26:result_float32x2 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+VCLZ/VCLZQ:27:result_int8x16 [] = { 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,  }
+VCLZ/VCLZQ:28:result_int16x8 [] = { 10, 10, 10, 10, 10, 10, 10, 10,  }
+VCLZ/VCLZQ:29:result_int32x4 [] = { 20, 20, 20, 20,  }
+VCLZ/VCLZQ:30:result_int64x2 [] = { 3333333333333333, 3333333333333333,  }
+VCLZ/VCLZQ:31:result_uint8x16 [] = { 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,  }
+VCLZ/VCLZQ:32:result_uint16x8 [] = { 10, 10, 10, 10, 10, 10, 10, 10,  }
+VCLZ/VCLZQ:33:result_uint32x4 [] = { 20, 20, 20, 20,  }
+VCLZ/VCLZQ:34:result_uint64x2 [] = { 3333333333333333, 3333333333333333,  }
+VCLZ/VCLZQ:35:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
+
 VCLS/VCLSQ (positive input) output:
 VCLS/VCLSQ:0:result_int8x8 [] = { 6, 6, 6, 6, 6, 6, 6, 6,  }
 VCLS/VCLSQ:1:result_int16x4 [] = { 2, 2, 2, 2,  }
