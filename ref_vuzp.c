@@ -63,7 +63,7 @@ FNNAME (INSN_NAME)
 
   /* Overwrite "result" with the contents of "result_bis"[X] */
 #define TEST_EXTRA_CHUNK(T1, W, N, X)					\
-  memcpy(VECT_VAR(result, T1, W, N), &(VECT_VAR(result_bis, T1, W, N)[X]), \
+  memcpy(VECT_VAR(result, T1, W, N), &(VECT_VAR(result_bis, T1, W, N)[X*N]), \
 	 sizeof(VECT_VAR(result, T1, W, N)));
 
   /* With ARM RVCT, we need to declare variables before any executable
