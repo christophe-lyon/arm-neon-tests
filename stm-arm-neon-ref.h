@@ -123,12 +123,15 @@ static int result_idx = 0;
 extern FILE* log_file;
 extern FILE* ref_file;
 
-/* Sample initialization vectors */
-#define INIT_TAB(T) [] = { (T)-16, (T)-15, (T)-14, (T)-13, (T)-12, (T)-11, \
-			   (T)-10, (T)-9, (T)-8, (T)-7, (T)-6, (T)-5, (T)-4, \
-			   (T)-3, (T)-2, (T)-1, (T)0, (T)1, (T)2, (T)3, (T)4, \
-			   (T)5, (T)6, (T)7, (T)8, (T)9, (T)10, (T)11, (T)12, \
-			   (T)13, (T)14, (T)15 }
+/* Sample initialization vectors. For simplicity, use the same one for
+   each vector size (it's not a problem if it's too large), and have
+   it large enough for the vld4 input samples. */
+#define INIT_TAB(T) [] = { \
+    (T)-16, (T)-15, (T)-14, (T)-13, (T)-12, (T)-11, (T)-10, (T)-9, (T)-8, (T)-7, (T)-6, (T)-5, (T)-4, (T)-3, (T)-2, (T)-1, \
+    (T)0, (T)1, (T)2, (T)3, (T)4, (T)5, (T)6, (T)7, (T)8, (T)9, (T)10, (T)11, (T)12, (T)13, (T)14, (T)15, \
+    (T)16, (T)17,(T)18,(T)19,(T)20, (T)21, (T)22, (T)23, (T)24, (T)25, (T)26, (T)27, (T)28, (T)29, (T)30, (T)31, \
+    (T)32, (T)33,(T)34,(T)35,(T)36, (T)37, (T)38, (T)39, (T)40, (T)41, (T)42, (T)43, (T)44, (T)45, (T)46, (T)47, \
+  }
 
 /* Input buffers, 1 of each size */
 static VECT_VAR_DECL_INIT(buffer, int, 8, 8);
