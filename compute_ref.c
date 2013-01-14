@@ -181,7 +181,7 @@ extern void exec_vcvt(void);
 extern void exec_vrecps(void);
 extern void exec_vrsqrts(void);
 
-#ifdef __ARMCC_VERSION
+#if defined(__ARMCC_VERSION) || !defined(__arm__)
 extern void exec_integer(void); /* Integer (non-NEON) intrinsics */
 extern void exec_dsp(void); /* DSP (non-NEON) intrinsics */
 extern void exec_dspfns(void); /* DSP FNS (non-NEON/ITU) intrinsics */
@@ -348,7 +348,7 @@ int main (void)
   exec_vrecps ();
   exec_vrsqrts ();
 
-#ifdef __ARMCC_VERSION
+#if defined(__ARMCC_VERSION) || !defined(__arm__)
   exec_integer ();
   exec_dsp ();
   exec_dspfns ();
