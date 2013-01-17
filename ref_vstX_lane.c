@@ -55,7 +55,8 @@ void exec_vstX_lane (void)
     vld##X##Q##_##T2##W(VECT_VAR(buffer_src, T1, W, N));		\
 									\
   VECT_ARRAY_VAR(vector, T1, W, N, X) =					\
-    vld##X##Q##_lane_##T2##W(VECT_VAR(buffer, T1, W, N),		\
+    /* Use dedicated init buffer, of size X */				\
+    vld##X##Q##_lane_##T2##W(VECT_VAR(buffer_vld##X##_lane, T1, W, X),	\
 			     VECT_ARRAY_VAR(vector_src, T1, W, N, X),	\
 			     L);					\
   vst##X##Q##_lane_##T2##W(VECT_VAR(result_bis_##X, T1, W, N),		\

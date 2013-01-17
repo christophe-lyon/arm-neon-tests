@@ -40,13 +40,13 @@ void exec_vdup (void)
 #undef TEST_VDUP
 #define TEST_VDUP(Q, T1, T2, W, N)					\
   VECT_VAR(vector, T1, W, N) =						\
-    vdup##Q##_n_##T2##W(VECT_VAR(buffer, T1, W, N)[i]);			\
+    vdup##Q##_n_##T2##W(VECT_VAR(buffer_dup, T1, W, N)[i]);		\
   vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N), VECT_VAR(vector, T1, W, N))
 
   /* Basic test: vec=vmov(x), then store the result.  */
 #define TEST_VMOV(Q, T1, T2, W, N)					\
   VECT_VAR(vector, T1, W, N) =						\
-    vmov##Q##_n_##T2##W(VECT_VAR(buffer, T1, W, N)[i]);			\
+    vmov##Q##_n_##T2##W(VECT_VAR(buffer_dup, T1, W, N)[i]);		\
   vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N), VECT_VAR(vector, T1, W, N))
 
   /* With ARM RVCT, we need to declare variables before any executable

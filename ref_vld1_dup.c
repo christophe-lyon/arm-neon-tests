@@ -50,10 +50,10 @@ void exec_vld1_dup (void)
   for (i=0; i<3; i++) {
     clean_results ();
 
-    TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLD1_DUP, vector, buffer);
+    TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLD1_DUP, vector, buffer_dup);
 
-    TEST_VLD1_DUP(vector, buffer, , float, f, 32, 2);
-    TEST_VLD1_DUP(vector, buffer, q, float, f, 32, 4);
+    TEST_VLD1_DUP(vector, buffer_dup, , float, f, 32, 2);
+    TEST_VLD1_DUP(vector, buffer_dup, q, float, f, 32, 4);
 
     dump_results_hex (TEST_MSG);
   }

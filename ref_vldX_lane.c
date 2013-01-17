@@ -53,7 +53,8 @@ void exec_vldX_lane (void)
     vld##X##Q##_##T2##W(VECT_VAR(buffer_src, T1, W, N));		\
 									\
   VECT_ARRAY_VAR(vector, T1, W, N, X) =					\
-    vld##X##Q##_lane_##T2##W(VECT_VAR(buffer, T1, W, N),		\
+    /* Use dedicated init buffer, of size X */				\
+    vld##X##Q##_lane_##T2##W(VECT_VAR(buffer_vld##X##_lane, T1, W, X),	\
 			     VECT_ARRAY_VAR(vector_src, T1, W, N, X),	\
 			     L);					\
   vst##X##Q##_##T2##W(VECT_VAR(result_bis_##X, T1, W, N),		\
@@ -85,7 +86,13 @@ void exec_vldX_lane (void)
   DECL_VLDX_LANE(float, 32, 2, X);		\
   DECL_VLDX_LANE(float, 32, 4, X)
 
-#define DUMMY_ARRAY(V, T, W, N, L) VECT_VAR_DECL(V,T,W,N)[N*L]
+  /* Add some padding to try to catch out of bound accesses.  */
+  /* Use an array instead of a plain char to comply with rvct
+     constraints.  */
+#define ARRAY1(V, T, W, N) VECT_VAR_DECL(V,T,W,N)[1]={42}
+#define DUMMY_ARRAY(V, T, W, N, L) \
+  VECT_VAR_DECL(V,T,W,N)[N*L]={0}; \
+  ARRAY1(V##_pad,T,W,N)
 
   /* Use the same lanes regardless of the size of the array (X), for
      simplicity */

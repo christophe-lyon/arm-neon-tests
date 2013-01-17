@@ -47,7 +47,8 @@ void exec_vldX_dup (void)
   /* Fill vector with buffer item #i  */
 #define TEST_VLDX_DUP(Q, T1, T2, W, N, X)				\
   VECT_ARRAY_VAR(vector, T1, W, N, X) =					\
-    vld##X##Q##_dup_##T2##W(VECT_VAR(buffer, T1, W, N));		\
+    /* Use dedicated init buffer, of size X */				\
+    vld##X##Q##_dup_##T2##W(VECT_VAR(buffer_vld##X##_lane, T1, W, X));	\
 									\
   vst##X##Q##_##T2##W(VECT_VAR(result_bis_##X, T1, W, N),		\
 		      VECT_ARRAY_VAR(vector, T1, W, N, X));		\

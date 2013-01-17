@@ -62,10 +62,17 @@ static int32_t _ptrInf[]={0x7f800000L};
 
 #define VECT_VAR(V,T,W,N) xNAME(V,VECT_NAME(T,W,N))
 #define VECT_VAR_DECL(V, T, W, N) T##W##_t VECT_VAR(V,T,W,N)
-#define VECT_VAR_DECL_INIT(V, T, W, N) T##W##_t VECT_VAR(V,T,W,N) INIT_TAB(T##W##_t)
-#define ARRAY(V, T, W, N) VECT_VAR_DECL(V,T,W,N)[N]
 
+/* This one is used for padding between input buffers.  */
+#define PAD(V, T, W, N) char VECT_VAR(V,T,W,N)=42;
+
+/* Array declarations.  */
+#define ARRAY(V, T, W, N) VECT_VAR_DECL(V,T,W,N)[N]
+#define ARRAY4(V, T, W, N) VECT_VAR_DECL(V,T,W,N)[4]
+
+/* Arrays of vectors.  */
 #define VECT_ARRAY_VAR(V,T,W,N,L) xNAME(V,VECT_ARRAY_NAME(T,W,N,L))
+#define VECT_ARRAY(V, T, W, N, L) T##W##_t VECT_ARRAY_VAR(V,T,W,N,L)[N*L]
 
 static int result_idx = 0;
 #define DUMP(MSG,T,W,N,FMT)						\
@@ -123,37 +130,142 @@ static int result_idx = 0;
 extern FILE* log_file;
 extern FILE* ref_file;
 
-/* Sample initialization vectors. For simplicity, use the same one for
-   each vector size (it's not a problem if it's too large), and have
-   it large enough for the vld4 input samples. */
-#define INIT_TAB(T) [] = { \
-    (T)-16, (T)-15, (T)-14, (T)-13, (T)-12, (T)-11, (T)-10, (T)-9, (T)-8, (T)-7, (T)-6, (T)-5, (T)-4, (T)-3, (T)-2, (T)-1, \
-    (T)0, (T)1, (T)2, (T)3, (T)4, (T)5, (T)6, (T)7, (T)8, (T)9, (T)10, (T)11, (T)12, (T)13, (T)14, (T)15, \
-    (T)16, (T)17,(T)18,(T)19,(T)20, (T)21, (T)22, (T)23, (T)24, (T)25, (T)26, (T)27, (T)28, (T)29, (T)30, (T)31, \
-    (T)32, (T)33,(T)34,(T)35,(T)36, (T)37, (T)38, (T)39, (T)40, (T)41, (T)42, (T)43, (T)44, (T)45, (T)46, (T)47, \
-  }
+/* Input buffers, one of each size */
+extern ARRAY(buffer, int, 8, 8);
+extern ARRAY(buffer, int, 16, 4);
+extern ARRAY(buffer, int, 32, 2);
+extern ARRAY(buffer, int, 64, 1);
+extern ARRAY(buffer, uint, 8, 8);
+extern ARRAY(buffer, uint, 16, 4);
+extern ARRAY(buffer, uint, 32, 2);
+extern ARRAY(buffer, uint, 64, 1);
+extern ARRAY(buffer, float, 32, 2);
+extern ARRAY(buffer, int, 8, 16);
+extern ARRAY(buffer, int, 16, 8);
+extern ARRAY(buffer, int, 32, 4);
+extern ARRAY(buffer, int, 64, 2);
+extern ARRAY(buffer, uint, 8, 16);
+extern ARRAY(buffer, uint, 16, 8);
+extern ARRAY(buffer, uint, 32, 4);
+extern ARRAY(buffer, uint, 64, 2);
+extern ARRAY(buffer, float, 32, 4);
 
-/* Input buffers, 1 of each size */
-static VECT_VAR_DECL_INIT(buffer, int, 8, 8);
-static VECT_VAR_DECL_INIT(buffer, int, 16, 4);
-static VECT_VAR_DECL_INIT(buffer, int, 32, 2);
-static VECT_VAR_DECL_INIT(buffer, int, 64, 1);
-static VECT_VAR_DECL_INIT(buffer, uint, 8, 8);
-static VECT_VAR_DECL_INIT(buffer, uint, 16, 4);
-static VECT_VAR_DECL_INIT(buffer, uint, 32, 2);
-static VECT_VAR_DECL_INIT(buffer, uint, 64, 1);
-static VECT_VAR_DECL_INIT(buffer, float, 32, 2);
-static VECT_VAR_DECL_INIT(buffer, int, 8, 16);
-static VECT_VAR_DECL_INIT(buffer, int, 16, 8);
-static VECT_VAR_DECL_INIT(buffer, int, 32, 4);
-static VECT_VAR_DECL_INIT(buffer, int, 64, 2);
-static VECT_VAR_DECL_INIT(buffer, uint, 8, 16);
-static VECT_VAR_DECL_INIT(buffer, uint, 16, 8);
-static VECT_VAR_DECL_INIT(buffer, uint, 32, 4);
-static VECT_VAR_DECL_INIT(buffer, uint, 64, 2);
-static VECT_VAR_DECL_INIT(buffer, float, 32, 4);
+/* The tests for vld1_dup and vdup expect at least 4 entries in the
+   input buffer, so force 1- and 2-elements initializers to have 4
+   entries.  */
+extern ARRAY(buffer_dup, int, 8, 8);
+extern ARRAY(buffer_dup, int, 16, 4);
+extern ARRAY4(buffer_dup, int, 32, 2);
+extern ARRAY4(buffer_dup, int, 64, 1);
+extern ARRAY(buffer_dup, uint, 8, 8);
+extern ARRAY(buffer_dup, uint, 16, 4);
+extern ARRAY4(buffer_dup, uint, 32, 2);
+extern ARRAY4(buffer_dup, uint, 64, 1);
+extern ARRAY4(buffer_dup, float, 32, 2);
+extern ARRAY(buffer_dup, int, 8, 16);
+extern ARRAY(buffer_dup, int, 16, 8);
+extern ARRAY(buffer_dup, int, 32, 4);
+extern ARRAY4(buffer_dup, int, 64, 2);
+extern ARRAY(buffer_dup, uint, 8, 16);
+extern ARRAY(buffer_dup, uint, 16, 8);
+extern ARRAY(buffer_dup, uint, 32, 4);
+extern ARRAY4(buffer_dup, uint, 64, 2);
+extern ARRAY(buffer_dup, float, 32, 4);
 
-/* Output buffers, 1 of each size */
+/* Input buffers for vld2, one of each size */
+extern VECT_ARRAY(buffer_vld2, int, 8, 8, 2);
+extern VECT_ARRAY(buffer_vld2, int, 16, 4, 2);
+extern VECT_ARRAY(buffer_vld2, int, 32, 2, 2);
+extern VECT_ARRAY(buffer_vld2, int, 64, 1, 2);
+extern VECT_ARRAY(buffer_vld2, uint, 8, 8, 2);
+extern VECT_ARRAY(buffer_vld2, uint, 16, 4, 2);
+extern VECT_ARRAY(buffer_vld2, uint, 32, 2, 2);
+extern VECT_ARRAY(buffer_vld2, uint, 64, 1, 2);
+extern VECT_ARRAY(buffer_vld2, float, 32, 2, 2);
+extern VECT_ARRAY(buffer_vld2, int, 8, 16, 2);
+extern VECT_ARRAY(buffer_vld2, int, 16, 8, 2);
+extern VECT_ARRAY(buffer_vld2, int, 32, 4, 2);
+extern VECT_ARRAY(buffer_vld2, int, 64, 2, 2);
+extern VECT_ARRAY(buffer_vld2, uint, 8, 16, 2);
+extern VECT_ARRAY(buffer_vld2, uint, 16, 8, 2);
+extern VECT_ARRAY(buffer_vld2, uint, 32, 4, 2);
+extern VECT_ARRAY(buffer_vld2, uint, 64, 2, 2);
+extern VECT_ARRAY(buffer_vld2, float, 32, 4, 2);
+
+/* Input buffers for vld3, one of each size */
+extern VECT_ARRAY(buffer_vld3, int, 8, 8, 3);
+extern VECT_ARRAY(buffer_vld3, int, 16, 4, 3);
+extern VECT_ARRAY(buffer_vld3, int, 32, 2, 3);
+extern VECT_ARRAY(buffer_vld3, int, 64, 1, 3);
+extern VECT_ARRAY(buffer_vld3, uint, 8, 8, 3);
+extern VECT_ARRAY(buffer_vld3, uint, 16, 4, 3);
+extern VECT_ARRAY(buffer_vld3, uint, 32, 2, 3);
+extern VECT_ARRAY(buffer_vld3, uint, 64, 1, 3);
+extern VECT_ARRAY(buffer_vld3, float, 32, 2, 3);
+extern VECT_ARRAY(buffer_vld3, int, 8, 16, 3);
+extern VECT_ARRAY(buffer_vld3, int, 16, 8, 3);
+extern VECT_ARRAY(buffer_vld3, int, 32, 4, 3);
+extern VECT_ARRAY(buffer_vld3, int, 64, 2, 3);
+extern VECT_ARRAY(buffer_vld3, uint, 8, 16, 3);
+extern VECT_ARRAY(buffer_vld3, uint, 16, 8, 3);
+extern VECT_ARRAY(buffer_vld3, uint, 32, 4, 3);
+extern VECT_ARRAY(buffer_vld3, uint, 64, 2, 3);
+extern VECT_ARRAY(buffer_vld3, float, 32, 4, 3);
+
+/* Input buffers for vld4, one of each size */
+extern VECT_ARRAY(buffer_vld4, int, 8, 8, 4);
+extern VECT_ARRAY(buffer_vld4, int, 16, 4, 4);
+extern VECT_ARRAY(buffer_vld4, int, 32, 2, 4);
+extern VECT_ARRAY(buffer_vld4, int, 64, 1, 4);
+extern VECT_ARRAY(buffer_vld4, uint, 8, 8, 4);
+extern VECT_ARRAY(buffer_vld4, uint, 16, 4, 4);
+extern VECT_ARRAY(buffer_vld4, uint, 32, 2, 4);
+extern VECT_ARRAY(buffer_vld4, uint, 64, 1, 4);
+extern VECT_ARRAY(buffer_vld4, float, 32, 2, 4);
+extern VECT_ARRAY(buffer_vld4, int, 8, 16, 4);
+extern VECT_ARRAY(buffer_vld4, int, 16, 8, 4);
+extern VECT_ARRAY(buffer_vld4, int, 32, 4, 4);
+extern VECT_ARRAY(buffer_vld4, int, 64, 2, 4);
+extern VECT_ARRAY(buffer_vld4, uint, 8, 16, 4);
+extern VECT_ARRAY(buffer_vld4, uint, 16, 8, 4);
+extern VECT_ARRAY(buffer_vld4, uint, 32, 4, 4);
+extern VECT_ARRAY(buffer_vld4, uint, 64, 2, 4);
+extern VECT_ARRAY(buffer_vld4, float, 32, 4, 4);
+
+/* Input buffers for vld2_lane */
+extern VECT_VAR_DECL(buffer_vld2_lane, int, 8, 2)[2];
+extern VECT_VAR_DECL(buffer_vld2_lane, int, 16, 2)[2];
+extern VECT_VAR_DECL(buffer_vld2_lane, int, 32, 2)[2];
+extern VECT_VAR_DECL(buffer_vld2_lane, int, 64, 2)[2];
+extern VECT_VAR_DECL(buffer_vld2_lane, uint, 8, 2)[2];
+extern VECT_VAR_DECL(buffer_vld2_lane, uint, 16, 2)[2];
+extern VECT_VAR_DECL(buffer_vld2_lane, uint, 32, 2)[2];
+extern VECT_VAR_DECL(buffer_vld2_lane, uint, 64, 2)[2];
+extern VECT_VAR_DECL(buffer_vld2_lane, float, 32, 2)[2];
+
+/* Input buffers for vld3_lane */
+extern VECT_VAR_DECL(buffer_vld3_lane, int, 8, 3)[3];
+extern VECT_VAR_DECL(buffer_vld3_lane, int, 16, 3)[3];
+extern VECT_VAR_DECL(buffer_vld3_lane, int, 32, 3)[3];
+extern VECT_VAR_DECL(buffer_vld3_lane, int, 64, 3)[3];
+extern VECT_VAR_DECL(buffer_vld3_lane, uint, 8, 3)[3];
+extern VECT_VAR_DECL(buffer_vld3_lane, uint, 16, 3)[3];
+extern VECT_VAR_DECL(buffer_vld3_lane, uint, 32, 3)[3];
+extern VECT_VAR_DECL(buffer_vld3_lane, uint, 64, 3)[3];
+extern VECT_VAR_DECL(buffer_vld3_lane, float, 32, 3)[3];
+
+/* Input buffers for vld4_lane */
+extern VECT_VAR_DECL(buffer_vld4_lane, int, 8, 4)[4];
+extern VECT_VAR_DECL(buffer_vld4_lane, int, 16, 4)[4];
+extern VECT_VAR_DECL(buffer_vld4_lane, int, 32, 4)[4];
+extern VECT_VAR_DECL(buffer_vld4_lane, int, 64, 4)[4];
+extern VECT_VAR_DECL(buffer_vld4_lane, uint, 8, 4)[4];
+extern VECT_VAR_DECL(buffer_vld4_lane, uint, 16, 4)[4];
+extern VECT_VAR_DECL(buffer_vld4_lane, uint, 32, 4)[4];
+extern VECT_VAR_DECL(buffer_vld4_lane, uint, 64, 4)[4];
+extern VECT_VAR_DECL(buffer_vld4_lane, float, 32, 4)[4];
+
+/* Output buffers, one of each size */
 static ARRAY(result, int, 8, 8);
 static ARRAY(result, int, 16, 4);
 static ARRAY(result, int, 32, 2);

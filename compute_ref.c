@@ -187,6 +187,8 @@ extern void exec_dsp(void); /* DSP (non-NEON) intrinsics */
 extern void exec_dspfns(void); /* DSP FNS (non-NEON/ITU) intrinsics */
 #endif
 
+#include "compute_ref_data.c"
+
 int main (void)
 {
 #if defined(_MSC_VER)
@@ -338,7 +340,6 @@ int main (void)
   exec_vtbX ();
   exec_vrecpe ();
   exec_vrsqrte ();
-
 
   exec_vcage ();
   exec_vcale ();
