@@ -200,7 +200,7 @@ int main (void)
 
   log_file = fopen (LOGFILE, "w");
   if (log_file == NULL) {
-    fprintf (stderr, "Error opening log file "LOGFILE"\n");
+    fprintf (stderr, "Error opening log file " LOGFILE "\n");
     cleanup ();
   }
 
