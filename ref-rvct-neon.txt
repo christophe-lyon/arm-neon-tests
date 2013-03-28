@@ -748,7 +748,25 @@ VSET_LANE/VSET_LANEQ:16:result_uint64x2 [] = { fffffffffffffff0, 11,  }
 VSET_LANE/VSET_LANEQ:17:result_float32x4 [] = { c1800000 -0x1.0000000p+4 -16, c1700000 -0x1.e000000p+3 -15, c1600000 -0x1.c000000p+3 -14, 41333333 0x1.6666660p+3 11.2,  }
 
 VGET_LANE/VGETQ_LANE output:
-fffffff7, fffffff3, fffffff1, fffffffffffffff0, f6, fff2, fffffff1, fffffffffffffff0, c1700000, ffffffff, fffffff5, fffffff3, fffffffffffffff1, fe, fff6, fffffff2, fffffffffffffff1, c1500000, 
+vget_lane_s8: fffffff7
+vget_lane_s16: fffffff3
+vget_lane_s32: fffffff1
+vget_lane_s64: fffffffffffffff0
+vget_lane_u8: f6
+vget_lane_u16: fff2
+vget_lane_u32: fffffff1
+vget_lane_u64: fffffffffffffff0
+vget_lane_f32: c1700000
+vgetq_lane_s8: ffffffff
+vgetq_lane_s16: fffffff5
+vgetq_lane_s32: fffffff3
+vgetq_lane_s64: fffffffffffffff1
+vgetq_lane_u8: fe
+vgetq_lane_u16: fff6
+vgetq_lane_u32: fffffff2
+vgetq_lane_u64: fffffffffffffff1
+vgetq_lane_f32: c1500000
+
 
 VQSUB/VQSUBQ overflow output:
 VQSUB/VQSUBQ:0:vqsub_s8 Neon overflow 0

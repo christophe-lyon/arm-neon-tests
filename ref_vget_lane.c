@@ -37,7 +37,7 @@ void exec_vget_lane (void)
 #define TEST_VGET_LANE(Q, T1, T2, W, N, L)				\
   VAR(var, T1, W) = vget##Q##_lane_##T2##W(VECT_VAR(vector, T1, W, N), L); \
   vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N), VECT_VAR(vector, T1, W, N)); \
-  fprintf(ref_file, "%" PRIx##W ", ", VAR(var, T1, W))
+  fprintf(ref_file, "%s: %" PRIx##W "\n", "vget"STR(Q)"_lane_"STR(T2##W), VAR(var, T1, W))
 
   /* Special variant for floating-point */
   union {
@@ -49,7 +49,7 @@ void exec_vget_lane (void)
   VAR(var, T1, W) = vget##Q##_lane_##T2##W(VECT_VAR(vector, T1, W, N), L); \
   vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N), VECT_VAR(vector, T1, W, N)); \
   var_int##W##_float##W.var_float##W = VAR(var, T1, W);		\
-  fprintf(ref_file, "%" PRIx##W ", ", var_int##W##_float##W.var_int##W)
+  fprintf(ref_file, "%s: %" PRIx##W "\n", "vget"STR(Q)"_lane_"STR(T2##W), var_int##W##_float##W.var_int##W)
 
   /* With ARM RVCT, we need to declare variables before any executable
      statement */
