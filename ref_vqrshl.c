@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2012 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
