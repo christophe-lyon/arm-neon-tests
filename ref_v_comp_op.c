@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -213,4 +213,8 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, , float, f, 32, 2, 0.0);
   TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
   DUMP(TEST_MSG " FP special (-0.0)", uint, 32, 2, PRIx32);
+
+#ifdef EXTRA_TESTS
+  EXTRA_TESTS();
+#endif
 }

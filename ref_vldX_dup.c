@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -73,6 +73,8 @@ void exec_vldX_dup (void)
   DECL_VLDX_DUP(uint, 16, 4, X);		\
   DECL_VLDX_DUP(uint, 32, 2, X);		\
   DECL_VLDX_DUP(uint, 64, 1, X);		\
+  DECL_VLDX_DUP(poly, 8, 8, X);			\
+  DECL_VLDX_DUP(poly, 16, 4, X);		\
   DECL_VLDX_DUP(float, 32, 2, X)
 
 
@@ -85,6 +87,8 @@ void exec_vldX_dup (void)
   TEST_VLDX_DUP(, uint, u, 16, 4, X);		\
   TEST_VLDX_DUP(, uint, u, 32, 2, X);		\
   TEST_VLDX_DUP(, uint, u, 64, 1, X);		\
+  TEST_VLDX_DUP(, poly, p, 8, 8, X);		\
+  TEST_VLDX_DUP(, poly, p, 16, 4, X);		\
   TEST_VLDX_DUP(, float, f, 32, 2, X)
 
 #define TEST_ALL_EXTRA_CHUNKS(X, Y)		\
@@ -96,6 +100,8 @@ void exec_vldX_dup (void)
   TEST_EXTRA_CHUNK(uint, 16, 4, X, Y);		\
   TEST_EXTRA_CHUNK(uint, 32, 2, X, Y);		\
   TEST_EXTRA_CHUNK(uint, 64, 1, X, Y);		\
+  TEST_EXTRA_CHUNK(poly, 8, 8, X, Y);		\
+  TEST_EXTRA_CHUNK(poly, 16, 4, X, Y);		\
   TEST_EXTRA_CHUNK(float, 32, 2, X, Y)
 
 

@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -61,6 +61,8 @@ FNNAME (INSN_NAME)
   DECL_VAL(val, uint, 16, 4);
   DECL_VAL(val, uint, 32, 2);
   DECL_VAL(val, uint, 64, 1);
+  DECL_VAL(val, poly, 8, 8);
+  DECL_VAL(val, poly, 16, 4);
 
   DECL_VARIABLE(vector_res, int, 8, 8);
   DECL_VARIABLE(vector_res, int, 16, 4);
@@ -71,6 +73,8 @@ FNNAME (INSN_NAME)
   DECL_VARIABLE(vector_res, uint, 16, 4);
   DECL_VARIABLE(vector_res, uint, 32, 2);
   DECL_VARIABLE(vector_res, uint, 64, 1);
+  DECL_VARIABLE(vector_res, poly, 8, 8);
+  DECL_VARIABLE(vector_res, poly, 16, 4);
 
   clean_results ();
 
@@ -84,6 +88,8 @@ FNNAME (INSN_NAME)
   VECT_VAR(val, uint, 16, 4) = 0x123456789abcdef0ULL;
   VECT_VAR(val, uint, 32, 2) = 0x123456789abcdef0ULL;
   VECT_VAR(val, uint, 64, 1) = 0x123456789abcdef0ULL;
+  VECT_VAR(val, poly, 8, 8) = 0x123456789abcdef0ULL;
+  VECT_VAR(val, poly, 16, 4) = 0x123456789abcdef0ULL;
 
   TEST_VCREATE(int, s, 8, 8);
   TEST_VCREATE(int, s, 16, 4);
@@ -94,6 +100,8 @@ FNNAME (INSN_NAME)
   TEST_VCREATE(uint, u, 16, 4);
   TEST_VCREATE(uint, u, 32, 2);
   TEST_VCREATE(uint, u, 64, 1);
+  TEST_VCREATE(poly, p, 8, 8);
+  TEST_VCREATE(poly, p, 16, 4);
 
   dump_results_hex (TEST_MSG);
 }

@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -57,6 +57,8 @@ void vsli_extra(void)
   TEST_VDUP(vector2, , uint, u, 16, 4, 30);
   TEST_VDUP(vector2, , uint, u, 32, 2, 40);
   TEST_VDUP(vector2, , uint, u, 64, 1, 2);
+  TEST_VDUP(vector2, , poly, p, 8, 8, 20);
+  TEST_VDUP(vector2, , poly, p, 16, 4, 30);
   TEST_VDUP(vector2, q, int, s, 8, 16, -10);
   TEST_VDUP(vector2, q, int, s, 16, 8, -20);
   TEST_VDUP(vector2, q, int, s, 32, 4, -30);
@@ -65,6 +67,8 @@ void vsli_extra(void)
   TEST_VDUP(vector2, q, uint, u, 16, 8, 3);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 55);
   TEST_VDUP(vector2, q, uint, u, 64, 2, 3);
+  TEST_VDUP(vector2, q, poly, p, 8, 16, 12);
+  TEST_VDUP(vector2, q, poly, p, 16, 8, 3);
 
   /* Use maximum allowed shift amount */
   TEST_VSXI_N(INSN_NAME, , int, s, 8, 8, 7);
@@ -75,6 +79,8 @@ void vsli_extra(void)
   TEST_VSXI_N(INSN_NAME, , uint, u, 16, 4, 15);
   TEST_VSXI_N(INSN_NAME, , uint, u, 32, 2, 31);
   TEST_VSXI_N(INSN_NAME, , uint, u, 64, 1, 63);
+  TEST_VSXI_N(INSN_NAME, , poly, p, 8, 8, 7);
+  TEST_VSXI_N(INSN_NAME, , poly, p, 16, 4, 15);
   TEST_VSXI_N(INSN_NAME, q, int, s, 8, 16, 7);
   TEST_VSXI_N(INSN_NAME, q, int, s, 16, 8, 15);
   TEST_VSXI_N(INSN_NAME, q, int, s, 32, 4, 31);
@@ -83,6 +89,8 @@ void vsli_extra(void)
   TEST_VSXI_N(INSN_NAME, q, uint, u, 16, 8, 15);
   TEST_VSXI_N(INSN_NAME, q, uint, u, 32, 4, 31);
   TEST_VSXI_N(INSN_NAME, q, uint, u, 64, 2, 63);
+  TEST_VSXI_N(INSN_NAME, q, poly, p, 8, 16, 7);
+  TEST_VSXI_N(INSN_NAME, q, poly, p, 16, 8, 15);
 
   dump_results_hex2 (TEST_MSG, "max shift amount");
 }

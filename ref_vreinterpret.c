@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -78,6 +78,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, int, s, 8, 8, uint, u, 16, 4);
   TEST_VREINTERPRET(, int, s, 8, 8, uint, u, 32, 2);
   TEST_VREINTERPRET(, int, s, 8, 8, uint, u, 64, 1);
+  TEST_VREINTERPRET(, int, s, 8, 8, poly, p, 8, 8);
+  TEST_VREINTERPRET(, int, s, 8, 8, poly, p, 16, 4);
 
   /* vreinterpret_s16_xx */
   TEST_VREINTERPRET(, int, s, 16, 4, int, s, 8, 8);
@@ -87,6 +89,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, int, s, 16, 4, uint, u, 16, 4);
   TEST_VREINTERPRET(, int, s, 16, 4, uint, u, 32, 2);
   TEST_VREINTERPRET(, int, s, 16, 4, uint, u, 64, 1);
+  TEST_VREINTERPRET(, int, s, 16, 4, poly, p, 8, 8);
+  TEST_VREINTERPRET(, int, s, 16, 4, poly, p, 16, 4);
 
   /* vreinterpret_s32_xx */
   TEST_VREINTERPRET(, int, s, 32, 2, int, s, 8, 8);
@@ -96,6 +100,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, int, s, 32, 2, uint, u, 16, 4);
   TEST_VREINTERPRET(, int, s, 32, 2, uint, u, 32, 2);
   TEST_VREINTERPRET(, int, s, 32, 2, uint, u, 64, 1);
+  TEST_VREINTERPRET(, int, s, 32, 2, poly, p, 8, 8);
+  TEST_VREINTERPRET(, int, s, 32, 2, poly, p, 16, 4);
 
   /* vreinterpret_s64_xx */
   TEST_VREINTERPRET(, int, s, 64, 1, int, s, 8, 8);
@@ -105,6 +111,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, int, s, 64, 1, uint, u, 16, 4);
   TEST_VREINTERPRET(, int, s, 64, 1, uint, u, 32, 2);
   TEST_VREINTERPRET(, int, s, 64, 1, uint, u, 64, 1);
+  TEST_VREINTERPRET(, int, s, 64, 1, poly, p, 8, 8);
+  TEST_VREINTERPRET(, int, s, 64, 1, poly, p, 16, 4);
 
   /* vreinterpret_u8_xx */
   TEST_VREINTERPRET(, uint, u, 8, 8, int, s, 8, 8);
@@ -114,6 +122,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, uint, u, 8, 8, uint, u, 16, 4);
   TEST_VREINTERPRET(, uint, u, 8, 8, uint, u, 32, 2);
   TEST_VREINTERPRET(, uint, u, 8, 8, uint, u, 64, 1);
+  TEST_VREINTERPRET(, uint, u, 8, 8, poly, p, 8, 8);
+  TEST_VREINTERPRET(, uint, u, 8, 8, poly, p, 16, 4);
 
   /* vreinterpret_u16_xx */
   TEST_VREINTERPRET(, uint, u, 16, 4, int, s, 8, 8);
@@ -123,6 +133,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, uint, u, 16, 4, uint, u, 8, 8);
   TEST_VREINTERPRET(, uint, u, 16, 4, uint, u, 32, 2);
   TEST_VREINTERPRET(, uint, u, 16, 4, uint, u, 64, 1);
+  TEST_VREINTERPRET(, uint, u, 16, 4, poly, p, 8, 8);
+  TEST_VREINTERPRET(, uint, u, 16, 4, poly, p, 16, 4);
 
   /* vreinterpret_u32_xx */
   TEST_VREINTERPRET(, uint, u, 32, 2, int, s, 8, 8);
@@ -132,6 +144,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, uint, u, 32, 2, uint, u, 8, 8);
   TEST_VREINTERPRET(, uint, u, 32, 2, uint, u, 16, 4);
   TEST_VREINTERPRET(, uint, u, 32, 2, uint, u, 64, 1);
+  TEST_VREINTERPRET(, uint, u, 32, 2, poly, p, 8, 8);
+  TEST_VREINTERPRET(, uint, u, 32, 2, poly, p, 16, 4);
 
   /* vreinterpret_u64_xx */
   TEST_VREINTERPRET(, uint, u, 64, 1, int, s, 8, 8);
@@ -141,6 +155,30 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, uint, u, 64, 1, uint, u, 8, 8);
   TEST_VREINTERPRET(, uint, u, 64, 1, uint, u, 16, 4);
   TEST_VREINTERPRET(, uint, u, 64, 1, uint, u, 32, 2);
+  TEST_VREINTERPRET(, uint, u, 64, 1, poly, p, 8, 8);
+  TEST_VREINTERPRET(, uint, u, 64, 1, poly, p, 16, 4);
+
+  /* vreinterpret_p8_xx */
+  TEST_VREINTERPRET(, poly, p, 8, 8, int, s, 8, 8);
+  TEST_VREINTERPRET(, poly, p, 8, 8, int, s, 16, 4);
+  TEST_VREINTERPRET(, poly, p, 8, 8, int, s, 32, 2);
+  TEST_VREINTERPRET(, poly, p, 8, 8, int, s, 64, 1);
+  TEST_VREINTERPRET(, poly, p, 8, 8, uint, u, 8, 8);
+  TEST_VREINTERPRET(, poly, p, 8, 8, uint, u, 16, 4);
+  TEST_VREINTERPRET(, poly, p, 8, 8, uint, u, 32, 2);
+  TEST_VREINTERPRET(, poly, p, 8, 8, uint, u, 64, 1);
+  TEST_VREINTERPRET(, poly, p, 8, 8, poly, p, 16, 4);
+
+  /* vreinterpret_p16_xx */
+  TEST_VREINTERPRET(, poly, p, 16, 4, int, s, 8, 8);
+  TEST_VREINTERPRET(, poly, p, 16, 4, int, s, 16, 4);
+  TEST_VREINTERPRET(, poly, p, 16, 4, int, s, 32, 2);
+  TEST_VREINTERPRET(, poly, p, 16, 4, int, s, 64, 1);
+  TEST_VREINTERPRET(, poly, p, 16, 4, uint, u, 8, 8);
+  TEST_VREINTERPRET(, poly, p, 16, 4, uint, u, 16, 4);
+  TEST_VREINTERPRET(, poly, p, 16, 4, uint, u, 32, 2);
+  TEST_VREINTERPRET(, poly, p, 16, 4, uint, u, 64, 1);
+  TEST_VREINTERPRET(, poly, p, 16, 4, poly, p, 8, 8);
 
   /* vreinterpretq_s8_xx */
   TEST_VREINTERPRET(q, int, s, 8, 16, int, s, 16, 8);
@@ -150,6 +188,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(q, int, s, 8, 16, uint, u, 16, 8);
   TEST_VREINTERPRET(q, int, s, 8, 16, uint, u, 32, 4);
   TEST_VREINTERPRET(q, int, s, 8, 16, uint, u, 64, 2);
+  TEST_VREINTERPRET(q, int, s, 8, 16, poly, p, 8, 16);
+  TEST_VREINTERPRET(q, int, s, 8, 16, poly, p, 16, 8);
 
   /* vreinterpretq_s16_xx */
   TEST_VREINTERPRET(q, int, s, 16, 8, int, s, 8, 16);
@@ -159,6 +199,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(q, int, s, 16, 8, uint, u, 16, 8);
   TEST_VREINTERPRET(q, int, s, 16, 8, uint, u, 32, 4);
   TEST_VREINTERPRET(q, int, s, 16, 8, uint, u, 64, 2);
+  TEST_VREINTERPRET(q, int, s, 16, 8, poly, p, 8, 16);
+  TEST_VREINTERPRET(q, int, s, 16, 8, poly, p, 16, 8);
 
   /* vreinterpretq_s32_xx */
   TEST_VREINTERPRET(q, int, s, 32, 4, int, s, 8, 16);
@@ -168,6 +210,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(q, int, s, 32, 4, uint, u, 16, 8);
   TEST_VREINTERPRET(q, int, s, 32, 4, uint, u, 32, 4);
   TEST_VREINTERPRET(q, int, s, 32, 4, uint, u, 64, 2);
+  TEST_VREINTERPRET(q, int, s, 32, 4, poly, p, 8, 16);
+  TEST_VREINTERPRET(q, int, s, 32, 4, poly, p, 16, 8);
 
   /* vreinterpretq_s64_xx */
   TEST_VREINTERPRET(q, int, s, 64, 2, int, s, 8, 16);
@@ -177,6 +221,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(q, int, s, 64, 2, uint, u, 16, 8);
   TEST_VREINTERPRET(q, int, s, 64, 2, uint, u, 32, 4);
   TEST_VREINTERPRET(q, int, s, 64, 2, uint, u, 64, 2);
+  TEST_VREINTERPRET(q, int, s, 64, 2, poly, p, 8, 16);
+  TEST_VREINTERPRET(q, int, s, 64, 2, poly, p, 16, 8);
 
   /* vreinterpretq_u16_xx */
   TEST_VREINTERPRET(q, uint, u, 16, 8, int, s, 8, 16);
@@ -186,6 +232,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(q, uint, u, 16, 8, uint, u, 8, 16);
   TEST_VREINTERPRET(q, uint, u, 16, 8, uint, u, 32, 4);
   TEST_VREINTERPRET(q, uint, u, 16, 8, uint, u, 64, 2);
+  TEST_VREINTERPRET(q, uint, u, 16, 8, poly, p, 8, 16);
+  TEST_VREINTERPRET(q, uint, u, 16, 8, poly, p, 16, 8);
 
   /* vreinterpretq_u32_xx */
   TEST_VREINTERPRET(q, uint, u, 32, 4, int, s, 8, 16);
@@ -195,6 +243,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(q, uint, u, 32, 4, uint, u, 8, 16);
   TEST_VREINTERPRET(q, uint, u, 32, 4, uint, u, 16, 8);
   TEST_VREINTERPRET(q, uint, u, 32, 4, uint, u, 64, 2);
+  TEST_VREINTERPRET(q, uint, u, 32, 4, poly, p, 8, 16);
+  TEST_VREINTERPRET(q, uint, u, 32, 4, poly, p, 16, 8);
 
   /* vreinterpretq_u64_xx */
   TEST_VREINTERPRET(q, uint, u, 64, 2, int, s, 8, 16);
@@ -204,6 +254,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(q, uint, u, 64, 2, uint, u, 8, 16);
   TEST_VREINTERPRET(q, uint, u, 64, 2, uint, u, 16, 8);
   TEST_VREINTERPRET(q, uint, u, 64, 2, uint, u, 32, 4);
+  TEST_VREINTERPRET(q, uint, u, 64, 2, poly, p, 8, 16);
+  TEST_VREINTERPRET(q, uint, u, 64, 2, poly, p, 16, 8);
 
   /* vreinterpretq_u8_xx */
   TEST_VREINTERPRET(q, uint, u, 8, 16, int, s, 8, 16);
@@ -213,6 +265,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(q, uint, u, 8, 16, uint, u, 16, 8);
   TEST_VREINTERPRET(q, uint, u, 8, 16, uint, u, 32, 4);
   TEST_VREINTERPRET(q, uint, u, 8, 16, uint, u, 64, 2);
+  TEST_VREINTERPRET(q, uint, u, 8, 16, poly, p, 8, 16);
+  TEST_VREINTERPRET(q, uint, u, 8, 16, poly, p, 16, 8);
 
   /* vreinterpret_f32_xx */
   TEST_VREINTERPRET_FP(, float, f, 32, 2, int, s, 8, 8);
@@ -223,6 +277,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET_FP(, float, f, 32, 2, uint, u, 16, 4);
   TEST_VREINTERPRET_FP(, float, f, 32, 2, uint, u, 32, 2);
   TEST_VREINTERPRET_FP(, float, f, 32, 2, uint, u, 64, 1);
+  TEST_VREINTERPRET_FP(, float, f, 32, 2, poly, p, 8, 8);
+  TEST_VREINTERPRET_FP(, float, f, 32, 2, poly, p, 16, 4);
 
   /* vreinterpretq_f32_xx */
   TEST_VREINTERPRET_FP(q, float, f, 32, 4, int, s, 8, 16);
@@ -233,6 +289,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET_FP(q, float, f, 32, 4, uint, u, 16, 8);
   TEST_VREINTERPRET_FP(q, float, f, 32, 4, uint, u, 32, 4);
   TEST_VREINTERPRET_FP(q, float, f, 32, 4, uint, u, 64, 2);
+  TEST_VREINTERPRET_FP(q, float, f, 32, 4, poly, p, 8, 16);
+  TEST_VREINTERPRET_FP(q, float, f, 32, 4, poly, p, 16, 8);
 
   /* vreinterpret_xx_f32 */
   TEST_VREINTERPRET(, int, s, 8, 8, float, f, 32, 2);
@@ -243,6 +301,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, uint, u, 16, 4, float, f, 32, 2);
   TEST_VREINTERPRET(, uint, u, 32, 2, float, f, 32, 2);
   TEST_VREINTERPRET(, uint, u, 64, 1, float, f, 32, 2);
+  TEST_VREINTERPRET(, poly, p, 8, 8, float, f, 32, 2);
+  TEST_VREINTERPRET(, poly, p, 16, 4, float, f, 32, 2);
 
   /* vreinterpretq_xx_f32 */
   TEST_VREINTERPRET(q, int, s, 8, 16, float, f, 32, 4);
@@ -253,4 +313,6 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(q, uint, u, 16, 8, float, f, 32, 4);
   TEST_VREINTERPRET(q, uint, u, 32, 4, float, f, 32, 4);
   TEST_VREINTERPRET(q, uint, u, 64, 2, float, f, 32, 4);
+  TEST_VREINTERPRET(q, poly, p, 8, 16, float, f, 32, 4);
+  TEST_VREINTERPRET(q, poly, p, 16, 8, float, f, 32, 4);
 }

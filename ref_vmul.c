@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -67,6 +67,7 @@ FNNAME (INSN_NAME)
   DECL_VMUL(uint, 8, 8);
   DECL_VMUL(uint, 16, 4);
   DECL_VMUL(uint, 32, 2);
+  DECL_VMUL(poly, 8, 8);
   DECL_VMUL(float, 32, 2);
   DECL_VMUL(int, 8, 16);
   DECL_VMUL(int, 16, 8);
@@ -74,6 +75,7 @@ FNNAME (INSN_NAME)
   DECL_VMUL(uint, 8, 16);
   DECL_VMUL(uint, 16, 8);
   DECL_VMUL(uint, 32, 4);
+  DECL_VMUL(poly, 8, 16);
   DECL_VMUL(float, 32, 4);
 
   clean_results ();
@@ -84,6 +86,7 @@ FNNAME (INSN_NAME)
   TEST_VLOAD(vector1, buffer, , uint, u, 8, 8);
   TEST_VLOAD(vector1, buffer, , uint, u, 16, 4);
   TEST_VLOAD(vector1, buffer, , uint, u, 32, 2);
+  TEST_VLOAD(vector1, buffer, , poly, p, 8, 8);
   TEST_VLOAD(vector1, buffer, , float, f, 32, 2);
   TEST_VLOAD(vector1, buffer, q, int, s, 8, 16);
   TEST_VLOAD(vector1, buffer, q, int, s, 16, 8);
@@ -91,6 +94,7 @@ FNNAME (INSN_NAME)
   TEST_VLOAD(vector1, buffer, q, uint, u, 8, 16);
   TEST_VLOAD(vector1, buffer, q, uint, u, 16, 8);
   TEST_VLOAD(vector1, buffer, q, uint, u, 32, 4);
+  TEST_VLOAD(vector1, buffer, q, poly, p, 8, 16);
   TEST_VLOAD(vector1, buffer, q, float, f, 32, 4);
 
   TEST_VDUP(vector2, , int, s, 8, 8, 0x11);
@@ -99,6 +103,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, , uint, u, 8, 8, 0x44);
   TEST_VDUP(vector2, , uint, u, 16, 4, 0x55);
   TEST_VDUP(vector2, , uint, u, 32, 2, 0x66);
+  TEST_VDUP(vector2, , poly, p, 8, 8, 0x44);
   TEST_VDUP(vector2, , float, f, 32, 2, 33.3f);
   TEST_VDUP(vector2, q, int, s, 8, 16, 0x77);
   TEST_VDUP(vector2, q, int, s, 16, 8, 0x88);
@@ -106,6 +111,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, q, uint, u, 8, 16, 0xAA);
   TEST_VDUP(vector2, q, uint, u, 16, 8, 0xBB);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 0xCC);
+  TEST_VDUP(vector2, q, poly, p, 8, 16, 0xAA);
   TEST_VDUP(vector2, q, float, f, 32, 4, 99.6f);
 
   TEST_VMUL(INSN_NAME, , int, s, 8, 8);
@@ -114,6 +120,7 @@ FNNAME (INSN_NAME)
   TEST_VMUL(INSN_NAME, , uint, u, 8, 8);
   TEST_VMUL(INSN_NAME, , uint, u, 16, 4);
   TEST_VMUL(INSN_NAME, , uint, u, 32, 2);
+  TEST_VMUL(INSN_NAME, , poly, p, 8, 8);
   TEST_VMUL(INSN_NAME, , float, f, 32, 2);
   TEST_VMUL(INSN_NAME, q, int, s, 8, 16);
   TEST_VMUL(INSN_NAME, q, int, s, 16, 8);
@@ -121,6 +128,7 @@ FNNAME (INSN_NAME)
   TEST_VMUL(INSN_NAME, q, uint, u, 8, 16);
   TEST_VMUL(INSN_NAME, q, uint, u, 16, 8);
   TEST_VMUL(INSN_NAME, q, uint, u, 32, 4);
+  TEST_VMUL(INSN_NAME, q, poly, p, 8, 16);
   TEST_VMUL(INSN_NAME, q, float, f, 32, 4);
 
   dump_results_hex (TEST_MSG);

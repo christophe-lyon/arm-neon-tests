@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -64,6 +64,8 @@ void exec_vget_lane (void)
   VAR_DECL(var, uint, 16);
   VAR_DECL(var, uint, 32);
   VAR_DECL(var, uint, 64);
+  VAR_DECL(var, poly, 8);
+  VAR_DECL(var, poly, 16);
   VAR_DECL(var, float, 32);
 
   clean_results ();
@@ -83,6 +85,8 @@ void exec_vget_lane (void)
   TEST_VGET_LANE(, uint, u, 16, 4, 2);
   TEST_VGET_LANE(, uint, u, 32, 2, 1);
   TEST_VGET_LANE(, uint, u, 64, 1, 0);
+  TEST_VGET_LANE(, poly, p, 8, 8, 6);
+  TEST_VGET_LANE(, poly, p, 16, 4, 2);
   TEST_VGET_LANE_F(, float, f, 32, 2, 1);
 
   TEST_VGET_LANE(q, int, s, 8, 16, 15);
@@ -93,6 +97,8 @@ void exec_vget_lane (void)
   TEST_VGET_LANE(q, uint, u, 16, 8, 6);
   TEST_VGET_LANE(q, uint, u, 32, 4, 2);
   TEST_VGET_LANE(q, uint, u, 64, 2, 1);
+  TEST_VGET_LANE(q, poly, p, 8, 16, 14);
+  TEST_VGET_LANE(q, poly, p, 16, 8, 6);
   TEST_VGET_LANE_F(q, float, f, 32, 4, 3);
 
   fprintf(ref_file, "\n");

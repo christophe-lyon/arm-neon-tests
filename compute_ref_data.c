@@ -1,3 +1,27 @@
+/*
+
+Copyright (c) 2013 STMicroelectronics
+Written by Christophe Lyon
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+*/
 
 #ifdef __arm__
 #include <arm_neon.h>
@@ -107,6 +131,10 @@ VECT_VAR_DECL_INIT(buffer, int, 64, 1);
 PAD(buffer_pad, int, 64, 1);
 VECT_VAR_DECL_INIT(buffer, uint, 8, 8);
 PAD(buffer_pad, uint, 8, 8);
+VECT_VAR_DECL_INIT(buffer, poly, 8, 8);
+PAD(buffer_pad, poly, 8, 8);
+VECT_VAR_DECL_INIT(buffer, poly, 16, 4);
+PAD(buffer_pad, poly, 16, 4);
 VECT_VAR_DECL_INIT(buffer, uint, 16, 4);
 PAD(buffer_pad, uint, 16, 4);
 VECT_VAR_DECL_INIT(buffer, uint, 32, 2);
@@ -131,6 +159,10 @@ VECT_VAR_DECL_INIT(buffer, uint, 32, 4);
 PAD(buffer_pad, uint, 32, 4);
 VECT_VAR_DECL_INIT(buffer, uint, 64, 2);
 PAD(buffer_pad, uint, 64, 2);
+VECT_VAR_DECL_INIT(buffer, poly, 8, 16);
+PAD(buffer_pad, poly, 8, 16);
+VECT_VAR_DECL_INIT(buffer, poly, 16, 8);
+PAD(buffer_pad, poly, 16, 8);
 VECT_VAR_DECL_INIT(buffer, float, 32, 4);
 PAD(buffer_pad, float, 32, 4);
 
@@ -153,6 +185,10 @@ VECT_VAR_DECL_INIT4(buffer_dup, uint, 32, 2);
 VECT_VAR_DECL(buffer_dup_pad, uint, 32, 2);
 VECT_VAR_DECL_INIT4(buffer_dup, uint, 64, 1);
 VECT_VAR_DECL(buffer_dup_pad, uint, 64, 1);
+VECT_VAR_DECL_INIT(buffer_dup, poly, 8, 8);
+VECT_VAR_DECL(buffer_dup_pad, poly, 8, 8);
+VECT_VAR_DECL_INIT(buffer_dup, poly, 16, 4);
+VECT_VAR_DECL(buffer_dup_pad, poly, 16, 4);
 VECT_VAR_DECL_INIT4(buffer_dup, float, 32, 2);
 VECT_VAR_DECL(buffer_dup_pad, float, 32, 2);
 VECT_VAR_DECL_INIT(buffer_dup, int, 8, 16);
@@ -171,6 +207,10 @@ VECT_VAR_DECL_INIT(buffer_dup, uint, 32, 4);
 VECT_VAR_DECL(buffer_dup_pad, uint, 32, 4);
 VECT_VAR_DECL_INIT4(buffer_dup, uint, 64, 2);
 VECT_VAR_DECL(buffer_dup_pad, uint, 64, 2);
+VECT_VAR_DECL_INIT(buffer_dup, poly, 8, 16);
+VECT_VAR_DECL(buffer_dup_pad, poly, 8, 16);
+VECT_VAR_DECL_INIT(buffer_dup, poly, 16, 8);
+VECT_VAR_DECL(buffer_dup_pad, poly, 16, 8);
 VECT_VAR_DECL_INIT(buffer_dup, float, 32, 4);
 VECT_VAR_DECL(buffer_dup_pad, float, 32, 4);
 
@@ -191,6 +231,10 @@ VECT_ARRAY_INIT2(buffer_vld2, uint, 32, 2);
 PAD(buffer_vld2_pad, uint, 32, 2);
 VECT_ARRAY_INIT2(buffer_vld2, uint, 64, 1);
 PAD(buffer_vld2_pad, uint, 64, 1);
+VECT_ARRAY_INIT2(buffer_vld2, poly, 8, 8);
+PAD(buffer_vld2_pad, poly, 8, 8);
+VECT_ARRAY_INIT2(buffer_vld2, poly, 16, 4);
+PAD(buffer_vld2_pad, poly, 16, 4);
 VECT_ARRAY_INIT2(buffer_vld2, float, 32, 2);
 PAD(buffer_vld2_pad, float, 32, 2);
 VECT_ARRAY_INIT2(buffer_vld2, int, 8, 16);
@@ -209,6 +253,10 @@ VECT_ARRAY_INIT2(buffer_vld2, uint, 32, 4);
 PAD(buffer_vld2_pad, uint, 32, 4);
 VECT_ARRAY_INIT2(buffer_vld2, uint, 64, 2);
 PAD(buffer_vld2_pad, uint, 64, 2);
+VECT_ARRAY_INIT2(buffer_vld2, poly, 8, 16);
+PAD(buffer_vld2_pad, poly, 8, 16);
+VECT_ARRAY_INIT2(buffer_vld2, poly, 16, 8);
+PAD(buffer_vld2_pad, poly, 16, 8);
 VECT_ARRAY_INIT2(buffer_vld2, float, 32, 4);
 PAD(buffer_vld2_pad, float, 32, 4);
 
@@ -229,6 +277,10 @@ VECT_ARRAY_INIT3(buffer_vld3, uint, 32, 2);
 PAD(buffer_vld3_pad, uint, 32, 2);
 VECT_ARRAY_INIT3(buffer_vld3, uint, 64, 1);
 PAD(buffer_vld3_pad, uint, 64, 1);
+VECT_ARRAY_INIT3(buffer_vld3, poly, 8, 8);
+PAD(buffer_vld3_pad, poly, 8, 8);
+VECT_ARRAY_INIT3(buffer_vld3, poly, 16, 4);
+PAD(buffer_vld3_pad, poly, 16, 4);
 VECT_ARRAY_INIT3(buffer_vld3, float, 32, 2);
 PAD(buffer_vld3_pad, float, 32, 2);
 VECT_ARRAY_INIT3(buffer_vld3, int, 8, 16);
@@ -247,6 +299,10 @@ VECT_ARRAY_INIT3(buffer_vld3, uint, 32, 4);
 PAD(buffer_vld3_pad, uint, 32, 4);
 VECT_ARRAY_INIT3(buffer_vld3, uint, 64, 2);
 PAD(buffer_vld3_pad, uint, 64, 2);
+VECT_ARRAY_INIT3(buffer_vld3, poly, 8, 16);
+PAD(buffer_vld3_pad, poly, 8, 16);
+VECT_ARRAY_INIT3(buffer_vld3, poly, 16, 8);
+PAD(buffer_vld3_pad, poly, 16, 8);
 VECT_ARRAY_INIT3(buffer_vld3, float, 32, 4);
 PAD(buffer_vld3_pad, float, 32, 4);
 
@@ -267,6 +323,10 @@ VECT_ARRAY_INIT4(buffer_vld4, uint, 32, 2);
 PAD(buffer_vld4_pad, uint, 32, 2);
 VECT_ARRAY_INIT4(buffer_vld4, uint, 64, 1);
 PAD(buffer_vld4_pad, uint, 64, 1);
+VECT_ARRAY_INIT4(buffer_vld4, poly, 8, 8);
+PAD(buffer_vld4_pad, poly, 8, 8);
+VECT_ARRAY_INIT4(buffer_vld4, poly, 16, 4);
+PAD(buffer_vld4_pad, poly, 16, 4);
 VECT_ARRAY_INIT4(buffer_vld4, float, 32, 2);
 PAD(buffer_vld4_pad, float, 32, 2);
 VECT_ARRAY_INIT4(buffer_vld4, int, 8, 16);
@@ -285,6 +345,10 @@ VECT_ARRAY_INIT4(buffer_vld4, uint, 32, 4);
 PAD(buffer_vld4_pad, uint, 32, 4);
 VECT_ARRAY_INIT4(buffer_vld4, uint, 64, 2);
 PAD(buffer_vld4_pad, uint, 64, 2);
+VECT_ARRAY_INIT4(buffer_vld4, poly, 8, 16);
+PAD(buffer_vld4_pad, poly, 8, 16);
+VECT_ARRAY_INIT4(buffer_vld4, poly, 16, 8);
+PAD(buffer_vld4_pad, poly, 16, 8);
 VECT_ARRAY_INIT4(buffer_vld4, float, 32, 4);
 PAD(buffer_vld4_pad, float, 32, 4);
 
@@ -297,6 +361,8 @@ VECT_VAR_DECL_INIT(buffer_vld2_lane, uint, 8, 2);
 VECT_VAR_DECL_INIT(buffer_vld2_lane, uint, 16, 2);
 VECT_VAR_DECL_INIT(buffer_vld2_lane, uint, 32, 2);
 VECT_VAR_DECL_INIT(buffer_vld2_lane, uint, 64, 2);
+VECT_VAR_DECL_INIT(buffer_vld2_lane, poly, 8, 2);
+VECT_VAR_DECL_INIT(buffer_vld2_lane, poly, 16, 2);
 VECT_VAR_DECL_INIT(buffer_vld2_lane, float, 32, 2);
 
 /* Input buffers for vld3_lane */
@@ -308,6 +374,8 @@ VECT_VAR_DECL_INIT(buffer_vld3_lane, uint, 8, 3);
 VECT_VAR_DECL_INIT(buffer_vld3_lane, uint, 16, 3);
 VECT_VAR_DECL_INIT(buffer_vld3_lane, uint, 32, 3);
 VECT_VAR_DECL_INIT(buffer_vld3_lane, uint, 64, 3);
+VECT_VAR_DECL_INIT(buffer_vld3_lane, poly, 8, 3);
+VECT_VAR_DECL_INIT(buffer_vld3_lane, poly, 16, 3);
 VECT_VAR_DECL_INIT(buffer_vld3_lane, float, 32, 3);
 
 /* Input buffers for vld4_lane */
@@ -319,4 +387,6 @@ VECT_VAR_DECL_INIT(buffer_vld4_lane, uint, 8, 4);
 VECT_VAR_DECL_INIT(buffer_vld4_lane, uint, 16, 4);
 VECT_VAR_DECL_INIT(buffer_vld4_lane, uint, 32, 4);
 VECT_VAR_DECL_INIT(buffer_vld4_lane, uint, 64, 4);
+VECT_VAR_DECL_INIT(buffer_vld4_lane, poly, 8, 4);
+VECT_VAR_DECL_INIT(buffer_vld4_lane, poly, 16, 4);
 VECT_VAR_DECL_INIT(buffer_vld4_lane, float, 32, 4);

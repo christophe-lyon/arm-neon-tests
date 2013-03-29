@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -82,11 +82,14 @@ void exec_vstX_lane (void)
   DECL_VSTX_LANE(uint, 8, 8, X);		\
   DECL_VSTX_LANE(uint, 16, 4, X);		\
   DECL_VSTX_LANE(uint, 32, 2, X);		\
+  DECL_VSTX_LANE(poly, 8, 8, X);		\
+  DECL_VSTX_LANE(poly, 16, 4, X);		\
   DECL_VSTX_LANE(float, 32, 2, X);		\
   DECL_VSTX_LANE(int, 16, 8, X);		\
   DECL_VSTX_LANE(int, 32, 4, X);		\
   DECL_VSTX_LANE(uint, 16, 8, X);		\
   DECL_VSTX_LANE(uint, 32, 4, X);		\
+  DECL_VSTX_LANE(poly, 16, 8, X);		\
   DECL_VSTX_LANE(float, 32, 4, X)
 
 #define DUMMY_ARRAY(V, T, W, N, L) VECT_VAR_DECL(V,T,W,N)[N*L]
@@ -101,10 +104,13 @@ void exec_vstX_lane (void)
   TEST_VSTX_LANE(, uint, u, 8, 8, X, 4);	\
   TEST_VSTX_LANE(, uint, u, 16, 4, X, 3);	\
   TEST_VSTX_LANE(, uint, u, 32, 2, X, 1);	\
+  TEST_VSTX_LANE(, poly, p, 8, 8, X, 4);	\
+  TEST_VSTX_LANE(, poly, p, 16, 4, X, 3);	\
   TEST_VSTX_LANE(q, int, s, 16, 8, X, 6);	\
   TEST_VSTX_LANE(q, int, s, 32, 4, X, 2);	\
   TEST_VSTX_LANE(q, uint, u, 16, 8, X, 5);	\
   TEST_VSTX_LANE(q, uint, u, 32, 4, X, 0);	\
+  TEST_VSTX_LANE(q, poly, p, 16, 8, X, 5);	\
   TEST_VSTX_LANE(q, float, f, 32, 4, X, 2)
 
 #define TEST_ALL_EXTRA_CHUNKS(X, Y)		\
@@ -114,11 +120,14 @@ void exec_vstX_lane (void)
   TEST_EXTRA_CHUNK(uint, 8, 8, X, Y);		\
   TEST_EXTRA_CHUNK(uint, 16, 4, X, Y);		\
   TEST_EXTRA_CHUNK(uint, 32, 2, X, Y);		\
+  TEST_EXTRA_CHUNK(poly, 8, 8, X, Y);		\
+  TEST_EXTRA_CHUNK(poly, 16, 4, X, Y);		\
   TEST_EXTRA_CHUNK(float, 32, 2, X, Y);		\
   TEST_EXTRA_CHUNK(int, 16, 8, X, Y);		\
   TEST_EXTRA_CHUNK(int, 32, 4, X, Y);		\
   TEST_EXTRA_CHUNK(uint, 16, 8, X, Y);		\
   TEST_EXTRA_CHUNK(uint, 32, 4, X, Y);		\
+  TEST_EXTRA_CHUNK(poly, 16, 8, X, Y);		\
   TEST_EXTRA_CHUNK(float, 32, 4, X, Y)
 
   /* Declare the temporary buffers / variables */
@@ -133,11 +142,14 @@ void exec_vstX_lane (void)
   DUMMY_ARRAY(buffer_src, uint, 8, 8, 4);
   DUMMY_ARRAY(buffer_src, uint, 16, 4, 4);
   DUMMY_ARRAY(buffer_src, uint, 32, 2, 4);
+  DUMMY_ARRAY(buffer_src, poly, 8, 8, 4);
+  DUMMY_ARRAY(buffer_src, poly, 16, 4, 4);
   DUMMY_ARRAY(buffer_src, float, 32, 2, 4);
   DUMMY_ARRAY(buffer_src, int, 16, 8, 4);
   DUMMY_ARRAY(buffer_src, int, 32, 4, 4);
   DUMMY_ARRAY(buffer_src, uint, 16, 8, 4);
   DUMMY_ARRAY(buffer_src, uint, 32, 4, 4);
+  DUMMY_ARRAY(buffer_src, poly, 16, 8, 4);
   DUMMY_ARRAY(buffer_src, float, 32, 4, 4);
 
   /* Check vst2_lane/vst2q_lane */

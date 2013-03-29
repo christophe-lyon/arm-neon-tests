@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -58,6 +58,8 @@ void exec_vget_high (void)
   TEST_VGET_HIGH(uint, u, 16, 4, 8);
   TEST_VGET_HIGH(uint, u, 32, 2, 4);
   TEST_VGET_HIGH(uint, u, 64, 1, 2);
+  TEST_VGET_HIGH(poly, p, 8, 8, 16);
+  TEST_VGET_HIGH(poly, p, 16, 4, 8);
   TEST_VGET_HIGH(float, f, 32, 2, 4);
 
   dump_results_hex (TEST_MSG);

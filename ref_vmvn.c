@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -58,12 +58,14 @@ FNNAME (INSN_NAME)
   DECL_VARIABLE(vector, uint, 8, 8);
   DECL_VARIABLE(vector, uint, 16, 4);
   DECL_VARIABLE(vector, uint, 32, 2);
+  DECL_VARIABLE(vector, poly, 8, 8);
   DECL_VARIABLE(vector, int, 8, 16);
   DECL_VARIABLE(vector, int, 16, 8);
   DECL_VARIABLE(vector, int, 32, 4);
   DECL_VARIABLE(vector, uint, 8, 16);
   DECL_VARIABLE(vector, uint, 16, 8);
   DECL_VARIABLE(vector, uint, 32, 4);
+  DECL_VARIABLE(vector, poly, 8, 16);
 
   DECL_VARIABLE(vector_res, int, 8, 8);
   DECL_VARIABLE(vector_res, int, 16, 4);
@@ -71,12 +73,14 @@ FNNAME (INSN_NAME)
   DECL_VARIABLE(vector_res, uint, 8, 8);
   DECL_VARIABLE(vector_res, uint, 16, 4);
   DECL_VARIABLE(vector_res, uint, 32, 2);
+  DECL_VARIABLE(vector_res, poly, 8, 8);
   DECL_VARIABLE(vector_res, int, 8, 16);
   DECL_VARIABLE(vector_res, int, 16, 8);
   DECL_VARIABLE(vector_res, int, 32, 4);
   DECL_VARIABLE(vector_res, uint, 8, 16);
   DECL_VARIABLE(vector_res, uint, 16, 8);
   DECL_VARIABLE(vector_res, uint, 32, 4);
+  DECL_VARIABLE(vector_res, poly, 8, 16);
 
   clean_results ();
 
@@ -87,12 +91,14 @@ FNNAME (INSN_NAME)
   TEST_VLOAD(vector, buffer, , uint, u, 8, 8);
   TEST_VLOAD(vector, buffer, , uint, u, 16, 4);
   TEST_VLOAD(vector, buffer, , uint, u, 32, 2);
+  TEST_VLOAD(vector, buffer, , poly, p, 8, 8);
   TEST_VLOAD(vector, buffer, q, int, s, 8, 16);
   TEST_VLOAD(vector, buffer, q, int, s, 16, 8);
   TEST_VLOAD(vector, buffer, q, int, s, 32, 4);
   TEST_VLOAD(vector, buffer, q, uint, u, 8, 16);
   TEST_VLOAD(vector, buffer, q, uint, u, 16, 8);
   TEST_VLOAD(vector, buffer, q, uint, u, 32, 4);
+  TEST_VLOAD(vector, buffer, q, poly, p, 8, 16);
 
   /* Apply a unary operator named INSN_NAME  */
   TEST_UNARY_OP(INSN_NAME, , int, s, 8, 8);
@@ -101,12 +107,14 @@ FNNAME (INSN_NAME)
   TEST_UNARY_OP(INSN_NAME, , uint, u, 8, 8);
   TEST_UNARY_OP(INSN_NAME, , uint, u, 16, 4);
   TEST_UNARY_OP(INSN_NAME, , uint, u, 32, 2);
+  TEST_UNARY_OP(INSN_NAME, , poly, p, 8, 8);
   TEST_UNARY_OP(INSN_NAME, q, int, s, 8, 16);
   TEST_UNARY_OP(INSN_NAME, q, int, s, 16, 8);
   TEST_UNARY_OP(INSN_NAME, q, int, s, 32, 4);
   TEST_UNARY_OP(INSN_NAME, q, uint, u, 8, 16);
   TEST_UNARY_OP(INSN_NAME, q, uint, u, 16, 8);
   TEST_UNARY_OP(INSN_NAME, q, uint, u, 32, 4);
+  TEST_UNARY_OP(INSN_NAME, q, poly, p, 8, 16);
 
   dump_results_hex (TEST_MSG);
 }

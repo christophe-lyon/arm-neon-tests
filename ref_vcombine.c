@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -48,7 +48,6 @@ void exec_vcombine (void)
   DECL_VARIABLE_128BITS_VARIANTS(vector128);
 
   TEST_MACRO_64BITS_VARIANTS_2_5(TEST_VLOAD, vector64_a, buffer);
-
   TEST_VLOAD(vector64_a, buffer, , float, f, 32, 2);
 
   TEST_VDUP(vector64_b, , int, s, 8, 8, 0x11);
@@ -59,6 +58,8 @@ void exec_vcombine (void)
   TEST_VDUP(vector64_b, , uint, u, 16, 4, 0x66);
   TEST_VDUP(vector64_b, , uint, u, 32, 2, 0x77);
   TEST_VDUP(vector64_b, , uint, u, 64, 1, 0x88);
+  TEST_VDUP(vector64_b, , poly, p, 8, 8, 0x55);
+  TEST_VDUP(vector64_b, , poly, p, 16, 4, 0x66);
   TEST_VDUP(vector64_b, , float, f, 32, 2, 3.3f);
 
   clean_results ();
@@ -71,6 +72,8 @@ void exec_vcombine (void)
   TEST_VCOMBINE(uint, u, 16, 4, 8);
   TEST_VCOMBINE(uint, u, 32, 2, 4);
   TEST_VCOMBINE(uint, u, 64, 1, 2);
+  TEST_VCOMBINE(poly, p, 8, 8, 16);
+  TEST_VCOMBINE(poly, p, 16, 4, 8);
   TEST_VCOMBINE(float, f, 32, 2, 4);
 
   dump_results_hex (TEST_MSG);

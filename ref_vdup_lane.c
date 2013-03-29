@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -61,6 +61,8 @@ void exec_vdup_lane (void)
   TEST_VDUP_LANE(, uint, u, 16, 4, 4, 3);
   TEST_VDUP_LANE(, uint, u, 32, 2, 2, 1);
   TEST_VDUP_LANE(, uint, u, 64, 1, 1, 0);
+  TEST_VDUP_LANE(, poly, p, 8, 8, 8, 7);
+  TEST_VDUP_LANE(, poly, p, 16, 4, 4, 3);
   TEST_VDUP_LANE(, float, f, 32, 2, 2, 1);
 
   TEST_VDUP_LANE(q, int, s, 8, 16, 8, 2);
@@ -71,6 +73,8 @@ void exec_vdup_lane (void)
   TEST_VDUP_LANE(q, uint, u, 16, 8, 4, 1);
   TEST_VDUP_LANE(q, uint, u, 32, 4, 2, 0);
   TEST_VDUP_LANE(q, uint, u, 64, 2, 1, 0);
+  TEST_VDUP_LANE(q, poly, p, 8, 16, 8, 5);
+  TEST_VDUP_LANE(q, poly, p, 16, 8, 4, 1);
   TEST_VDUP_LANE(q, float, f, 32, 4, 2, 1);
 
   dump_results_hex (TEST_MSG);

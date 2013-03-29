@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -79,6 +79,8 @@ FNNAME (INSN_NAME)
   DECL_VUZP(uint, 8, 8);			\
   DECL_VUZP(uint, 16, 4);			\
   DECL_VUZP(uint, 32, 2);			\
+  DECL_VUZP(poly, 8, 8);			\
+  DECL_VUZP(poly, 16, 4);			\
   DECL_VUZP(float, 32, 2);			\
   DECL_VUZP(int, 8, 16);			\
   DECL_VUZP(int, 16, 8);			\
@@ -86,6 +88,8 @@ FNNAME (INSN_NAME)
   DECL_VUZP(uint, 8, 16);			\
   DECL_VUZP(uint, 16, 8);			\
   DECL_VUZP(uint, 32, 4);			\
+  DECL_VUZP(poly, 8, 16);			\
+  DECL_VUZP(poly, 16, 8);			\
   DECL_VUZP(float, 32, 4)
 
   DECL_ALL_VUZP();
@@ -102,6 +106,8 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, , uint, u, 8, 8, 0x55);
   TEST_VDUP(vector2, , uint, u, 16, 4, 0x66);
   TEST_VDUP(vector2, , uint, u, 32, 2, 0x77);
+  TEST_VDUP(vector2, , poly, p, 8, 8, 0x55);
+  TEST_VDUP(vector2, , poly, p, 16, 4, 0x66);
   TEST_VDUP(vector2, , float, f, 32, 2, 33.6f);
 
   TEST_VDUP(vector2, q, int, s, 8, 16, 0x11);
@@ -110,6 +116,8 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, q, uint, u, 8, 16, 0x55);
   TEST_VDUP(vector2, q, uint, u, 16, 8, 0x66);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 0x77);
+  TEST_VDUP(vector2, q, poly, p, 8, 16, 0x55);
+  TEST_VDUP(vector2, q, poly, p, 16, 8, 0x66);
   TEST_VDUP(vector2, q, float, f, 32, 4, 33.8f);
 
 #define TEST_ALL_VUZP(INSN)			\
@@ -119,6 +127,8 @@ FNNAME (INSN_NAME)
   TEST_VUZP(INSN, , uint, u, 8, 8);		\
   TEST_VUZP(INSN, , uint, u, 16, 4);		\
   TEST_VUZP(INSN, , uint, u, 32, 2);		\
+  TEST_VUZP(INSN, , poly, p, 8, 8);		\
+  TEST_VUZP(INSN, , poly, p, 16, 4);		\
   TEST_VUZP(INSN, , float, f, 32, 2);		\
   TEST_VUZP(INSN, q, int, s, 8, 16);		\
   TEST_VUZP(INSN, q, int, s, 16, 8);		\
@@ -126,6 +136,8 @@ FNNAME (INSN_NAME)
   TEST_VUZP(INSN, q, uint, u, 8, 16);		\
   TEST_VUZP(INSN, q, uint, u, 16, 8);		\
   TEST_VUZP(INSN, q, uint, u, 32, 4);		\
+  TEST_VUZP(INSN, q, poly, p, 8, 16);		\
+  TEST_VUZP(INSN, q, poly, p, 16, 8);		\
   TEST_VUZP(INSN, q, float, f, 32, 4)
 
 #define TEST_ALL_EXTRA_CHUNKS()			\
@@ -135,6 +147,8 @@ FNNAME (INSN_NAME)
   TEST_EXTRA_CHUNK(uint, 8, 8, 1);		\
   TEST_EXTRA_CHUNK(uint, 16, 4, 1);		\
   TEST_EXTRA_CHUNK(uint, 32, 2, 1);		\
+  TEST_EXTRA_CHUNK(poly, 8, 8, 1);		\
+  TEST_EXTRA_CHUNK(poly, 16, 4, 1);		\
   TEST_EXTRA_CHUNK(float, 32, 2, 1);		\
   TEST_EXTRA_CHUNK(int, 8, 16, 1);		\
   TEST_EXTRA_CHUNK(int, 16, 8, 1);		\
@@ -142,6 +156,8 @@ FNNAME (INSN_NAME)
   TEST_EXTRA_CHUNK(uint, 8, 16, 1);		\
   TEST_EXTRA_CHUNK(uint, 16, 8, 1);		\
   TEST_EXTRA_CHUNK(uint, 32, 4, 1);		\
+  TEST_EXTRA_CHUNK(poly, 8, 16, 1);		\
+  TEST_EXTRA_CHUNK(poly, 16, 8, 1);		\
   TEST_EXTRA_CHUNK(float, 32, 4, 1)
 
   /* Check vuzp/vuzpq */

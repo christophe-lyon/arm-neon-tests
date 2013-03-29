@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -49,12 +49,14 @@ void exec_vmull (void)
   DECL_VARIABLE(vector, uint, 8, 8);
   DECL_VARIABLE(vector, uint, 16, 4);
   DECL_VARIABLE(vector, uint, 32, 2);
+  DECL_VARIABLE(vector, poly, 8, 8);
   DECL_VARIABLE(vector_res, int, 16, 8);
   DECL_VARIABLE(vector_res, int, 32, 4);
   DECL_VARIABLE(vector_res, int, 64, 2);
   DECL_VARIABLE(vector_res, uint, 16, 8);
   DECL_VARIABLE(vector_res, uint, 32, 4);
   DECL_VARIABLE(vector_res, uint, 64, 2);
+  DECL_VARIABLE(vector_res, poly, 16, 8);
 
   clean_results ();
 
@@ -64,6 +66,7 @@ void exec_vmull (void)
   TEST_VLOAD(vector, buffer, , uint, u, 8, 8);
   TEST_VLOAD(vector, buffer, , uint, u, 16, 4);
   TEST_VLOAD(vector, buffer, , uint, u, 32, 2);
+  TEST_VLOAD(vector, buffer, , poly, p, 8, 8);
 
   TEST_VMULL(int, s, 8, 16, 8);
   TEST_VMULL(int, s, 16, 32, 4);
@@ -71,6 +74,7 @@ void exec_vmull (void)
   TEST_VMULL(uint, u, 8, 16, 8);
   TEST_VMULL(uint, u, 16, 32, 4);
   TEST_VMULL(uint, u, 32, 64, 2);
+  TEST_VMULL(poly, p, 8, 16, 8);
 
   /* FIXME: only a few result buffers are used, but we output all of them */
   dump_results_hex (TEST_MSG);

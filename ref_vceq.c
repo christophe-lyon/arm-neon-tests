@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,4 +26,38 @@ THE SOFTWARE.
 #define INSN_NAME vceq
 #define TEST_MSG "VCEQ/VCEQQ"
 
+/* Extra tests for _p8 variants, which exist only for vceq */
+void exec_vceq_p8(void);
+#define EXTRA_TESTS exec_vceq_p8
+
 #include "ref_v_comp_op.c"
+
+void exec_vceq_p8(void)
+{
+  int i;  /* Used by DUMP() */
+
+  DECL_VARIABLE(vector, poly, 8, 8);
+  DECL_VARIABLE(vector, poly, 8, 16);
+
+  DECL_VARIABLE(vector2, poly, 8, 8);
+  DECL_VARIABLE(vector2, poly, 8, 16);
+
+  DECL_VARIABLE(vector_res, uint, 8, 8);
+  DECL_VARIABLE(vector_res, uint, 8, 16);
+
+  clean_results ();
+
+  TEST_VLOAD(vector, buffer, , poly, p, 8, 8);
+  TEST_VLOAD(vector, buffer, q, poly, p, 8, 16);
+
+  TEST_VDUP(vector2, , poly, p, 8, 8, 0xF3);
+  TEST_VDUP(vector2, q, poly, p, 8, 16, 0xF4);
+
+  fprintf(ref_file, "\n%s output:\n", TEST_MSG " p8");
+  TEST_VCOMP(INSN_NAME, , poly, p, uint, 8, 8);
+  TEST_VCOMP(INSN_NAME, q, poly, p, uint, 8, 16);
+
+  DUMP(TEST_MSG, uint, 8, 8, PRIx8);
+  DUMP(TEST_MSG, uint, 8, 16, PRIx8);
+
+}

@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -72,6 +72,8 @@ void exec_vldX (void)
   DECL_VLDX(uint, 16, 4, X);			\
   DECL_VLDX(uint, 32, 2, X);			\
   DECL_VLDX(uint, 64, 1, X);			\
+  DECL_VLDX(poly, 8, 8, X);			\
+  DECL_VLDX(poly, 16, 4, X);			\
   DECL_VLDX(float, 32, 2, X);			\
   DECL_VLDX(int, 8, 16, X);			\
   DECL_VLDX(int, 16, 8, X);			\
@@ -79,6 +81,8 @@ void exec_vldX (void)
   DECL_VLDX(uint, 8, 16, X);			\
   DECL_VLDX(uint, 16, 8, X);			\
   DECL_VLDX(uint, 32, 4, X);			\
+  DECL_VLDX(poly, 8, 16, X);			\
+  DECL_VLDX(poly, 16, 8, X);			\
   DECL_VLDX(float, 32, 4, X)
 
 #define TEST_ALL_VLDX(X)			\
@@ -90,6 +94,8 @@ void exec_vldX (void)
   TEST_VLDX(, uint, u, 16, 4, X);		\
   TEST_VLDX(, uint, u, 32, 2, X);		\
   TEST_VLDX(, uint, u, 64, 1, X);		\
+  TEST_VLDX(, poly, p, 8, 8, X);		\
+  TEST_VLDX(, poly, p, 16, 4, X);		\
   TEST_VLDX(, float, f, 32, 2, X);		\
   TEST_VLDX(q, int, s, 8, 16, X);		\
   TEST_VLDX(q, int, s, 16, 8, X);		\
@@ -97,6 +103,8 @@ void exec_vldX (void)
   TEST_VLDX(q, uint, u, 8, 16, X);		\
   TEST_VLDX(q, uint, u, 16, 8, X);		\
   TEST_VLDX(q, uint, u, 32, 4, X);		\
+  TEST_VLDX(q, poly, p, 8, 16, X);		\
+  TEST_VLDX(q, poly, p, 16, 8, X);		\
   TEST_VLDX(q, float, f, 32, 4, X)
 
 #define TEST_ALL_EXTRA_CHUNKS(X, Y)		\
@@ -108,6 +116,8 @@ void exec_vldX (void)
   TEST_EXTRA_CHUNK(uint, 16, 4, X, Y);		\
   TEST_EXTRA_CHUNK(uint, 32, 2, X, Y);		\
   TEST_EXTRA_CHUNK(uint, 64, 1, X, Y);		\
+  TEST_EXTRA_CHUNK(poly, 8, 8, X, Y);		\
+  TEST_EXTRA_CHUNK(poly, 16, 4, X, Y);		\
   TEST_EXTRA_CHUNK(float, 32, 2, X, Y);		\
   TEST_EXTRA_CHUNK(int, 8, 16, X, Y);		\
   TEST_EXTRA_CHUNK(int, 16, 8, X, Y);		\
@@ -115,6 +125,8 @@ void exec_vldX (void)
   TEST_EXTRA_CHUNK(uint, 8, 16, X, Y);		\
   TEST_EXTRA_CHUNK(uint, 16, 8, X, Y);		\
   TEST_EXTRA_CHUNK(uint, 32, 4, X, Y);		\
+  TEST_EXTRA_CHUNK(poly, 8, 16, X, Y);		\
+  TEST_EXTRA_CHUNK(poly, 16, 8, X, Y);		\
   TEST_EXTRA_CHUNK(float, 32, 4, X, Y)
 
   DECL_ALL_VLDX(2);

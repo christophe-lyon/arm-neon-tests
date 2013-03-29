@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -41,23 +41,23 @@ void exec_vtbX (void)
 
   /* The vtbl1 variant is different from vtbl{2,3,4} because it takes a
      vector as 1st param, instead of an array of vectors */
-#define TEST_VTBL1(T1, T2, W, N)			\
+#define TEST_VTBL1(T1, T2, T3, W, N)			\
   VECT_VAR(table_vector, T1, W, N) =			\
     vld1##_##T2##W((T1##W##_t *)lookup_table);		\
 							\
   VECT_VAR(vector_res, T1, W, N) =			\
     vtbl1_##T2##W(VECT_VAR(table_vector, T1, W, N),	\
-		  VECT_VAR(vector, T1, W, N));		\
+		  VECT_VAR(vector, T3, W, N));		\
   vst1_##T2##W(VECT_VAR(result, T1, W, N),		\
 	       VECT_VAR(vector_res, T1, W, N));
 
-#define TEST_VTBLX(T1, T2, W, N, X)					\
+#define TEST_VTBLX(T1, T2, T3, W, N, X)					\
   VECT_ARRAY_VAR(table_vector, T1, W, N, X) =				\
     vld##X##_##T2##W((T1##W##_t *)lookup_table);			\
 									\
   VECT_VAR(vector_res, T1, W, N) =					\
     vtbl##X##_##T2##W(VECT_ARRAY_VAR(table_vector, T1, W, N, X),	\
-		      VECT_VAR(vector, T1, W, N));			\
+		      VECT_VAR(vector, T3, W, N));			\
   vst1_##T2##W(VECT_VAR(result, T1, W, N),				\
 	       VECT_VAR(vector_res, T1, W, N));
 
@@ -69,29 +69,36 @@ void exec_vtbX (void)
 
   DECL_VARIABLE(vector, int, 8, 8);
   DECL_VARIABLE(vector, uint, 8, 8);
+  DECL_VARIABLE(vector, poly, 8, 8);
   DECL_VARIABLE(vector_res, int, 8, 8);
   DECL_VARIABLE(vector_res, uint, 8, 8);
+  DECL_VARIABLE(vector_res, poly, 8, 8);
 
   /* For vtbl1 */
   DECL_VARIABLE(table_vector, int, 8, 8);
   DECL_VARIABLE(table_vector, uint, 8, 8);
+  DECL_VARIABLE(table_vector, poly, 8, 8);
 
   /* For vtbx* */
   DECL_VARIABLE(default_vector, int, 8, 8);
   DECL_VARIABLE(default_vector, uint, 8, 8);
+  DECL_VARIABLE(default_vector, poly, 8, 8);
 
   /* We need only 8 bits variants */
 #define DECL_ALL_VTBLX(X)			\
   DECL_VTBX(int, 8, 8, X);			\
-  DECL_VTBX(uint, 8, 8, X)
+  DECL_VTBX(uint, 8, 8, X);			\
+  DECL_VTBX(poly, 8, 8, X)
 
 #define TEST_ALL_VTBL1()			\
-  TEST_VTBL1(int, s, 8, 8);			\
-  TEST_VTBL1(uint, u, 8, 8)
+  TEST_VTBL1(int, s, int, 8, 8);		\
+  TEST_VTBL1(uint, u, uint, 8, 8);		\
+  TEST_VTBL1(poly, p, uint, 8, 8)
 
 #define TEST_ALL_VTBLX(X)			\
-  TEST_VTBLX(int, s, 8, 8, X);			\
-  TEST_VTBLX(uint, u, 8, 8, X)
+  TEST_VTBLX(int, s, int, 8, 8, X);		\
+  TEST_VTBLX(uint, u, uint, 8, 8, X);		\
+  TEST_VTBLX(poly, p, uint, 8, 8, X)
 
   /* Declare the temporary buffers / variables */
   DECL_ALL_VTBLX(2);
@@ -106,6 +113,7 @@ void exec_vtbX (void)
   /* Choose init value arbitrarily, will be used as table index */
   TEST_VDUP(vector, , int, s, 8, 8, 1);
   TEST_VDUP(vector, , uint, u, 8, 8, 2);
+  TEST_VDUP(vector, , poly, p, 8, 8, 2);
 
   /* To ensure code coverage of lib, add some indexes larger than 8,16 and 32 */
   /* except: lane 0 (by 6), lane 1 (by 8) and lane 2 (by 9) */
@@ -115,6 +123,9 @@ void exec_vtbX (void)
   TEST_VSET_LANE(vector, , uint, u, 8, 8, 0, 10);
   TEST_VSET_LANE(vector, , uint, u, 8, 8, 4, 20);
   TEST_VSET_LANE(vector, , uint, u, 8, 8, 5, 40);
+  TEST_VSET_LANE(vector, , poly, p, 8, 8, 0, 10);
+  TEST_VSET_LANE(vector, , poly, p, 8, 8, 4, 20);
+  TEST_VSET_LANE(vector, , poly, p, 8, 8, 5, 40);
 
 
   /* Check vtbl1 */
@@ -149,39 +160,42 @@ void exec_vtbX (void)
 
   /* The vtbx1 variant is different from vtbx{2,3,4} because it takes a
      vector as 1st param, instead of an array of vectors */
-#define TEST_VTBX1(T1, T2, W, N)			\
+#define TEST_VTBX1(T1, T2, T3, W, N)			\
   VECT_VAR(table_vector, T1, W, N) =			\
     vld1##_##T2##W((T1##W##_t *)lookup_table);		\
 							\
   VECT_VAR(vector_res, T1, W, N) =			\
     vtbx1_##T2##W(VECT_VAR(default_vector, T1, W, N),	\
 		  VECT_VAR(table_vector, T1, W, N),	\
-		  VECT_VAR(vector, T1, W, N));		\
+		  VECT_VAR(vector, T3, W, N));		\
   vst1_##T2##W(VECT_VAR(result, T1, W, N),		\
 	       VECT_VAR(vector_res, T1, W, N));
 
-#define TEST_VTBXX(T1, T2, W, N, X)					\
+#define TEST_VTBXX(T1, T2, T3, W, N, X)					\
   VECT_ARRAY_VAR(table_vector, T1, W, N, X) =				\
     vld##X##_##T2##W((T1##W##_t *)lookup_table);			\
 									\
   VECT_VAR(vector_res, T1, W, N) =					\
     vtbx##X##_##T2##W(VECT_VAR(default_vector, T1, W, N),		\
 		      VECT_ARRAY_VAR(table_vector, T1, W, N, X),	\
-		      VECT_VAR(vector, T1, W, N));			\
+		      VECT_VAR(vector, T3, W, N));			\
   vst1_##T2##W(VECT_VAR(result, T1, W, N),				\
 	       VECT_VAR(vector_res, T1, W, N));
 
 #define TEST_ALL_VTBX1()			\
-  TEST_VTBX1(int, s, 8, 8);			\
-  TEST_VTBX1(uint, u, 8, 8)
+  TEST_VTBX1(int, s, int, 8, 8);		\
+  TEST_VTBX1(uint, u, uint, 8, 8);		\
+  TEST_VTBX1(poly, p, uint, 8, 8)
 
 #define TEST_ALL_VTBXX(X)			\
-  TEST_VTBXX(int, s, 8, 8, X);			\
-  TEST_VTBXX(uint, u, 8, 8, X)
+  TEST_VTBXX(int, s, int, 8, 8, X);		\
+  TEST_VTBXX(uint, u, uint, 8, 8, X);		\
+  TEST_VTBXX(poly, p, uint, 8, 8, X)
 
   /* Choose init value arbitrarily, will be used as default value */
   TEST_VDUP(default_vector, , int, s, 8, 8, 0x33);
   TEST_VDUP(default_vector, , uint, u, 8, 8, 0xCC);
+  TEST_VDUP(default_vector, , poly, p, 8, 8, 0xCC);
 
   /* Check vtbx1 */
   clean_results ();

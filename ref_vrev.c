@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -58,8 +58,10 @@ void exec_vrev (void)
 #define TEST_MSG "VREV16"
   TEST_VREV(, int, s, 8, 8, 16);
   TEST_VREV(, uint, u, 8, 8, 16);
+  TEST_VREV(, poly, p, 8, 8, 16);
   TEST_VREV(q, int, s, 8, 16, 16);
   TEST_VREV(q, uint, u, 8, 16, 16);
+  TEST_VREV(q, poly, p, 8, 16, 16);
   dump_results_hex (TEST_MSG);
 
 #undef TEST_MSG
@@ -68,10 +70,14 @@ void exec_vrev (void)
   TEST_VREV(, int, s, 16, 4, 32);
   TEST_VREV(, uint, u, 8, 8, 32);
   TEST_VREV(, uint, u, 16, 4, 32);
+  TEST_VREV(, poly, p, 8, 8, 32);
+  TEST_VREV(, poly, p, 16, 4, 32);
   TEST_VREV(q, int, s, 8, 16, 32);
   TEST_VREV(q, int, s, 16, 8, 32);
   TEST_VREV(q, uint, u, 8, 16, 32);
   TEST_VREV(q, uint, u, 16, 8, 32);
+  TEST_VREV(q, poly, p, 8, 16, 32);
+  TEST_VREV(q, poly, p, 16, 8, 32);
   dump_results_hex (TEST_MSG);
 
 #undef TEST_MSG
@@ -82,12 +88,16 @@ void exec_vrev (void)
   TEST_VREV(, uint, u, 8, 8, 64);
   TEST_VREV(, uint, u, 16, 4, 64);
   TEST_VREV(, uint, u, 32, 2, 64);
+  TEST_VREV(, poly, p, 8, 8, 64);
+  TEST_VREV(, poly, p, 16, 4, 64);
   TEST_VREV(q, int, s, 8, 16, 64);
   TEST_VREV(q, int, s, 16, 8, 64);
   TEST_VREV(q, int, s, 32, 4, 64);
   TEST_VREV(q, uint, u, 8, 16, 64);
   TEST_VREV(q, uint, u, 16, 8, 64);
   TEST_VREV(q, uint, u, 32, 4, 64);
+  TEST_VREV(q, poly, p, 8, 16, 64);
+  TEST_VREV(q, poly, p, 16, 8, 64);
 
   TEST_VREV(, float, f, 32, 2, 64);
   TEST_VREV(q, float, f, 32, 4, 64);

@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -64,6 +64,8 @@ void exec_vdup (void)
     TEST_VDUP(, uint, u, 16, 4);
     TEST_VDUP(, uint, u, 32, 2);
     TEST_VDUP(, uint, u, 64, 1);
+    TEST_VDUP(, poly, p, 8, 8);
+    TEST_VDUP(, poly, p, 16, 4);
     TEST_VDUP(, float, f, 32, 2);
 
     TEST_VDUP(q, int, s, 8, 16);
@@ -74,6 +76,8 @@ void exec_vdup (void)
     TEST_VDUP(q, uint, u, 16, 8);
     TEST_VDUP(q, uint, u, 32, 4);
     TEST_VDUP(q, uint, u, 64, 2);
+    TEST_VDUP(q, poly, p, 8, 16);
+    TEST_VDUP(q, poly, p, 16, 8);
     TEST_VDUP(q, float, f, 32, 4);
 
     dump_results_hex (TEST_MSG);
@@ -92,6 +96,8 @@ void exec_vdup (void)
     TEST_VMOV(, uint, u, 16, 4);
     TEST_VMOV(, uint, u, 32, 2);
     TEST_VMOV(, uint, u, 64, 1);
+    TEST_VMOV(, poly, p, 8, 8);
+    TEST_VMOV(, poly, p, 16, 4);
     TEST_VMOV(, float, f, 32, 2);
 
     TEST_VMOV(q, int, s, 8, 16);
@@ -102,6 +108,8 @@ void exec_vdup (void)
     TEST_VMOV(q, uint, u, 16, 8);
     TEST_VMOV(q, uint, u, 32, 4);
     TEST_VMOV(q, uint, u, 64, 2);
+    TEST_VMOV(q, poly, p, 8, 16);
+    TEST_VMOV(q, poly, p, 16, 8);
     TEST_VMOV(q, float, f, 32, 4);
 
     dump_results_hex (TEST_MSG);

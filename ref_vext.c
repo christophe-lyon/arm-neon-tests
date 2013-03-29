@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -63,6 +63,8 @@ void exec_vext (void)
   TEST_VDUP(vector2, , uint, u, 16, 4, 0x66);
   TEST_VDUP(vector2, , uint, u, 32, 2, 0x77);
   TEST_VDUP(vector2, , uint, u, 64, 1, 0x88);
+  TEST_VDUP(vector2, , poly, p, 8, 8, 0x55);
+  TEST_VDUP(vector2, , poly, p, 16, 4, 0x66);
   TEST_VDUP(vector2, , float, f, 32, 2, 33.6f);
 
   TEST_VDUP(vector2, q, int, s, 8, 16, 0x11);
@@ -73,6 +75,8 @@ void exec_vext (void)
   TEST_VDUP(vector2, q, uint, u, 16, 8, 0x66);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 0x77);
   TEST_VDUP(vector2, q, uint, u, 64, 2, 0x88);
+  TEST_VDUP(vector2, q, poly, p, 8, 16, 0x55);
+  TEST_VDUP(vector2, q, poly, p, 16, 8, 0x66);
   TEST_VDUP(vector2, q, float, f, 32, 4, 33.2f);
 
   /* Choose arbitrary extract offsets */
@@ -84,6 +88,8 @@ void exec_vext (void)
   TEST_VEXT(, uint, u, 16, 4, 2);
   TEST_VEXT(, uint, u, 32, 2, 1);
   TEST_VEXT(, uint, u, 64, 1, 0);
+  TEST_VEXT(, poly, p, 8, 8, 6);
+  TEST_VEXT(, poly, p, 16, 4, 2);
   TEST_VEXT(, float, f, 32, 2, 1);
 
   TEST_VEXT(q, int, s, 8, 16, 14);
@@ -94,6 +100,8 @@ void exec_vext (void)
   TEST_VEXT(q, uint, u, 16, 8, 6);
   TEST_VEXT(q, uint, u, 32, 4, 3);
   TEST_VEXT(q, uint, u, 64, 2, 1);
+  TEST_VEXT(q, poly, p, 8, 16, 12);
+  TEST_VEXT(q, poly, p, 16, 8, 6);
   TEST_VEXT(q, float, f, 32, 4, 3);
 
   dump_results_hex (TEST_MSG);

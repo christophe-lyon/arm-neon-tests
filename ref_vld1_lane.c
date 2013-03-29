@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -57,6 +57,8 @@ void exec_vld1_lane (void)
   ARRAY(buffer_src, uint, 16, 4);
   ARRAY(buffer_src, uint, 32, 2);
   ARRAY(buffer_src, uint, 64, 1);
+  ARRAY(buffer_src, poly, 8, 8);
+  ARRAY(buffer_src, poly, 16, 4);
   ARRAY(buffer_src, float, 32, 2);
 
   ARRAY(buffer_src, int, 8, 16);
@@ -67,6 +69,8 @@ void exec_vld1_lane (void)
   ARRAY(buffer_src, uint, 16, 8);
   ARRAY(buffer_src, uint, 32, 4);
   ARRAY(buffer_src, uint, 64, 2);
+  ARRAY(buffer_src, poly, 8, 16);
+  ARRAY(buffer_src, poly, 16, 8);
   ARRAY(buffer_src, float, 32, 4);
 
   clean_results ();
@@ -80,6 +84,8 @@ void exec_vld1_lane (void)
   TEST_VLD1_LANE(, uint, u, 16, 4, 3);
   TEST_VLD1_LANE(, uint, u, 32, 2, 1);
   TEST_VLD1_LANE(, uint, u, 64, 1, 0);
+  TEST_VLD1_LANE(, poly, p, 8, 8, 7);
+  TEST_VLD1_LANE(, poly, p, 16, 4, 3);
   TEST_VLD1_LANE(, float, f, 32, 2, 1);
 
   TEST_VLD1_LANE(q, int, s, 8, 16, 15);
@@ -90,6 +96,8 @@ void exec_vld1_lane (void)
   TEST_VLD1_LANE(q, uint, u, 16, 8, 6);
   TEST_VLD1_LANE(q, uint, u, 32, 4, 2);
   TEST_VLD1_LANE(q, uint, u, 64, 2, 0);
+  TEST_VLD1_LANE(q, poly, p, 8, 16, 12);
+  TEST_VLD1_LANE(q, poly, p, 16, 8, 6);
   TEST_VLD1_LANE(q, float, f, 32, 4, 2);
 
 #ifndef __CC_ARM

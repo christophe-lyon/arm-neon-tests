@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -54,27 +54,35 @@ FNNAME (INSN_NAME)
   /* No need for 64 bits variants */
   DECL_VARIABLE(vector, int, 8, 8);
   DECL_VARIABLE(vector, uint, 8, 8);
+  DECL_VARIABLE(vector, poly, 8, 8);
   DECL_VARIABLE(vector, int, 8, 16);
   DECL_VARIABLE(vector, uint, 8, 16);
+  DECL_VARIABLE(vector, poly, 8, 16);
 
   DECL_VARIABLE(vector_res, int, 8, 8);
   DECL_VARIABLE(vector_res, uint, 8, 8);
+  DECL_VARIABLE(vector_res, poly, 8, 8);
   DECL_VARIABLE(vector_res, int, 8, 16);
   DECL_VARIABLE(vector_res, uint, 8, 16);
+  DECL_VARIABLE(vector_res, poly, 8, 16);
 
   clean_results ();
 
   /* Fill input vector with arbitrary values */
   TEST_VDUP(vector, , int, s, 8, 8, 0xFF);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0x34);
+  TEST_VDUP(vector, , uint, u, 8, 8, 0x35);
+  TEST_VDUP(vector, , poly, p, 8, 8, 0x35);
   TEST_VDUP(vector, q, int, s, 8, 16, 0);
   TEST_VDUP(vector, q, uint, u, 8, 16, 0xBD);
+  TEST_VDUP(vector, q, poly, p, 8, 16, 0xBD);
 
   /* Apply a unary operator named INSN_NAME  */
   TEST_UNARY_OP(INSN_NAME, , int, s, 8, 8);
   TEST_UNARY_OP(INSN_NAME, , uint, u, 8, 8);
+  TEST_UNARY_OP(INSN_NAME, , poly, p, 8, 8);
   TEST_UNARY_OP(INSN_NAME, q, int, s, 8, 16);
   TEST_UNARY_OP(INSN_NAME, q, uint, u, 8, 16);
+  TEST_UNARY_OP(INSN_NAME, q, poly, p, 8, 16);
 
   dump_results_hex (TEST_MSG);
 }

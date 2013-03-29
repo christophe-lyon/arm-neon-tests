@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2012, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -139,6 +139,8 @@ extern ARRAY(buffer, uint, 8, 8);
 extern ARRAY(buffer, uint, 16, 4);
 extern ARRAY(buffer, uint, 32, 2);
 extern ARRAY(buffer, uint, 64, 1);
+extern ARRAY(buffer, poly, 8, 8);
+extern ARRAY(buffer, poly, 16, 4);
 extern ARRAY(buffer, float, 32, 2);
 extern ARRAY(buffer, int, 8, 16);
 extern ARRAY(buffer, int, 16, 8);
@@ -148,6 +150,8 @@ extern ARRAY(buffer, uint, 8, 16);
 extern ARRAY(buffer, uint, 16, 8);
 extern ARRAY(buffer, uint, 32, 4);
 extern ARRAY(buffer, uint, 64, 2);
+extern ARRAY(buffer, poly, 8, 16);
+extern ARRAY(buffer, poly, 16, 8);
 extern ARRAY(buffer, float, 32, 4);
 
 /* The tests for vld1_dup and vdup expect at least 4 entries in the
@@ -161,6 +165,8 @@ extern ARRAY(buffer_dup, uint, 8, 8);
 extern ARRAY(buffer_dup, uint, 16, 4);
 extern ARRAY4(buffer_dup, uint, 32, 2);
 extern ARRAY4(buffer_dup, uint, 64, 1);
+extern ARRAY(buffer_dup, poly, 8, 8);
+extern ARRAY(buffer_dup, poly, 16, 4);
 extern ARRAY4(buffer_dup, float, 32, 2);
 extern ARRAY(buffer_dup, int, 8, 16);
 extern ARRAY(buffer_dup, int, 16, 8);
@@ -170,6 +176,8 @@ extern ARRAY(buffer_dup, uint, 8, 16);
 extern ARRAY(buffer_dup, uint, 16, 8);
 extern ARRAY(buffer_dup, uint, 32, 4);
 extern ARRAY4(buffer_dup, uint, 64, 2);
+extern ARRAY(buffer_dup, poly, 8, 16);
+extern ARRAY(buffer_dup, poly, 16, 8);
 extern ARRAY(buffer_dup, float, 32, 4);
 
 /* Input buffers for vld2, one of each size */
@@ -181,6 +189,8 @@ extern VECT_ARRAY(buffer_vld2, uint, 8, 8, 2);
 extern VECT_ARRAY(buffer_vld2, uint, 16, 4, 2);
 extern VECT_ARRAY(buffer_vld2, uint, 32, 2, 2);
 extern VECT_ARRAY(buffer_vld2, uint, 64, 1, 2);
+extern VECT_ARRAY(buffer_vld2, poly, 8, 8, 2);
+extern VECT_ARRAY(buffer_vld2, poly, 16, 4, 2);
 extern VECT_ARRAY(buffer_vld2, float, 32, 2, 2);
 extern VECT_ARRAY(buffer_vld2, int, 8, 16, 2);
 extern VECT_ARRAY(buffer_vld2, int, 16, 8, 2);
@@ -190,6 +200,8 @@ extern VECT_ARRAY(buffer_vld2, uint, 8, 16, 2);
 extern VECT_ARRAY(buffer_vld2, uint, 16, 8, 2);
 extern VECT_ARRAY(buffer_vld2, uint, 32, 4, 2);
 extern VECT_ARRAY(buffer_vld2, uint, 64, 2, 2);
+extern VECT_ARRAY(buffer_vld2, poly, 8, 16, 2);
+extern VECT_ARRAY(buffer_vld2, poly, 16, 8, 2);
 extern VECT_ARRAY(buffer_vld2, float, 32, 4, 2);
 
 /* Input buffers for vld3, one of each size */
@@ -201,6 +213,8 @@ extern VECT_ARRAY(buffer_vld3, uint, 8, 8, 3);
 extern VECT_ARRAY(buffer_vld3, uint, 16, 4, 3);
 extern VECT_ARRAY(buffer_vld3, uint, 32, 2, 3);
 extern VECT_ARRAY(buffer_vld3, uint, 64, 1, 3);
+extern VECT_ARRAY(buffer_vld3, poly, 8, 8, 3);
+extern VECT_ARRAY(buffer_vld3, poly, 16, 4, 3);
 extern VECT_ARRAY(buffer_vld3, float, 32, 2, 3);
 extern VECT_ARRAY(buffer_vld3, int, 8, 16, 3);
 extern VECT_ARRAY(buffer_vld3, int, 16, 8, 3);
@@ -210,6 +224,8 @@ extern VECT_ARRAY(buffer_vld3, uint, 8, 16, 3);
 extern VECT_ARRAY(buffer_vld3, uint, 16, 8, 3);
 extern VECT_ARRAY(buffer_vld3, uint, 32, 4, 3);
 extern VECT_ARRAY(buffer_vld3, uint, 64, 2, 3);
+extern VECT_ARRAY(buffer_vld3, poly, 8, 16, 3);
+extern VECT_ARRAY(buffer_vld3, poly, 16, 8, 3);
 extern VECT_ARRAY(buffer_vld3, float, 32, 4, 3);
 
 /* Input buffers for vld4, one of each size */
@@ -221,6 +237,8 @@ extern VECT_ARRAY(buffer_vld4, uint, 8, 8, 4);
 extern VECT_ARRAY(buffer_vld4, uint, 16, 4, 4);
 extern VECT_ARRAY(buffer_vld4, uint, 32, 2, 4);
 extern VECT_ARRAY(buffer_vld4, uint, 64, 1, 4);
+extern VECT_ARRAY(buffer_vld4, poly, 8, 8, 4);
+extern VECT_ARRAY(buffer_vld4, poly, 16, 4, 4);
 extern VECT_ARRAY(buffer_vld4, float, 32, 2, 4);
 extern VECT_ARRAY(buffer_vld4, int, 8, 16, 4);
 extern VECT_ARRAY(buffer_vld4, int, 16, 8, 4);
@@ -230,6 +248,8 @@ extern VECT_ARRAY(buffer_vld4, uint, 8, 16, 4);
 extern VECT_ARRAY(buffer_vld4, uint, 16, 8, 4);
 extern VECT_ARRAY(buffer_vld4, uint, 32, 4, 4);
 extern VECT_ARRAY(buffer_vld4, uint, 64, 2, 4);
+extern VECT_ARRAY(buffer_vld4, poly, 8, 16, 4);
+extern VECT_ARRAY(buffer_vld4, poly, 16, 8, 4);
 extern VECT_ARRAY(buffer_vld4, float, 32, 4, 4);
 
 /* Input buffers for vld2_lane */
@@ -241,6 +261,8 @@ extern VECT_VAR_DECL(buffer_vld2_lane, uint, 8, 2)[2];
 extern VECT_VAR_DECL(buffer_vld2_lane, uint, 16, 2)[2];
 extern VECT_VAR_DECL(buffer_vld2_lane, uint, 32, 2)[2];
 extern VECT_VAR_DECL(buffer_vld2_lane, uint, 64, 2)[2];
+extern VECT_VAR_DECL(buffer_vld2_lane, poly, 8, 2)[2];
+extern VECT_VAR_DECL(buffer_vld2_lane, poly, 16, 2)[2];
 extern VECT_VAR_DECL(buffer_vld2_lane, float, 32, 2)[2];
 
 /* Input buffers for vld3_lane */
@@ -252,6 +274,8 @@ extern VECT_VAR_DECL(buffer_vld3_lane, uint, 8, 3)[3];
 extern VECT_VAR_DECL(buffer_vld3_lane, uint, 16, 3)[3];
 extern VECT_VAR_DECL(buffer_vld3_lane, uint, 32, 3)[3];
 extern VECT_VAR_DECL(buffer_vld3_lane, uint, 64, 3)[3];
+extern VECT_VAR_DECL(buffer_vld3_lane, poly, 8, 3)[3];
+extern VECT_VAR_DECL(buffer_vld3_lane, poly, 16, 3)[3];
 extern VECT_VAR_DECL(buffer_vld3_lane, float, 32, 3)[3];
 
 /* Input buffers for vld4_lane */
@@ -263,6 +287,8 @@ extern VECT_VAR_DECL(buffer_vld4_lane, uint, 8, 4)[4];
 extern VECT_VAR_DECL(buffer_vld4_lane, uint, 16, 4)[4];
 extern VECT_VAR_DECL(buffer_vld4_lane, uint, 32, 4)[4];
 extern VECT_VAR_DECL(buffer_vld4_lane, uint, 64, 4)[4];
+extern VECT_VAR_DECL(buffer_vld4_lane, poly, 8, 4)[4];
+extern VECT_VAR_DECL(buffer_vld4_lane, poly, 16, 4)[4];
 extern VECT_VAR_DECL(buffer_vld4_lane, float, 32, 4)[4];
 
 /* Output buffers, one of each size */
@@ -274,6 +300,8 @@ static ARRAY(result, uint, 8, 8);
 static ARRAY(result, uint, 16, 4);
 static ARRAY(result, uint, 32, 2);
 static ARRAY(result, uint, 64, 1);
+static ARRAY(result, poly, 8, 8);
+static ARRAY(result, poly, 16, 4);
 static ARRAY(result, float, 32, 2);
 static ARRAY(result, int, 8, 16);
 static ARRAY(result, int, 16, 8);
@@ -283,6 +311,8 @@ static ARRAY(result, uint, 8, 16);
 static ARRAY(result, uint, 16, 8);
 static ARRAY(result, uint, 32, 4);
 static ARRAY(result, uint, 64, 2);
+static ARRAY(result, poly, 8, 16);
+static ARRAY(result, poly, 16, 8);
 static ARRAY(result, float, 32, 4);
 
 /* Dump results (generic function) */
@@ -300,6 +330,8 @@ static void dump_results (char *test_name)
   DUMP(test_name, uint, 16, 4, PRIu16);
   DUMP(test_name, uint, 32, 2, PRIu32);
   DUMP(test_name, uint, 64, 1, PRIu64);
+  DUMP(test_name, poly, 8, 8, PRIu8);
+  DUMP(test_name, poly, 16, 4, PRIu16);
   DUMP_FP(test_name, float, 32, 2, PRIx32);
 
   DUMP(test_name, int, 8, 16, PRId8);
@@ -310,6 +342,8 @@ static void dump_results (char *test_name)
   DUMP(test_name, uint, 16, 8, PRIu16);
   DUMP(test_name, uint, 32, 4, PRIu32);
   DUMP(test_name, uint, 64, 2, PRIu64);
+  DUMP(test_name, poly, 8, 16, PRIu8);
+  DUMP(test_name, poly, 16, 8, PRIu16);
   DUMP_FP(test_name, float, 32, 4, PRIx32);
 }
 
@@ -328,6 +362,8 @@ static void dump_results_hex2 (const char *test_name, const char* comment)
   DUMP(test_name, uint, 16, 4, PRIx16);
   DUMP(test_name, uint, 32, 2, PRIx32);
   DUMP(test_name, uint, 64, 1, PRIx64);
+  DUMP(test_name, poly, 8, 8, PRIx8);
+  DUMP(test_name, poly, 16, 4, PRIx8);
   DUMP_FP(test_name, float, 32, 2, PRIx32);
 
   DUMP(test_name, int, 8, 16, PRIx8);
@@ -338,6 +374,8 @@ static void dump_results_hex2 (const char *test_name, const char* comment)
   DUMP(test_name, uint, 16, 8, PRIx16);
   DUMP(test_name, uint, 32, 4, PRIx32);
   DUMP(test_name, uint, 64, 2, PRIx64);
+  DUMP(test_name, poly, 8, 16, PRIx8);
+  DUMP(test_name, poly, 16, 8, PRIx16);
   DUMP_FP(test_name, float, 32, 4, PRIx32);
 }
 
@@ -435,6 +473,8 @@ static void clean_results (void)
   CLEAN(result, uint, 16, 4);
   CLEAN(result, uint, 32, 2);
   CLEAN(result, uint, 64, 1);
+  CLEAN(result, poly, 8, 8);
+  CLEAN(result, poly, 16, 4);
   CLEAN(result, float, 32, 2);
 
   CLEAN(result, int, 8, 16);
@@ -445,6 +485,8 @@ static void clean_results (void)
   CLEAN(result, uint, 16, 8);
   CLEAN(result, uint, 32, 4);
   CLEAN(result, uint, 64, 2);
+  CLEAN(result, poly, 8, 16);
+  CLEAN(result, poly, 16, 8);
   CLEAN(result, float, 32, 4);
 }
 
@@ -480,11 +522,15 @@ static void clean_results (void)
 #define DECL_VARIABLE_64BITS_VARIANTS(VAR)	\
   DECL_VARIABLE_64BITS_SIGNED_VARIANTS(VAR);	\
   DECL_VARIABLE_64BITS_UNSIGNED_VARIANTS(VAR);	\
+  DECL_VARIABLE(VAR, poly, 8, 8);		\
+  DECL_VARIABLE(VAR, poly, 16, 4);		\
   DECL_VARIABLE(VAR, float, 32, 2)
 
 #define DECL_VARIABLE_128BITS_VARIANTS(VAR)	\
   DECL_VARIABLE_128BITS_SIGNED_VARIANTS(VAR);	\
   DECL_VARIABLE_128BITS_UNSIGNED_VARIANTS(VAR);	\
+  DECL_VARIABLE(VAR, poly, 8, 16);		\
+  DECL_VARIABLE(VAR, poly, 16, 8);		\
   DECL_VARIABLE(VAR, float, 32, 4)
 
 #define DECL_VARIABLE_ALL_VARIANTS(VAR)		\
@@ -580,11 +626,15 @@ static void clean_results (void)
 
 #define TEST_MACRO_64BITS_VARIANTS_2_5(MACRO, VAR1, VAR2)	\
   TEST_MACRO_64BITS_SIGNED_VARIANTS_2_5(MACRO, VAR1, VAR2);	\
-  TEST_MACRO_64BITS_UNSIGNED_VARIANTS_2_5(MACRO, VAR1, VAR2)
+  TEST_MACRO_64BITS_UNSIGNED_VARIANTS_2_5(MACRO, VAR1, VAR2);	\
+  MACRO(VAR1, VAR2, , poly, p, 8, 8);				\
+  MACRO(VAR1, VAR2, , poly, p, 16, 4)
 
 #define TEST_MACRO_128BITS_VARIANTS_2_5(MACRO, VAR1, VAR2)	\
   TEST_MACRO_128BITS_SIGNED_VARIANTS_2_5(MACRO, VAR1, VAR2);	\
-  TEST_MACRO_128BITS_UNSIGNED_VARIANTS_2_5(MACRO, VAR1, VAR2)
+  TEST_MACRO_128BITS_UNSIGNED_VARIANTS_2_5(MACRO, VAR1, VAR2);	\
+  MACRO(VAR1, VAR2, q, poly, p, 8, 16);				\
+  MACRO(VAR1, VAR2, q, poly, p, 16, 8)
 
 #define TEST_MACRO_ALL_VARIANTS_2_5(MACRO, VAR1, VAR2)	\
   TEST_MACRO_64BITS_VARIANTS_2_5(MACRO, VAR1, VAR2);	\

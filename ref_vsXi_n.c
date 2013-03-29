@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -73,6 +73,8 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, , uint, u, 16, 4, 30);
   TEST_VDUP(vector2, , uint, u, 32, 2, 40);
   TEST_VDUP(vector2, , uint, u, 64, 1, 2);
+  TEST_VDUP(vector2, , poly, p, 8, 8, 20);
+  TEST_VDUP(vector2, , poly, p, 16, 4, 30);
   TEST_VDUP(vector2, q, int, s, 8, 16, -10);
   TEST_VDUP(vector2, q, int, s, 16, 8, -20);
   TEST_VDUP(vector2, q, int, s, 32, 4, -30);
@@ -81,6 +83,8 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, q, uint, u, 16, 8, 3);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 55);
   TEST_VDUP(vector2, q, uint, u, 64, 2, 3);
+  TEST_VDUP(vector2, q, poly, p, 8, 16, 12);
+  TEST_VDUP(vector2, q, poly, p, 16, 8, 3);
 
   /* Choose shift amount arbitrarily */
   TEST_VSXI_N(INSN_NAME, , int, s, 8, 8, 4);
@@ -91,6 +95,8 @@ FNNAME (INSN_NAME)
   TEST_VSXI_N(INSN_NAME, , uint, u, 16, 4, 10);
   TEST_VSXI_N(INSN_NAME, , uint, u, 32, 2, 30);
   TEST_VSXI_N(INSN_NAME, , uint, u, 64, 1, 3);
+  TEST_VSXI_N(INSN_NAME, , poly, p, 8, 8, 2);
+  TEST_VSXI_N(INSN_NAME, , poly, p, 16, 4, 10);
   TEST_VSXI_N(INSN_NAME, q, int, s, 8, 16, 5);
   TEST_VSXI_N(INSN_NAME, q, int, s, 16, 8, 3);
   TEST_VSXI_N(INSN_NAME, q, int, s, 32, 4, 20);
@@ -99,6 +105,8 @@ FNNAME (INSN_NAME)
   TEST_VSXI_N(INSN_NAME, q, uint, u, 16, 8, 12);
   TEST_VSXI_N(INSN_NAME, q, uint, u, 32, 4, 23);
   TEST_VSXI_N(INSN_NAME, q, uint, u, 64, 2, 53);
+  TEST_VSXI_N(INSN_NAME, q, poly, p, 8, 16, 3);
+  TEST_VSXI_N(INSN_NAME, q, poly, p, 16, 8, 12);
 
   dump_results_hex (TEST_MSG);
 
