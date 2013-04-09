@@ -42,7 +42,7 @@ THE SOFTWARE.
   VECT_VAR_DECL(V,T,W,N) [] = { MY_INIT_TAB(T,W,N) };
 
 /* Specialized initializer with 4 entries, as used by vldX_dup and
-   vdup tests, which iterated 4 times on input buffers.  */
+   vdup tests, which iterate 4 times on input buffers.  */
 #define VECT_VAR_DECL_INIT4(V, T, W, N)			\
   VECT_VAR_DECL(V,T,W,N) [] = { MY_INIT_TAB(T,W,4) };
 
