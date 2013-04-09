@@ -363,7 +363,7 @@ static void dump_results_hex2 (const char *test_name, const char* comment)
   DUMP(test_name, uint, 32, 2, PRIx32);
   DUMP(test_name, uint, 64, 1, PRIx64);
   DUMP(test_name, poly, 8, 8, PRIx8);
-  DUMP(test_name, poly, 16, 4, PRIx8);
+  DUMP(test_name, poly, 16, 4, PRIx16);
   DUMP_FP(test_name, float, 32, 2, PRIx32);
 
   DUMP(test_name, int, 8, 16, PRIx8);
