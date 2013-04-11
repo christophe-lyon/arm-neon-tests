@@ -143,6 +143,18 @@ VECT_VAR_DECL_INIT(buffer, uint, 64, 1);
 PAD(buffer_pad, uint, 64, 1);
 VECT_VAR_DECL_INIT(buffer, float, 32, 2);
 PAD(buffer_pad, float, 32, 2);
+#if __ARM_NEON_FP16_INTRINSICS
+/* We need a different initialization for ARMCC, because the compiler
+   performs the conversion to half-precision internal
+   representation.  */
+#ifdef __ARMCC_VERSION
+__fp16 buffer_float16x4[4] = {-16, -15, -14, -13};
+#else
+VECT_VAR_DECL(buffer, float, 16, 4) [] = {0xcc00 /* -16 */, 0xcb80 /* -15 */,
+					  0xcb00 /* -14 */, 0xca80 /* -13 */};
+#endif
+PAD(buffer_pad, float, 16, 4);
+#endif
 VECT_VAR_DECL_INIT(buffer, int, 8, 16);
 PAD(buffer_pad, int, 8, 16);
 VECT_VAR_DECL_INIT(buffer, int, 16, 8);
@@ -165,6 +177,17 @@ VECT_VAR_DECL_INIT(buffer, poly, 16, 8);
 PAD(buffer_pad, poly, 16, 8);
 VECT_VAR_DECL_INIT(buffer, float, 32, 4);
 PAD(buffer_pad, float, 32, 4);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_float16x8[8] = {-16, -15, -14, -13, -12, -11, -10, -9};
+#else
+VECT_VAR_DECL(buffer, float, 16, 8) [] = {0xcc00 /* -16 */, 0xcb80 /* -15 */,
+					  0xcb00 /* -14 */, 0xca80 /* -13 */,
+					  0xca00 /* -12 */, 0xc980 /* -11 */,
+					  0xc900 /* -10 */, 0xc880 /* -9 */};
+#endif
+PAD(buffer_pad, float, 16, 8);
+#endif
 
 /* The tests for vld1_dup and vdup expect at least 4 entries in the
    input buffer, so force 1- and 2-elements initializers to have 4
@@ -191,6 +214,15 @@ VECT_VAR_DECL_INIT(buffer_dup, poly, 16, 4);
 VECT_VAR_DECL(buffer_dup_pad, poly, 16, 4);
 VECT_VAR_DECL_INIT4(buffer_dup, float, 32, 2);
 VECT_VAR_DECL(buffer_dup_pad, float, 32, 2);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_dup_float16x4[4] = {-16, -15, -14, -13};
+#else
+VECT_VAR_DECL(buffer_dup, float, 16, 4)[] = {0xcc00 /* -16 */, 0xcb80 /* -15 */,
+					     0xcb00 /* -14 */, 0xca80 /* -13 */};
+#endif
+PAD(buffer_dup_pad, float, 16, 4);
+#endif
 VECT_VAR_DECL_INIT(buffer_dup, int, 8, 16);
 VECT_VAR_DECL(buffer_dup_pad, int, 8, 16);
 VECT_VAR_DECL_INIT(buffer_dup, int, 16, 8);
@@ -213,6 +245,17 @@ VECT_VAR_DECL_INIT(buffer_dup, poly, 16, 8);
 VECT_VAR_DECL(buffer_dup_pad, poly, 16, 8);
 VECT_VAR_DECL_INIT(buffer_dup, float, 32, 4);
 VECT_VAR_DECL(buffer_dup_pad, float, 32, 4);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_dup_float16x8[8] = {-16, -15, -14, -13, -12, -11, -10, -9};
+#else
+VECT_VAR_DECL(buffer_dup, float, 16, 8)[] = {0xcc00 /* -16 */, 0xcb80 /* -15 */,
+					     0xcb00 /* -14 */, 0xca80 /* -13 */,
+					     0xca00 /* -12 */, 0xc980 /* -11 */,
+					     0xc900 /* -10 */, 0xc880 /* -9 */};
+#endif
+PAD(buffer_dup_pad, float, 16, 8);
+#endif
 
 /* Input buffers for vld2, 1 of each size */
 VECT_ARRAY_INIT2(buffer_vld2, int, 8, 8);
@@ -237,6 +280,17 @@ VECT_ARRAY_INIT2(buffer_vld2, poly, 16, 4);
 PAD(buffer_vld2_pad, poly, 16, 4);
 VECT_ARRAY_INIT2(buffer_vld2, float, 32, 2);
 PAD(buffer_vld2_pad, float, 32, 2);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_vld2_float16x4x2[4*2] = {-16, -15, -14, -13, -12, -11, -10, -9};
+#else
+float16_t buffer_vld2_float16x4x2[4*2] = {0xcc00 /* -16 */, 0xcb80 /* -15 */,
+					  0xcb00 /* -14 */, 0xca80 /* -13 */,
+					  0xca00 /* -12 */, 0xc980 /* -11 */,
+					  0xc900 /* -10 */, 0xc880 /* -9 */};
+#endif
+PAD(buffer_vld2_pad, float, 16, 4);
+#endif
 VECT_ARRAY_INIT2(buffer_vld2, int, 8, 16);
 PAD(buffer_vld2_pad, int, 8, 16);
 VECT_ARRAY_INIT2(buffer_vld2, int, 16, 8);
@@ -259,6 +313,22 @@ VECT_ARRAY_INIT2(buffer_vld2, poly, 16, 8);
 PAD(buffer_vld2_pad, poly, 16, 8);
 VECT_ARRAY_INIT2(buffer_vld2, float, 32, 4);
 PAD(buffer_vld2_pad, float, 32, 4);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_vld2_float16x8x2[8*2] = {-16, -15, -14, -13, -12, -11, -10, -9,
+				       -8, -7, -6, -5, -4, -3, -2, -1};
+#else
+float16_t buffer_vld2_float16x8x2[8*2] = {0xcc00 /* -16 */, 0xcb80 /* -15 */,
+					  0xcb00 /* -14 */, 0xca80 /* -13 */,
+					  0xca00 /* -12 */, 0xc980 /* -11 */,
+					  0xc900 /* -10 */, 0xc880 /* -9 */,
+					  0xc800 /* -8 */, 0xc700 /* -7 */,
+					  0xc600 /* -6 */, 0xc500 /* -5 */,
+					  0xc400 /* -4 */, 0xc200 /* -3 */,
+					  0xc000 /* -2 */, 0xbc00 /* -1 */};
+#endif
+PAD(buffer_vld2_pad, float, 16, 8);
+#endif
 
 /* Input buffers for vld3, 1 of each size */
 VECT_ARRAY_INIT3(buffer_vld3, int, 8, 8);
@@ -283,6 +353,20 @@ VECT_ARRAY_INIT3(buffer_vld3, poly, 16, 4);
 PAD(buffer_vld3_pad, poly, 16, 4);
 VECT_ARRAY_INIT3(buffer_vld3, float, 32, 2);
 PAD(buffer_vld3_pad, float, 32, 2);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_vld3_float16x4x3[4*3] = {-16, -15, -14, -13, -12, -11, -10, -9,
+				       -8, -7, -6, -5};
+#else
+float16_t buffer_vld3_float16x4x3[4*3] = {0xcc00 /* -16 */, 0xcb80 /* -15 */,
+					  0xcb00 /* -14 */, 0xca80 /* -13 */,
+					  0xca00 /* -12 */, 0xc980 /* -11 */,
+					  0xc900 /* -10 */, 0xc880 /* -9 */,
+					  0xc800 /* -8 */, 0xc700 /* -7 */,
+					  0xc600 /* -6 */, 0xc500 /* -5 */};
+#endif
+PAD(buffer_vld3_pad, float, 16, 4);
+#endif
 VECT_ARRAY_INIT3(buffer_vld3, int, 8, 16);
 PAD(buffer_vld3_pad, int, 8, 16);
 VECT_ARRAY_INIT3(buffer_vld3, int, 16, 8);
@@ -305,6 +389,27 @@ VECT_ARRAY_INIT3(buffer_vld3, poly, 16, 8);
 PAD(buffer_vld3_pad, poly, 16, 8);
 VECT_ARRAY_INIT3(buffer_vld3, float, 32, 4);
 PAD(buffer_vld3_pad, float, 32, 4);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_vld3_float16x8x3[8*3] = {-16, -15, -14, -13, -12, -11, -10, -9,
+				       -8, -7, -6, -5, -4, -3, -2, -1,
+				       0, 1, 2, 3, 4, 5, 6, 7};
+#else
+float16_t buffer_vld3_float16x8x3[8*3] = {0xcc00 /* -16 */, 0xcb80 /* -15 */,
+					  0xcb00 /* -14 */, 0xca80 /* -13 */,
+					  0xca00 /* -12 */, 0xc980 /* -11 */,
+					  0xc900 /* -10 */, 0xc880 /* -9 */,
+					  0xc800 /* -8 */, 0xc700 /* -7 */,
+					  0xc600 /* -6 */, 0xc500 /* -6 */,
+					  0xc400 /* -4 */, 0xc200 /* -3 */,
+					  0xc000 /* -2 */, 0xbc00 /* -1 */,
+					  0, 0x3c00 /* 1 */,
+					  0x4000 /* 2 */, 0x4200 /* 3 */,
+					  0x4400 /* 4 */, 0x4500 /* 5 */,
+					  0x4600 /* 6 */, 0x4700 /* 7 */};
+#endif
+PAD(buffer_vld3_pad, float, 16, 8);
+#endif
 
 /* Input buffers for vld4, 1 of each size */
 VECT_ARRAY_INIT4(buffer_vld4, int, 8, 8);
@@ -329,6 +434,22 @@ VECT_ARRAY_INIT4(buffer_vld4, poly, 16, 4);
 PAD(buffer_vld4_pad, poly, 16, 4);
 VECT_ARRAY_INIT4(buffer_vld4, float, 32, 2);
 PAD(buffer_vld4_pad, float, 32, 2);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_vld4_float16x4x4[4*4] = {-16, -15, -14, -13, -12, -11, -10, -9,
+				       -8, -7, -6, -5, -4, -3, -2, -1};
+#else
+float16_t buffer_vld4_float16x4x4[4*4] = {0xcc00 /* -16 */, 0xcb80 /* -15 */,
+					  0xcb00 /* -14 */, 0xca80 /* -13 */,
+					  0xca00 /* -12 */, 0xc980 /* -11 */,
+					  0xc900 /* -10 */, 0xc880 /* -9 */,
+					  0xc800 /* -8 */, 0xc700 /* -7 */,
+					  0xc600 /* -6 */, 0xc500 /* -5 */,
+					  0xc400 /* -4 */, 0xc200 /* -3 */,
+					  0xc000 /* -2 */, 0xbc00 /* -1 */};
+#endif
+PAD(buffer_vld4_pad, float, 16, 4);
+#endif
 VECT_ARRAY_INIT4(buffer_vld4, int, 8, 16);
 PAD(buffer_vld4_pad, int, 8, 16);
 VECT_ARRAY_INIT4(buffer_vld4, int, 16, 8);
@@ -351,6 +472,32 @@ VECT_ARRAY_INIT4(buffer_vld4, poly, 16, 8);
 PAD(buffer_vld4_pad, poly, 16, 8);
 VECT_ARRAY_INIT4(buffer_vld4, float, 32, 4);
 PAD(buffer_vld4_pad, float, 32, 4);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_vld4_float16x8x4[8*4] = {-16, -15, -14, -13, -12, -11, -10, -9,
+				       -8, -7, -6, -5, -4, -3, -2, -1,
+				       0, 1, 2, 3, 4, 5, 6, 7,
+				       8, 9, 10, 11, 12, 13, 14, 15};
+#else
+float16_t buffer_vld4_float16x8x4[8*4] = {0xcc00 /* -16 */, 0xcb80 /* -15 */,
+					  0xcb00 /* -14 */, 0xca80 /* -13 */,
+					  0xca00 /* -12 */, 0xc980 /* -11 */,
+					  0xc900 /* -10 */, 0xc880 /* -9 */,
+					  0xc800 /* -8 */, 0xc700 /* -7 */,
+					  0xc600 /* -6 */, 0xc500 /* -6 */,
+					  0xc400 /* -4 */, 0xc200 /* -3 */,
+					  0xc000 /* -2 */, 0xbc00 /* -1 */,
+					  0, 0x3c00 /* 1 */,
+					  0x4000 /* 2 */, 0x4200 /* 3 */,
+					  0x4400 /* 4 */, 0x4500 /* 5 */,
+					  0x4600 /* 6 */, 0x4700 /* 7 */,
+					  0x4800 /* 8 */, 0x4880 /* 9 */,
+					  0x4900 /* 10 */, 0x4980 /* 11 */,
+					  0x4a00 /* 12 */, 0x4a80 /* 13 */,
+					  0x4b00 /* 14 */, 0x04b80 /* 15 */};
+#endif
+PAD(buffer_vld4_pad, float, 16, 8);
+#endif
 
 /* Input buffers for vld2_lane */
 VECT_VAR_DECL_INIT(buffer_vld2_lane, int, 8, 2);
@@ -364,6 +511,14 @@ VECT_VAR_DECL_INIT(buffer_vld2_lane, uint, 64, 2);
 VECT_VAR_DECL_INIT(buffer_vld2_lane, poly, 8, 2);
 VECT_VAR_DECL_INIT(buffer_vld2_lane, poly, 16, 2);
 VECT_VAR_DECL_INIT(buffer_vld2_lane, float, 32, 2);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_vld2_lane_float16x2[2] = {-16, -15};
+#else
+VECT_VAR_DECL(buffer_vld2_lane, float, 16, 2) [] = {0xcc00 /* -16 */,
+						    0xcb80 /* -15 */};
+#endif
+#endif
 
 /* Input buffers for vld3_lane */
 VECT_VAR_DECL_INIT(buffer_vld3_lane, int, 8, 3);
@@ -377,6 +532,15 @@ VECT_VAR_DECL_INIT(buffer_vld3_lane, uint, 64, 3);
 VECT_VAR_DECL_INIT(buffer_vld3_lane, poly, 8, 3);
 VECT_VAR_DECL_INIT(buffer_vld3_lane, poly, 16, 3);
 VECT_VAR_DECL_INIT(buffer_vld3_lane, float, 32, 3);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_vld3_lane_float16x3[3] = {-16, -15, -14};
+#else
+VECT_VAR_DECL(buffer_vld3_lane, float, 16, 3) [] = {0xcc00 /* -16 */,
+						    0xcb80 /* -15 */,
+						    0xcb00 /* -14 */};
+#endif
+#endif
 
 /* Input buffers for vld4_lane */
 VECT_VAR_DECL_INIT(buffer_vld4_lane, int, 8, 4);
@@ -390,3 +554,13 @@ VECT_VAR_DECL_INIT(buffer_vld4_lane, uint, 64, 4);
 VECT_VAR_DECL_INIT(buffer_vld4_lane, poly, 8, 4);
 VECT_VAR_DECL_INIT(buffer_vld4_lane, poly, 16, 4);
 VECT_VAR_DECL_INIT(buffer_vld4_lane, float, 32, 4);
+#if __ARM_NEON_FP16_INTRINSICS
+#ifdef __ARMCC_VERSION
+__fp16 buffer_vld4_lane_float16x4[4] = {-16, -15, -14, -13};
+#else
+VECT_VAR_DECL(buffer_vld4_lane, float, 16, 4) [] = {0xcc00 /* -16 */,
+						    0xcb80 /* -15 */,
+						    0xcb00 /* -14 */,
+						    0xca80 /* -13 */};
+#endif
+#endif

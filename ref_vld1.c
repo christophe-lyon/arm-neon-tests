@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2009, 2010, 2011 STMicroelectronics
+Copyright (c) 2009, 2010, 2011, 2013 STMicroelectronics
 Written by Christophe Lyon
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -43,6 +43,10 @@ void exec_vld1 (void)
   /* With ARM RVCT, we need to declare variables before any executable
      statement */
   DECL_VARIABLE_ALL_VARIANTS(vector);
+#if __ARM_NEON_FP16_INTRINSICS
+  DECL_VARIABLE(vector, float, 16, 4);
+  DECL_VARIABLE(vector, float, 16, 8);
+#endif
 
   clean_results ();
 
@@ -50,6 +54,11 @@ void exec_vld1 (void)
 
   TEST_VLD1(vector, buffer, , float, f, 32, 2);
   TEST_VLD1(vector, buffer, q, float, f, 32, 4);
+
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_VLD1(vector, buffer, , float, f, 16, 4);
+  TEST_VLD1(vector, buffer, q, float, f, 16, 8);
+#endif
 
   dump_results_hex (TEST_MSG);
 }

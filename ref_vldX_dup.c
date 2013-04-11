@@ -77,6 +77,10 @@ void exec_vldX_dup (void)
   DECL_VLDX_DUP(poly, 16, 4, X);		\
   DECL_VLDX_DUP(float, 32, 2, X)
 
+#if __ARM_NEON_FP16_INTRINSICS
+#define DECL_ALL_VLDX_DUP_FP16(X)		\
+  DECL_VLDX_DUP(float, 16, 4, X)
+#endif
 
 #define TEST_ALL_VLDX_DUP(X)			\
   TEST_VLDX_DUP(, int, s, 8, 8, X);		\
@@ -91,6 +95,11 @@ void exec_vldX_dup (void)
   TEST_VLDX_DUP(, poly, p, 16, 4, X);		\
   TEST_VLDX_DUP(, float, f, 32, 2, X)
 
+#if __ARM_NEON_FP16_INTRINSICS
+#define TEST_ALL_VLDX_DUP_FP16(X)		\
+  TEST_VLDX_DUP(, float, f, 16, 4, X)
+#endif
+
 #define TEST_ALL_EXTRA_CHUNKS(X, Y)		\
   TEST_EXTRA_CHUNK(int, 8, 8, X, Y);		\
   TEST_EXTRA_CHUNK(int, 16, 4, X, Y);		\
@@ -104,17 +113,33 @@ void exec_vldX_dup (void)
   TEST_EXTRA_CHUNK(poly, 16, 4, X, Y);		\
   TEST_EXTRA_CHUNK(float, 32, 2, X, Y)
 
+#if __ARM_NEON_FP16_INTRINSICS
+#define TEST_ALL_EXTRA_CHUNKS_FP16(X, Y)	\
+  TEST_EXTRA_CHUNK(float, 16, 4, X, Y)
+#endif
+
 
   DECL_ALL_VLDX_DUP(2);
   DECL_ALL_VLDX_DUP(3);
   DECL_ALL_VLDX_DUP(4);
+#if __ARM_NEON_FP16_INTRINSICS
+  DECL_ALL_VLDX_DUP_FP16(2);
+  DECL_ALL_VLDX_DUP_FP16(3);
+  DECL_ALL_VLDX_DUP_FP16(4);
+#endif
 
   /* Check vld2_dup/vld2q_dup */
   clean_results ();
 #define TEST_MSG "VLD2_DUP/VLD2Q_DUP"
   TEST_ALL_VLDX_DUP(2);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_ALL_VLDX_DUP_FP16(2);
+#endif
   dump_results_hex2 (TEST_MSG, " chunk 0");
   TEST_ALL_EXTRA_CHUNKS(2, 1);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_ALL_EXTRA_CHUNKS_FP16(2, 1);
+#endif
   dump_results_hex2 (TEST_MSG, " chunk 1");
 
   /* Check vld3_dup/vld3q_dup */
@@ -122,10 +147,19 @@ void exec_vldX_dup (void)
 #undef TEST_MSG
 #define TEST_MSG "VLD3_DUP/VLD3Q_DUP"
   TEST_ALL_VLDX_DUP(3);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_ALL_VLDX_DUP_FP16(3);
+#endif
   dump_results_hex2 (TEST_MSG, " chunk 0");
   TEST_ALL_EXTRA_CHUNKS(3, 1);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_ALL_EXTRA_CHUNKS_FP16(3, 1);
+#endif
   dump_results_hex2 (TEST_MSG, " chunk 1");
   TEST_ALL_EXTRA_CHUNKS(3, 2);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_ALL_EXTRA_CHUNKS_FP16(3, 2);
+#endif
   dump_results_hex2 (TEST_MSG, " chunk 2");
 
   /* Check vld4_dup/vld4q_dup */
@@ -133,11 +167,23 @@ void exec_vldX_dup (void)
 #undef TEST_MSG
 #define TEST_MSG "VLD4_DUP/VLD4Q_DUP"
   TEST_ALL_VLDX_DUP(4);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_ALL_VLDX_DUP_FP16(4);
+#endif
   dump_results_hex2 (TEST_MSG, " chunk 0");
   TEST_ALL_EXTRA_CHUNKS(4, 1);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_ALL_EXTRA_CHUNKS_FP16(4, 1);
+#endif
   dump_results_hex2 (TEST_MSG, " chunk 1");
   TEST_ALL_EXTRA_CHUNKS(4, 2);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_ALL_EXTRA_CHUNKS_FP16(4, 2);
+#endif
   dump_results_hex2 (TEST_MSG, " chunk 2");
   TEST_ALL_EXTRA_CHUNKS(4, 3);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_ALL_EXTRA_CHUNKS_FP16(4, 3);
+#endif
   dump_results_hex2 (TEST_MSG, " chunk 3");
 }

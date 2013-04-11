@@ -44,9 +44,16 @@ void exec_vget_low (void)
      statement */
   DECL_VARIABLE_64BITS_VARIANTS(vector64);
   DECL_VARIABLE_128BITS_VARIANTS(vector128);
+#if __ARM_NEON_FP16_INTRINSICS
+  DECL_VARIABLE(vector64, float, 16, 4);
+  DECL_VARIABLE(vector128, float, 16, 8);
+#endif
 
   TEST_MACRO_128BITS_VARIANTS_2_5(TEST_VLOAD, vector128, buffer);
   TEST_VLOAD(vector128, buffer, q, float, f, 32, 4);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_VLOAD(vector128, buffer, q, float, f, 16, 8);
+#endif
 
   clean_results ();
 
@@ -61,6 +68,9 @@ void exec_vget_low (void)
   TEST_VGET_LOW(poly, p, 8, 8, 16);
   TEST_VGET_LOW(poly, p, 16, 4, 8);
   TEST_VGET_LOW(float, f, 32, 2, 4);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_VGET_LOW(float, f, 16, 4, 8);
+#endif
 
   dump_results_hex (TEST_MSG);
 }

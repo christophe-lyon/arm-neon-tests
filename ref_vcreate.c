@@ -63,12 +63,18 @@ FNNAME (INSN_NAME)
   DECL_VAL(val, uint, 64, 1);
   DECL_VAL(val, poly, 8, 8);
   DECL_VAL(val, poly, 16, 4);
+#if __ARM_NEON_FP16_INTRINSICS
+  DECL_VAL(val, float, 16, 4);
+#endif
 
   DECL_VARIABLE(vector_res, int, 8, 8);
   DECL_VARIABLE(vector_res, int, 16, 4);
   DECL_VARIABLE(vector_res, int, 32, 2);
   DECL_VARIABLE(vector_res, int, 64, 1);
   DECL_VARIABLE(vector_res, float, 32, 2);
+#if __ARM_NEON_FP16_INTRINSICS
+  DECL_VARIABLE(vector_res, float, 16, 4);
+#endif
   DECL_VARIABLE(vector_res, uint, 8, 8);
   DECL_VARIABLE(vector_res, uint, 16, 4);
   DECL_VARIABLE(vector_res, uint, 32, 2);
@@ -84,6 +90,9 @@ FNNAME (INSN_NAME)
   VECT_VAR(val, int, 32, 2) = 0x123456789abcdef0LL;
   VECT_VAR(val, int, 64, 1) = 0x123456789abcdef0LL;
   VECT_VAR(val, float, 32, 2) = 0x123456789abcdef0LL;
+#if __ARM_NEON_FP16_INTRINSICS
+  VECT_VAR(val, float, 16, 4) = 0x123456789abcdef0LL;
+#endif
   VECT_VAR(val, uint, 8, 8) = 0x123456789abcdef0ULL;
   VECT_VAR(val, uint, 16, 4) = 0x123456789abcdef0ULL;
   VECT_VAR(val, uint, 32, 2) = 0x123456789abcdef0ULL;
@@ -95,6 +104,9 @@ FNNAME (INSN_NAME)
   TEST_VCREATE(int, s, 16, 4);
   TEST_VCREATE(int, s, 32, 2);
   TEST_VCREATE(float, f, 32, 2);
+#if __ARM_NEON_FP16_INTRINSICS
+  TEST_VCREATE(float, f, 16, 4);
+#endif
   TEST_VCREATE(int, s, 64, 1);
   TEST_VCREATE(uint, u, 8, 8);
   TEST_VCREATE(uint, u, 16, 4);

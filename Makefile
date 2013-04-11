@@ -21,7 +21,7 @@
 
 # ARM RVCT
 CC.rvct := armcc
-CFLAGS.rvct = -g --cpu=cortex-a9 -Ono_special_regs_postregalloc -I.
+CFLAGS.rvct = -g --cpu=cortex-a9 --fp16_format=ieee -Ono_special_regs_postregalloc -I.
 LD.rvct := armlink
 LDFLAGS.rvct := --cpu=cortex-a9 --entry 0x2000
 
@@ -68,7 +68,7 @@ ref-rvct: $(REFRVCT)
 ref-rvct.qemu: $(REFRVCT).qemu
 
 check-rvct: $(REFRVCT)
-	diff $(REFRVCT) ref-rvct.txt
+	diff $(REFRVCT) ref-rvct-all.txt
 
 $(REFRVCT): compute_ref.axf
 	rvdebug -stdiolog=stdio.log -jou=journal.log -log=log.log -nologo -cmd -init @coretile.core.cpu0@RTSM -inc armscript.inc -exec $^
@@ -100,7 +100,7 @@ REFGCCARM=stm-arm-neon.gccarm
 ref-gccarm: $(REFGCCARM)
 
 check-gccarm: $(REFGCCARM)
-	diff  $(REFGCCARM) ref-rvct-neon.txt
+	diff  $(REFGCCARM) ref-rvct-neon-nofp16.txt
 
 $(REFGCCARM): compute_ref.gccarm
 	rvdebug -stdiolog=stdio.log -jou=journal.log -log=log.log -nologo -cmd -init @coretile.core.cpu0@RTSM -inc armscript.inc -exec $^
@@ -116,7 +116,7 @@ REFGCCARM_RVCT=stm-arm-neon.gccarm-rvct
 ref-gccarm-rvct: $(REFGCCARM_RVCT)
 
 check-gccarm-rvct: $(REFGCCARM_RVCT)
-	diff $(REFGCCARM_RVCT) ref-rvct-neon.txt
+	diff $(REFGCCARM_RVCT) ref-rvct-neon-nofp16.txt
 
 $(REFGCCARM_RVCT): compute_ref.gccarm-rvct
 	rvdebug -stdiolog=stdio.log -jou=journal.log -log=log.log -nologo -cmd -init @coretile.core.cpu0@RTSM -inc armscript.inc -exec $^
