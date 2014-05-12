@@ -1,0 +1,10 @@
+
+License:
+--------
+All files are covered by the MIT license, except for:
+retarget.c
+Init.s
+InitCache.s
+scatter.scat
+which are covered by ARM's EULA regarding "EXAMPLE CODE", as described
+in license.html.
