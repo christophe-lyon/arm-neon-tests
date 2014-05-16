@@ -49,7 +49,8 @@ FNNAME (INSN)
 			L);						\
   vst1q_##T2##W2(VECT_VAR(result, T1, W2, N),				\
 		 VECT_VAR(vector_res, T1, W2, N));			\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##_lane_##T2##W))
+  dump_neon_overflow(TEST_MSG, xSTR(INSN##_lane_##T2##W),		\
+		     xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQDMULL_LANE1(INSN, T1, T2, W, W2, N, L)	\

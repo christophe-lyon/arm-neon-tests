@@ -35,6 +35,7 @@ THE SOFTWARE.
 
 FILE* log_file = NULL;
 FILE* ref_file = NULL;
+FILE* gcc_tests_file = NULL;
 
 #define LOGFILE "stm-arm-neon-ref.log"
 
@@ -42,6 +43,7 @@ void cleanup (void)
 {
   if (log_file) fclose (log_file);
   if (ref_file) fclose (ref_file);
+  if (gcc_tests_file) fclose (gcc_tests_file);
   exit (1);
 }
 
@@ -208,6 +210,12 @@ int main (void)
   ref_file = fopen (REFFILE, "w");
   if (ref_file == NULL) {
     fprintf (log_file, "Error opening ref file %s\n", REFFILE);
+    cleanup ();
+  }
+
+  gcc_tests_file = fopen (GCCTESTS_FILE, "w");
+  if (gcc_tests_file == NULL) {
+    fprintf (log_file, "Error opening GCC ref file %s\n", GCCTESTS_FILE);
     cleanup ();
   }
 

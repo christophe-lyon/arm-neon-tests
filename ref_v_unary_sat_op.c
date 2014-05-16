@@ -45,7 +45,8 @@ FNNAME (INSN_NAME)
     INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N));	\
   vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),		\
 		    VECT_VAR(vector_res, T1, W, N));	\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##Q##_##T2##W))
+  dump_neon_overflow(TEST_MSG, xSTR(INSN##Q##_##T2##W),	\
+		     xSTR(T1), W, N)
 
 #define TEST_UNARY_SAT_OP(INSN, Q, T1, T2, W, N)	\
   TEST_UNARY_SAT_OP1(INSN, Q, T1, T2, W, N)

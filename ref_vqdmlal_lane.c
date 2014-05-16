@@ -52,7 +52,8 @@ FNNAME (INSN_NAME)
 		    V);					\
   vst1q_##T2##W(VECT_VAR(result, T1, W, N),		\
 		VECT_VAR(vector_res, T1, W, N));	\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##_##T2##W2))
+  dump_neon_overflow(TEST_MSG, xSTR(INSN##_##T2##W2),	\
+		     xSTR(T1), W, N)
 
 #define TEST_VQDMLXL_LANE(INSN, T1, T2, W, W2, N, V)	\
   TEST_VQDMLXL_LANE1(INSN, T1, T2, W, W2, N, V)

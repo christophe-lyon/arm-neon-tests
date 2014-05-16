@@ -82,7 +82,8 @@ static int result_idx = 0;
     {									\
       fprintf(ref_file, "%" FMT ", ", VECT_VAR(result, T, W, N)[i]);	\
     }									\
-  fprintf(ref_file, " }\n");
+  fprintf(ref_file, " }\n");						\
+  DUMP4GCC(MSG,T,W,N,FMT);
 
 #define DUMP_FP(MSG,T,W,N,FMT)						\
   fprintf(ref_file, "%s:%d:%s [] = { ", MSG, result_idx++,		\
@@ -96,7 +97,46 @@ static int result_idx = 0;
       tmp.f = VECT_VAR(result, T, W, N)[i];				\
       fprintf(ref_file, "%" FMT " %.7a %.7g, ", tmp.i, tmp.f, tmp.f);	\
     }									\
-  fprintf(ref_file, " }\n");
+  fprintf(ref_file, " }\n");						\
+  DUMP4GCC_FP(MSG,T,W,N,FMT);
+
+#define DUMP4GCC(MSG,T,W,N,FMT)						\
+  fprintf(gcc_tests_file, "VECT_VAR_DECL(expected,%s,%d,%d) [] = { ",	\
+	  STR(T), W, N);						\
+  for(i=0; i<(N-1) ; i++)						\
+    {									\
+      if (W < 32) {							\
+	uint32_t tmp = (uint##W##_t) VECT_VAR(result, T, W, N)[i];	\
+	fprintf(gcc_tests_file, "0x%" FMT ", ", tmp);			\
+      } else {								\
+	fprintf(gcc_tests_file, "0x%" FMT ", ", VECT_VAR(result, T, W, N)[i]); \
+      }									\
+    }									\
+  if (W < 32) {								\
+    uint32_t tmp = (uint##W##_t) VECT_VAR(result, T, W, N)[i];		\
+    fprintf(gcc_tests_file, "0x%" FMT, tmp);				\
+  } else {								\
+    fprintf(gcc_tests_file, "0x%" FMT, VECT_VAR(result, T, W, N)[i]);	\
+  }									\
+  fprintf(gcc_tests_file, " };\n");
+
+#define DUMP4GCC_FP(MSG,T,W,N,FMT)					\
+  {									\
+    union fp_operand {							\
+      uint##W##_t i;							\
+      float##W##_t f;							\
+    } tmp;								\
+    fprintf(gcc_tests_file, "VECT_VAR_DECL(expected,%s,%d,%d) [] = { ",	\
+	    "hfloat", W, N);						\
+    for(i=0; i<(N-1) ; i++)						\
+      {									\
+	tmp.f = VECT_VAR(result, T, W, N)[i];				\
+	fprintf(gcc_tests_file, "0x%" FMT ", ", tmp.i);			\
+      }									\
+    tmp.f = VECT_VAR(result, T, W, N)[i];				\
+    fprintf(gcc_tests_file, "0x%" FMT, tmp.i);				\
+    fprintf(gcc_tests_file, " };\n");					\
+  }
 
 /* ARMCC has internal knowledge of half-precision type. Define this
    alias to avoid having to duplicate declarations.  */
@@ -114,6 +154,19 @@ static int result_idx = 0;
       fprintf(ref_file, "%" FMT ", ", tmp);				\
     }									\
   fprintf(ref_file, " }\n");
+
+#define DUMP4GCC_FP16(MSG,T,W,N,FMT)					\
+  if (0) {								\
+    fprintf(gcc_tests_file, "%s:%d:%s [] = { ", MSG, result_idx++,	\
+	    STR(VECT_VAR(result, T, W, N)));				\
+    for(i=0; i<N ; i++)							\
+      {									\
+	uint##W##_t tmp;						\
+	tmp = (uint##W##_t)VECT_VAR(result, T, W, N)[i];		\
+	fprintf(gcc_tests_file, "%" FMT ", ", tmp);			\
+      }									\
+    fprintf(gcc_tests_file, " }\n");					\
+  }
 
 #define CLEAN_PATTERN_8  0x33
 #define CLEAN_PATTERN_16 0x3333
@@ -146,6 +199,7 @@ static int result_idx = 0;
 /* Generic declarations: */
 extern FILE* log_file;
 extern FILE* ref_file;
+extern FILE* gcc_tests_file;
 
 /* Input buffers, one of each size */
 extern ARRAY(buffer, int, 8, 8);
@@ -383,6 +437,7 @@ static void dump_results (char *test_name)
   int i;
 
   fprintf(ref_file, "\n%s output:\n", test_name);
+  fprintf(gcc_tests_file, "\n%s output:\n", test_name);
 
   DUMP(test_name, int, 8, 8, PRId8);
   DUMP(test_name, int, 16, 4, PRId16);
@@ -421,6 +476,7 @@ static void dump_results_hex2 (const char *test_name, const char* comment)
   int i;
 
   fprintf(ref_file, "\n%s%s output:\n", test_name, comment);
+  fprintf(gcc_tests_file, "\n%s%s output:\n", test_name, comment);
 
   DUMP(test_name, int, 8, 8, PRIx8);
   DUMP(test_name, int, 16, 4, PRIx16);
@@ -529,10 +585,13 @@ static void __set_neon_overflow(int x) {
 
 #endif /* STM_ARM_NEON_MODELS */
 
-static void dump_neon_overflow(const char* msg, const char *name)
+static void dump_neon_overflow(const char* msg, const char *name,
+			       const char* t1, int w, int n)
 {
   fprintf(ref_file, "%s:%d:%s Neon overflow %d\n", msg, result_idx++,
 	  name, Neon_Overflow);
+  fprintf(gcc_tests_file, "int VECT_VAR(expected_overflow,%s,%d,%d) = %d;\n", \
+	  t1, w, n, Neon_Overflow);
 }
 
 /* Clean output buffers before execution */

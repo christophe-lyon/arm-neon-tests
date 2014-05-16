@@ -85,7 +85,7 @@ compute_ref.axf: scatter.scat compute_ref.rvct.o retarget.rvct.o	\
 	$(LD.rvct) $(LDFLAGS.rvct) --scatter $^ -o $@
 
 compute_ref.rvct.o retarget.rvct.o: %.rvct.o: %.c
-	$(CC.rvct) $(CFLAGS.rvct) -c $^ -o $@ -DREFFILE=\"$(REFRVCT)\"
+	$(CC.rvct) $(CFLAGS.rvct) -c $^ -o $@ -DREFFILE=\"$(REFRVCT)\" -DGCCTESTS_FILE=\"expected_input4gcc.txt\"
 
 ref_%.rvct.o: ref_%.c stm-arm-neon-ref.h
 	$(CC.rvct) $(CFLAGS.rvct) -c $< -o $@
@@ -162,4 +162,4 @@ ref_vsubw.*.o: ref_vaddw.c
 ref_vcage.*.o ref_vcale.*.o ref_vcagt.*.o ref_vcalt.*.o: ref_v_comp_f_op.c
 
 clean:
-	rm -f *.o *.log stm-arm-neon.refrvct
+	rm -f *.o *.log stm-arm-neon.refrvct expected_input4gcc.txt

@@ -47,7 +47,8 @@ FNNAME (INSN)
 		   V);					\
   vst1_u##W2(VECT_VAR(result, uint, W2, N),		\
 	     VECT_VAR(vector_res, uint, W2, N));	\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##_##T2##W))
+  dump_neon_overflow(TEST_MSG, xSTR(INSN##_##T2##W),	\
+		     xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQRSHRUN_N1(INSN, T1, T2, W, W2, N, V)	\
