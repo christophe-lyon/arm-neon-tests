@@ -49,7 +49,9 @@ void vqsub_64(void)
   TEST_VDUP(vector2, q, int, s, 64, 2, 0x0);
   TEST_VDUP(vector2, q, uint, u, 64, 2, 0x0);
 
-  fprintf(ref_file, "\n%s 64 bits saturation overflow output:\n", TEST_MSG);
+  fprintf(ref_file,
+	  "\n%s 64 bits saturation cumulative saturation output:\n",
+	  TEST_MSG);
   TEST_BINARY_SAT_OP(INSN_NAME, , int, s, 64, 1);
   TEST_BINARY_SAT_OP(INSN_NAME, , uint, u, 64, 1);
   TEST_BINARY_SAT_OP(INSN_NAME, q, int, s, 64, 2);
@@ -67,7 +69,9 @@ void vqsub_64(void)
   TEST_VDUP(vector2, q, int, s, 64, 2, 0x44);
   TEST_VDUP(vector2, q, uint, u, 64, 2, 0x88);
 
-  fprintf(ref_file, "\n%s 64 bits saturation overflow output:\n", TEST_MSG);
+  fprintf(ref_file,
+	  "\n%s 64 bits saturation cumulative saturation output:\n",
+	  TEST_MSG);
   TEST_BINARY_SAT_OP(INSN_NAME, , int, s, 64, 1);
   TEST_BINARY_SAT_OP(INSN_NAME, , uint, u, 64, 1);
   TEST_BINARY_SAT_OP(INSN_NAME, q, int, s, 64, 2);
@@ -89,7 +93,9 @@ void vqsub_64(void)
 
   TEST_VDUP(vector2, q, uint, u, 64, 2, 0xffffffffffffffffULL);
 
-  fprintf(ref_file, "\n%s 64 bits saturation overflow output:\n", TEST_MSG);
+  fprintf(ref_file,
+	  "\n%s 64 bits saturation cumulative saturation output:\n",
+	  TEST_MSG);
   TEST_BINARY_SAT_OP(INSN_NAME, , int, s, 64, 1);
   TEST_BINARY_SAT_OP(INSN_NAME, , uint, u, 64, 1);
   TEST_BINARY_SAT_OP(INSN_NAME, q, int, s, 64, 2);
@@ -138,7 +144,8 @@ void vqsub_64(void)
   TEST_VDUP(vector2, q, uint, u, 16, 8, 0x20);
   TEST_VDUP(vector2, q, uint, u, 32, 4, 0x20);
 
-  fprintf(ref_file, "\n%s less than 64 bits saturation overflow output:\n",
+  fprintf(ref_file,
+	  "\n%s less than 64 bits saturation cumulative saturation output:\n",
 	  TEST_MSG);
   TEST_BINARY_SAT_OP(INSN_NAME, , uint, u, 8, 8);
   TEST_BINARY_SAT_OP(INSN_NAME, , uint, u, 16, 4);

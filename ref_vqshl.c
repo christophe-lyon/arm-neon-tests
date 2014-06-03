@@ -41,14 +41,14 @@ FNNAME (INSN)
 {
   /* Basic test: v3=vqshl(v1,v2), then store the result.  */
 #define TEST_VQSHL2(INSN, T3, Q, T1, T2, W, N)			\
-  Set_Neon_Overflow(0);						\
+  Set_Neon_Cumulative_Sat(0);					\
   VECT_VAR(vector_res, T1, W, N) =				\
     INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N),		\
 		      VECT_VAR(vector_shift, T3, W, N));	\
   vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),			\
 		    VECT_VAR(vector_res, T1, W, N));		\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##Q##_##T2##W),		\
-		     xSTR(T1), W, N)
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##Q##_##T2##W),	\
+			   xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQSHL1(INSN, T3, Q, T1, T2, W, N)	\
@@ -113,7 +113,8 @@ FNNAME (INSN)
   TEST_VDUP(vector_shift, q, int, s, 64, 2, 64);
   TEST_VSET_LANE(vector_shift, q, int, s, 64, 2, 1, 62);
 
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG " (with input = 0)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (with input = 0)");
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQSHL, int);
   dump_results_hex2 (TEST_MSG, " (with input = 0)");
 
@@ -128,7 +129,7 @@ FNNAME (INSN)
   TEST_VDUP(vector_shift, q, int, s, 32, 4, -13);
   TEST_VDUP(vector_shift, q, int, s, 64, 2, -20);
 
-  fprintf(ref_file, "\n%s overflow output:\n",
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (input 0 and negative shift amount)");
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQSHL, int);
   dump_results_hex2 (TEST_MSG, " (input 0 and negative shift amount)");
@@ -146,7 +147,7 @@ FNNAME (INSN)
   TEST_VDUP(vector_shift, q, int, s, 32, 4, 32);
   TEST_VDUP(vector_shift, q, int, s, 64, 2, 63);
 
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQSHL, int);
   dump_results_hex (TEST_MSG);
 
@@ -160,7 +161,7 @@ FNNAME (INSN)
   TEST_VDUP(vector_shift, q, int, s, 32, 4, -13);
   TEST_VDUP(vector_shift, q, int, s, 64, 2, -20);
 
-  fprintf(ref_file, "\n%s overflow output:\n",
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (negative shift amount)");
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQSHL, int);
   dump_results_hex2 (TEST_MSG, " (negative shift amount)");
@@ -175,7 +176,7 @@ FNNAME (INSN)
   TEST_VDUP(vector_shift, q, int, s, 32, 4, 32);
   TEST_VDUP(vector_shift, q, int, s, 64, 2, 64);
 
-  fprintf(ref_file, "\n%s overflow output:\n",
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (large shift amount, negative input)");
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQSHL, int);
   dump_results_hex2 (TEST_MSG, " (large shift amount, negative input)");
@@ -208,10 +209,10 @@ FNNAME (INSN)
   TEST_VDUP(vector_shift, q, int, s, 32, 4, -1);
   TEST_VDUP(vector_shift, q, int, s, 64, 2, -1);
 
-  fprintf(ref_file, "\n%s overflow output:\n",
-	  TEST_MSG " (check saturation/overflow)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check cumulative saturation)");
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQSHL, int);
-  dump_results_hex2 (TEST_MSG, " (check saturation/overflow)");
+  dump_results_hex2 (TEST_MSG, " (check cumulative saturation)");
 
   /* Use large shift amounts */
   TEST_VDUP(vector_shift, , int, s, 8, 8, 8);
@@ -223,7 +224,7 @@ FNNAME (INSN)
   TEST_VDUP(vector_shift, q, int, s, 32, 4, 32);
   TEST_VDUP(vector_shift, q, int, s, 64, 2, 64);
 
-  fprintf(ref_file, "\n%s overflow output:\n",
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (large shift amount, positive input)");
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQSHL, int);
   dump_results_hex2 (TEST_MSG, " (large shift amount, positive input)");
@@ -233,7 +234,7 @@ FNNAME (INSN)
   TEST_VDUP(vector_shift, , int, s, 64, 1, 64);
   TEST_VDUP(vector, q, int, s, 64, 2, 10);
   TEST_VDUP(vector_shift, q, int, s, 64, 2, 64);
-  fprintf(ref_file, "\n%s overflow output:\n",
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (check saturation on 64 bits)");
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQSHL, int);
   dump_results_hex2 (TEST_MSG, " (check saturation on 64 bits)");

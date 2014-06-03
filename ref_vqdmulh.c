@@ -40,15 +40,15 @@ THE SOFTWARE.
 FNNAME (INSN)
 {
   /* vector_res = vqdmulh(vector,vector2,lane), then store the result.  */
-#define TEST_VQDMULH2(INSN, Q, T1, T2, W, N)		\
-  Set_Neon_Overflow(0);					\
-  VECT_VAR(vector_res, T1, W, N) =			\
-    INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N),	\
-		      VECT_VAR(vector2, T1, W, N));	\
-  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),		\
-		    VECT_VAR(vector_res, T1, W, N));	\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##Q##_##T2##W),	\
-		     xSTR(T1), W, N)
+#define TEST_VQDMULH2(INSN, Q, T1, T2, W, N)			\
+  Set_Neon_Cumulative_Sat(0);					\
+  VECT_VAR(vector_res, T1, W, N) =				\
+    INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N),		\
+		      VECT_VAR(vector2, T1, W, N));		\
+  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),			\
+		    VECT_VAR(vector_res, T1, W, N));		\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##Q##_##T2##W),	\
+			   xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQDMULH1(INSN, Q, T1, T2, W, N)	\
@@ -87,7 +87,7 @@ FNNAME (INSN)
   TEST_VDUP(vector2, q, int, s, 16, 8, 0x33);
   TEST_VDUP(vector2, q, int, s, 32, 4, 0x22);
 
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQDMULH(, int, s, 16, 4);
   TEST_VQDMULH(, int, s, 32, 2);
   TEST_VQDMULH(q, int, s, 16, 8);
@@ -106,7 +106,7 @@ FNNAME (INSN)
   TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
   TEST_VDUP(vector2, q, int, s, 32, 4, 0x80000000);
 
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQDMULH(, int, s, 16, 4);
   TEST_VQDMULH(, int, s, 32, 2);
   TEST_VQDMULH(q, int, s, 16, 8);

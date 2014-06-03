@@ -40,14 +40,14 @@ THE SOFTWARE.
 FNNAME (INSN_NAME)
 {
   /* Basic test: y=OP(x), then store the result.  */
-#define TEST_UNARY_OP1(INSN, T1, T2, W, W2, N)				\
-  Set_Neon_Overflow(0);							\
-  VECT_VAR(vector_res, T1, W, N) =					\
-    INSN##_s##W2(VECT_VAR(vector, int, W2, N));				\
-  vst1##_##T2##W(VECT_VAR(result, T1, W, N),				\
-		 VECT_VAR(vector_res, T1, W, N));			\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##_s##W2),			\
-		     xSTR(T1), W, N)
+#define TEST_UNARY_OP1(INSN, T1, T2, W, W2, N)			\
+  Set_Neon_Cumulative_Sat(0);					\
+  VECT_VAR(vector_res, T1, W, N) =				\
+    INSN##_s##W2(VECT_VAR(vector, int, W2, N));			\
+  vst1##_##T2##W(VECT_VAR(result, T1, W, N),			\
+		 VECT_VAR(vector_res, T1, W, N));		\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##_s##W2),	\
+			   xSTR(T1), W, N)
 
 #define TEST_UNARY_OP(INSN, T1, T2, W, W2, N)	\
   TEST_UNARY_OP1(INSN, T1, T2, W, W2, N)	\
@@ -72,7 +72,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector, q, int, s, 64, 2, 0x12345678);
 
   /* Apply a unary operator named INSN_NAME  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_UNARY_OP(INSN_NAME, uint, u, 8, 16, 8);
   TEST_UNARY_OP(INSN_NAME, uint, u, 16, 32, 4);
   TEST_UNARY_OP(INSN_NAME, uint, u, 32, 64, 2);
@@ -85,7 +85,8 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector, q, int, s, 64, 2, 0x8765432187654321LL);
 
   /* Apply a unary operator named INSN_NAME  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG " (negative input)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (negative input)");
   TEST_UNARY_OP(INSN_NAME, uint, u, 8, 16, 8);
   TEST_UNARY_OP(INSN_NAME, uint, u, 16, 32, 4);
   TEST_UNARY_OP(INSN_NAME, uint, u, 32, 64, 2);

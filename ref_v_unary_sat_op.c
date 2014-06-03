@@ -39,14 +39,14 @@ THE SOFTWARE.
 FNNAME (INSN_NAME)
 {
   /* Basic test: y=OP(x), then store the result.  */
-#define TEST_UNARY_SAT_OP1(INSN, Q, T1, T2, W, N)	\
-  Set_Neon_Overflow(0);					\
-  VECT_VAR(vector_res, T1, W, N) =			\
-    INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N));	\
-  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),		\
-		    VECT_VAR(vector_res, T1, W, N));	\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##Q##_##T2##W),	\
-		     xSTR(T1), W, N)
+#define TEST_UNARY_SAT_OP1(INSN, Q, T1, T2, W, N)		\
+  Set_Neon_Cumulative_Sat(0);					\
+  VECT_VAR(vector_res, T1, W, N) =				\
+    INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N));		\
+  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),			\
+		    VECT_VAR(vector_res, T1, W, N));		\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##Q##_##T2##W),	\
+			   xSTR(T1), W, N)
 
 #define TEST_UNARY_SAT_OP(INSN, Q, T1, T2, W, N)	\
   TEST_UNARY_SAT_OP1(INSN, Q, T1, T2, W, N)
@@ -80,7 +80,7 @@ FNNAME (INSN_NAME)
   TEST_VLOAD(vector, buffer, q, int, s, 32, 4);
 
   /* Apply a unary operator named INSN_NAME  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_UNARY_SAT_OP(INSN_NAME, , int, s, 8, 8);
   TEST_UNARY_SAT_OP(INSN_NAME, , int, s, 16, 4);
   TEST_UNARY_SAT_OP(INSN_NAME, , int, s, 32, 2);

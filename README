@@ -31,9 +31,9 @@ Known issues:
 Some tests currently fail to build with GCC/ARM:
 - missing include files: dspfns.h, armdsp.h
 
-As GCC/ARM provides no support for the Neon_Overflow/fpsrc register,
-auxiliary accessor functions have been implemented in
-stm-arm-neon-ref.h.
+As GCC/ARM provides no support for the
+Neon_Cumulative_Saturation/fpsrc register, auxiliary accessor
+functions have been implemented in stm-arm-neon-ref.h.
 
 Engineering:
 ------------

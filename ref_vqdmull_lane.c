@@ -41,16 +41,16 @@ FNNAME (INSN)
   int i;
 
   /* vector_res = vqdmull_lane(vector,vector2,lane), then store the result.  */
-#define TEST_VQDMULL_LANE2(INSN, T1, T2, W, W2, N, L)			\
-  Set_Neon_Overflow(0);							\
-  VECT_VAR(vector_res, T1, W2, N) =					\
-    INSN##_lane_##T2##W(VECT_VAR(vector, T1, W, N),			\
-			VECT_VAR(vector2, T1, W, N),			\
-			L);						\
-  vst1q_##T2##W2(VECT_VAR(result, T1, W2, N),				\
-		 VECT_VAR(vector_res, T1, W2, N));			\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##_lane_##T2##W),		\
-		     xSTR(T1), W, N)
+#define TEST_VQDMULL_LANE2(INSN, T1, T2, W, W2, N, L)		\
+  Set_Neon_Cumulative_Sat(0);					\
+  VECT_VAR(vector_res, T1, W2, N) =				\
+    INSN##_lane_##T2##W(VECT_VAR(vector, T1, W, N),		\
+			VECT_VAR(vector2, T1, W, N),		\
+			L);					\
+  vst1q_##T2##W2(VECT_VAR(result, T1, W2, N),			\
+		 VECT_VAR(vector_res, T1, W2, N));		\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##_lane_##T2##W),	\
+			   xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQDMULL_LANE1(INSN, T1, T2, W, W2, N, L)	\
@@ -81,7 +81,7 @@ FNNAME (INSN)
   TEST_VDUP(vector2, , int, s, 32, 2, 0x2);
 
   /* Choose lane arbitrarily */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQDMULL_LANE(int, s, 16, 32, 4, 2);
   TEST_VQDMULL_LANE(int, s, 32, 64, 2, 1);
 
@@ -96,11 +96,13 @@ FNNAME (INSN)
   TEST_VDUP(vector2, , int, s, 16, 4, 0x8000);
   TEST_VDUP(vector, , int, s, 32, 2, 0x80000000);
   TEST_VDUP(vector2, , int, s, 32, 2, 0x80000000);
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG " (check mul overflow)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check mul cumulative saturation)");
   TEST_VQDMULL_LANE(int, s, 16, 32, 4, 2);
   TEST_VQDMULL_LANE(int, s, 32, 64, 2, 1);
 
-  fprintf (ref_file, "\n%s output:\n", TEST_MSG " (check mul overflow)");
+  fprintf (ref_file, "\n%s output:\n",
+	   TEST_MSG " (check mul cumulative saturation)");
   DUMP(TEST_MSG, int, 32, 4, PRIx32);
   DUMP(TEST_MSG, int, 64, 2, PRIx64);
 }

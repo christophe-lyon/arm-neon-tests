@@ -40,15 +40,15 @@ THE SOFTWARE.
 FNNAME (INSN)
 {
   /* vector_res = vqrdmulh(vector,vector2), then store the result.  */
-#define TEST_VQRDMULH2(INSN, Q, T1, T2, W, N)		\
-  Set_Neon_Overflow(0);					\
-  VECT_VAR(vector_res, T1, W, N) =			\
-    INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N),	\
-		      VECT_VAR(vector2, T1, W, N));	\
-  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),		\
-		    VECT_VAR(vector_res, T1, W, N));	\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##Q##_##T2##W),	\
-		     xSTR(T1), W, N)
+#define TEST_VQRDMULH2(INSN, Q, T1, T2, W, N)			\
+  Set_Neon_Cumulative_Sat(0);					\
+  VECT_VAR(vector_res, T1, W, N) =				\
+    INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N),		\
+		      VECT_VAR(vector2, T1, W, N));		\
+  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),			\
+		    VECT_VAR(vector_res, T1, W, N));		\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##Q##_##T2##W),	\
+			   xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQRDMULH1(INSN, Q, T1, T2, W, N)	\
@@ -88,7 +88,7 @@ FNNAME (INSN)
   TEST_VDUP(vector2, q, int, s, 16, 8, 0x33);
   TEST_VDUP(vector2, q, int, s, 32, 4, 0x22);
 
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQRDMULH(, int, s, 16, 4);
   TEST_VQRDMULH(, int, s, 32, 2);
   TEST_VQRDMULH(q, int, s, 16, 8);
@@ -107,13 +107,13 @@ FNNAME (INSN)
   TEST_VDUP(vector2, q, int, s, 16, 8, 0x8000);
   TEST_VDUP(vector2, q, int, s, 32, 4, 0x80000000);
 
-  fprintf(ref_file, "\n%s overflow output:\n",
-	  TEST_MSG " (check mul overflow)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check mul cumulative saturation)");
   TEST_VQRDMULH(, int, s, 16, 4);
   TEST_VQRDMULH(, int, s, 32, 2);
   TEST_VQRDMULH(q, int, s, 16, 8);
   TEST_VQRDMULH(q, int, s, 32, 4);
-  dump_results_hex2 (TEST_MSG, " (check mul overflow)");
+  dump_results_hex2 (TEST_MSG, " (check mul cumulative saturation)");
 
 
   TEST_VDUP(vector, , int, s, 16, 4, 0x8000);
@@ -125,11 +125,11 @@ FNNAME (INSN)
   TEST_VDUP(vector2, q, int, s, 16, 8, 0x8001);
   TEST_VDUP(vector2, q, int, s, 32, 4, 0x80000001);
 
-  fprintf(ref_file, "\n%s overflow output:\n",
-	  TEST_MSG " (check rounding overflow)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check rounding cumulative saturation)");
   TEST_VQRDMULH(, int, s, 16, 4);
   TEST_VQRDMULH(, int, s, 32, 2);
   TEST_VQRDMULH(q, int, s, 16, 8);
   TEST_VQRDMULH(q, int, s, 32, 4);
-  dump_results_hex2 (TEST_MSG, " (check rounding overflow)");
+  dump_results_hex2 (TEST_MSG, " (check rounding cumulative saturation)");
 }

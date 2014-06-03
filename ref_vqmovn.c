@@ -40,14 +40,14 @@ THE SOFTWARE.
 FNNAME (INSN_NAME)
 {
   /* Basic test: y=OP(x), then store the result.  */
-#define TEST_UNARY_OP1(INSN, T1, T2, W, W2, N)				\
-  Set_Neon_Overflow(0);							\
-  VECT_VAR(vector_res, T1, W, N) =					\
-    INSN##_##T2##W2(VECT_VAR(vector, T1, W2, N));			\
-  vst1##_##T2##W(VECT_VAR(result, T1, W, N),				\
-		 VECT_VAR(vector_res, T1, W, N));			\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##_##T2##W2),			\
-		     xSTR(T1), W, N)
+#define TEST_UNARY_OP1(INSN, T1, T2, W, W2, N)			\
+  Set_Neon_Cumulative_Sat(0);					\
+  VECT_VAR(vector_res, T1, W, N) =				\
+    INSN##_##T2##W2(VECT_VAR(vector, T1, W2, N));		\
+  vst1##_##T2##W(VECT_VAR(result, T1, W, N),			\
+		 VECT_VAR(vector_res, T1, W, N));		\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##_##T2##W2),	\
+			   xSTR(T1), W, N)
 
 #define TEST_UNARY_OP(INSN, T1, T2, W, W2, N)				\
   TEST_UNARY_OP1(INSN, T1, T2, W, W2, N)				\
@@ -81,7 +81,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector, q, uint, u, 64, 2, 0x87654321);
 
   /* Apply a unary operator named INSN_NAME  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_UNARY_OP(INSN_NAME, int, s, 8, 16, 8);
   TEST_UNARY_OP(INSN_NAME, int, s, 16, 32, 4);
   TEST_UNARY_OP(INSN_NAME, int, s, 32, 64, 2);
@@ -92,7 +92,8 @@ FNNAME (INSN_NAME)
   dump_results_hex (TEST_MSG);
 
 
-  /* Fill input vector with arbitrary values which cause an overflow */
+  /* Fill input vector with arbitrary values which cause an cumulative
+     saturation.  */
   TEST_VDUP(vector, q, int, s, 16, 8, 0x1234);
   TEST_VDUP(vector, q, int, s, 32, 4, 0x12345678);
   TEST_VDUP(vector, q, int, s, 64, 2, 0x1234567890ABLL);
@@ -101,7 +102,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector, q, uint, u, 64, 2, 0x8765432187654321ULL);
 
   /* Apply a unary operator named INSN_NAME  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_UNARY_OP(INSN_NAME, int, s, 8, 16, 8);
   TEST_UNARY_OP(INSN_NAME, int, s, 16, 32, 4);
   TEST_UNARY_OP(INSN_NAME, int, s, 32, 64, 2);

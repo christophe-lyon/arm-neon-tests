@@ -39,16 +39,16 @@ THE SOFTWARE.
 FNNAME (INSN)
 {
   /* vector_res = vqdmulh_lane(vector,vector2,lane), then store the result.  */
-#define TEST_VQDMULH_LANE2(INSN, Q, T1, T2, W, N, N2, L)	\
-  Set_Neon_Overflow(0);						\
-  VECT_VAR(vector_res, T1, W, N) =				\
-    INSN##Q##_lane_##T2##W(VECT_VAR(vector, T1, W, N),		\
-			   VECT_VAR(vector2, T1, W, N2),	\
-			   L);					\
-  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),			\
-		    VECT_VAR(vector_res, T1, W, N));		\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##Q##_lane_##T2##W),	\
-		     xSTR(T1), W, N)
+#define TEST_VQDMULH_LANE2(INSN, Q, T1, T2, W, N, N2, L)		\
+  Set_Neon_Cumulative_Sat(0);						\
+  VECT_VAR(vector_res, T1, W, N) =					\
+    INSN##Q##_lane_##T2##W(VECT_VAR(vector, T1, W, N),			\
+			   VECT_VAR(vector2, T1, W, N2),		\
+			   L);						\
+  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),				\
+		    VECT_VAR(vector_res, T1, W, N));			\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##Q##_lane_##T2##W),	\
+			   xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQDMULH_LANE1(INSN, Q, T1, T2, W, N, N2, L)	\
@@ -88,7 +88,7 @@ FNNAME (INSN)
   TEST_VDUP(vector2, , int, s, 32, 2, 0xBB);
 
   /* Choose lane arbitrarily */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQDMULH_LANE(, int, s, 16, 4, 4, 2);
   TEST_VQDMULH_LANE(, int, s, 32, 2, 2, 1);
   TEST_VQDMULH_LANE(q, int, s, 16, 8, 4, 3);
@@ -106,11 +106,11 @@ FNNAME (INSN)
   TEST_VDUP(vector2, , int, s, 16, 4, 0x8000);
   TEST_VDUP(vector2, , int, s, 32, 2, 0x80000000);
 
-  fprintf(ref_file, "\n%s overflow output:\n",
-	  TEST_MSG " (check mul overflow)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check mul cumulative saturation)");
   TEST_VQDMULH_LANE(, int, s, 16, 4, 4, 3);
   TEST_VQDMULH_LANE(, int, s, 32, 2, 2, 1);
   TEST_VQDMULH_LANE(q, int, s, 16, 8, 4, 2);
   TEST_VQDMULH_LANE(q, int, s, 32, 4, 2, 1);
-  dump_results_hex2 (TEST_MSG, " (check mul overflow)");
+  dump_results_hex2 (TEST_MSG, " (check mul cumulative saturation)");
 }

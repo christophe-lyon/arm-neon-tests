@@ -40,15 +40,15 @@ THE SOFTWARE.
 FNNAME (INSN)
 {
   /* Basic test: y=vqrshrun_n(x,v), then store the result.  */
-#define TEST_VQRSHRUN_N2(INSN, T1, T2, W, W2, N, V)	\
-  Set_Neon_Overflow(0);					\
-  VECT_VAR(vector_res, uint, W2, N) =			\
-    INSN##_##T2##W(VECT_VAR(vector, T1, W, N),		\
-		   V);					\
-  vst1_u##W2(VECT_VAR(result, uint, W2, N),		\
-	     VECT_VAR(vector_res, uint, W2, N));	\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##_##T2##W),	\
-		     xSTR(T1), W, N)
+#define TEST_VQRSHRUN_N2(INSN, T1, T2, W, W2, N, V)		\
+  Set_Neon_Cumulative_Sat(0);					\
+  VECT_VAR(vector_res, uint, W2, N) =				\
+    INSN##_##T2##W(VECT_VAR(vector, T1, W, N),			\
+		   V);						\
+  vst1_u##W2(VECT_VAR(result, uint, W2, N),			\
+	     VECT_VAR(vector_res, uint, W2, N));		\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##_##T2##W),	\
+			   xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQRSHRUN_N1(INSN, T1, T2, W, W2, N, V)	\
@@ -78,7 +78,8 @@ FNNAME (INSN)
   TEST_VDUP(vector, q, int, s, 64, 2, -4);
 
   /* Choose shift amount arbitrarily  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG " (negative input)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (negative input)");
   TEST_VQRSHRUN_N(int, s, 16, 8, 8, 3);
   TEST_VQRSHRUN_N(int, s, 32, 16, 4, 4);
   TEST_VQRSHRUN_N(int, s, 64, 32, 2, 2);
@@ -92,22 +93,23 @@ FNNAME (INSN)
   TEST_VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
 
   /* shift by 1  */
-  fprintf(ref_file, "\n%s overflow output:\n",
-	  TEST_MSG " (check saturation/overflow: shift by 1)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check cumulative saturation: shift by 1)");
   TEST_VQRSHRUN_N(int, s, 16, 8, 8, 1);
   TEST_VQRSHRUN_N(int, s, 32, 16, 4, 1);
   TEST_VQRSHRUN_N(int, s, 64, 32, 2, 1);
 
-  dump_results_hex2 (TEST_MSG, " (check saturation/overflow: shift by 1)");
+  dump_results_hex2 (TEST_MSG, " (check cumulative saturation: shift by 1)");
 
   /* shift by max  */
-  fprintf(ref_file, "\n%s overflow output:\n",
-	  TEST_MSG " (check saturation/overflow: shift by max, positive input)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check cumulative saturation: shift by max, positive input)");
   TEST_VQRSHRUN_N(int, s, 16, 8, 8, 8);
   TEST_VQRSHRUN_N(int, s, 32, 16, 4, 16);
   TEST_VQRSHRUN_N(int, s, 64, 32, 2, 32);
 
-  dump_results_hex2 (TEST_MSG, " (check saturation/overflow: shift by max, positive input)");
+  dump_results_hex2 (TEST_MSG,
+		     " (check cumulative saturation: shift by max, positive input)");
 
 
   /* Fill input vector with min value, to check saturation on limits */
@@ -116,13 +118,14 @@ FNNAME (INSN)
   TEST_VDUP(vector, q, int, s, 64, 2, 0x8000000000000000LL);
 
   /* shift by max  */
-  fprintf(ref_file, "\n%s overflow output:\n",
-	  TEST_MSG " (check saturation/overflow: shift by max, negative input)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check cumulative saturation: shift by max, negative input)");
   TEST_VQRSHRUN_N(int, s, 16, 8, 8, 8);
   TEST_VQRSHRUN_N(int, s, 32, 16, 4, 16);
   TEST_VQRSHRUN_N(int, s, 64, 32, 2, 32);
 
-  dump_results_hex2 (TEST_MSG, " (check saturation/overflow: shift by max, negative input)");
+  dump_results_hex2 (TEST_MSG,
+		     " (check cumulative saturation: shift by max, negative input)");
 
   /* Fill input vector with positive values, to check normal case */
   TEST_VDUP(vector, q, int, s, 16, 8, 0x1234);
@@ -130,7 +133,7 @@ FNNAME (INSN)
   TEST_VDUP(vector, q, int, s, 64, 2, 0xDEADBEEF);
 
   /* shift arbitrary amount  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQRSHRUN_N(int, s, 16, 8, 8, 6);
   TEST_VQRSHRUN_N(int, s, 32, 16, 4, 7);
   TEST_VQRSHRUN_N(int, s, 64, 32, 2, 8);

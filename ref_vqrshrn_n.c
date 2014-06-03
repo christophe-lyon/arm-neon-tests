@@ -40,15 +40,15 @@ THE SOFTWARE.
 FNNAME (INSN)
 {
   /* Basic test: y=vqrshrn_n(x,v), then store the result.  */
-#define TEST_VQRSHRN_N2(INSN, T1, T2, W, W2, N, V)	\
-  Set_Neon_Overflow(0);					\
-  VECT_VAR(vector_res, T1, W2, N) =			\
-    INSN##_##T2##W(VECT_VAR(vector, T1, W, N),		\
-		   V);					\
-  vst1_##T2##W2(VECT_VAR(result, T1, W2, N),		\
-		VECT_VAR(vector_res, T1, W2, N));	\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##_##T2##W),	\
-		     xSTR(T1), W, N)
+#define TEST_VQRSHRN_N2(INSN, T1, T2, W, W2, N, V)		\
+  Set_Neon_Cumulative_Sat(0);					\
+  VECT_VAR(vector_res, T1, W2, N) =				\
+    INSN##_##T2##W(VECT_VAR(vector, T1, W, N),			\
+		   V);						\
+  vst1_##T2##W2(VECT_VAR(result, T1, W2, N),			\
+		VECT_VAR(vector_res, T1, W2, N));		\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##_##T2##W),	\
+			   xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQRSHRN_N1(INSN, T1, T2, W, W2, N, V)	\
@@ -86,7 +86,7 @@ FNNAME (INSN)
   TEST_VLOAD(vector, buffer, q, uint, u, 64, 2);
 
   /* Choose shift amount arbitrarily  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQRSHRN_N(int, s, 16, 8, 8, 1);
   TEST_VQRSHRN_N(int, s, 32, 16, 4, 1);
   TEST_VQRSHRN_N(int, s, 64, 32, 2, 2);
@@ -106,7 +106,7 @@ FNNAME (INSN)
   TEST_VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
 
   /* shift by 3 to exercise saturation code in the lib  */
-  fprintf(ref_file, "\n%s overflow output:\n",
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (check saturation: shift by 3)");
   TEST_VQRSHRN_N(int, s, 16, 8, 8, 3);
   TEST_VQRSHRN_N(int, s, 32, 16, 4, 3);
@@ -120,7 +120,7 @@ FNNAME (INSN)
 
 
   /* shift by max to exercise saturation code in the lib  */
-  fprintf(ref_file, "\n%s overflow output:\n",
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (check saturation: shift by max)");
   TEST_VQRSHRN_N(int, s, 16, 8, 8, 8);
   TEST_VQRSHRN_N(int, s, 32, 16, 4, 16);

@@ -43,16 +43,16 @@ FNNAME (INSN_NAME)
 {
   /* vector_res = vqdmlxl_n(vector, vector3, val),
      then store the result.  */
-#define TEST_VQDMLXL_N1(INSN, T1, T2, W, W2, N, V)	\
-  Set_Neon_Overflow(0);					\
-  VECT_VAR(vector_res, T1, W, N) =			\
-    INSN##_##T2##W2(VECT_VAR(vector, T1, W, N),		\
-		    VECT_VAR(vector3, T1, W2, N),	\
-		    V);					\
-  vst1q_##T2##W(VECT_VAR(result, T1, W, N),		\
-		VECT_VAR(vector_res, T1, W, N));	\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##_##T2##W2),	\
-		     xSTR(T1), W, N)
+#define TEST_VQDMLXL_N1(INSN, T1, T2, W, W2, N, V)		\
+  Set_Neon_Cumulative_Sat(0);					\
+  VECT_VAR(vector_res, T1, W, N) =				\
+    INSN##_##T2##W2(VECT_VAR(vector, T1, W, N),			\
+		    VECT_VAR(vector3, T1, W2, N),		\
+		    V);						\
+  vst1q_##T2##W(VECT_VAR(result, T1, W, N),			\
+		VECT_VAR(vector_res, T1, W, N));		\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##_##T2##W2),	\
+			   xSTR(T1), W, N)
 
 #define TEST_VQDMLXL_N(INSN, T1, T2, W, W2, N, V)	\
   TEST_VQDMLXL_N1(INSN, T1, T2, W, W2, N, V)
@@ -76,7 +76,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector3, , int, s, 32, 2, 0x55);
 
   /* Choose val arbitrarily */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQDMLXL_N(INSN_NAME, int, s, 32, 16, 4, 0x22);
   TEST_VQDMLXL_N(INSN_NAME, int, s, 64, 32, 2, 0x33);
 
@@ -84,9 +84,9 @@ FNNAME (INSN_NAME)
 
   TEST_VDUP(vector3, , int, s, 16, 4, 0x8000);
   TEST_VDUP(vector3, , int, s, 32, 2, 0x80000000);
-  fprintf(ref_file, "\n%s overflow output:\n",
-	  TEST_MSG " (check mul overflow)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check mul cumulative saturation)");
   TEST_VQDMLXL_N(INSN_NAME, int, s, 32, 16, 4, 0x8000);
   TEST_VQDMLXL_N(INSN_NAME, int, s, 64, 32, 2, 0x80000000);
-  dump_results_hex2 (TEST_MSG, " (check mul overflow)");
+  dump_results_hex2 (TEST_MSG, " (check mul cumulative saturation)");
 }

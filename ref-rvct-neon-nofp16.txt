@@ -339,9 +339,9 @@ VGET_LOW:19:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VGET_LOW:20:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VGET_LOW:21:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLAL_LANE overflow output:
-VQDMLAL_LANE:0:vqdmlal_lane_s16 Neon overflow 0
-VQDMLAL_LANE:1:vqdmlal_lane_s32 Neon overflow 0
+VQDMLAL_LANE cumulative saturation output:
+VQDMLAL_LANE:0:vqdmlal_lane_s16 Neon cumulative saturation 0
+VQDMLAL_LANE:1:vqdmlal_lane_s32 Neon cumulative saturation 0
 
 VQDMLAL_LANE output:
 VQDMLAL_LANE:2:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -367,9 +367,9 @@ VQDMLAL_LANE:21:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQDMLAL_LANE:22:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLAL_LANE:23:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLAL_LANE (mul with input=0) overflow output:
-VQDMLAL_LANE:24:vqdmlal_lane_s16 Neon overflow 0
-VQDMLAL_LANE:25:vqdmlal_lane_s32 Neon overflow 0
+VQDMLAL_LANE (mul with input=0) cumulative saturation output:
+VQDMLAL_LANE:24:vqdmlal_lane_s16 Neon cumulative saturation 0
+VQDMLAL_LANE:25:vqdmlal_lane_s32 Neon cumulative saturation 0
 
 VQDMLAL_LANE (mul with input=0) output:
 VQDMLAL_LANE:26:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -395,11 +395,11 @@ VQDMLAL_LANE:45:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQDMLAL_LANE:46:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLAL_LANE:47:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLAL_LANE (check mul overflow) overflow output:
-VQDMLAL_LANE:48:vqdmlal_lane_s16 Neon overflow 1
-VQDMLAL_LANE:49:vqdmlal_lane_s32 Neon overflow 1
+VQDMLAL_LANE (check mul cumulative saturation) cumulative saturation output:
+VQDMLAL_LANE:48:vqdmlal_lane_s16 Neon cumulative saturation 1
+VQDMLAL_LANE:49:vqdmlal_lane_s32 Neon cumulative saturation 1
 
-VQDMLAL_LANE (check mul overflow) output:
+VQDMLAL_LANE (check mul cumulative saturation) output:
 VQDMLAL_LANE:50:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQDMLAL_LANE:51:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQDMLAL_LANE:52:result_int32x2 [] = { 33333333, 33333333,  }
@@ -423,9 +423,9 @@ VQDMLAL_LANE:69:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQDMLAL_LANE:70:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLAL_LANE:71:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLSL_LANE overflow output:
-VQDMLSL_LANE:0:vqdmlsl_lane_s16 Neon overflow 0
-VQDMLSL_LANE:1:vqdmlsl_lane_s32 Neon overflow 0
+VQDMLSL_LANE cumulative saturation output:
+VQDMLSL_LANE:0:vqdmlsl_lane_s16 Neon cumulative saturation 0
+VQDMLSL_LANE:1:vqdmlsl_lane_s32 Neon cumulative saturation 0
 
 VQDMLSL_LANE output:
 VQDMLSL_LANE:2:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -451,9 +451,9 @@ VQDMLSL_LANE:21:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQDMLSL_LANE:22:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLSL_LANE:23:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLSL_LANE (mul with input=0) overflow output:
-VQDMLSL_LANE:24:vqdmlsl_lane_s16 Neon overflow 0
-VQDMLSL_LANE:25:vqdmlsl_lane_s32 Neon overflow 0
+VQDMLSL_LANE (mul with input=0) cumulative saturation output:
+VQDMLSL_LANE:24:vqdmlsl_lane_s16 Neon cumulative saturation 0
+VQDMLSL_LANE:25:vqdmlsl_lane_s32 Neon cumulative saturation 0
 
 VQDMLSL_LANE (mul with input=0) output:
 VQDMLSL_LANE:26:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -479,11 +479,11 @@ VQDMLSL_LANE:45:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQDMLSL_LANE:46:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLSL_LANE:47:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLSL_LANE (check mul overflow) overflow output:
-VQDMLSL_LANE:48:vqdmlsl_lane_s16 Neon overflow 1
-VQDMLSL_LANE:49:vqdmlsl_lane_s32 Neon overflow 1
+VQDMLSL_LANE (check mul cumulative saturation) cumulative saturation output:
+VQDMLSL_LANE:48:vqdmlsl_lane_s16 Neon cumulative saturation 1
+VQDMLSL_LANE:49:vqdmlsl_lane_s32 Neon cumulative saturation 1
 
-VQDMLSL_LANE (check mul overflow) output:
+VQDMLSL_LANE (check mul cumulative saturation) output:
 VQDMLSL_LANE:50:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQDMLSL_LANE:51:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQDMLSL_LANE:52:result_int32x2 [] = { 33333333, 33333333,  }
@@ -507,9 +507,9 @@ VQDMLSL_LANE:69:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQDMLSL_LANE:70:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLSL_LANE:71:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLAL_N overflow output:
-VQDMLAL_N:0:vqdmlal_n_s16 Neon overflow 0
-VQDMLAL_N:1:vqdmlal_n_s32 Neon overflow 0
+VQDMLAL_N cumulative saturation output:
+VQDMLAL_N:0:vqdmlal_n_s16 Neon cumulative saturation 0
+VQDMLAL_N:1:vqdmlal_n_s32 Neon cumulative saturation 0
 
 VQDMLAL_N output:
 VQDMLAL_N:2:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -535,11 +535,11 @@ VQDMLAL_N:21:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQDMLAL_N:22:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLAL_N:23:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLAL_N (check mul overflow) overflow output:
-VQDMLAL_N:24:vqdmlal_n_s16 Neon overflow 1
-VQDMLAL_N:25:vqdmlal_n_s32 Neon overflow 1
+VQDMLAL_N (check mul cumulative saturation) cumulative saturation output:
+VQDMLAL_N:24:vqdmlal_n_s16 Neon cumulative saturation 1
+VQDMLAL_N:25:vqdmlal_n_s32 Neon cumulative saturation 1
 
-VQDMLAL_N (check mul overflow) output:
+VQDMLAL_N (check mul cumulative saturation) output:
 VQDMLAL_N:26:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQDMLAL_N:27:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQDMLAL_N:28:result_int32x2 [] = { 33333333, 33333333,  }
@@ -563,9 +563,9 @@ VQDMLAL_N:45:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQDMLAL_N:46:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLAL_N:47:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLSL_N overflow output:
-VQDMLSL_N:0:vqdmlsl_n_s16 Neon overflow 0
-VQDMLSL_N:1:vqdmlsl_n_s32 Neon overflow 0
+VQDMLSL_N cumulative saturation output:
+VQDMLSL_N:0:vqdmlsl_n_s16 Neon cumulative saturation 0
+VQDMLSL_N:1:vqdmlsl_n_s32 Neon cumulative saturation 0
 
 VQDMLSL_N output:
 VQDMLSL_N:2:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -591,11 +591,11 @@ VQDMLSL_N:21:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQDMLSL_N:22:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLSL_N:23:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLSL_N (check mul overflow) overflow output:
-VQDMLSL_N:24:vqdmlsl_n_s16 Neon overflow 1
-VQDMLSL_N:25:vqdmlsl_n_s32 Neon overflow 1
+VQDMLSL_N (check mul cumulative saturation) cumulative saturation output:
+VQDMLSL_N:24:vqdmlsl_n_s16 Neon cumulative saturation 1
+VQDMLSL_N:25:vqdmlsl_n_s32 Neon cumulative saturation 1
 
-VQDMLSL_N (check mul overflow) output:
+VQDMLSL_N (check mul cumulative saturation) output:
 VQDMLSL_N:26:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQDMLSL_N:27:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQDMLSL_N:28:result_int32x2 [] = { 33333333, 33333333,  }
@@ -763,13 +763,13 @@ VRSHRN_N:63:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VRSHRN_N:64:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VRSHRN_N:65:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHRN_N overflow output:
-VQRSHRN_N:0:vqrshrn_n_s16 Neon overflow 0
-VQRSHRN_N:1:vqrshrn_n_s32 Neon overflow 0
-VQRSHRN_N:2:vqrshrn_n_s64 Neon overflow 0
-VQRSHRN_N:3:vqrshrn_n_u16 Neon overflow 1
-VQRSHRN_N:4:vqrshrn_n_u32 Neon overflow 1
-VQRSHRN_N:5:vqrshrn_n_u64 Neon overflow 1
+VQRSHRN_N cumulative saturation output:
+VQRSHRN_N:0:vqrshrn_n_s16 Neon cumulative saturation 0
+VQRSHRN_N:1:vqrshrn_n_s32 Neon cumulative saturation 0
+VQRSHRN_N:2:vqrshrn_n_s64 Neon cumulative saturation 0
+VQRSHRN_N:3:vqrshrn_n_u16 Neon cumulative saturation 1
+VQRSHRN_N:4:vqrshrn_n_u32 Neon cumulative saturation 1
+VQRSHRN_N:5:vqrshrn_n_u64 Neon cumulative saturation 1
 
 VQRSHRN_N output:
 VQRSHRN_N:6:result_int8x8 [] = { fffffff8, fffffff9, fffffff9, fffffffa, fffffffa, fffffffb, fffffffb, fffffffc,  }
@@ -795,13 +795,13 @@ VQRSHRN_N:25:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQRSHRN_N:26:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHRN_N:27:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHRN_N (check saturation: shift by 3) overflow output:
-VQRSHRN_N:28:vqrshrn_n_s16 Neon overflow 1
-VQRSHRN_N:29:vqrshrn_n_s32 Neon overflow 1
-VQRSHRN_N:30:vqrshrn_n_s64 Neon overflow 1
-VQRSHRN_N:31:vqrshrn_n_u16 Neon overflow 1
-VQRSHRN_N:32:vqrshrn_n_u32 Neon overflow 1
-VQRSHRN_N:33:vqrshrn_n_u64 Neon overflow 1
+VQRSHRN_N (check saturation: shift by 3) cumulative saturation output:
+VQRSHRN_N:28:vqrshrn_n_s16 Neon cumulative saturation 1
+VQRSHRN_N:29:vqrshrn_n_s32 Neon cumulative saturation 1
+VQRSHRN_N:30:vqrshrn_n_s64 Neon cumulative saturation 1
+VQRSHRN_N:31:vqrshrn_n_u16 Neon cumulative saturation 1
+VQRSHRN_N:32:vqrshrn_n_u32 Neon cumulative saturation 1
+VQRSHRN_N:33:vqrshrn_n_u64 Neon cumulative saturation 1
 
 VQRSHRN_N (check saturation: shift by 3) output:
 VQRSHRN_N:34:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
@@ -827,13 +827,13 @@ VQRSHRN_N:53:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQRSHRN_N:54:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHRN_N:55:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHRN_N (check saturation: shift by max) overflow output:
-VQRSHRN_N:56:vqrshrn_n_s16 Neon overflow 1
-VQRSHRN_N:57:vqrshrn_n_s32 Neon overflow 1
-VQRSHRN_N:58:vqrshrn_n_s64 Neon overflow 1
-VQRSHRN_N:59:vqrshrn_n_u16 Neon overflow 1
-VQRSHRN_N:60:vqrshrn_n_u32 Neon overflow 1
-VQRSHRN_N:61:vqrshrn_n_u64 Neon overflow 1
+VQRSHRN_N (check saturation: shift by max) cumulative saturation output:
+VQRSHRN_N:56:vqrshrn_n_s16 Neon cumulative saturation 1
+VQRSHRN_N:57:vqrshrn_n_s32 Neon cumulative saturation 1
+VQRSHRN_N:58:vqrshrn_n_s64 Neon cumulative saturation 1
+VQRSHRN_N:59:vqrshrn_n_u16 Neon cumulative saturation 1
+VQRSHRN_N:60:vqrshrn_n_u32 Neon cumulative saturation 1
+VQRSHRN_N:61:vqrshrn_n_u64 Neon cumulative saturation 1
 
 VQRSHRN_N (check saturation: shift by max) output:
 VQRSHRN_N:62:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
@@ -908,23 +908,23 @@ vgetq_lane_p16: fff6
 vgetq_lane_f32: c1500000
 
 
-VQSUB/VQSUBQ overflow output:
-VQSUB/VQSUBQ:0:vqsub_s8 Neon overflow 0
-VQSUB/VQSUBQ:1:vqsub_s16 Neon overflow 0
-VQSUB/VQSUBQ:2:vqsub_s32 Neon overflow 0
-VQSUB/VQSUBQ:3:vqsub_s64 Neon overflow 0
-VQSUB/VQSUBQ:4:vqsub_u8 Neon overflow 0
-VQSUB/VQSUBQ:5:vqsub_u16 Neon overflow 0
-VQSUB/VQSUBQ:6:vqsub_u32 Neon overflow 0
-VQSUB/VQSUBQ:7:vqsub_u64 Neon overflow 0
-VQSUB/VQSUBQ:8:vqsubq_s8 Neon overflow 0
-VQSUB/VQSUBQ:9:vqsubq_s16 Neon overflow 0
-VQSUB/VQSUBQ:10:vqsubq_s32 Neon overflow 0
-VQSUB/VQSUBQ:11:vqsubq_s64 Neon overflow 0
-VQSUB/VQSUBQ:12:vqsubq_u8 Neon overflow 0
-VQSUB/VQSUBQ:13:vqsubq_u16 Neon overflow 0
-VQSUB/VQSUBQ:14:vqsubq_u32 Neon overflow 0
-VQSUB/VQSUBQ:15:vqsubq_u64 Neon overflow 0
+VQSUB/VQSUBQ cumulative saturation output:
+VQSUB/VQSUBQ:0:vqsub_s8 Neon cumulative saturation 0
+VQSUB/VQSUBQ:1:vqsub_s16 Neon cumulative saturation 0
+VQSUB/VQSUBQ:2:vqsub_s32 Neon cumulative saturation 0
+VQSUB/VQSUBQ:3:vqsub_s64 Neon cumulative saturation 0
+VQSUB/VQSUBQ:4:vqsub_u8 Neon cumulative saturation 0
+VQSUB/VQSUBQ:5:vqsub_u16 Neon cumulative saturation 0
+VQSUB/VQSUBQ:6:vqsub_u32 Neon cumulative saturation 0
+VQSUB/VQSUBQ:7:vqsub_u64 Neon cumulative saturation 0
+VQSUB/VQSUBQ:8:vqsubq_s8 Neon cumulative saturation 0
+VQSUB/VQSUBQ:9:vqsubq_s16 Neon cumulative saturation 0
+VQSUB/VQSUBQ:10:vqsubq_s32 Neon cumulative saturation 0
+VQSUB/VQSUBQ:11:vqsubq_s64 Neon cumulative saturation 0
+VQSUB/VQSUBQ:12:vqsubq_u8 Neon cumulative saturation 0
+VQSUB/VQSUBQ:13:vqsubq_u16 Neon cumulative saturation 0
+VQSUB/VQSUBQ:14:vqsubq_u32 Neon cumulative saturation 0
+VQSUB/VQSUBQ:15:vqsubq_u64 Neon cumulative saturation 0
 
 VQSUB/VQSUBQ output:
 VQSUB/VQSUBQ:16:result_int8x8 [] = { ffffffdf, ffffffe0, ffffffe1, ffffffe2, ffffffe3, ffffffe4, ffffffe5, ffffffe6,  }
@@ -950,11 +950,11 @@ VQSUB/VQSUBQ:35:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQSUB/VQSUBQ:36:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSUB/VQSUBQ:37:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSUB/VQSUBQ 64 bits saturation overflow output:
-VQSUB/VQSUBQ:38:vqsub_s64 Neon overflow 0
-VQSUB/VQSUBQ:39:vqsub_u64 Neon overflow 0
-VQSUB/VQSUBQ:40:vqsubq_s64 Neon overflow 0
-VQSUB/VQSUBQ:41:vqsubq_u64 Neon overflow 0
+VQSUB/VQSUBQ 64 bits saturation cumulative saturation output:
+VQSUB/VQSUBQ:38:vqsub_s64 Neon cumulative saturation 0
+VQSUB/VQSUBQ:39:vqsub_u64 Neon cumulative saturation 0
+VQSUB/VQSUBQ:40:vqsubq_s64 Neon cumulative saturation 0
+VQSUB/VQSUBQ:41:vqsubq_u64 Neon cumulative saturation 0
 
 64 bits saturation:
 VQSUB/VQSUBQ:42:result_int64x1 [] = { fffffffffffffff0,  }
@@ -962,33 +962,33 @@ VQSUB/VQSUBQ:43:result_uint64x1 [] = { fffffffffffffff0,  }
 VQSUB/VQSUBQ:44:result_int64x2 [] = { fffffffffffffff0, fffffffffffffff1,  }
 VQSUB/VQSUBQ:45:result_uint64x2 [] = { fffffffffffffff0, fffffffffffffff1,  }
 
-VQSUB/VQSUBQ 64 bits saturation overflow output:
-VQSUB/VQSUBQ:46:vqsub_s64 Neon overflow 0
-VQSUB/VQSUBQ:47:vqsub_u64 Neon overflow 0
-VQSUB/VQSUBQ:48:vqsubq_s64 Neon overflow 0
-VQSUB/VQSUBQ:49:vqsubq_u64 Neon overflow 0
+VQSUB/VQSUBQ 64 bits saturation cumulative saturation output:
+VQSUB/VQSUBQ:46:vqsub_s64 Neon cumulative saturation 0
+VQSUB/VQSUBQ:47:vqsub_u64 Neon cumulative saturation 0
+VQSUB/VQSUBQ:48:vqsubq_s64 Neon cumulative saturation 0
+VQSUB/VQSUBQ:49:vqsubq_u64 Neon cumulative saturation 0
 VQSUB/VQSUBQ:50:result_int64x1 [] = { ffffffffffffffac,  }
 VQSUB/VQSUBQ:51:result_uint64x1 [] = { ffffffffffffff68,  }
 VQSUB/VQSUBQ:52:result_int64x2 [] = { ffffffffffffffac, ffffffffffffffad,  }
 VQSUB/VQSUBQ:53:result_uint64x2 [] = { ffffffffffffff68, ffffffffffffff69,  }
 
-VQSUB/VQSUBQ 64 bits saturation overflow output:
-VQSUB/VQSUBQ:54:vqsub_s64 Neon overflow 1
-VQSUB/VQSUBQ:55:vqsub_u64 Neon overflow 1
-VQSUB/VQSUBQ:56:vqsubq_s64 Neon overflow 1
-VQSUB/VQSUBQ:57:vqsubq_u64 Neon overflow 1
+VQSUB/VQSUBQ 64 bits saturation cumulative saturation output:
+VQSUB/VQSUBQ:54:vqsub_s64 Neon cumulative saturation 1
+VQSUB/VQSUBQ:55:vqsub_u64 Neon cumulative saturation 1
+VQSUB/VQSUBQ:56:vqsubq_s64 Neon cumulative saturation 1
+VQSUB/VQSUBQ:57:vqsubq_u64 Neon cumulative saturation 1
 VQSUB/VQSUBQ:58:result_int64x1 [] = { 8000000000000000,  }
 VQSUB/VQSUBQ:59:result_uint64x1 [] = { 0,  }
 VQSUB/VQSUBQ:60:result_int64x2 [] = { 7fffffffffffffff, 7fffffffffffffff,  }
 VQSUB/VQSUBQ:61:result_uint64x2 [] = { 0, 0,  }
 
 less than 64 bits saturation:
-VQSUB/VQSUBQ:62:vqsub_s8 Neon overflow 1
-VQSUB/VQSUBQ:63:vqsub_s16 Neon overflow 1
-VQSUB/VQSUBQ:64:vqsub_s32 Neon overflow 1
-VQSUB/VQSUBQ:65:vqsubq_s8 Neon overflow 1
-VQSUB/VQSUBQ:66:vqsubq_s16 Neon overflow 1
-VQSUB/VQSUBQ:67:vqsubq_s32 Neon overflow 1
+VQSUB/VQSUBQ:62:vqsub_s8 Neon cumulative saturation 1
+VQSUB/VQSUBQ:63:vqsub_s16 Neon cumulative saturation 1
+VQSUB/VQSUBQ:64:vqsub_s32 Neon cumulative saturation 1
+VQSUB/VQSUBQ:65:vqsubq_s8 Neon cumulative saturation 1
+VQSUB/VQSUBQ:66:vqsubq_s16 Neon cumulative saturation 1
+VQSUB/VQSUBQ:67:vqsubq_s32 Neon cumulative saturation 1
 VQSUB/VQSUBQ:68:result_int8x8 [] = { ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80,  }
 VQSUB/VQSUBQ:69:result_int16x4 [] = { ffff8000, ffff8000, ffff8000, ffff8000,  }
 VQSUB/VQSUBQ:70:result_int32x2 [] = { 80000000, 80000000,  }
@@ -996,13 +996,13 @@ VQSUB/VQSUBQ:71:result_int8x16 [] = { ffffff80, ffffff80, ffffff80, ffffff80, ff
 VQSUB/VQSUBQ:72:result_int16x8 [] = { ffff8000, ffff8000, ffff8000, ffff8000, ffff8000, ffff8000, ffff8000, ffff8000,  }
 VQSUB/VQSUBQ:73:result_int32x4 [] = { 80000000, 80000000, 80000000, 80000000,  }
 
-VQSUB/VQSUBQ less than 64 bits saturation overflow output:
-VQSUB/VQSUBQ:74:vqsub_u8 Neon overflow 1
-VQSUB/VQSUBQ:75:vqsub_u16 Neon overflow 1
-VQSUB/VQSUBQ:76:vqsub_u32 Neon overflow 1
-VQSUB/VQSUBQ:77:vqsubq_u8 Neon overflow 1
-VQSUB/VQSUBQ:78:vqsubq_u16 Neon overflow 1
-VQSUB/VQSUBQ:79:vqsubq_u32 Neon overflow 1
+VQSUB/VQSUBQ less than 64 bits saturation cumulative saturation output:
+VQSUB/VQSUBQ:74:vqsub_u8 Neon cumulative saturation 1
+VQSUB/VQSUBQ:75:vqsub_u16 Neon cumulative saturation 1
+VQSUB/VQSUBQ:76:vqsub_u32 Neon cumulative saturation 1
+VQSUB/VQSUBQ:77:vqsubq_u8 Neon cumulative saturation 1
+VQSUB/VQSUBQ:78:vqsubq_u16 Neon cumulative saturation 1
+VQSUB/VQSUBQ:79:vqsubq_u32 Neon cumulative saturation 1
 VQSUB/VQSUBQ:80:result_uint8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
 VQSUB/VQSUBQ:81:result_uint16x4 [] = { 0, 0, 0, 0,  }
 VQSUB/VQSUBQ:82:result_uint32x2 [] = { 0, 0,  }
@@ -1010,11 +1010,11 @@ VQSUB/VQSUBQ:83:result_uint8x16 [] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 VQSUB/VQSUBQ:84:result_uint16x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
 VQSUB/VQSUBQ:85:result_uint32x4 [] = { 0, 0, 0, 0,  }
 
-VQDMULH overflow output:
-VQDMULH:0:vqdmulh_s16 Neon overflow 0
-VQDMULH:1:vqdmulh_s32 Neon overflow 0
-VQDMULH:2:vqdmulhq_s16 Neon overflow 0
-VQDMULH:3:vqdmulhq_s32 Neon overflow 0
+VQDMULH cumulative saturation output:
+VQDMULH:0:vqdmulh_s16 Neon cumulative saturation 0
+VQDMULH:1:vqdmulh_s32 Neon cumulative saturation 0
+VQDMULH:2:vqdmulhq_s16 Neon cumulative saturation 0
+VQDMULH:3:vqdmulhq_s32 Neon cumulative saturation 0
 
 VQDMULH output:
 VQDMULH:4:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -1040,11 +1040,11 @@ VQDMULH:23:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQDMULH:24:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMULH:25:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMULH overflow output:
-VQDMULH:26:vqdmulh_s16 Neon overflow 1
-VQDMULH:27:vqdmulh_s32 Neon overflow 1
-VQDMULH:28:vqdmulhq_s16 Neon overflow 1
-VQDMULH:29:vqdmulhq_s32 Neon overflow 1
+VQDMULH cumulative saturation output:
+VQDMULH:26:vqdmulh_s16 Neon cumulative saturation 1
+VQDMULH:27:vqdmulh_s32 Neon cumulative saturation 1
+VQDMULH:28:vqdmulhq_s16 Neon cumulative saturation 1
+VQDMULH:29:vqdmulhq_s32 Neon cumulative saturation 1
 
 VQDMULH output:
 VQDMULH:30:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -1070,11 +1070,11 @@ VQDMULH:49:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQDMULH:50:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMULH:51:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMULH_LANE overflow output:
-VQDMULH_LANE:0:vqdmulh_lane_s16 Neon overflow 0
-VQDMULH_LANE:1:vqdmulh_lane_s32 Neon overflow 0
-VQDMULH_LANE:2:vqdmulhq_lane_s16 Neon overflow 0
-VQDMULH_LANE:3:vqdmulhq_lane_s32 Neon overflow 0
+VQDMULH_LANE cumulative saturation output:
+VQDMULH_LANE:0:vqdmulh_lane_s16 Neon cumulative saturation 0
+VQDMULH_LANE:1:vqdmulh_lane_s32 Neon cumulative saturation 0
+VQDMULH_LANE:2:vqdmulhq_lane_s16 Neon cumulative saturation 0
+VQDMULH_LANE:3:vqdmulhq_lane_s32 Neon cumulative saturation 0
 
 VQDMULH_LANE output:
 VQDMULH_LANE:4:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -1100,13 +1100,13 @@ VQDMULH_LANE:23:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQDMULH_LANE:24:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMULH_LANE:25:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMULH_LANE (check mul overflow) overflow output:
-VQDMULH_LANE:26:vqdmulh_lane_s16 Neon overflow 1
-VQDMULH_LANE:27:vqdmulh_lane_s32 Neon overflow 1
-VQDMULH_LANE:28:vqdmulhq_lane_s16 Neon overflow 1
-VQDMULH_LANE:29:vqdmulhq_lane_s32 Neon overflow 1
+VQDMULH_LANE (check mul cumulative saturation) cumulative saturation output:
+VQDMULH_LANE:26:vqdmulh_lane_s16 Neon cumulative saturation 1
+VQDMULH_LANE:27:vqdmulh_lane_s32 Neon cumulative saturation 1
+VQDMULH_LANE:28:vqdmulhq_lane_s16 Neon cumulative saturation 1
+VQDMULH_LANE:29:vqdmulhq_lane_s32 Neon cumulative saturation 1
 
-VQDMULH_LANE (check mul overflow) output:
+VQDMULH_LANE (check mul cumulative saturation) output:
 VQDMULH_LANE:30:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQDMULH_LANE:31:result_int16x4 [] = { 7fff, 7fff, 7fff, 7fff,  }
 VQDMULH_LANE:32:result_int32x2 [] = { 7fffffff, 7fffffff,  }
@@ -1130,11 +1130,11 @@ VQDMULH_LANE:49:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQDMULH_LANE:50:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMULH_LANE:51:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMULH_N overflow output:
-VQDMULH_N:0:vqdmulh_n_s16 Neon overflow 0
-VQDMULH_N:1:vqdmulh_n_s32 Neon overflow 0
-VQDMULH_N:2:vqdmulhq_n_s16 Neon overflow 0
-VQDMULH_N:3:vqdmulhq_n_s32 Neon overflow 0
+VQDMULH_N cumulative saturation output:
+VQDMULH_N:0:vqdmulh_n_s16 Neon cumulative saturation 0
+VQDMULH_N:1:vqdmulh_n_s32 Neon cumulative saturation 0
+VQDMULH_N:2:vqdmulhq_n_s16 Neon cumulative saturation 0
+VQDMULH_N:3:vqdmulhq_n_s32 Neon cumulative saturation 0
 
 VQDMULH_N output:
 VQDMULH_N:4:result_int16x4 [] = { 19, 19, 19, 19,  }
@@ -1142,13 +1142,13 @@ VQDMULH_N:5:result_int32x2 [] = { 4, 4,  }
 VQDMULH_N:6:result_int16x8 [] = { 10, 10, 10, 10, 10, 10, 10, 10,  }
 VQDMULH_N:7:result_int32x4 [] = { a, a, a, a,  }
 
-VQDMULH_N (check mul overflow) overflow output:
-VQDMULH_N:8:vqdmulh_n_s16 Neon overflow 1
-VQDMULH_N:9:vqdmulh_n_s32 Neon overflow 1
-VQDMULH_N:10:vqdmulhq_n_s16 Neon overflow 1
-VQDMULH_N:11:vqdmulhq_n_s32 Neon overflow 1
+VQDMULH_N (check mul cumulative saturation) cumulative saturation output:
+VQDMULH_N:8:vqdmulh_n_s16 Neon cumulative saturation 1
+VQDMULH_N:9:vqdmulh_n_s32 Neon cumulative saturation 1
+VQDMULH_N:10:vqdmulhq_n_s16 Neon cumulative saturation 1
+VQDMULH_N:11:vqdmulhq_n_s32 Neon cumulative saturation 1
 
-VQDMULH_N (check mul overflow) output:
+VQDMULH_N (check mul cumulative saturation) output:
 VQDMULH_N:12:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQDMULH_N:13:result_int16x4 [] = { 7fff, 7fff, 7fff, 7fff,  }
 VQDMULH_N:14:result_int32x2 [] = { 7fffffff, 7fffffff,  }
@@ -1172,9 +1172,9 @@ VQDMULH_N:31:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQDMULH_N:32:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMULH_N:33:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMULL overflow output:
-VQDMULL:0:vqdmull_s16 Neon overflow 0
-VQDMULL:1:vqdmull_s32 Neon overflow 0
+VQDMULL cumulative saturation output:
+VQDMULL:0:vqdmull_s16 Neon cumulative saturation 0
+VQDMULL:1:vqdmull_s32 Neon cumulative saturation 0
 
 VQDMULL output:
 VQDMULL:2:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -1200,11 +1200,11 @@ VQDMULL:21:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQDMULL:22:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMULL:23:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMULL (check mul overflow) overflow output:
-VQDMULL:24:vqdmull_s16 Neon overflow 1
-VQDMULL:25:vqdmull_s32 Neon overflow 1
+VQDMULL (check mul cumulative saturation) cumulative saturation output:
+VQDMULL:24:vqdmull_s16 Neon cumulative saturation 1
+VQDMULL:25:vqdmull_s32 Neon cumulative saturation 1
 
-VQDMULL (check mul overflow) output:
+VQDMULL (check mul cumulative saturation) output:
 VQDMULL:26:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQDMULL:27:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQDMULL:28:result_int32x2 [] = { 33333333, 33333333,  }
@@ -1228,9 +1228,9 @@ VQDMULL:45:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQDMULL:46:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMULL:47:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLAL overflow output:
-VQDMLAL:0:vqdmlal_s16 Neon overflow 0
-VQDMLAL:1:vqdmlal_s32 Neon overflow 0
+VQDMLAL cumulative saturation output:
+VQDMLAL:0:vqdmlal_s16 Neon cumulative saturation 0
+VQDMLAL:1:vqdmlal_s32 Neon cumulative saturation 0
 
 VQDMLAL output:
 VQDMLAL:2:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -1256,11 +1256,11 @@ VQDMLAL:21:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQDMLAL:22:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLAL:23:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLAL (check mul overflow) overflow output:
-VQDMLAL:24:vqdmlal_s16 Neon overflow 1
-VQDMLAL:25:vqdmlal_s32 Neon overflow 1
+VQDMLAL (check mul cumulative saturation) cumulative saturation output:
+VQDMLAL:24:vqdmlal_s16 Neon cumulative saturation 1
+VQDMLAL:25:vqdmlal_s32 Neon cumulative saturation 1
 
-VQDMLAL (check mul overflow) output:
+VQDMLAL (check mul cumulative saturation) output:
 VQDMLAL:26:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQDMLAL:27:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQDMLAL:28:result_int32x2 [] = { 33333333, 33333333,  }
@@ -1284,9 +1284,9 @@ VQDMLAL:45:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQDMLAL:46:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLAL:47:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLSL overflow output:
-VQDMLSL:0:vqdmlsl_s16 Neon overflow 0
-VQDMLSL:1:vqdmlsl_s32 Neon overflow 0
+VQDMLSL cumulative saturation output:
+VQDMLSL:0:vqdmlsl_s16 Neon cumulative saturation 0
+VQDMLSL:1:vqdmlsl_s32 Neon cumulative saturation 0
 
 VQDMLSL output:
 VQDMLSL:2:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -1312,11 +1312,11 @@ VQDMLSL:21:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQDMLSL:22:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQDMLSL:23:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQDMLSL (check mul overflow) overflow output:
-VQDMLSL:24:vqdmlsl_s16 Neon overflow 1
-VQDMLSL:25:vqdmlsl_s32 Neon overflow 1
+VQDMLSL (check mul cumulative saturation) cumulative saturation output:
+VQDMLSL:24:vqdmlsl_s16 Neon cumulative saturation 1
+VQDMLSL:25:vqdmlsl_s32 Neon cumulative saturation 1
 
-VQDMLSL (check mul overflow) output:
+VQDMLSL (check mul cumulative saturation) output:
 VQDMLSL:26:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQDMLSL:27:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQDMLSL:28:result_int32x2 [] = { 33333333, 33333333,  }
@@ -1594,23 +1594,23 @@ VSHL_N:19:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VSHL_N:20:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VSHL_N:21:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHL/VQSHLQ (with input = 0) overflow output:
-VQSHL/VQSHLQ:0:vqshl_s8 Neon overflow 0
-VQSHL/VQSHLQ:1:vqshl_s16 Neon overflow 0
-VQSHL/VQSHLQ:2:vqshl_s32 Neon overflow 0
-VQSHL/VQSHLQ:3:vqshl_s64 Neon overflow 0
-VQSHL/VQSHLQ:4:vqshl_u8 Neon overflow 0
-VQSHL/VQSHLQ:5:vqshl_u16 Neon overflow 0
-VQSHL/VQSHLQ:6:vqshl_u32 Neon overflow 0
-VQSHL/VQSHLQ:7:vqshl_u64 Neon overflow 0
-VQSHL/VQSHLQ:8:vqshlq_s8 Neon overflow 0
-VQSHL/VQSHLQ:9:vqshlq_s16 Neon overflow 0
-VQSHL/VQSHLQ:10:vqshlq_s32 Neon overflow 0
-VQSHL/VQSHLQ:11:vqshlq_s64 Neon overflow 0
-VQSHL/VQSHLQ:12:vqshlq_u8 Neon overflow 0
-VQSHL/VQSHLQ:13:vqshlq_u16 Neon overflow 0
-VQSHL/VQSHLQ:14:vqshlq_u32 Neon overflow 0
-VQSHL/VQSHLQ:15:vqshlq_u64 Neon overflow 0
+VQSHL/VQSHLQ (with input = 0) cumulative saturation output:
+VQSHL/VQSHLQ:0:vqshl_s8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:1:vqshl_s16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:2:vqshl_s32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:3:vqshl_s64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:4:vqshl_u8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:5:vqshl_u16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:6:vqshl_u32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:7:vqshl_u64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:8:vqshlq_s8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:9:vqshlq_s16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:10:vqshlq_s32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:11:vqshlq_s64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:12:vqshlq_u8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:13:vqshlq_u16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:14:vqshlq_u32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:15:vqshlq_u64 Neon cumulative saturation 0
 
 VQSHL/VQSHLQ (with input = 0) output:
 VQSHL/VQSHLQ:16:result_int8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
@@ -1636,23 +1636,23 @@ VQSHL/VQSHLQ:35:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQSHL/VQSHLQ:36:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHL/VQSHLQ:37:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHL/VQSHLQ (input 0 and negative shift amount) overflow output:
-VQSHL/VQSHLQ:38:vqshl_s8 Neon overflow 0
-VQSHL/VQSHLQ:39:vqshl_s16 Neon overflow 0
-VQSHL/VQSHLQ:40:vqshl_s32 Neon overflow 0
-VQSHL/VQSHLQ:41:vqshl_s64 Neon overflow 0
-VQSHL/VQSHLQ:42:vqshl_u8 Neon overflow 0
-VQSHL/VQSHLQ:43:vqshl_u16 Neon overflow 0
-VQSHL/VQSHLQ:44:vqshl_u32 Neon overflow 0
-VQSHL/VQSHLQ:45:vqshl_u64 Neon overflow 0
-VQSHL/VQSHLQ:46:vqshlq_s8 Neon overflow 0
-VQSHL/VQSHLQ:47:vqshlq_s16 Neon overflow 0
-VQSHL/VQSHLQ:48:vqshlq_s32 Neon overflow 0
-VQSHL/VQSHLQ:49:vqshlq_s64 Neon overflow 0
-VQSHL/VQSHLQ:50:vqshlq_u8 Neon overflow 0
-VQSHL/VQSHLQ:51:vqshlq_u16 Neon overflow 0
-VQSHL/VQSHLQ:52:vqshlq_u32 Neon overflow 0
-VQSHL/VQSHLQ:53:vqshlq_u64 Neon overflow 0
+VQSHL/VQSHLQ (input 0 and negative shift amount) cumulative saturation output:
+VQSHL/VQSHLQ:38:vqshl_s8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:39:vqshl_s16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:40:vqshl_s32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:41:vqshl_s64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:42:vqshl_u8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:43:vqshl_u16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:44:vqshl_u32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:45:vqshl_u64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:46:vqshlq_s8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:47:vqshlq_s16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:48:vqshlq_s32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:49:vqshlq_s64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:50:vqshlq_u8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:51:vqshlq_u16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:52:vqshlq_u32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:53:vqshlq_u64 Neon cumulative saturation 0
 
 VQSHL/VQSHLQ (input 0 and negative shift amount) output:
 VQSHL/VQSHLQ:54:result_int8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
@@ -1678,23 +1678,23 @@ VQSHL/VQSHLQ:73:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQSHL/VQSHLQ:74:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHL/VQSHLQ:75:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHL/VQSHLQ overflow output:
-VQSHL/VQSHLQ:76:vqshl_s8 Neon overflow 0
-VQSHL/VQSHLQ:77:vqshl_s16 Neon overflow 0
-VQSHL/VQSHLQ:78:vqshl_s32 Neon overflow 0
-VQSHL/VQSHLQ:79:vqshl_s64 Neon overflow 0
-VQSHL/VQSHLQ:80:vqshl_u8 Neon overflow 1
-VQSHL/VQSHLQ:81:vqshl_u16 Neon overflow 1
-VQSHL/VQSHLQ:82:vqshl_u32 Neon overflow 1
-VQSHL/VQSHLQ:83:vqshl_u64 Neon overflow 0
-VQSHL/VQSHLQ:84:vqshlq_s8 Neon overflow 1
-VQSHL/VQSHLQ:85:vqshlq_s16 Neon overflow 1
-VQSHL/VQSHLQ:86:vqshlq_s32 Neon overflow 1
-VQSHL/VQSHLQ:87:vqshlq_s64 Neon overflow 1
-VQSHL/VQSHLQ:88:vqshlq_u8 Neon overflow 1
-VQSHL/VQSHLQ:89:vqshlq_u16 Neon overflow 1
-VQSHL/VQSHLQ:90:vqshlq_u32 Neon overflow 1
-VQSHL/VQSHLQ:91:vqshlq_u64 Neon overflow 1
+VQSHL/VQSHLQ cumulative saturation output:
+VQSHL/VQSHLQ:76:vqshl_s8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:77:vqshl_s16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:78:vqshl_s32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:79:vqshl_s64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:80:vqshl_u8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:81:vqshl_u16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:82:vqshl_u32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:83:vqshl_u64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:84:vqshlq_s8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:85:vqshlq_s16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:86:vqshlq_s32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:87:vqshlq_s64 Neon cumulative saturation 1
+VQSHL/VQSHLQ:88:vqshlq_u8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:89:vqshlq_u16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:90:vqshlq_u32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:91:vqshlq_u64 Neon cumulative saturation 1
 
 VQSHL/VQSHLQ output:
 VQSHL/VQSHLQ:92:result_int8x8 [] = { ffffffe0, ffffffe2, ffffffe4, ffffffe6, ffffffe8, ffffffea, ffffffec, ffffffee,  }
@@ -1720,23 +1720,23 @@ VQSHL/VQSHLQ:111:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQSHL/VQSHLQ:112:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHL/VQSHLQ:113:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHL/VQSHLQ (negative shift amount) overflow output:
-VQSHL/VQSHLQ:114:vqshl_s8 Neon overflow 0
-VQSHL/VQSHLQ:115:vqshl_s16 Neon overflow 0
-VQSHL/VQSHLQ:116:vqshl_s32 Neon overflow 0
-VQSHL/VQSHLQ:117:vqshl_s64 Neon overflow 0
-VQSHL/VQSHLQ:118:vqshl_u8 Neon overflow 0
-VQSHL/VQSHLQ:119:vqshl_u16 Neon overflow 0
-VQSHL/VQSHLQ:120:vqshl_u32 Neon overflow 0
-VQSHL/VQSHLQ:121:vqshl_u64 Neon overflow 0
-VQSHL/VQSHLQ:122:vqshlq_s8 Neon overflow 0
-VQSHL/VQSHLQ:123:vqshlq_s16 Neon overflow 0
-VQSHL/VQSHLQ:124:vqshlq_s32 Neon overflow 0
-VQSHL/VQSHLQ:125:vqshlq_s64 Neon overflow 0
-VQSHL/VQSHLQ:126:vqshlq_u8 Neon overflow 0
-VQSHL/VQSHLQ:127:vqshlq_u16 Neon overflow 0
-VQSHL/VQSHLQ:128:vqshlq_u32 Neon overflow 0
-VQSHL/VQSHLQ:129:vqshlq_u64 Neon overflow 0
+VQSHL/VQSHLQ (negative shift amount) cumulative saturation output:
+VQSHL/VQSHLQ:114:vqshl_s8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:115:vqshl_s16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:116:vqshl_s32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:117:vqshl_s64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:118:vqshl_u8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:119:vqshl_u16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:120:vqshl_u32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:121:vqshl_u64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:122:vqshlq_s8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:123:vqshlq_s16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:124:vqshlq_s32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:125:vqshlq_s64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:126:vqshlq_u8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:127:vqshlq_u16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:128:vqshlq_u32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:129:vqshlq_u64 Neon cumulative saturation 0
 
 VQSHL/VQSHLQ (negative shift amount) output:
 VQSHL/VQSHLQ:130:result_int8x8 [] = { fffffff8, fffffff8, fffffff9, fffffff9, fffffffa, fffffffa, fffffffb, fffffffb,  }
@@ -1762,23 +1762,23 @@ VQSHL/VQSHLQ:149:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQSHL/VQSHLQ:150:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHL/VQSHLQ:151:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHL/VQSHLQ (large shift amount, negative input) overflow output:
-VQSHL/VQSHLQ:152:vqshl_s8 Neon overflow 1
-VQSHL/VQSHLQ:153:vqshl_s16 Neon overflow 1
-VQSHL/VQSHLQ:154:vqshl_s32 Neon overflow 1
-VQSHL/VQSHLQ:155:vqshl_s64 Neon overflow 1
-VQSHL/VQSHLQ:156:vqshl_u8 Neon overflow 1
-VQSHL/VQSHLQ:157:vqshl_u16 Neon overflow 1
-VQSHL/VQSHLQ:158:vqshl_u32 Neon overflow 1
-VQSHL/VQSHLQ:159:vqshl_u64 Neon overflow 1
-VQSHL/VQSHLQ:160:vqshlq_s8 Neon overflow 1
-VQSHL/VQSHLQ:161:vqshlq_s16 Neon overflow 1
-VQSHL/VQSHLQ:162:vqshlq_s32 Neon overflow 1
-VQSHL/VQSHLQ:163:vqshlq_s64 Neon overflow 1
-VQSHL/VQSHLQ:164:vqshlq_u8 Neon overflow 1
-VQSHL/VQSHLQ:165:vqshlq_u16 Neon overflow 1
-VQSHL/VQSHLQ:166:vqshlq_u32 Neon overflow 1
-VQSHL/VQSHLQ:167:vqshlq_u64 Neon overflow 1
+VQSHL/VQSHLQ (large shift amount, negative input) cumulative saturation output:
+VQSHL/VQSHLQ:152:vqshl_s8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:153:vqshl_s16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:154:vqshl_s32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:155:vqshl_s64 Neon cumulative saturation 1
+VQSHL/VQSHLQ:156:vqshl_u8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:157:vqshl_u16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:158:vqshl_u32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:159:vqshl_u64 Neon cumulative saturation 1
+VQSHL/VQSHLQ:160:vqshlq_s8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:161:vqshlq_s16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:162:vqshlq_s32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:163:vqshlq_s64 Neon cumulative saturation 1
+VQSHL/VQSHLQ:164:vqshlq_u8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:165:vqshlq_u16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:166:vqshlq_u32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:167:vqshlq_u64 Neon cumulative saturation 1
 
 VQSHL/VQSHLQ (large shift amount, negative input) output:
 VQSHL/VQSHLQ:168:result_int8x8 [] = { ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80,  }
@@ -1804,25 +1804,25 @@ VQSHL/VQSHLQ:187:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQSHL/VQSHLQ:188:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHL/VQSHLQ:189:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHL/VQSHLQ (check saturation/overflow) overflow output:
-VQSHL/VQSHLQ:190:vqshl_s8 Neon overflow 0
-VQSHL/VQSHLQ:191:vqshl_s16 Neon overflow 0
-VQSHL/VQSHLQ:192:vqshl_s32 Neon overflow 0
-VQSHL/VQSHLQ:193:vqshl_s64 Neon overflow 0
-VQSHL/VQSHLQ:194:vqshl_u8 Neon overflow 0
-VQSHL/VQSHLQ:195:vqshl_u16 Neon overflow 0
-VQSHL/VQSHLQ:196:vqshl_u32 Neon overflow 0
-VQSHL/VQSHLQ:197:vqshl_u64 Neon overflow 0
-VQSHL/VQSHLQ:198:vqshlq_s8 Neon overflow 0
-VQSHL/VQSHLQ:199:vqshlq_s16 Neon overflow 0
-VQSHL/VQSHLQ:200:vqshlq_s32 Neon overflow 0
-VQSHL/VQSHLQ:201:vqshlq_s64 Neon overflow 0
-VQSHL/VQSHLQ:202:vqshlq_u8 Neon overflow 0
-VQSHL/VQSHLQ:203:vqshlq_u16 Neon overflow 0
-VQSHL/VQSHLQ:204:vqshlq_u32 Neon overflow 0
-VQSHL/VQSHLQ:205:vqshlq_u64 Neon overflow 0
+VQSHL/VQSHLQ (check cumulative saturation) cumulative saturation output:
+VQSHL/VQSHLQ:190:vqshl_s8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:191:vqshl_s16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:192:vqshl_s32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:193:vqshl_s64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:194:vqshl_u8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:195:vqshl_u16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:196:vqshl_u32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:197:vqshl_u64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:198:vqshlq_s8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:199:vqshlq_s16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:200:vqshlq_s32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:201:vqshlq_s64 Neon cumulative saturation 0
+VQSHL/VQSHLQ:202:vqshlq_u8 Neon cumulative saturation 0
+VQSHL/VQSHLQ:203:vqshlq_u16 Neon cumulative saturation 0
+VQSHL/VQSHLQ:204:vqshlq_u32 Neon cumulative saturation 0
+VQSHL/VQSHLQ:205:vqshlq_u64 Neon cumulative saturation 0
 
-VQSHL/VQSHLQ (check saturation/overflow) output:
+VQSHL/VQSHLQ (check cumulative saturation) output:
 VQSHL/VQSHLQ:206:result_int8x8 [] = { 3f, 3f, 3f, 3f, 3f, 3f, 3f, 3f,  }
 VQSHL/VQSHLQ:207:result_int16x4 [] = { 3fff, 3fff, 3fff, 3fff,  }
 VQSHL/VQSHLQ:208:result_int32x2 [] = { 3fffffff, 3fffffff,  }
@@ -1846,23 +1846,23 @@ VQSHL/VQSHLQ:225:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQSHL/VQSHLQ:226:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHL/VQSHLQ:227:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHL/VQSHLQ (large shift amount, positive input) overflow output:
-VQSHL/VQSHLQ:228:vqshl_s8 Neon overflow 1
-VQSHL/VQSHLQ:229:vqshl_s16 Neon overflow 1
-VQSHL/VQSHLQ:230:vqshl_s32 Neon overflow 1
-VQSHL/VQSHLQ:231:vqshl_s64 Neon overflow 1
-VQSHL/VQSHLQ:232:vqshl_u8 Neon overflow 1
-VQSHL/VQSHLQ:233:vqshl_u16 Neon overflow 1
-VQSHL/VQSHLQ:234:vqshl_u32 Neon overflow 1
-VQSHL/VQSHLQ:235:vqshl_u64 Neon overflow 1
-VQSHL/VQSHLQ:236:vqshlq_s8 Neon overflow 1
-VQSHL/VQSHLQ:237:vqshlq_s16 Neon overflow 1
-VQSHL/VQSHLQ:238:vqshlq_s32 Neon overflow 1
-VQSHL/VQSHLQ:239:vqshlq_s64 Neon overflow 1
-VQSHL/VQSHLQ:240:vqshlq_u8 Neon overflow 1
-VQSHL/VQSHLQ:241:vqshlq_u16 Neon overflow 1
-VQSHL/VQSHLQ:242:vqshlq_u32 Neon overflow 1
-VQSHL/VQSHLQ:243:vqshlq_u64 Neon overflow 1
+VQSHL/VQSHLQ (large shift amount, positive input) cumulative saturation output:
+VQSHL/VQSHLQ:228:vqshl_s8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:229:vqshl_s16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:230:vqshl_s32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:231:vqshl_s64 Neon cumulative saturation 1
+VQSHL/VQSHLQ:232:vqshl_u8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:233:vqshl_u16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:234:vqshl_u32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:235:vqshl_u64 Neon cumulative saturation 1
+VQSHL/VQSHLQ:236:vqshlq_s8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:237:vqshlq_s16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:238:vqshlq_s32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:239:vqshlq_s64 Neon cumulative saturation 1
+VQSHL/VQSHLQ:240:vqshlq_u8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:241:vqshlq_u16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:242:vqshlq_u32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:243:vqshlq_u64 Neon cumulative saturation 1
 
 VQSHL/VQSHLQ (large shift amount, positive input) output:
 VQSHL/VQSHLQ:244:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
@@ -1888,23 +1888,23 @@ VQSHL/VQSHLQ:263:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQSHL/VQSHLQ:264:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHL/VQSHLQ:265:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHL/VQSHLQ (check saturation on 64 bits) overflow output:
-VQSHL/VQSHLQ:266:vqshl_s8 Neon overflow 1
-VQSHL/VQSHLQ:267:vqshl_s16 Neon overflow 1
-VQSHL/VQSHLQ:268:vqshl_s32 Neon overflow 1
-VQSHL/VQSHLQ:269:vqshl_s64 Neon overflow 1
-VQSHL/VQSHLQ:270:vqshl_u8 Neon overflow 1
-VQSHL/VQSHLQ:271:vqshl_u16 Neon overflow 1
-VQSHL/VQSHLQ:272:vqshl_u32 Neon overflow 1
-VQSHL/VQSHLQ:273:vqshl_u64 Neon overflow 1
-VQSHL/VQSHLQ:274:vqshlq_s8 Neon overflow 1
-VQSHL/VQSHLQ:275:vqshlq_s16 Neon overflow 1
-VQSHL/VQSHLQ:276:vqshlq_s32 Neon overflow 1
-VQSHL/VQSHLQ:277:vqshlq_s64 Neon overflow 1
-VQSHL/VQSHLQ:278:vqshlq_u8 Neon overflow 1
-VQSHL/VQSHLQ:279:vqshlq_u16 Neon overflow 1
-VQSHL/VQSHLQ:280:vqshlq_u32 Neon overflow 1
-VQSHL/VQSHLQ:281:vqshlq_u64 Neon overflow 1
+VQSHL/VQSHLQ (check saturation on 64 bits) cumulative saturation output:
+VQSHL/VQSHLQ:266:vqshl_s8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:267:vqshl_s16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:268:vqshl_s32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:269:vqshl_s64 Neon cumulative saturation 1
+VQSHL/VQSHLQ:270:vqshl_u8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:271:vqshl_u16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:272:vqshl_u32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:273:vqshl_u64 Neon cumulative saturation 1
+VQSHL/VQSHLQ:274:vqshlq_s8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:275:vqshlq_s16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:276:vqshlq_s32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:277:vqshlq_s64 Neon cumulative saturation 1
+VQSHL/VQSHLQ:278:vqshlq_u8 Neon cumulative saturation 1
+VQSHL/VQSHLQ:279:vqshlq_u16 Neon cumulative saturation 1
+VQSHL/VQSHLQ:280:vqshlq_u32 Neon cumulative saturation 1
+VQSHL/VQSHLQ:281:vqshlq_u64 Neon cumulative saturation 1
 
 VQSHL/VQSHLQ (check saturation on 64 bits) output:
 VQSHL/VQSHLQ:282:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
@@ -1930,23 +1930,23 @@ VQSHL/VQSHLQ:301:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQSHL/VQSHLQ:302:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHL/VQSHLQ:303:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHL_N/VQSHLQ_N overflow output:
-VQSHL_N/VQSHLQ_N:0:vqshl_n_s8 Neon overflow 0
-VQSHL_N/VQSHLQ_N:1:vqshl_n_s16 Neon overflow 0
-VQSHL_N/VQSHLQ_N:2:vqshl_n_s32 Neon overflow 0
-VQSHL_N/VQSHLQ_N:3:vqshl_n_s64 Neon overflow 0
-VQSHL_N/VQSHLQ_N:4:vqshl_n_u8 Neon overflow 1
-VQSHL_N/VQSHLQ_N:5:vqshl_n_u16 Neon overflow 1
-VQSHL_N/VQSHLQ_N:6:vqshl_n_u32 Neon overflow 1
-VQSHL_N/VQSHLQ_N:7:vqshl_n_u64 Neon overflow 1
-VQSHL_N/VQSHLQ_N:8:vqshlq_n_s8 Neon overflow 0
-VQSHL_N/VQSHLQ_N:9:vqshlq_n_s16 Neon overflow 0
-VQSHL_N/VQSHLQ_N:10:vqshlq_n_s32 Neon overflow 0
-VQSHL_N/VQSHLQ_N:11:vqshlq_n_s64 Neon overflow 0
-VQSHL_N/VQSHLQ_N:12:vqshlq_n_u8 Neon overflow 1
-VQSHL_N/VQSHLQ_N:13:vqshlq_n_u16 Neon overflow 1
-VQSHL_N/VQSHLQ_N:14:vqshlq_n_u32 Neon overflow 1
-VQSHL_N/VQSHLQ_N:15:vqshlq_n_u64 Neon overflow 1
+VQSHL_N/VQSHLQ_N cumulative saturation output:
+VQSHL_N/VQSHLQ_N:0:vqshl_n_s8 Neon cumulative saturation 0
+VQSHL_N/VQSHLQ_N:1:vqshl_n_s16 Neon cumulative saturation 0
+VQSHL_N/VQSHLQ_N:2:vqshl_n_s32 Neon cumulative saturation 0
+VQSHL_N/VQSHLQ_N:3:vqshl_n_s64 Neon cumulative saturation 0
+VQSHL_N/VQSHLQ_N:4:vqshl_n_u8 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:5:vqshl_n_u16 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:6:vqshl_n_u32 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:7:vqshl_n_u64 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:8:vqshlq_n_s8 Neon cumulative saturation 0
+VQSHL_N/VQSHLQ_N:9:vqshlq_n_s16 Neon cumulative saturation 0
+VQSHL_N/VQSHLQ_N:10:vqshlq_n_s32 Neon cumulative saturation 0
+VQSHL_N/VQSHLQ_N:11:vqshlq_n_s64 Neon cumulative saturation 0
+VQSHL_N/VQSHLQ_N:12:vqshlq_n_u8 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:13:vqshlq_n_u16 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:14:vqshlq_n_u32 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:15:vqshlq_n_u64 Neon cumulative saturation 1
 
 VQSHL_N/VQSHLQ_N output:
 VQSHL_N/VQSHLQ_N:16:result_int8x8 [] = { ffffffc0, ffffffc4, ffffffc8, ffffffcc, ffffffd0, ffffffd4, ffffffd8, ffffffdc,  }
@@ -1972,23 +1972,23 @@ VQSHL_N/VQSHLQ_N:35:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQSHL_N/VQSHLQ_N:36:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHL_N/VQSHLQ_N:37:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHL_N/VQSHLQ_N (check saturation with large positive input) overflow output:
-VQSHL_N/VQSHLQ_N:38:vqshl_n_s8 Neon overflow 1
-VQSHL_N/VQSHLQ_N:39:vqshl_n_s16 Neon overflow 1
-VQSHL_N/VQSHLQ_N:40:vqshl_n_s32 Neon overflow 1
-VQSHL_N/VQSHLQ_N:41:vqshl_n_s64 Neon overflow 1
-VQSHL_N/VQSHLQ_N:42:vqshl_n_u8 Neon overflow 1
-VQSHL_N/VQSHLQ_N:43:vqshl_n_u16 Neon overflow 1
-VQSHL_N/VQSHLQ_N:44:vqshl_n_u32 Neon overflow 1
-VQSHL_N/VQSHLQ_N:45:vqshl_n_u64 Neon overflow 1
-VQSHL_N/VQSHLQ_N:46:vqshlq_n_s8 Neon overflow 1
-VQSHL_N/VQSHLQ_N:47:vqshlq_n_s16 Neon overflow 1
-VQSHL_N/VQSHLQ_N:48:vqshlq_n_s32 Neon overflow 1
-VQSHL_N/VQSHLQ_N:49:vqshlq_n_s64 Neon overflow 1
-VQSHL_N/VQSHLQ_N:50:vqshlq_n_u8 Neon overflow 1
-VQSHL_N/VQSHLQ_N:51:vqshlq_n_u16 Neon overflow 1
-VQSHL_N/VQSHLQ_N:52:vqshlq_n_u32 Neon overflow 1
-VQSHL_N/VQSHLQ_N:53:vqshlq_n_u64 Neon overflow 1
+VQSHL_N/VQSHLQ_N (check saturation with large positive input) cumulative saturation output:
+VQSHL_N/VQSHLQ_N:38:vqshl_n_s8 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:39:vqshl_n_s16 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:40:vqshl_n_s32 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:41:vqshl_n_s64 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:42:vqshl_n_u8 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:43:vqshl_n_u16 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:44:vqshl_n_u32 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:45:vqshl_n_u64 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:46:vqshlq_n_s8 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:47:vqshlq_n_s16 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:48:vqshlq_n_s32 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:49:vqshlq_n_s64 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:50:vqshlq_n_u8 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:51:vqshlq_n_u16 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:52:vqshlq_n_u32 Neon cumulative saturation 1
+VQSHL_N/VQSHLQ_N:53:vqshlq_n_u64 Neon cumulative saturation 1
 
 VQSHL_N/VQSHLQ_N (check saturation with large positive input) output:
 VQSHL_N/VQSHLQ_N:54:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
@@ -2470,35 +2470,35 @@ VDUP_LANE/VDUP_LANEQ:19:result_poly8x16 [] = { f5, f5, f5, f5, f5, f5, f5, f5, f
 VDUP_LANE/VDUP_LANEQ:20:result_poly16x8 [] = { fff1, fff1, fff1, fff1, fff1, fff1, fff1, fff1,  }
 VDUP_LANE/VDUP_LANEQ:21:result_float32x4 [] = { c1700000 -0x1.e000000p+3 -15, c1700000 -0x1.e000000p+3 -15, c1700000 -0x1.e000000p+3 -15, c1700000 -0x1.e000000p+3 -15,  }
 
-VQDMULL_LANE overflow output:
-VQDMULL_LANE:0:vqdmull_lane_s16 Neon overflow 0
-VQDMULL_LANE:1:vqdmull_lane_s32 Neon overflow 0
+VQDMULL_LANE cumulative saturation output:
+VQDMULL_LANE:0:vqdmull_lane_s16 Neon cumulative saturation 0
+VQDMULL_LANE:1:vqdmull_lane_s32 Neon cumulative saturation 0
 
 VQDMULL_LANE output:
 VQDMULL_LANE:2:result_int32x4 [] = { 8000, 8000, 8000, 8000,  }
 VQDMULL_LANE:3:result_int64x2 [] = { 4000, 4000,  }
 
-VQDMULL_LANE (check mul overflow) overflow output:
-VQDMULL_LANE:4:vqdmull_lane_s16 Neon overflow 1
-VQDMULL_LANE:5:vqdmull_lane_s32 Neon overflow 1
+VQDMULL_LANE (check mul cumulative saturation) cumulative saturation output:
+VQDMULL_LANE:4:vqdmull_lane_s16 Neon cumulative saturation 1
+VQDMULL_LANE:5:vqdmull_lane_s32 Neon cumulative saturation 1
 
-VQDMULL_LANE (check mul overflow) output:
+VQDMULL_LANE (check mul cumulative saturation) output:
 VQDMULL_LANE:6:result_int32x4 [] = { 7fffffff, 7fffffff, 7fffffff, 7fffffff,  }
 VQDMULL_LANE:7:result_int64x2 [] = { 7fffffffffffffff, 7fffffffffffffff,  }
 
-VQDMULL_N overflow output:
-VQDMULL_N:0:vqdmull_n_s16 Neon overflow 0
-VQDMULL_N:1:vqdmull_n_s32 Neon overflow 0
+VQDMULL_N cumulative saturation output:
+VQDMULL_N:0:vqdmull_n_s16 Neon cumulative saturation 0
+VQDMULL_N:1:vqdmull_n_s32 Neon cumulative saturation 0
 
 VQDMULL_N output:
 VQDMULL_N:2:result_int32x4 [] = { 44000, 44000, 44000, 44000,  }
 VQDMULL_N:3:result_int64x2 [] = { aa000, aa000,  }
 
-VQDMULL_N (check mul overflow) overflow output:
-VQDMULL_N:4:vqdmull_n_s16 Neon overflow 1
-VQDMULL_N:5:vqdmull_n_s32 Neon overflow 1
+VQDMULL_N (check mul cumulative saturation) cumulative saturation output:
+VQDMULL_N:4:vqdmull_n_s16 Neon cumulative saturation 1
+VQDMULL_N:5:vqdmull_n_s32 Neon cumulative saturation 1
 
-VQDMULL_N (check mul overflow) output:
+VQDMULL_N (check mul cumulative saturation) output:
 VQDMULL_N:6:result_int32x4 [] = { 7fffffff, 7fffffff, 7fffffff, 7fffffff,  }
 VQDMULL_N:7:result_int64x2 [] = { 7fffffffffffffff, 7fffffffffffffff,  }
 
@@ -2554,23 +2554,23 @@ float32:
 VSUB/VSUBQ:22:result_float32x2 [] = { c00ccccd -0x1.19999a0p+1 -2.2, c00ccccd -0x1.19999a0p+1 -2.2,  }
 VSUB/VSUBQ:23:result_float32x4 [] = { c00ccccc -0x1.1999980p+1 -2.2, c00ccccc -0x1.1999980p+1 -2.2, c00ccccc -0x1.1999980p+1 -2.2, c00ccccc -0x1.1999980p+1 -2.2,  }
 
-VQADD/VQADDQ overflow output:
-VQADD/VQADDQ:0:vqadd_s8 Neon overflow 0
-VQADD/VQADDQ:1:vqadd_s16 Neon overflow 0
-VQADD/VQADDQ:2:vqadd_s32 Neon overflow 0
-VQADD/VQADDQ:3:vqadd_s64 Neon overflow 0
-VQADD/VQADDQ:4:vqadd_u8 Neon overflow 1
-VQADD/VQADDQ:5:vqadd_u16 Neon overflow 1
-VQADD/VQADDQ:6:vqadd_u32 Neon overflow 1
-VQADD/VQADDQ:7:vqadd_u64 Neon overflow 1
-VQADD/VQADDQ:8:vqaddq_s8 Neon overflow 0
-VQADD/VQADDQ:9:vqaddq_s16 Neon overflow 0
-VQADD/VQADDQ:10:vqaddq_s32 Neon overflow 0
-VQADD/VQADDQ:11:vqaddq_s64 Neon overflow 0
-VQADD/VQADDQ:12:vqaddq_u8 Neon overflow 1
-VQADD/VQADDQ:13:vqaddq_u16 Neon overflow 1
-VQADD/VQADDQ:14:vqaddq_u32 Neon overflow 1
-VQADD/VQADDQ:15:vqaddq_u64 Neon overflow 1
+VQADD/VQADDQ cumulative saturation output:
+VQADD/VQADDQ:0:vqadd_s8 Neon cumulative saturation 0
+VQADD/VQADDQ:1:vqadd_s16 Neon cumulative saturation 0
+VQADD/VQADDQ:2:vqadd_s32 Neon cumulative saturation 0
+VQADD/VQADDQ:3:vqadd_s64 Neon cumulative saturation 0
+VQADD/VQADDQ:4:vqadd_u8 Neon cumulative saturation 1
+VQADD/VQADDQ:5:vqadd_u16 Neon cumulative saturation 1
+VQADD/VQADDQ:6:vqadd_u32 Neon cumulative saturation 1
+VQADD/VQADDQ:7:vqadd_u64 Neon cumulative saturation 1
+VQADD/VQADDQ:8:vqaddq_s8 Neon cumulative saturation 0
+VQADD/VQADDQ:9:vqaddq_s16 Neon cumulative saturation 0
+VQADD/VQADDQ:10:vqaddq_s32 Neon cumulative saturation 0
+VQADD/VQADDQ:11:vqaddq_s64 Neon cumulative saturation 0
+VQADD/VQADDQ:12:vqaddq_u8 Neon cumulative saturation 1
+VQADD/VQADDQ:13:vqaddq_u16 Neon cumulative saturation 1
+VQADD/VQADDQ:14:vqaddq_u32 Neon cumulative saturation 1
+VQADD/VQADDQ:15:vqaddq_u64 Neon cumulative saturation 1
 
 VQADD/VQADDQ output:
 VQADD/VQADDQ:16:result_int8x8 [] = { 1, 2, 3, 4, 5, 6, 7, 8,  }
@@ -2596,11 +2596,11 @@ VQADD/VQADDQ:35:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQADD/VQADDQ:36:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQADD/VQADDQ:37:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQADD/VQADDQ 64 bits saturation overflow output:
-VQADD/VQADDQ:38:vqadd_s64 Neon overflow 0
-VQADD/VQADDQ:39:vqadd_u64 Neon overflow 0
-VQADD/VQADDQ:40:vqaddq_s64 Neon overflow 0
-VQADD/VQADDQ:41:vqaddq_u64 Neon overflow 0
+VQADD/VQADDQ 64 bits saturation cumulative saturation output:
+VQADD/VQADDQ:38:vqadd_s64 Neon cumulative saturation 0
+VQADD/VQADDQ:39:vqadd_u64 Neon cumulative saturation 0
+VQADD/VQADDQ:40:vqaddq_s64 Neon cumulative saturation 0
+VQADD/VQADDQ:41:vqaddq_u64 Neon cumulative saturation 0
 
 64 bits saturation:
 VQADD/VQADDQ:42:result_int64x1 [] = { fffffffffffffff0,  }
@@ -2608,33 +2608,33 @@ VQADD/VQADDQ:43:result_uint64x1 [] = { fffffffffffffff0,  }
 VQADD/VQADDQ:44:result_int64x2 [] = { fffffffffffffff0, fffffffffffffff1,  }
 VQADD/VQADDQ:45:result_uint64x2 [] = { fffffffffffffff0, fffffffffffffff1,  }
 
-VQADD/VQADDQ 64 bits saturation overflow output:
-VQADD/VQADDQ:46:vqadd_s64 Neon overflow 0
-VQADD/VQADDQ:47:vqadd_u64 Neon overflow 1
-VQADD/VQADDQ:48:vqaddq_s64 Neon overflow 0
-VQADD/VQADDQ:49:vqaddq_u64 Neon overflow 1
+VQADD/VQADDQ 64 bits saturation cumulative saturation output:
+VQADD/VQADDQ:46:vqadd_s64 Neon cumulative saturation 0
+VQADD/VQADDQ:47:vqadd_u64 Neon cumulative saturation 1
+VQADD/VQADDQ:48:vqaddq_s64 Neon cumulative saturation 0
+VQADD/VQADDQ:49:vqaddq_u64 Neon cumulative saturation 1
 VQADD/VQADDQ:50:result_int64x1 [] = { 34,  }
 VQADD/VQADDQ:51:result_uint64x1 [] = { ffffffffffffffff,  }
 VQADD/VQADDQ:52:result_int64x2 [] = { 34, 35,  }
 VQADD/VQADDQ:53:result_uint64x2 [] = { ffffffffffffffff, ffffffffffffffff,  }
 
-VQADD/VQADDQ 64 bits saturation overflow output:
-VQADD/VQADDQ:54:vqadd_s64 Neon overflow 1
-VQADD/VQADDQ:55:vqadd_u64 Neon overflow 1
-VQADD/VQADDQ:56:vqaddq_s64 Neon overflow 1
-VQADD/VQADDQ:57:vqaddq_u64 Neon overflow 1
+VQADD/VQADDQ 64 bits saturation cumulative saturation output:
+VQADD/VQADDQ:54:vqadd_s64 Neon cumulative saturation 1
+VQADD/VQADDQ:55:vqadd_u64 Neon cumulative saturation 1
+VQADD/VQADDQ:56:vqaddq_s64 Neon cumulative saturation 1
+VQADD/VQADDQ:57:vqaddq_u64 Neon cumulative saturation 1
 VQADD/VQADDQ:58:result_int64x1 [] = { 8000000000000000,  }
 VQADD/VQADDQ:59:result_uint64x1 [] = { ffffffffffffffff,  }
 VQADD/VQADDQ:60:result_int64x2 [] = { 7fffffffffffffff, 7fffffffffffffff,  }
 VQADD/VQADDQ:61:result_uint64x2 [] = { ffffffffffffffff, ffffffffffffffff,  }
 
 less than 64 bits saturation:
-VQADD/VQADDQ:62:vqadd_s8 Neon overflow 1
-VQADD/VQADDQ:63:vqadd_s16 Neon overflow 1
-VQADD/VQADDQ:64:vqadd_s32 Neon overflow 1
-VQADD/VQADDQ:65:vqaddq_s8 Neon overflow 1
-VQADD/VQADDQ:66:vqaddq_s16 Neon overflow 1
-VQADD/VQADDQ:67:vqaddq_s32 Neon overflow 1
+VQADD/VQADDQ:62:vqadd_s8 Neon cumulative saturation 1
+VQADD/VQADDQ:63:vqadd_s16 Neon cumulative saturation 1
+VQADD/VQADDQ:64:vqadd_s32 Neon cumulative saturation 1
+VQADD/VQADDQ:65:vqaddq_s8 Neon cumulative saturation 1
+VQADD/VQADDQ:66:vqaddq_s16 Neon cumulative saturation 1
+VQADD/VQADDQ:67:vqaddq_s32 Neon cumulative saturation 1
 VQADD/VQADDQ:68:result_int8x8 [] = { ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80,  }
 VQADD/VQADDQ:69:result_int16x4 [] = { ffff8000, ffff8000, ffff8000, ffff8000,  }
 VQADD/VQADDQ:70:result_int32x2 [] = { 80000000, 80000000,  }
@@ -2642,13 +2642,13 @@ VQADD/VQADDQ:71:result_int8x16 [] = { ffffff80, ffffff80, ffffff80, ffffff80, ff
 VQADD/VQADDQ:72:result_int16x8 [] = { ffff8000, ffff8000, ffff8000, ffff8000, ffff8000, ffff8000, ffff8000, ffff8000,  }
 VQADD/VQADDQ:73:result_int32x4 [] = { 80000000, 80000000, 80000000, 80000000,  }
 
-VQADD/VQADDQ less than 64 bits saturation overflow output:
-VQADD/VQADDQ:74:vqadd_u8 Neon overflow 1
-VQADD/VQADDQ:75:vqadd_u16 Neon overflow 1
-VQADD/VQADDQ:76:vqadd_u32 Neon overflow 1
-VQADD/VQADDQ:77:vqaddq_u8 Neon overflow 1
-VQADD/VQADDQ:78:vqaddq_u16 Neon overflow 1
-VQADD/VQADDQ:79:vqaddq_u32 Neon overflow 1
+VQADD/VQADDQ less than 64 bits saturation cumulative saturation output:
+VQADD/VQADDQ:74:vqadd_u8 Neon cumulative saturation 1
+VQADD/VQADDQ:75:vqadd_u16 Neon cumulative saturation 1
+VQADD/VQADDQ:76:vqadd_u32 Neon cumulative saturation 1
+VQADD/VQADDQ:77:vqaddq_u8 Neon cumulative saturation 1
+VQADD/VQADDQ:78:vqaddq_u16 Neon cumulative saturation 1
+VQADD/VQADDQ:79:vqaddq_u32 Neon cumulative saturation 1
 VQADD/VQADDQ:80:result_uint8x8 [] = { ff, ff, ff, ff, ff, ff, ff, ff,  }
 VQADD/VQADDQ:81:result_uint16x4 [] = { ffff, ffff, ffff, ffff,  }
 VQADD/VQADDQ:82:result_uint32x2 [] = { ffffffff, ffffffff,  }
@@ -2684,13 +2684,13 @@ float32:
 VABS/VABSQ:22:result_float32x2 [] = { 40133333 0x1.2666660p+1 2.3, 40133333 0x1.2666660p+1 2.3,  }
 VABS/VABSQ:23:result_float32x4 [] = { 4059999a 0x1.b333340p+1 3.4, 4059999a 0x1.b333340p+1 3.4, 4059999a 0x1.b333340p+1 3.4, 4059999a 0x1.b333340p+1 3.4,  }
 
-VQABS/VQABSQ overflow output:
-VQABS/VQABSQ:0:vqabs_s8 Neon overflow 0
-VQABS/VQABSQ:1:vqabs_s16 Neon overflow 0
-VQABS/VQABSQ:2:vqabs_s32 Neon overflow 0
-VQABS/VQABSQ:3:vqabsq_s8 Neon overflow 0
-VQABS/VQABSQ:4:vqabsq_s16 Neon overflow 0
-VQABS/VQABSQ:5:vqabsq_s32 Neon overflow 0
+VQABS/VQABSQ cumulative saturation output:
+VQABS/VQABSQ:0:vqabs_s8 Neon cumulative saturation 0
+VQABS/VQABSQ:1:vqabs_s16 Neon cumulative saturation 0
+VQABS/VQABSQ:2:vqabs_s32 Neon cumulative saturation 0
+VQABS/VQABSQ:3:vqabsq_s8 Neon cumulative saturation 0
+VQABS/VQABSQ:4:vqabsq_s16 Neon cumulative saturation 0
+VQABS/VQABSQ:5:vqabsq_s32 Neon cumulative saturation 0
 
 VQABS/VQABSQ output:
 VQABS/VQABSQ:6:result_int8x8 [] = { 10, f, e, d, c, b, a, 9,  }
@@ -2716,13 +2716,13 @@ VQABS/VQABSQ:25:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQABS/VQABSQ:26:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQABS/VQABSQ:27:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQABS/VQABSQ overflow output:
-VQABS/VQABSQ:0:vqabs_s8 Neon overflow 1
-VQABS/VQABSQ:1:vqabs_s16 Neon overflow 1
-VQABS/VQABSQ:2:vqabs_s32 Neon overflow 1
-VQABS/VQABSQ:3:vqabsq_s8 Neon overflow 1
-VQABS/VQABSQ:4:vqabsq_s16 Neon overflow 1
-VQABS/VQABSQ:5:vqabsq_s32 Neon overflow 1
+VQABS/VQABSQ cumulative saturation output:
+VQABS/VQABSQ:0:vqabs_s8 Neon cumulative saturation 1
+VQABS/VQABSQ:1:vqabs_s16 Neon cumulative saturation 1
+VQABS/VQABSQ:2:vqabs_s32 Neon cumulative saturation 1
+VQABS/VQABSQ:3:vqabsq_s8 Neon cumulative saturation 1
+VQABS/VQABSQ:4:vqabsq_s16 Neon cumulative saturation 1
+VQABS/VQABSQ:5:vqabsq_s32 Neon cumulative saturation 1
 
 VQABS/VQABSQ output:
 VQABS/VQABSQ:6:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
@@ -2860,13 +2860,13 @@ float32:
 VNEG/VNEGQ:22:result_float32x2 [] = { c0133333 -0x1.2666660p+1 -2.3, c0133333 -0x1.2666660p+1 -2.3,  }
 VNEG/VNEGQ:23:result_float32x4 [] = { c059999a -0x1.b333340p+1 -3.4, c059999a -0x1.b333340p+1 -3.4, c059999a -0x1.b333340p+1 -3.4, c059999a -0x1.b333340p+1 -3.4,  }
 
-VQNEG/VQNEGQ overflow output:
-VQNEG/VQNEGQ:0:vqneg_s8 Neon overflow 0
-VQNEG/VQNEGQ:1:vqneg_s16 Neon overflow 0
-VQNEG/VQNEGQ:2:vqneg_s32 Neon overflow 0
-VQNEG/VQNEGQ:3:vqnegq_s8 Neon overflow 0
-VQNEG/VQNEGQ:4:vqnegq_s16 Neon overflow 0
-VQNEG/VQNEGQ:5:vqnegq_s32 Neon overflow 0
+VQNEG/VQNEGQ cumulative saturation output:
+VQNEG/VQNEGQ:0:vqneg_s8 Neon cumulative saturation 0
+VQNEG/VQNEGQ:1:vqneg_s16 Neon cumulative saturation 0
+VQNEG/VQNEGQ:2:vqneg_s32 Neon cumulative saturation 0
+VQNEG/VQNEGQ:3:vqnegq_s8 Neon cumulative saturation 0
+VQNEG/VQNEGQ:4:vqnegq_s16 Neon cumulative saturation 0
+VQNEG/VQNEGQ:5:vqnegq_s32 Neon cumulative saturation 0
 
 VQNEG/VQNEGQ output:
 VQNEG/VQNEGQ:6:result_int8x8 [] = { 10, f, e, d, c, b, a, 9,  }
@@ -2892,13 +2892,13 @@ VQNEG/VQNEGQ:25:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQNEG/VQNEGQ:26:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQNEG/VQNEGQ:27:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQNEG/VQNEGQ overflow output:
-VQNEG/VQNEGQ:0:vqneg_s8 Neon overflow 1
-VQNEG/VQNEGQ:1:vqneg_s16 Neon overflow 1
-VQNEG/VQNEGQ:2:vqneg_s32 Neon overflow 1
-VQNEG/VQNEGQ:3:vqnegq_s8 Neon overflow 1
-VQNEG/VQNEGQ:4:vqnegq_s16 Neon overflow 1
-VQNEG/VQNEGQ:5:vqnegq_s32 Neon overflow 1
+VQNEG/VQNEGQ cumulative saturation output:
+VQNEG/VQNEGQ:0:vqneg_s8 Neon cumulative saturation 1
+VQNEG/VQNEGQ:1:vqneg_s16 Neon cumulative saturation 1
+VQNEG/VQNEGQ:2:vqneg_s32 Neon cumulative saturation 1
+VQNEG/VQNEGQ:3:vqnegq_s8 Neon cumulative saturation 1
+VQNEG/VQNEGQ:4:vqnegq_s16 Neon cumulative saturation 1
+VQNEG/VQNEGQ:5:vqnegq_s32 Neon cumulative saturation 1
 
 VQNEG/VQNEGQ output:
 VQNEG/VQNEGQ:6:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
@@ -3608,11 +3608,11 @@ VREINTERPRET/VREINTERPRETQ:199:result_uint64x2 [] = { c1700000c1800000, c1500000
 VREINTERPRET/VREINTERPRETQ:200:result_poly8x16 [] = { 0, 0, 80, c1, 0, 0, 70, c1, 0, 0, 60, c1, 0, 0, 50, c1,  }
 VREINTERPRET/VREINTERPRETQ:201:result_poly16x8 [] = { 0, c180, 0, c170, 0, c160, 0, c150,  }
 
-VQRDMULH overflow output:
-VQRDMULH:0:vqrdmulh_s16 Neon overflow 0
-VQRDMULH:1:vqrdmulh_s32 Neon overflow 0
-VQRDMULH:2:vqrdmulhq_s16 Neon overflow 0
-VQRDMULH:3:vqrdmulhq_s32 Neon overflow 0
+VQRDMULH cumulative saturation output:
+VQRDMULH:0:vqrdmulh_s16 Neon cumulative saturation 0
+VQRDMULH:1:vqrdmulh_s32 Neon cumulative saturation 0
+VQRDMULH:2:vqrdmulhq_s16 Neon cumulative saturation 0
+VQRDMULH:3:vqrdmulhq_s32 Neon cumulative saturation 0
 
 VQRDMULH output:
 VQRDMULH:4:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -3638,13 +3638,13 @@ VQRDMULH:23:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQRDMULH:24:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRDMULH:25:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRDMULH (check mul overflow) overflow output:
-VQRDMULH:26:vqrdmulh_s16 Neon overflow 1
-VQRDMULH:27:vqrdmulh_s32 Neon overflow 1
-VQRDMULH:28:vqrdmulhq_s16 Neon overflow 1
-VQRDMULH:29:vqrdmulhq_s32 Neon overflow 1
+VQRDMULH (check mul cumulative saturation) cumulative saturation output:
+VQRDMULH:26:vqrdmulh_s16 Neon cumulative saturation 1
+VQRDMULH:27:vqrdmulh_s32 Neon cumulative saturation 1
+VQRDMULH:28:vqrdmulhq_s16 Neon cumulative saturation 1
+VQRDMULH:29:vqrdmulhq_s32 Neon cumulative saturation 1
 
-VQRDMULH (check mul overflow) output:
+VQRDMULH (check mul cumulative saturation) output:
 VQRDMULH:30:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQRDMULH:31:result_int16x4 [] = { 7fff, 7fff, 7fff, 7fff,  }
 VQRDMULH:32:result_int32x2 [] = { 7fffffff, 7fffffff,  }
@@ -3668,13 +3668,13 @@ VQRDMULH:49:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQRDMULH:50:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRDMULH:51:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRDMULH (check rounding overflow) overflow output:
-VQRDMULH:52:vqrdmulh_s16 Neon overflow 0
-VQRDMULH:53:vqrdmulh_s32 Neon overflow 0
-VQRDMULH:54:vqrdmulhq_s16 Neon overflow 0
-VQRDMULH:55:vqrdmulhq_s32 Neon overflow 0
+VQRDMULH (check rounding cumulative saturation) cumulative saturation output:
+VQRDMULH:52:vqrdmulh_s16 Neon cumulative saturation 0
+VQRDMULH:53:vqrdmulh_s32 Neon cumulative saturation 0
+VQRDMULH:54:vqrdmulhq_s16 Neon cumulative saturation 0
+VQRDMULH:55:vqrdmulhq_s32 Neon cumulative saturation 0
 
-VQRDMULH (check rounding overflow) output:
+VQRDMULH (check rounding cumulative saturation) output:
 VQRDMULH:56:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQRDMULH:57:result_int16x4 [] = { 7fff, 7fff, 7fff, 7fff,  }
 VQRDMULH:58:result_int32x2 [] = { 7fffffff, 7fffffff,  }
@@ -3698,11 +3698,11 @@ VQRDMULH:75:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQRDMULH:76:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRDMULH:77:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRDMULH_LANE overflow output:
-VQRDMULH_LANE:0:vqrdmulh_lane_s16 Neon overflow 0
-VQRDMULH_LANE:1:vqrdmulh_lane_s32 Neon overflow 0
-VQRDMULH_LANE:2:vqrdmulhq_lane_s16 Neon overflow 0
-VQRDMULH_LANE:3:vqrdmulhq_lane_s32 Neon overflow 0
+VQRDMULH_LANE cumulative saturation output:
+VQRDMULH_LANE:0:vqrdmulh_lane_s16 Neon cumulative saturation 0
+VQRDMULH_LANE:1:vqrdmulh_lane_s32 Neon cumulative saturation 0
+VQRDMULH_LANE:2:vqrdmulhq_lane_s16 Neon cumulative saturation 0
+VQRDMULH_LANE:3:vqrdmulhq_lane_s32 Neon cumulative saturation 0
 
 VQRDMULH_LANE output:
 VQRDMULH_LANE:4:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -3728,13 +3728,13 @@ VQRDMULH_LANE:23:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQRDMULH_LANE:24:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRDMULH_LANE:25:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRDMULH_LANE (check mul overflow) overflow output:
-VQRDMULH_LANE:26:vqrdmulh_lane_s16 Neon overflow 1
-VQRDMULH_LANE:27:vqrdmulh_lane_s32 Neon overflow 1
-VQRDMULH_LANE:28:vqrdmulhq_lane_s16 Neon overflow 1
-VQRDMULH_LANE:29:vqrdmulhq_lane_s32 Neon overflow 1
+VQRDMULH_LANE (check mul cumulative saturation) cumulative saturation output:
+VQRDMULH_LANE:26:vqrdmulh_lane_s16 Neon cumulative saturation 1
+VQRDMULH_LANE:27:vqrdmulh_lane_s32 Neon cumulative saturation 1
+VQRDMULH_LANE:28:vqrdmulhq_lane_s16 Neon cumulative saturation 1
+VQRDMULH_LANE:29:vqrdmulhq_lane_s32 Neon cumulative saturation 1
 
-VQRDMULH_LANE (check mul overflow) output:
+VQRDMULH_LANE (check mul cumulative saturation) output:
 VQRDMULH_LANE:30:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQRDMULH_LANE:31:result_int16x4 [] = { 7fff, 7fff, 7fff, 7fff,  }
 VQRDMULH_LANE:32:result_int32x2 [] = { 7fffffff, 7fffffff,  }
@@ -3758,13 +3758,13 @@ VQRDMULH_LANE:49:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQRDMULH_LANE:50:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRDMULH_LANE:51:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRDMULH_LANE (check rounding overflow) overflow output:
-VQRDMULH_LANE:52:vqrdmulh_lane_s16 Neon overflow 0
-VQRDMULH_LANE:53:vqrdmulh_lane_s32 Neon overflow 0
-VQRDMULH_LANE:54:vqrdmulhq_lane_s16 Neon overflow 0
-VQRDMULH_LANE:55:vqrdmulhq_lane_s32 Neon overflow 0
+VQRDMULH_LANE (check rounding cumulative saturation) cumulative saturation output:
+VQRDMULH_LANE:52:vqrdmulh_lane_s16 Neon cumulative saturation 0
+VQRDMULH_LANE:53:vqrdmulh_lane_s32 Neon cumulative saturation 0
+VQRDMULH_LANE:54:vqrdmulhq_lane_s16 Neon cumulative saturation 0
+VQRDMULH_LANE:55:vqrdmulhq_lane_s32 Neon cumulative saturation 0
 
-VQRDMULH_LANE (check rounding overflow) output:
+VQRDMULH_LANE (check rounding cumulative saturation) output:
 VQRDMULH_LANE:56:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQRDMULH_LANE:57:result_int16x4 [] = { 7fff, 7fff, 7fff, 7fff,  }
 VQRDMULH_LANE:58:result_int32x2 [] = { 7fffffff, 7fffffff,  }
@@ -3788,11 +3788,11 @@ VQRDMULH_LANE:75:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQRDMULH_LANE:76:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRDMULH_LANE:77:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRDMULH_N overflow output:
-VQRDMULH_N:0:vqrdmulh_n_s16 Neon overflow 0
-VQRDMULH_N:1:vqrdmulh_n_s32 Neon overflow 0
-VQRDMULH_N:2:vqrdmulhq_n_s16 Neon overflow 0
-VQRDMULH_N:3:vqrdmulhq_n_s32 Neon overflow 0
+VQRDMULH_N cumulative saturation output:
+VQRDMULH_N:0:vqrdmulh_n_s16 Neon cumulative saturation 0
+VQRDMULH_N:1:vqrdmulh_n_s32 Neon cumulative saturation 0
+VQRDMULH_N:2:vqrdmulhq_n_s16 Neon cumulative saturation 0
+VQRDMULH_N:3:vqrdmulhq_n_s32 Neon cumulative saturation 0
 
 VQRDMULH_N output:
 VQRDMULH_N:4:result_int16x4 [] = { fffffffc, fffffffc, fffffffc, fffffffd,  }
@@ -3800,13 +3800,13 @@ VQRDMULH_N:5:result_int32x2 [] = { fffffffe, fffffffe,  }
 VQRDMULH_N:6:result_int16x8 [] = { 6, 6, 6, 5, 5, 4, 4, 4,  }
 VQRDMULH_N:7:result_int32x4 [] = { fffffffe, fffffffe, fffffffe, fffffffe,  }
 
-VQRDMULH_N (check mul overflow) overflow output:
-VQRDMULH_N:8:vqrdmulh_n_s16 Neon overflow 1
-VQRDMULH_N:9:vqrdmulh_n_s32 Neon overflow 1
-VQRDMULH_N:10:vqrdmulhq_n_s16 Neon overflow 1
-VQRDMULH_N:11:vqrdmulhq_n_s32 Neon overflow 1
+VQRDMULH_N (check mul cumulative saturation) cumulative saturation output:
+VQRDMULH_N:8:vqrdmulh_n_s16 Neon cumulative saturation 1
+VQRDMULH_N:9:vqrdmulh_n_s32 Neon cumulative saturation 1
+VQRDMULH_N:10:vqrdmulhq_n_s16 Neon cumulative saturation 1
+VQRDMULH_N:11:vqrdmulhq_n_s32 Neon cumulative saturation 1
 
-VQRDMULH_N (check mul overflow) output:
+VQRDMULH_N (check mul cumulative saturation) output:
 VQRDMULH_N:12:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQRDMULH_N:13:result_int16x4 [] = { 7fff, 7fff, 7fff, 7fff,  }
 VQRDMULH_N:14:result_int32x2 [] = { 7fffffff, 7fffffff,  }
@@ -3830,13 +3830,13 @@ VQRDMULH_N:31:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQRDMULH_N:32:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRDMULH_N:33:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRDMULH_N (check rounding overflow) overflow output:
-VQRDMULH_N:34:vqrdmulh_n_s16 Neon overflow 0
-VQRDMULH_N:35:vqrdmulh_n_s32 Neon overflow 0
-VQRDMULH_N:36:vqrdmulhq_n_s16 Neon overflow 0
-VQRDMULH_N:37:vqrdmulhq_n_s32 Neon overflow 0
+VQRDMULH_N (check rounding cumulative saturation) cumulative saturation output:
+VQRDMULH_N:34:vqrdmulh_n_s16 Neon cumulative saturation 0
+VQRDMULH_N:35:vqrdmulh_n_s32 Neon cumulative saturation 0
+VQRDMULH_N:36:vqrdmulhq_n_s16 Neon cumulative saturation 0
+VQRDMULH_N:37:vqrdmulhq_n_s32 Neon cumulative saturation 0
 
-VQRDMULH_N (check rounding overflow) output:
+VQRDMULH_N (check rounding cumulative saturation) output:
 VQRDMULH_N:38:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQRDMULH_N:39:result_int16x4 [] = { 7fff, 7fff, 7fff, 7fff,  }
 VQRDMULH_N:40:result_int32x2 [] = { 7fffffff, 7fffffff,  }
@@ -3860,23 +3860,23 @@ VQRDMULH_N:57:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQRDMULH_N:58:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRDMULH_N:59:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHL/VQRSHLQ (with input = 0) overflow output:
-VQRSHL/VQRSHLQ:0:vqrshl_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:1:vqrshl_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:2:vqrshl_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:3:vqrshl_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:4:vqrshl_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:5:vqrshl_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:6:vqrshl_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:7:vqrshl_u64 Neon overflow 0
-VQRSHL/VQRSHLQ:8:vqrshlq_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:9:vqrshlq_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:10:vqrshlq_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:11:vqrshlq_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:12:vqrshlq_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:13:vqrshlq_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:14:vqrshlq_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:15:vqrshlq_u64 Neon overflow 0
+VQRSHL/VQRSHLQ (with input = 0) cumulative saturation output:
+VQRSHL/VQRSHLQ:0:vqrshl_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:1:vqrshl_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:2:vqrshl_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:3:vqrshl_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:4:vqrshl_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:5:vqrshl_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:6:vqrshl_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:7:vqrshl_u64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:8:vqrshlq_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:9:vqrshlq_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:10:vqrshlq_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:11:vqrshlq_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:12:vqrshlq_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:13:vqrshlq_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:14:vqrshlq_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:15:vqrshlq_u64 Neon cumulative saturation 0
 
 VQRSHL/VQRSHLQ (with input = 0) output:
 VQRSHL/VQRSHLQ:16:result_int8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
@@ -3902,23 +3902,23 @@ VQRSHL/VQRSHLQ:35:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQRSHL/VQRSHLQ:36:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHL/VQRSHLQ:37:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHL/VQRSHLQ (input 0 and negative shift amount) overflow output:
-VQRSHL/VQRSHLQ:38:vqrshl_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:39:vqrshl_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:40:vqrshl_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:41:vqrshl_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:42:vqrshl_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:43:vqrshl_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:44:vqrshl_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:45:vqrshl_u64 Neon overflow 0
-VQRSHL/VQRSHLQ:46:vqrshlq_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:47:vqrshlq_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:48:vqrshlq_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:49:vqrshlq_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:50:vqrshlq_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:51:vqrshlq_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:52:vqrshlq_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:53:vqrshlq_u64 Neon overflow 0
+VQRSHL/VQRSHLQ (input 0 and negative shift amount) cumulative saturation output:
+VQRSHL/VQRSHLQ:38:vqrshl_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:39:vqrshl_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:40:vqrshl_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:41:vqrshl_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:42:vqrshl_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:43:vqrshl_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:44:vqrshl_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:45:vqrshl_u64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:46:vqrshlq_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:47:vqrshlq_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:48:vqrshlq_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:49:vqrshlq_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:50:vqrshlq_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:51:vqrshlq_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:52:vqrshlq_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:53:vqrshlq_u64 Neon cumulative saturation 0
 
 VQRSHL/VQRSHLQ (input 0 and negative shift amount) output:
 VQRSHL/VQRSHLQ:54:result_int8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
@@ -3944,23 +3944,23 @@ VQRSHL/VQRSHLQ:73:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQRSHL/VQRSHLQ:74:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHL/VQRSHLQ:75:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHL/VQRSHLQ overflow output:
-VQRSHL/VQRSHLQ:76:vqrshl_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:77:vqrshl_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:78:vqrshl_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:79:vqrshl_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:80:vqrshl_u8 Neon overflow 1
-VQRSHL/VQRSHLQ:81:vqrshl_u16 Neon overflow 1
-VQRSHL/VQRSHLQ:82:vqrshl_u32 Neon overflow 1
-VQRSHL/VQRSHLQ:83:vqrshl_u64 Neon overflow 1
-VQRSHL/VQRSHLQ:84:vqrshlq_s8 Neon overflow 1
-VQRSHL/VQRSHLQ:85:vqrshlq_s16 Neon overflow 1
-VQRSHL/VQRSHLQ:86:vqrshlq_s32 Neon overflow 1
-VQRSHL/VQRSHLQ:87:vqrshlq_s64 Neon overflow 1
-VQRSHL/VQRSHLQ:88:vqrshlq_u8 Neon overflow 1
-VQRSHL/VQRSHLQ:89:vqrshlq_u16 Neon overflow 1
-VQRSHL/VQRSHLQ:90:vqrshlq_u32 Neon overflow 1
-VQRSHL/VQRSHLQ:91:vqrshlq_u64 Neon overflow 1
+VQRSHL/VQRSHLQ cumulative saturation output:
+VQRSHL/VQRSHLQ:76:vqrshl_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:77:vqrshl_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:78:vqrshl_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:79:vqrshl_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:80:vqrshl_u8 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:81:vqrshl_u16 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:82:vqrshl_u32 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:83:vqrshl_u64 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:84:vqrshlq_s8 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:85:vqrshlq_s16 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:86:vqrshlq_s32 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:87:vqrshlq_s64 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:88:vqrshlq_u8 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:89:vqrshlq_u16 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:90:vqrshlq_u32 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:91:vqrshlq_u64 Neon cumulative saturation 1
 
 VQRSHL/VQRSHLQ output:
 VQRSHL/VQRSHLQ:92:result_int8x8 [] = { ffffffe0, ffffffe2, ffffffe4, ffffffe6, ffffffe8, ffffffea, ffffffec, ffffffee,  }
@@ -3986,23 +3986,23 @@ VQRSHL/VQRSHLQ:111:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQRSHL/VQRSHLQ:112:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHL/VQRSHLQ:113:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHL/VQRSHLQ (negative shift amount) overflow output:
-VQRSHL/VQRSHLQ:114:vqrshl_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:115:vqrshl_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:116:vqrshl_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:117:vqrshl_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:118:vqrshl_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:119:vqrshl_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:120:vqrshl_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:121:vqrshl_u64 Neon overflow 0
-VQRSHL/VQRSHLQ:122:vqrshlq_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:123:vqrshlq_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:124:vqrshlq_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:125:vqrshlq_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:126:vqrshlq_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:127:vqrshlq_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:128:vqrshlq_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:129:vqrshlq_u64 Neon overflow 0
+VQRSHL/VQRSHLQ (negative shift amount) cumulative saturation output:
+VQRSHL/VQRSHLQ:114:vqrshl_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:115:vqrshl_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:116:vqrshl_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:117:vqrshl_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:118:vqrshl_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:119:vqrshl_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:120:vqrshl_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:121:vqrshl_u64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:122:vqrshlq_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:123:vqrshlq_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:124:vqrshlq_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:125:vqrshlq_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:126:vqrshlq_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:127:vqrshlq_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:128:vqrshlq_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:129:vqrshlq_u64 Neon cumulative saturation 0
 
 VQRSHL/VQRSHLQ (negative shift amount) output:
 VQRSHL/VQRSHLQ:130:result_int8x8 [] = { fffffffc, fffffffc, fffffffd, fffffffd, fffffffd, fffffffd, fffffffe, fffffffe,  }
@@ -4028,25 +4028,25 @@ VQRSHL/VQRSHLQ:149:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQRSHL/VQRSHLQ:150:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHL/VQRSHLQ:151:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHL/VQRSHLQ (checking overflow: shift by -1) overflow output:
-VQRSHL/VQRSHLQ:152:vqrshl_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:153:vqrshl_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:154:vqrshl_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:155:vqrshl_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:156:vqrshl_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:157:vqrshl_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:158:vqrshl_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:159:vqrshl_u64 Neon overflow 0
-VQRSHL/VQRSHLQ:160:vqrshlq_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:161:vqrshlq_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:162:vqrshlq_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:163:vqrshlq_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:164:vqrshlq_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:165:vqrshlq_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:166:vqrshlq_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:167:vqrshlq_u64 Neon overflow 0
+VQRSHL/VQRSHLQ (checking cumulative saturation: shift by -1) cumulative saturation output:
+VQRSHL/VQRSHLQ:152:vqrshl_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:153:vqrshl_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:154:vqrshl_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:155:vqrshl_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:156:vqrshl_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:157:vqrshl_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:158:vqrshl_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:159:vqrshl_u64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:160:vqrshlq_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:161:vqrshlq_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:162:vqrshlq_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:163:vqrshlq_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:164:vqrshlq_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:165:vqrshlq_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:166:vqrshlq_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:167:vqrshlq_u64 Neon cumulative saturation 0
 
-VQRSHL/VQRSHLQ (checking overflow: shift by -1) output:
+VQRSHL/VQRSHLQ (checking cumulative saturation: shift by -1) output:
 VQRSHL/VQRSHLQ:168:result_int8x8 [] = { 40, 40, 40, 40, 40, 40, 40, 40,  }
 VQRSHL/VQRSHLQ:169:result_int16x4 [] = { 4000, 4000, 4000, 4000,  }
 VQRSHL/VQRSHLQ:170:result_int32x2 [] = { 40000000, 40000000,  }
@@ -4070,25 +4070,25 @@ VQRSHL/VQRSHLQ:187:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQRSHL/VQRSHLQ:188:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHL/VQRSHLQ:189:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHL/VQRSHLQ (checking overflow: shift by -3) overflow output:
-VQRSHL/VQRSHLQ:190:vqrshl_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:191:vqrshl_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:192:vqrshl_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:193:vqrshl_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:194:vqrshl_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:195:vqrshl_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:196:vqrshl_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:197:vqrshl_u64 Neon overflow 0
-VQRSHL/VQRSHLQ:198:vqrshlq_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:199:vqrshlq_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:200:vqrshlq_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:201:vqrshlq_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:202:vqrshlq_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:203:vqrshlq_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:204:vqrshlq_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:205:vqrshlq_u64 Neon overflow 0
+VQRSHL/VQRSHLQ (checking cumulative saturation: shift by -3) cumulative saturation output:
+VQRSHL/VQRSHLQ:190:vqrshl_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:191:vqrshl_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:192:vqrshl_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:193:vqrshl_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:194:vqrshl_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:195:vqrshl_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:196:vqrshl_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:197:vqrshl_u64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:198:vqrshlq_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:199:vqrshlq_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:200:vqrshlq_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:201:vqrshlq_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:202:vqrshlq_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:203:vqrshlq_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:204:vqrshlq_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:205:vqrshlq_u64 Neon cumulative saturation 0
 
-VQRSHL/VQRSHLQ (checking overflow: shift by -3) output:
+VQRSHL/VQRSHLQ (checking cumulative saturation: shift by -3) output:
 VQRSHL/VQRSHLQ:206:result_int8x8 [] = { 10, 10, 10, 10, 10, 10, 10, 10,  }
 VQRSHL/VQRSHLQ:207:result_int16x4 [] = { 1000, 1000, 1000, 1000,  }
 VQRSHL/VQRSHLQ:208:result_int32x2 [] = { 10000000, 10000000,  }
@@ -4112,25 +4112,25 @@ VQRSHL/VQRSHLQ:225:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQRSHL/VQRSHLQ:226:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHL/VQRSHLQ:227:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHL/VQRSHLQ (checking overflow: large shift amount) overflow output:
-VQRSHL/VQRSHLQ:228:vqrshl_s8 Neon overflow 1
-VQRSHL/VQRSHLQ:229:vqrshl_s16 Neon overflow 1
-VQRSHL/VQRSHLQ:230:vqrshl_s32 Neon overflow 1
-VQRSHL/VQRSHLQ:231:vqrshl_s64 Neon overflow 1
-VQRSHL/VQRSHLQ:232:vqrshl_u8 Neon overflow 1
-VQRSHL/VQRSHLQ:233:vqrshl_u16 Neon overflow 1
-VQRSHL/VQRSHLQ:234:vqrshl_u32 Neon overflow 1
-VQRSHL/VQRSHLQ:235:vqrshl_u64 Neon overflow 1
-VQRSHL/VQRSHLQ:236:vqrshlq_s8 Neon overflow 1
-VQRSHL/VQRSHLQ:237:vqrshlq_s16 Neon overflow 1
-VQRSHL/VQRSHLQ:238:vqrshlq_s32 Neon overflow 1
-VQRSHL/VQRSHLQ:239:vqrshlq_s64 Neon overflow 1
-VQRSHL/VQRSHLQ:240:vqrshlq_u8 Neon overflow 1
-VQRSHL/VQRSHLQ:241:vqrshlq_u16 Neon overflow 1
-VQRSHL/VQRSHLQ:242:vqrshlq_u32 Neon overflow 1
-VQRSHL/VQRSHLQ:243:vqrshlq_u64 Neon overflow 1
+VQRSHL/VQRSHLQ (checking cumulative saturation: large shift amount) cumulative saturation output:
+VQRSHL/VQRSHLQ:228:vqrshl_s8 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:229:vqrshl_s16 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:230:vqrshl_s32 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:231:vqrshl_s64 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:232:vqrshl_u8 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:233:vqrshl_u16 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:234:vqrshl_u32 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:235:vqrshl_u64 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:236:vqrshlq_s8 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:237:vqrshlq_s16 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:238:vqrshlq_s32 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:239:vqrshlq_s64 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:240:vqrshlq_u8 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:241:vqrshlq_u16 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:242:vqrshlq_u32 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:243:vqrshlq_u64 Neon cumulative saturation 1
 
-VQRSHL/VQRSHLQ (checking overflow: large shift amount) output:
+VQRSHL/VQRSHLQ (checking cumulative saturation: large shift amount) output:
 VQRSHL/VQRSHLQ:244:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
 VQRSHL/VQRSHLQ:245:result_int16x4 [] = { 7fff, 7fff, 7fff, 7fff,  }
 VQRSHL/VQRSHLQ:246:result_int32x2 [] = { 7fffffff, 7fffffff,  }
@@ -4154,25 +4154,25 @@ VQRSHL/VQRSHLQ:263:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQRSHL/VQRSHLQ:264:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHL/VQRSHLQ:265:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHL/VQRSHLQ (checking overflow: large shift amount with negative input) overflow output:
-VQRSHL/VQRSHLQ:266:vqrshl_s8 Neon overflow 1
-VQRSHL/VQRSHLQ:267:vqrshl_s16 Neon overflow 1
-VQRSHL/VQRSHLQ:268:vqrshl_s32 Neon overflow 1
-VQRSHL/VQRSHLQ:269:vqrshl_s64 Neon overflow 1
-VQRSHL/VQRSHLQ:270:vqrshl_u8 Neon overflow 1
-VQRSHL/VQRSHLQ:271:vqrshl_u16 Neon overflow 1
-VQRSHL/VQRSHLQ:272:vqrshl_u32 Neon overflow 1
-VQRSHL/VQRSHLQ:273:vqrshl_u64 Neon overflow 1
-VQRSHL/VQRSHLQ:274:vqrshlq_s8 Neon overflow 1
-VQRSHL/VQRSHLQ:275:vqrshlq_s16 Neon overflow 1
-VQRSHL/VQRSHLQ:276:vqrshlq_s32 Neon overflow 1
-VQRSHL/VQRSHLQ:277:vqrshlq_s64 Neon overflow 1
-VQRSHL/VQRSHLQ:278:vqrshlq_u8 Neon overflow 1
-VQRSHL/VQRSHLQ:279:vqrshlq_u16 Neon overflow 1
-VQRSHL/VQRSHLQ:280:vqrshlq_u32 Neon overflow 1
-VQRSHL/VQRSHLQ:281:vqrshlq_u64 Neon overflow 1
+VQRSHL/VQRSHLQ (checking cumulative saturation: large shift amount with negative input) cumulative saturation output:
+VQRSHL/VQRSHLQ:266:vqrshl_s8 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:267:vqrshl_s16 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:268:vqrshl_s32 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:269:vqrshl_s64 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:270:vqrshl_u8 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:271:vqrshl_u16 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:272:vqrshl_u32 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:273:vqrshl_u64 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:274:vqrshlq_s8 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:275:vqrshlq_s16 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:276:vqrshlq_s32 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:277:vqrshlq_s64 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:278:vqrshlq_u8 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:279:vqrshlq_u16 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:280:vqrshlq_u32 Neon cumulative saturation 1
+VQRSHL/VQRSHLQ:281:vqrshlq_u64 Neon cumulative saturation 1
 
-VQRSHL/VQRSHLQ (checking overflow: large shift amount with negative input) output:
+VQRSHL/VQRSHLQ (checking cumulative saturation: large shift amount with negative input) output:
 VQRSHL/VQRSHLQ:282:result_int8x8 [] = { ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80, ffffff80,  }
 VQRSHL/VQRSHLQ:283:result_int16x4 [] = { ffff8000, ffff8000, ffff8000, ffff8000,  }
 VQRSHL/VQRSHLQ:284:result_int32x2 [] = { 80000000, 80000000,  }
@@ -4196,25 +4196,25 @@ VQRSHL/VQRSHLQ:301:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQRSHL/VQRSHLQ:302:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHL/VQRSHLQ:303:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHL/VQRSHLQ (checking overflow: large negative shift amount) overflow output:
-VQRSHL/VQRSHLQ:304:vqrshl_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:305:vqrshl_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:306:vqrshl_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:307:vqrshl_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:308:vqrshl_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:309:vqrshl_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:310:vqrshl_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:311:vqrshl_u64 Neon overflow 0
-VQRSHL/VQRSHLQ:312:vqrshlq_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:313:vqrshlq_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:314:vqrshlq_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:315:vqrshlq_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:316:vqrshlq_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:317:vqrshlq_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:318:vqrshlq_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:319:vqrshlq_u64 Neon overflow 0
+VQRSHL/VQRSHLQ (checking cumulative saturation: large negative shift amount) cumulative saturation output:
+VQRSHL/VQRSHLQ:304:vqrshl_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:305:vqrshl_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:306:vqrshl_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:307:vqrshl_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:308:vqrshl_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:309:vqrshl_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:310:vqrshl_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:311:vqrshl_u64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:312:vqrshlq_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:313:vqrshlq_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:314:vqrshlq_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:315:vqrshlq_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:316:vqrshlq_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:317:vqrshlq_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:318:vqrshlq_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:319:vqrshlq_u64 Neon cumulative saturation 0
 
-VQRSHL/VQRSHLQ (checking overflow: large negative shift amount) output:
+VQRSHL/VQRSHLQ (checking cumulative saturation: large negative shift amount) output:
 VQRSHL/VQRSHLQ:320:result_int8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
 VQRSHL/VQRSHLQ:321:result_int16x4 [] = { 0, 0, 0, 0,  }
 VQRSHL/VQRSHLQ:322:result_int32x2 [] = { 0, 0,  }
@@ -4238,25 +4238,25 @@ VQRSHL/VQRSHLQ:339:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQRSHL/VQRSHLQ:340:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHL/VQRSHLQ:341:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHL/VQRSHLQ (checking overflow: large shift amount with 0 input) overflow output:
-VQRSHL/VQRSHLQ:342:vqrshl_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:343:vqrshl_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:344:vqrshl_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:345:vqrshl_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:346:vqrshl_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:347:vqrshl_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:348:vqrshl_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:349:vqrshl_u64 Neon overflow 0
-VQRSHL/VQRSHLQ:350:vqrshlq_s8 Neon overflow 0
-VQRSHL/VQRSHLQ:351:vqrshlq_s16 Neon overflow 0
-VQRSHL/VQRSHLQ:352:vqrshlq_s32 Neon overflow 0
-VQRSHL/VQRSHLQ:353:vqrshlq_s64 Neon overflow 0
-VQRSHL/VQRSHLQ:354:vqrshlq_u8 Neon overflow 0
-VQRSHL/VQRSHLQ:355:vqrshlq_u16 Neon overflow 0
-VQRSHL/VQRSHLQ:356:vqrshlq_u32 Neon overflow 0
-VQRSHL/VQRSHLQ:357:vqrshlq_u64 Neon overflow 0
+VQRSHL/VQRSHLQ (checking cumulative saturation: large shift amount with 0 input) cumulative saturation output:
+VQRSHL/VQRSHLQ:342:vqrshl_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:343:vqrshl_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:344:vqrshl_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:345:vqrshl_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:346:vqrshl_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:347:vqrshl_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:348:vqrshl_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:349:vqrshl_u64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:350:vqrshlq_s8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:351:vqrshlq_s16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:352:vqrshlq_s32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:353:vqrshlq_s64 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:354:vqrshlq_u8 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:355:vqrshlq_u16 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:356:vqrshlq_u32 Neon cumulative saturation 0
+VQRSHL/VQRSHLQ:357:vqrshlq_u64 Neon cumulative saturation 0
 
-VQRSHL/VQRSHLQ (checking overflow: large shift amount with 0 input) output:
+VQRSHL/VQRSHLQ (checking cumulative saturation: large shift amount with 0 input) output:
 VQRSHL/VQRSHLQ:358:result_int8x8 [] = { 0, 0, 0, 0, 0, 0, 0, 0,  }
 VQRSHL/VQRSHLQ:359:result_int16x4 [] = { 0, 0, 0, 0,  }
 VQRSHL/VQRSHLQ:360:result_int32x2 [] = { 0, 0,  }
@@ -5632,13 +5632,13 @@ VMVN/VMVNQ:19:result_poly8x16 [] = { f, e, d, c, b, a, 9, 8, 7, 6, 5, 4, 3, 2, 1
 VMVN/VMVNQ:20:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VMVN/VMVNQ:21:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQMOVN overflow output:
-VQMOVN:0:vqmovn_s16 Neon overflow 0
-VQMOVN:1:vqmovn_s32 Neon overflow 0
-VQMOVN:2:vqmovn_s64 Neon overflow 0
-VQMOVN:3:vqmovn_u16 Neon overflow 0
-VQMOVN:4:vqmovn_u32 Neon overflow 0
-VQMOVN:5:vqmovn_u64 Neon overflow 0
+VQMOVN cumulative saturation output:
+VQMOVN:0:vqmovn_s16 Neon cumulative saturation 0
+VQMOVN:1:vqmovn_s32 Neon cumulative saturation 0
+VQMOVN:2:vqmovn_s64 Neon cumulative saturation 0
+VQMOVN:3:vqmovn_u16 Neon cumulative saturation 0
+VQMOVN:4:vqmovn_u32 Neon cumulative saturation 0
+VQMOVN:5:vqmovn_u64 Neon cumulative saturation 0
 
 VQMOVN output:
 VQMOVN:6:result_int8x8 [] = { 12, 12, 12, 12, 12, 12, 12, 12,  }
@@ -5664,13 +5664,13 @@ VQMOVN:25:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQMOVN:26:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQMOVN:27:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQMOVN overflow output:
-VQMOVN:28:vqmovn_s16 Neon overflow 1
-VQMOVN:29:vqmovn_s32 Neon overflow 1
-VQMOVN:30:vqmovn_s64 Neon overflow 1
-VQMOVN:31:vqmovn_u16 Neon overflow 1
-VQMOVN:32:vqmovn_u32 Neon overflow 1
-VQMOVN:33:vqmovn_u64 Neon overflow 1
+VQMOVN cumulative saturation output:
+VQMOVN:28:vqmovn_s16 Neon cumulative saturation 1
+VQMOVN:29:vqmovn_s32 Neon cumulative saturation 1
+VQMOVN:30:vqmovn_s64 Neon cumulative saturation 1
+VQMOVN:31:vqmovn_u16 Neon cumulative saturation 1
+VQMOVN:32:vqmovn_u32 Neon cumulative saturation 1
+VQMOVN:33:vqmovn_u64 Neon cumulative saturation 1
 
 VQMOVN output:
 VQMOVN:34:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
@@ -5696,10 +5696,10 @@ VQMOVN:53:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQMOVN:54:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQMOVN:55:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQMOVUN overflow output:
-VQMOVUN:0:vqmovun_s16 Neon overflow 0
-VQMOVUN:1:vqmovun_s32 Neon overflow 0
-VQMOVUN:2:vqmovun_s64 Neon overflow 0
+VQMOVUN cumulative saturation output:
+VQMOVUN:0:vqmovun_s16 Neon cumulative saturation 0
+VQMOVUN:1:vqmovun_s32 Neon cumulative saturation 0
+VQMOVUN:2:vqmovun_s64 Neon cumulative saturation 0
 
 VQMOVUN output:
 VQMOVUN:3:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -5725,10 +5725,10 @@ VQMOVUN:22:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33
 VQMOVUN:23:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQMOVUN:24:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQMOVUN (negative input) overflow output:
-VQMOVUN:25:vqmovun_s16 Neon overflow 1
-VQMOVUN:26:vqmovun_s32 Neon overflow 1
-VQMOVUN:27:vqmovun_s64 Neon overflow 1
+VQMOVUN (negative input) cumulative saturation output:
+VQMOVUN:25:vqmovun_s16 Neon cumulative saturation 1
+VQMOVUN:26:vqmovun_s32 Neon cumulative saturation 1
+VQMOVUN:27:vqmovun_s64 Neon cumulative saturation 1
 
 VQMOVUN (negative input) output:
 VQMOVUN:28:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -6162,15 +6162,15 @@ VPADAL/VPADALQ:19:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VPADAL/VPADALQ:20:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VPADAL/VPADALQ:21:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHLU_N/VQSHLUQ_N (negative input) overflow output:
-VQSHLU_N/VQSHLUQ_N:0:vqshlu_n_s8 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:1:vqshlu_n_s16 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:2:vqshlu_n_s32 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:3:vqshlu_n_s64 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:4:vqshluq_n_s8 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:5:vqshluq_n_s16 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:6:vqshluq_n_s32 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:7:vqshluq_n_s64 Neon overflow 1
+VQSHLU_N/VQSHLUQ_N (negative input) cumulative saturation output:
+VQSHLU_N/VQSHLUQ_N:0:vqshlu_n_s8 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:1:vqshlu_n_s16 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:2:vqshlu_n_s32 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:3:vqshlu_n_s64 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:4:vqshluq_n_s8 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:5:vqshluq_n_s16 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:6:vqshluq_n_s32 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:7:vqshluq_n_s64 Neon cumulative saturation 1
 
 VQSHLU_N/VQSHLUQ_N (negative input) output:
 VQSHLU_N/VQSHLUQ_N:8:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -6196,17 +6196,17 @@ VQSHLU_N/VQSHLUQ_N:27:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQSHLU_N/VQSHLUQ_N:28:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHLU_N/VQSHLUQ_N:29:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHLU_N/VQSHLUQ_N (check saturation/overflow: shift by 1) overflow output:
-VQSHLU_N/VQSHLUQ_N:30:vqshlu_n_s8 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:31:vqshlu_n_s16 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:32:vqshlu_n_s32 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:33:vqshlu_n_s64 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:34:vqshluq_n_s8 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:35:vqshluq_n_s16 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:36:vqshluq_n_s32 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:37:vqshluq_n_s64 Neon overflow 0
+VQSHLU_N/VQSHLUQ_N (check cumulative saturation: shift by 1) cumulative saturation output:
+VQSHLU_N/VQSHLUQ_N:30:vqshlu_n_s8 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:31:vqshlu_n_s16 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:32:vqshlu_n_s32 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:33:vqshlu_n_s64 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:34:vqshluq_n_s8 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:35:vqshluq_n_s16 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:36:vqshluq_n_s32 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:37:vqshluq_n_s64 Neon cumulative saturation 0
 
-VQSHLU_N/VQSHLUQ_N (check saturation/overflow: shift by 1) output:
+VQSHLU_N/VQSHLUQ_N (check cumulative saturation: shift by 1) output:
 VQSHLU_N/VQSHLUQ_N:38:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQSHLU_N/VQSHLUQ_N:39:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQSHLU_N/VQSHLUQ_N:40:result_int32x2 [] = { 33333333, 33333333,  }
@@ -6230,17 +6230,17 @@ VQSHLU_N/VQSHLUQ_N:57:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQSHLU_N/VQSHLUQ_N:58:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHLU_N/VQSHLUQ_N:59:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHLU_N/VQSHLUQ_N (check saturation/overflow: shift by 2) overflow output:
-VQSHLU_N/VQSHLUQ_N:60:vqshlu_n_s8 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:61:vqshlu_n_s16 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:62:vqshlu_n_s32 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:63:vqshlu_n_s64 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:64:vqshluq_n_s8 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:65:vqshluq_n_s16 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:66:vqshluq_n_s32 Neon overflow 1
-VQSHLU_N/VQSHLUQ_N:67:vqshluq_n_s64 Neon overflow 1
+VQSHLU_N/VQSHLUQ_N (check cumulative saturation: shift by 2) cumulative saturation output:
+VQSHLU_N/VQSHLUQ_N:60:vqshlu_n_s8 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:61:vqshlu_n_s16 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:62:vqshlu_n_s32 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:63:vqshlu_n_s64 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:64:vqshluq_n_s8 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:65:vqshluq_n_s16 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:66:vqshluq_n_s32 Neon cumulative saturation 1
+VQSHLU_N/VQSHLUQ_N:67:vqshluq_n_s64 Neon cumulative saturation 1
 
-VQSHLU_N/VQSHLUQ_N (check saturation/overflow: shift by 2) output:
+VQSHLU_N/VQSHLUQ_N (check cumulative saturation: shift by 2) output:
 VQSHLU_N/VQSHLUQ_N:68:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQSHLU_N/VQSHLUQ_N:69:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQSHLU_N/VQSHLUQ_N:70:result_int32x2 [] = { 33333333, 33333333,  }
@@ -6264,15 +6264,15 @@ VQSHLU_N/VQSHLUQ_N:87:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQSHLU_N/VQSHLUQ_N:88:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHLU_N/VQSHLUQ_N:89:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHLU_N/VQSHLUQ_N overflow output:
-VQSHLU_N/VQSHLUQ_N:90:vqshlu_n_s8 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:91:vqshlu_n_s16 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:92:vqshlu_n_s32 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:93:vqshlu_n_s64 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:94:vqshluq_n_s8 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:95:vqshluq_n_s16 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:96:vqshluq_n_s32 Neon overflow 0
-VQSHLU_N/VQSHLUQ_N:97:vqshluq_n_s64 Neon overflow 0
+VQSHLU_N/VQSHLUQ_N cumulative saturation output:
+VQSHLU_N/VQSHLUQ_N:90:vqshlu_n_s8 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:91:vqshlu_n_s16 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:92:vqshlu_n_s32 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:93:vqshlu_n_s64 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:94:vqshluq_n_s8 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:95:vqshluq_n_s16 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:96:vqshluq_n_s32 Neon cumulative saturation 0
+VQSHLU_N/VQSHLUQ_N:97:vqshluq_n_s64 Neon cumulative saturation 0
 
 VQSHLU_N/VQSHLUQ_N output:
 VQSHLU_N/VQSHLUQ_N:98:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -6418,13 +6418,13 @@ VCNT/VCNTQ:19:result_poly8x16 [] = { 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6
 VCNT/VCNTQ:20:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VCNT/VCNTQ:21:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHRN_N overflow output:
-VQSHRN_N:0:vqshrn_n_s16 Neon overflow 0
-VQSHRN_N:1:vqshrn_n_s32 Neon overflow 0
-VQSHRN_N:2:vqshrn_n_s64 Neon overflow 0
-VQSHRN_N:3:vqshrn_n_u16 Neon overflow 1
-VQSHRN_N:4:vqshrn_n_u32 Neon overflow 1
-VQSHRN_N:5:vqshrn_n_u64 Neon overflow 1
+VQSHRN_N cumulative saturation output:
+VQSHRN_N:0:vqshrn_n_s16 Neon cumulative saturation 0
+VQSHRN_N:1:vqshrn_n_s32 Neon cumulative saturation 0
+VQSHRN_N:2:vqshrn_n_s64 Neon cumulative saturation 0
+VQSHRN_N:3:vqshrn_n_u16 Neon cumulative saturation 1
+VQSHRN_N:4:vqshrn_n_u32 Neon cumulative saturation 1
+VQSHRN_N:5:vqshrn_n_u64 Neon cumulative saturation 1
 
 VQSHRN_N output:
 VQSHRN_N:6:result_int8x8 [] = { fffffff8, fffffff8, fffffff9, fffffff9, fffffffa, fffffffa, fffffffb, fffffffb,  }
@@ -6450,13 +6450,13 @@ VQSHRN_N:25:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQSHRN_N:26:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHRN_N:27:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHRN_N (check saturation: shift by 3) overflow output:
-VQSHRN_N:28:vqshrn_n_s16 Neon overflow 1
-VQSHRN_N:29:vqshrn_n_s32 Neon overflow 1
-VQSHRN_N:30:vqshrn_n_s64 Neon overflow 1
-VQSHRN_N:31:vqshrn_n_u16 Neon overflow 1
-VQSHRN_N:32:vqshrn_n_u32 Neon overflow 1
-VQSHRN_N:33:vqshrn_n_u64 Neon overflow 1
+VQSHRN_N (check saturation: shift by 3) cumulative saturation output:
+VQSHRN_N:28:vqshrn_n_s16 Neon cumulative saturation 1
+VQSHRN_N:29:vqshrn_n_s32 Neon cumulative saturation 1
+VQSHRN_N:30:vqshrn_n_s64 Neon cumulative saturation 1
+VQSHRN_N:31:vqshrn_n_u16 Neon cumulative saturation 1
+VQSHRN_N:32:vqshrn_n_u32 Neon cumulative saturation 1
+VQSHRN_N:33:vqshrn_n_u64 Neon cumulative saturation 1
 
 VQSHRN_N (check saturation: shift by 3) output:
 VQSHRN_N:34:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
@@ -6482,13 +6482,13 @@ VQSHRN_N:53:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 3
 VQSHRN_N:54:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHRN_N:55:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHRN_N (check saturation: shift by max) overflow output:
-VQSHRN_N:56:vqshrn_n_s16 Neon overflow 0
-VQSHRN_N:57:vqshrn_n_s32 Neon overflow 0
-VQSHRN_N:58:vqshrn_n_s64 Neon overflow 0
-VQSHRN_N:59:vqshrn_n_u16 Neon overflow 0
-VQSHRN_N:60:vqshrn_n_u32 Neon overflow 0
-VQSHRN_N:61:vqshrn_n_u64 Neon overflow 0
+VQSHRN_N (check saturation: shift by max) cumulative saturation output:
+VQSHRN_N:56:vqshrn_n_s16 Neon cumulative saturation 0
+VQSHRN_N:57:vqshrn_n_s32 Neon cumulative saturation 0
+VQSHRN_N:58:vqshrn_n_s64 Neon cumulative saturation 0
+VQSHRN_N:59:vqshrn_n_u16 Neon cumulative saturation 0
+VQSHRN_N:60:vqshrn_n_u32 Neon cumulative saturation 0
+VQSHRN_N:61:vqshrn_n_u64 Neon cumulative saturation 0
 
 VQSHRN_N (check saturation: shift by max) output:
 VQSHRN_N:62:result_int8x8 [] = { 7f, 7f, 7f, 7f, 7f, 7f, 7f, 7f,  }
@@ -6562,10 +6562,10 @@ VPMIN:19:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VPMIN:20:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VPMIN:21:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHRUN_N (negative input) overflow output:
-VQSHRUN_N:0:vqshrun_n_s16 Neon overflow 1
-VQSHRUN_N:1:vqshrun_n_s32 Neon overflow 1
-VQSHRUN_N:2:vqshrun_n_s64 Neon overflow 1
+VQSHRUN_N (negative input) cumulative saturation output:
+VQSHRUN_N:0:vqshrun_n_s16 Neon cumulative saturation 1
+VQSHRUN_N:1:vqshrun_n_s32 Neon cumulative saturation 1
+VQSHRUN_N:2:vqshrun_n_s64 Neon cumulative saturation 1
 
 VQSHRUN_N (negative input) output:
 VQSHRUN_N:3:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -6591,12 +6591,12 @@ VQSHRUN_N:22:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQSHRUN_N:23:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHRUN_N:24:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHRUN_N (check saturation/overflow) overflow output:
-VQSHRUN_N:25:vqshrun_n_s16 Neon overflow 1
-VQSHRUN_N:26:vqshrun_n_s32 Neon overflow 1
-VQSHRUN_N:27:vqshrun_n_s64 Neon overflow 1
+VQSHRUN_N (check cumulative saturation) cumulative saturation output:
+VQSHRUN_N:25:vqshrun_n_s16 Neon cumulative saturation 1
+VQSHRUN_N:26:vqshrun_n_s32 Neon cumulative saturation 1
+VQSHRUN_N:27:vqshrun_n_s64 Neon cumulative saturation 1
 
-VQSHRUN_N (check saturation/overflow) output:
+VQSHRUN_N (check cumulative saturation) output:
 VQSHRUN_N:28:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQSHRUN_N:29:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQSHRUN_N:30:result_int32x2 [] = { 33333333, 33333333,  }
@@ -6620,10 +6620,10 @@ VQSHRUN_N:47:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQSHRUN_N:48:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHRUN_N:49:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQSHRUN_N overflow output:
-VQSHRUN_N:50:vqshrun_n_s16 Neon overflow 0
-VQSHRUN_N:51:vqshrun_n_s32 Neon overflow 1
-VQSHRUN_N:52:vqshrun_n_s64 Neon overflow 0
+VQSHRUN_N cumulative saturation output:
+VQSHRUN_N:50:vqshrun_n_s16 Neon cumulative saturation 0
+VQSHRUN_N:51:vqshrun_n_s32 Neon cumulative saturation 1
+VQSHRUN_N:52:vqshrun_n_s64 Neon cumulative saturation 0
 
 VQSHRUN_N output:
 VQSHRUN_N:53:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -6649,10 +6649,10 @@ VQSHRUN_N:72:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 
 VQSHRUN_N:73:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQSHRUN_N:74:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHRUN_N (negative input) overflow output:
-VQRSHRUN_N:0:vqrshrun_n_s16 Neon overflow 0
-VQRSHRUN_N:1:vqrshrun_n_s32 Neon overflow 0
-VQRSHRUN_N:2:vqrshrun_n_s64 Neon overflow 1
+VQRSHRUN_N (negative input) cumulative saturation output:
+VQRSHRUN_N:0:vqrshrun_n_s16 Neon cumulative saturation 0
+VQRSHRUN_N:1:vqrshrun_n_s32 Neon cumulative saturation 0
+VQRSHRUN_N:2:vqrshrun_n_s64 Neon cumulative saturation 1
 
 VQRSHRUN_N (negative input) output:
 VQRSHRUN_N:3:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
@@ -6678,12 +6678,12 @@ VQRSHRUN_N:22:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQRSHRUN_N:23:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHRUN_N:24:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHRUN_N (check saturation/overflow: shift by 1) overflow output:
-VQRSHRUN_N:25:vqrshrun_n_s16 Neon overflow 1
-VQRSHRUN_N:26:vqrshrun_n_s32 Neon overflow 1
-VQRSHRUN_N:27:vqrshrun_n_s64 Neon overflow 1
+VQRSHRUN_N (check cumulative saturation: shift by 1) cumulative saturation output:
+VQRSHRUN_N:25:vqrshrun_n_s16 Neon cumulative saturation 1
+VQRSHRUN_N:26:vqrshrun_n_s32 Neon cumulative saturation 1
+VQRSHRUN_N:27:vqrshrun_n_s64 Neon cumulative saturation 1
 
-VQRSHRUN_N (check saturation/overflow: shift by 1) output:
+VQRSHRUN_N (check cumulative saturation: shift by 1) output:
 VQRSHRUN_N:28:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQRSHRUN_N:29:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQRSHRUN_N:30:result_int32x2 [] = { 33333333, 33333333,  }
@@ -6707,12 +6707,12 @@ VQRSHRUN_N:47:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQRSHRUN_N:48:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHRUN_N:49:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHRUN_N (check saturation/overflow: shift by max, positive input) overflow output:
-VQRSHRUN_N:50:vqrshrun_n_s16 Neon overflow 0
-VQRSHRUN_N:51:vqrshrun_n_s32 Neon overflow 0
-VQRSHRUN_N:52:vqrshrun_n_s64 Neon overflow 0
+VQRSHRUN_N (check cumulative saturation: shift by max, positive input) cumulative saturation output:
+VQRSHRUN_N:50:vqrshrun_n_s16 Neon cumulative saturation 0
+VQRSHRUN_N:51:vqrshrun_n_s32 Neon cumulative saturation 0
+VQRSHRUN_N:52:vqrshrun_n_s64 Neon cumulative saturation 0
 
-VQRSHRUN_N (check saturation/overflow: shift by max, positive input) output:
+VQRSHRUN_N (check cumulative saturation: shift by max, positive input) output:
 VQRSHRUN_N:53:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQRSHRUN_N:54:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQRSHRUN_N:55:result_int32x2 [] = { 33333333, 33333333,  }
@@ -6736,12 +6736,12 @@ VQRSHRUN_N:72:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQRSHRUN_N:73:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHRUN_N:74:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHRUN_N (check saturation/overflow: shift by max, negative input) overflow output:
-VQRSHRUN_N:75:vqrshrun_n_s16 Neon overflow 1
-VQRSHRUN_N:76:vqrshrun_n_s32 Neon overflow 1
-VQRSHRUN_N:77:vqrshrun_n_s64 Neon overflow 1
+VQRSHRUN_N (check cumulative saturation: shift by max, negative input) cumulative saturation output:
+VQRSHRUN_N:75:vqrshrun_n_s16 Neon cumulative saturation 1
+VQRSHRUN_N:76:vqrshrun_n_s32 Neon cumulative saturation 1
+VQRSHRUN_N:77:vqrshrun_n_s64 Neon cumulative saturation 1
 
-VQRSHRUN_N (check saturation/overflow: shift by max, negative input) output:
+VQRSHRUN_N (check cumulative saturation: shift by max, negative input) output:
 VQRSHRUN_N:78:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }
 VQRSHRUN_N:79:result_int16x4 [] = { 3333, 3333, 3333, 3333,  }
 VQRSHRUN_N:80:result_int32x2 [] = { 33333333, 33333333,  }
@@ -6765,10 +6765,10 @@ VQRSHRUN_N:97:result_poly8x16 [] = { 33, 33, 33, 33, 33, 33, 33, 33, 33, 33, 33,
 VQRSHRUN_N:98:result_poly16x8 [] = { 3333, 3333, 3333, 3333, 3333, 3333, 3333, 3333,  }
 VQRSHRUN_N:99:result_float32x4 [] = { 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08, 33333333 0x1.6666660p-25 4.172325e-08,  }
 
-VQRSHRUN_N overflow output:
-VQRSHRUN_N:100:vqrshrun_n_s16 Neon overflow 0
-VQRSHRUN_N:101:vqrshrun_n_s32 Neon overflow 1
-VQRSHRUN_N:102:vqrshrun_n_s64 Neon overflow 0
+VQRSHRUN_N cumulative saturation output:
+VQRSHRUN_N:100:vqrshrun_n_s16 Neon cumulative saturation 0
+VQRSHRUN_N:101:vqrshrun_n_s32 Neon cumulative saturation 1
+VQRSHRUN_N:102:vqrshrun_n_s64 Neon cumulative saturation 0
 
 VQRSHRUN_N output:
 VQRSHRUN_N:103:result_int8x8 [] = { 33, 33, 33, 33, 33, 33, 33, 33,  }

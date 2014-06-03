@@ -41,14 +41,14 @@ FNNAME (INSN)
 {
   /* Basic test: v2=vqshl_n(v1,v), then store the result.  */
 #define TEST_VQSHL_N2(INSN, Q, T1, T2, W, N, V)			\
-  Set_Neon_Overflow(0);						\
+  Set_Neon_Cumulative_Sat(0);					\
   VECT_VAR(vector_res, T1, W, N) =				\
     INSN##Q##_n_##T2##W(VECT_VAR(vector, T1, W, N),		\
 			V);					\
   vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),			\
 		    VECT_VAR(vector_res, T1, W, N));		\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##Q##_n_##T2##W),	\
-		     xSTR(T1), W, N)
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##Q##_n_##T2##W),	\
+			   xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQSHL_N1(INSN, T3, Q, T1, T2, W, N)	\
@@ -67,7 +67,7 @@ FNNAME (INSN)
   TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
 
   /* Choose shift amount arbitrarily  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQSHL_N(, int, s, 8, 8, 2);
   TEST_VQSHL_N(, int, s, 16, 4, 1);
   TEST_VQSHL_N(, int, s, 32, 2, 1);
@@ -108,7 +108,8 @@ FNNAME (INSN)
   TEST_VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
   TEST_VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
 
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG " (check saturation with large positive input)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check saturation with large positive input)");
   TEST_VQSHL_N(, int, s, 8, 8, 2);
   TEST_VQSHL_N(, int, s, 16, 4, 1);
   TEST_VQSHL_N(, int, s, 32, 2, 1);

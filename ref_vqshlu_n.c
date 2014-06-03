@@ -41,14 +41,14 @@ FNNAME (INSN)
 {
   /* Basic test: v2=vqshlu_n(v1,v), then store the result.  */
 #define TEST_VQSHLU_N2(INSN, Q, T1, T2, T3, T4, W, N, V)	\
-  Set_Neon_Overflow(0);						\
+  Set_Neon_Cumulative_Sat(0);					\
   VECT_VAR(vector_res, T3, W, N) =				\
     INSN##Q##_n_##T2##W(VECT_VAR(vector, T1, W, N),		\
 			V);					\
   vst1##Q##_##T4##W(VECT_VAR(result, T3, W, N),			\
 		    VECT_VAR(vector_res, T3, W, N));		\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##Q##_n_##T2##W),	\
-		     xSTR(T1), W, N)
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##Q##_n_##T2##W),	\
+			   xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQSHLU_N1(INSN, Q, T1, T2, T3, T4, W, N, V)	\
@@ -76,7 +76,8 @@ FNNAME (INSN)
   TEST_VDUP(vector, q, int, s, 64, 2, -4);
 
   /* Choose shift amount arbitrarily  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG " (negative input)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (negative input)");
   TEST_VQSHLU_N(, int, s, uint, u, 8, 8, 2);
   TEST_VQSHLU_N(, int, s, uint, u, 16, 4, 1);
   TEST_VQSHLU_N(, int, s, uint, u, 32, 2, 1);
@@ -101,8 +102,8 @@ FNNAME (INSN)
   TEST_VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFULL);
 
   /* shift by 1  */
-  fprintf(ref_file, "\n%s overflow output:\n",
-	  TEST_MSG " (check saturation/overflow: shift by 1)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check cumulative saturation: shift by 1)");
   TEST_VQSHLU_N(, int, s, uint, u, 8, 8, 1);
   TEST_VQSHLU_N(, int, s, uint, u, 16, 4, 1);
   TEST_VQSHLU_N(, int, s, uint, u, 32, 2, 1);
@@ -113,11 +114,11 @@ FNNAME (INSN)
   TEST_VQSHLU_N(q, int, s, uint, u, 32, 4, 1);
   TEST_VQSHLU_N(q, int, s, uint, u, 64, 2, 1);
 
-  dump_results_hex2 (TEST_MSG, " (check saturation/overflow: shift by 1)");
+  dump_results_hex2 (TEST_MSG, " (check cumulative saturation: shift by 1)");
 
   /* shift by 2 to force saturation  */
-  fprintf(ref_file, "\n%s overflow output:\n",
-	  TEST_MSG " (check saturation/overflow: shift by 2)");
+  fprintf(ref_file, "\n%s cumulative saturation output:\n",
+	  TEST_MSG " (check cumulative saturation: shift by 2)");
   TEST_VQSHLU_N(, int, s, uint, u, 8, 8, 2);
   TEST_VQSHLU_N(, int, s, uint, u, 16, 4, 2);
   TEST_VQSHLU_N(, int, s, uint, u, 32, 2, 2);
@@ -128,7 +129,7 @@ FNNAME (INSN)
   TEST_VQSHLU_N(q, int, s, uint, u, 32, 4, 2);
   TEST_VQSHLU_N(q, int, s, uint, u, 64, 2, 2);
 
-  dump_results_hex2 (TEST_MSG, " (check saturation/overflow: shift by 2)");
+  dump_results_hex2 (TEST_MSG, " (check cumulative saturation: shift by 2)");
 
   /* Fill input vector with positive values, to check normal case */
   TEST_VDUP(vector, , int, s, 8, 8, 1);
@@ -141,7 +142,7 @@ FNNAME (INSN)
   TEST_VDUP(vector, q, int, s, 64, 2, 8);
 
   /* shift arbitrary amount  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQSHLU_N(, int, s, uint, u, 8, 8, 1);
   TEST_VQSHLU_N(, int, s, uint, u, 16, 4, 2);
   TEST_VQSHLU_N(, int, s, uint, u, 32, 2, 3);

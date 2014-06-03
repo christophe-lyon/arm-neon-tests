@@ -562,36 +562,37 @@ typedef union {
 
 #ifdef __ARMCC_VERSION
 register _ARM_FPSCR _afpscr_for_qc __asm("fpscr");
-#define Neon_Overflow _afpscr_for_qc.b.QC
-#define Set_Neon_Overflow(x)  {Neon_Overflow = (x);}
+#define Neon_Cumulative_Sat _afpscr_for_qc.b.QC
+#define Set_Neon_Cumulative_Sat(x)  {Neon_Cumulative_Sat = (x);}
 #else
 /* GCC/ARM does not know this register */
-#define Neon_Overflow  __read_neon_overflow()
-static int __read_neon_overflow() {
-    _ARM_FPSCR _afpscr_for_qc;
-    asm("vmrs %0,fpscr" : "=r" (_afpscr_for_qc));
-    return _afpscr_for_qc.b.QC;
+#define Neon_Cumulative_Sat  __read_neon_cumulative_sat()
+static int __read_neon_cumulative_sat() {
+  _ARM_FPSCR _afpscr_for_qc;
+  asm("vmrs %0,fpscr" : "=r" (_afpscr_for_qc));
+  return _afpscr_for_qc.b.QC;
 }
-#define Set_Neon_Overflow(x)  __set_neon_overflow((x))
-static void __set_neon_overflow(int x) {
-    _ARM_FPSCR _afpscr_for_qc;
-    asm("vmrs %0,fpscr" : "=r" (_afpscr_for_qc));
-    _afpscr_for_qc.b.QC = x;
-    asm("vmsr fpscr,%0" : : "r" (_afpscr_for_qc));
-    return;
+#define Set_Neon_Cumulative_Sat(x)  __set_neon_cumulative_sat((x))
+static void __set_neon_cumulative_sat(int x) {
+  _ARM_FPSCR _afpscr_for_qc;
+  asm("vmrs %0,fpscr" : "=r" (_afpscr_for_qc));
+  _afpscr_for_qc.b.QC = x;
+  asm("vmsr fpscr,%0" : : "r" (_afpscr_for_qc));
+  return;
 }
 
 #endif
 
 #endif /* STM_ARM_NEON_MODELS */
 
-static void dump_neon_overflow(const char* msg, const char *name,
-			       const char* t1, int w, int n)
+static void dump_neon_cumulative_sat(const char* msg, const char *name,
+				     const char* t1, int w, int n)
 {
-  fprintf(ref_file, "%s:%d:%s Neon overflow %d\n", msg, result_idx++,
-	  name, Neon_Overflow);
-  fprintf(gcc_tests_file, "int VECT_VAR(expected_overflow,%s,%d,%d) = %d;\n", \
-	  t1, w, n, Neon_Overflow);
+  fprintf(ref_file, "%s:%d:%s Neon cumulative saturation %d\n", msg, result_idx++,
+	  name, Neon_Cumulative_Sat);
+  fprintf(gcc_tests_file,
+	  "int VECT_VAR(expected_cumulative_sat,%s,%d,%d) = %d;\n",
+	  t1, w, n, Neon_Cumulative_Sat);
 }
 
 /* Clean output buffers before execution */

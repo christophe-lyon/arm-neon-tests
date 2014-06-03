@@ -61,7 +61,7 @@ void vqneg_extra()
   TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
 
   /* Apply a unary operator named INSN_NAME  */
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_UNARY_SAT_OP(INSN_NAME, , int, s, 8, 8);
   TEST_UNARY_SAT_OP(INSN_NAME, , int, s, 16, 4);
   TEST_UNARY_SAT_OP(INSN_NAME, , int, s, 32, 2);

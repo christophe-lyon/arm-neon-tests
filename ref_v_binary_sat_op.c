@@ -40,15 +40,15 @@ FNNAME (INSN_NAME)
 {
   /* vector_res = OP(vector1,vector2), then store the result.  */
 
-#define TEST_BINARY_SAT_OP1(INSN, Q, T1, T2, W, N)	\
-  Set_Neon_Overflow(0);					\
-  VECT_VAR(vector_res, T1, W, N) =			\
-    INSN##Q##_##T2##W(VECT_VAR(vector1, T1, W, N),	\
-		      VECT_VAR(vector2, T1, W, N));	\
-  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),		\
-		    VECT_VAR(vector_res, T1, W, N));	\
-  dump_neon_overflow(TEST_MSG, xSTR(INSN##Q##_##T2##W), \
-		     xSTR(T1), W, N)
+#define TEST_BINARY_SAT_OP1(INSN, Q, T1, T2, W, N)		\
+  Set_Neon_Cumulative_Sat(0);					\
+  VECT_VAR(vector_res, T1, W, N) =				\
+    INSN##Q##_##T2##W(VECT_VAR(vector1, T1, W, N),		\
+		      VECT_VAR(vector2, T1, W, N));		\
+  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),			\
+		    VECT_VAR(vector_res, T1, W, N));		\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##Q##_##T2##W),	\
+			   xSTR(T1), W, N)
 
 #define TEST_BINARY_SAT_OP(INSN, Q, T1, T2, W, N)	\
   TEST_BINARY_SAT_OP1(INSN, Q, T1, T2, W, N)
@@ -83,7 +83,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, q, uint, u, 32, 4, 0x77);
   TEST_VDUP(vector2, q, uint, u, 64, 2, 0x88);
 
-  fprintf(ref_file, "\n%s overflow output:\n", TEST_MSG);
+  fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_BINARY_SAT_OP(INSN_NAME, , int, s, 8, 8);
   TEST_BINARY_SAT_OP(INSN_NAME, , int, s, 16, 4);
   TEST_BINARY_SAT_OP(INSN_NAME, , int, s, 32, 2);
