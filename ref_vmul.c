@@ -47,8 +47,7 @@ FNNAME (INSN_NAME)
   DECL_VARIABLE(vector2, T, W, N);		\
   DECL_VARIABLE(vector_res, T, W, N)
 
-  /* vector_res = OP(vector, vector3, vector4),
-     then store the result.  */
+  /* vector_res = OP(vector1, vector2), then store the result.  */
 #define TEST_VMUL1(INSN, Q, T1, T2, W, N)				\
   VECT_VAR(vector_res, T1, W, N) =					\
     INSN##Q##_##T2##W(VECT_VAR(vector1, T1, W, N),			\
