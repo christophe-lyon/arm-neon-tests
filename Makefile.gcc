@@ -83,7 +83,7 @@ compute_ref.gccarm: compute_ref.gccarm.o $(REFOBJS.gccarm)
 	$(LD.gccarm) $(LDFLAGS.gccarm) $^ -o $@
 
 compute_ref.gccarm.o: %.gccarm.o: %.c
-	$(CC.gccarm) $(CFLAGS.gccarm) -c $^ -o $@ -DREFFILE=\"$(REFGCCARM)\"
+	$(CC.gccarm) $(CFLAGS.gccarm) -c $^ -o $@ -DREFFILE=\"$(REFGCCARM)\" -DGCCTESTS_FILE=\"expected_input4gcc.txt\"
 
 ref_%.gccarm.o: ref_%.c stm-arm-neon-ref.h
 	$(CC.gccarm) $(CFLAGS.gccarm) -c $< -o $@
