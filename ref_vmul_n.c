@@ -23,7 +23,7 @@ THE SOFTWARE.
 
 */
 
-#ifdef __arm__
+#if defined(__arm__) || defined(__aarch64__)
 #include <arm_neon.h>
 #else
 #include "stm-arm-neon.h"

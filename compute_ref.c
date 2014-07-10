@@ -358,7 +358,7 @@ int main (void)
   exec_vrecps ();
   exec_vrsqrts ();
 
-#if defined(__ARMCC_VERSION) || !defined(__arm__)
+#if defined(__ARMCC_VERSION) || (!defined(__arm__) && !defined(__aarch64__))
   exec_integer ();
   exec_dsp ();
   exec_dspfns ();

@@ -35,7 +35,7 @@ THE SOFTWARE.
 #endif
 #endif
 
-#ifdef __arm__
+#if defined(__arm__) || defined(__aarch64__)
 #include <dspfns.h>
 #else
 #include "stm-dspfns.h"

@@ -35,7 +35,7 @@ THE SOFTWARE.
 #endif
 #endif
 
-#ifdef __arm__
+#if defined(__arm__) || defined(__aarch64__)
 #include <armdsp.h>
 #include <dspfns.h> /* For Overflow */
 #else
