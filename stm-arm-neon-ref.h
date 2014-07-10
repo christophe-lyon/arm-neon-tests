@@ -562,25 +562,41 @@ typedef union {
 
 #ifdef __ARMCC_VERSION
 register _ARM_FPSCR _afpscr_for_qc __asm("fpscr");
-#define Neon_Cumulative_Sat _afpscr_for_qc.b.QC
-#define Set_Neon_Cumulative_Sat(x)  {Neon_Cumulative_Sat = (x);}
+# define Neon_Cumulative_Sat _afpscr_for_qc.b.QC
+# define Set_Neon_Cumulative_Sat(x)  {Neon_Cumulative_Sat = (x);}
 #else
 /* GCC/ARM does not know this register */
-#define Neon_Cumulative_Sat  __read_neon_cumulative_sat()
-static int __read_neon_cumulative_sat() {
-  _ARM_FPSCR _afpscr_for_qc;
-  asm("vmrs %0,fpscr" : "=r" (_afpscr_for_qc));
-  return _afpscr_for_qc.b.QC;
+# define Neon_Cumulative_Sat  __read_neon_cumulative_sat()
+# define Set_Neon_Cumulative_Sat(x)  __set_neon_cumulative_sat((x))
+
+# if defined(__aarch64__)
+static volatile int __read_neon_cumulative_sat (void) {
+    _ARM_FPSCR _afpscr_for_qc;
+    asm volatile ("mrs %0,fpsr" : "=r" (_afpscr_for_qc));
+    return _afpscr_for_qc.b.QC;
 }
-#define Set_Neon_Cumulative_Sat(x)  __set_neon_cumulative_sat((x))
-static void __set_neon_cumulative_sat(int x) {
-  _ARM_FPSCR _afpscr_for_qc;
-  asm("vmrs %0,fpscr" : "=r" (_afpscr_for_qc));
-  _afpscr_for_qc.b.QC = x;
-  asm("vmsr fpscr,%0" : : "r" (_afpscr_for_qc));
-  return;
+static void __set_neon_cumulative_sat (int x) {
+    _ARM_FPSCR _afpscr_for_qc;
+    asm volatile ("mrs %0,fpsr" : "=r" (_afpscr_for_qc));
+    _afpscr_for_qc.b.QC = x;
+    asm volatile ("msr fpsr,%0" : : "r" (_afpscr_for_qc));
+    return;
+}
+# else
+static volatile int __read_neon_cumulative_sat (void) {
+    _ARM_FPSCR _afpscr_for_qc;
+    asm volatile ("vmrs %0,fpscr" : "=r" (_afpscr_for_qc));
+    return _afpscr_for_qc.b.QC;
 }
 
+static void __set_neon_cumulative_sat (int x) {
+    _ARM_FPSCR _afpscr_for_qc;
+    asm volatile ("vmrs %0,fpscr" : "=r" (_afpscr_for_qc));
+    _afpscr_for_qc.b.QC = x;
+    asm volatile ("vmsr fpscr,%0" : : "r" (_afpscr_for_qc));
+    return;
+}
+# endif
 #endif
 
 #endif /* STM_ARM_NEON_MODELS */
