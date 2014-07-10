@@ -87,6 +87,7 @@ void exec_vreinterpret (void)
   /* The same result buffers are used multiple times, so output them
      before overwriting them  */
   fprintf(ref_file, "\n%s output:\n", TEST_MSG);
+  fprintf(gcc_tests_file, "\n%s output:\n", TEST_MSG);
 
   /* vreinterpret_s8_xx */
   TEST_VREINTERPRET(, int, s, 8, 8, int, s, 16, 4);

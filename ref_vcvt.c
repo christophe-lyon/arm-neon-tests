@@ -131,6 +131,7 @@ void exec_vcvt (void)
   /* The same result buffers are used multiple times, so we output
      them before overwriting them  */
   fprintf(ref_file, "\n%s output:\n", TEST_MSG);
+  fprintf(gcc_tests_file, "\n%s output:\n", TEST_MSG);
 
   /* vcvt_f32_xx */
   TEST_VCVT_FP(, float, f, 32, 2, int, s);
@@ -164,6 +165,7 @@ void exec_vcvt (void)
 #undef TEST_MSG
 #define TEST_MSG "VCVT_N/VCVTQ_N"
   fprintf(ref_file, "\n%s output:\n", TEST_MSG);
+  fprintf(gcc_tests_file, "\n%s output:\n", TEST_MSG);
 
   /* vcvt_n_f32_xx */
   TEST_VCVT_N_FP(, float, f, 32, 2, int, s, 2);

@@ -85,6 +85,7 @@ FNNAME (INSN)
   TEST_VQDMULL_N(int, s, 32, 64, 2, 0x55);
 
   fprintf(ref_file, "\n%s output:\n", TEST_MSG);
+  fprintf(gcc_tests_file, "\n%s output:\n", TEST_MSG);
   DUMP(TEST_MSG, int, 32, 4, PRIx32);
   DUMP(TEST_MSG, int, 64, 2, PRIx64);
 

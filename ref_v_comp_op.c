@@ -130,6 +130,7 @@ FNNAME (INSN_NAME)
   /* The same result buffers are used multiple times, so output them
      before overwriting them  */
   fprintf(ref_file, "\n%s output:\n", TEST_MSG);
+  fprintf(gcc_tests_file, "\n%s output:\n", TEST_MSG);
   TEST_VCOMP(INSN_NAME, , int, s, uint, 8, 8);
   TEST_VCOMP(INSN_NAME, , int, s, uint, 16, 4);
   TEST_VCOMP(INSN_NAME, , int, s, uint, 32, 2);

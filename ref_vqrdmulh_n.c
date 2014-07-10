@@ -88,6 +88,7 @@ FNNAME (INSN)
   TEST_VQRDMULH_N(q, int, s, 32, 4, 0xFA23456);
 
   fprintf(ref_file, "\n%s output:\n", TEST_MSG);
+  fprintf(gcc_tests_file, "\n%s output:\n", TEST_MSG);
   DUMP(TEST_MSG, int, 16, 4, PRIx16);
   DUMP(TEST_MSG, int, 32, 2, PRIx32);
   DUMP(TEST_MSG, int, 16, 8, PRIx16);

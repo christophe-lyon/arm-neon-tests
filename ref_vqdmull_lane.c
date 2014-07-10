@@ -87,6 +87,7 @@ FNNAME (INSN)
 
 
   fprintf(ref_file, "\n%s output:\n", TEST_MSG);
+  fprintf(gcc_tests_file, "\n%s output:\n", TEST_MSG);
   DUMP(TEST_MSG, int, 32, 4, PRIx32);
   DUMP(TEST_MSG, int, 64, 2, PRIx64);
 

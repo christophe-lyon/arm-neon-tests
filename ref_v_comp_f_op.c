@@ -69,6 +69,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, q, float, f, 32, 4, -14.0f);
 
   fprintf(ref_file, "\n%s output:\n", TEST_MSG);
+  fprintf(gcc_tests_file, "\n%s output:\n", TEST_MSG);
   TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
   DUMP(TEST_MSG, uint, 32, 2, PRIx32);
 
@@ -79,6 +80,7 @@ FNNAME (INSN_NAME)
   TEST_VDUP(vector2, q, float, f, 32, 4, 10.0f);
 
   fprintf(ref_file, "\n%s output:\n", TEST_MSG);
+  fprintf(gcc_tests_file, "\n%s output:\n", TEST_MSG);
   TEST_VCOMP(INSN_NAME, , float, f, uint, 32, 2);
   DUMP(TEST_MSG, uint, 32, 2, PRIx32);
 

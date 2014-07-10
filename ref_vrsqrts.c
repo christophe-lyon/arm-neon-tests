@@ -72,6 +72,7 @@ void exec_vrsqrts(void)
   TEST_VRSQRTS(q, float, f, 32, 4);
 
   fprintf (ref_file, "\n%s output:\n", TEST_MSG);
+  fprintf (gcc_tests_file, "\n%s output:\n", TEST_MSG);
   DUMP_FP(TEST_MSG, float, 32, 2, PRIx32);
   DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
 
