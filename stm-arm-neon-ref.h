@@ -150,22 +150,25 @@ static int result_idx = 0;
   for(i=0; i<N ; i++)							\
     {									\
       uint##W##_t tmp;							\
-      tmp = (uint##W##_t)VECT_VAR(result, T, W, N)[i];			\
-      fprintf(ref_file, "%" FMT ", ", tmp);				\
+	tmp = (uint##W##_t)VECT_VAR(result, T, W, N)[i];		\
+	fprintf(ref_file, "%" FMT ", ", tmp);				\
     }									\
-  fprintf(ref_file, " }\n");
+  fprintf(ref_file, " }\n");						\
+  DUMP4GCC_FP16(MSG,T,W,N,FMT);
 
 #define DUMP4GCC_FP16(MSG,T,W,N,FMT)					\
-  if (0) {								\
-    fprintf(gcc_tests_file, "%s:%d:%s [] = { ", MSG, result_idx++,	\
-	    STR(VECT_VAR(result, T, W, N)));				\
-    for(i=0; i<N ; i++)							\
+  {									\
+    uint##W##_t tmp;							\
+    fprintf(gcc_tests_file, "VECT_VAR_DECL(expected,%s,%d,%d) [] = { ", \
+	    "hfloat", W, N);						\
+    for(i=0; i<(N-1) ; i++)						\
       {									\
-	uint##W##_t tmp;						\
 	tmp = (uint##W##_t)VECT_VAR(result, T, W, N)[i];		\
-	fprintf(gcc_tests_file, "%" FMT ", ", tmp);			\
+	fprintf(gcc_tests_file, "0x%" FMT ", ", tmp);			\
       }									\
-    fprintf(gcc_tests_file, " }\n");					\
+    tmp = (uint##W##_t)VECT_VAR(result, T, W, N)[i];			\
+    fprintf(gcc_tests_file, "0x%" FMT, tmp);				\
+    fprintf(gcc_tests_file, " };\n");					\
   }
 
 #define CLEAN_PATTERN_8  0x33
