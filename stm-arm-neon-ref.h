@@ -95,7 +95,7 @@ static int result_idx = 0;
 	float##W##_t f;							\
       } tmp;								\
       tmp.f = VECT_VAR(result, T, W, N)[i];				\
-      fprintf(ref_file, "%" FMT " %.7a %.7g, ", tmp.i, tmp.f, tmp.f);	\
+      fprintf(ref_file, "%" FMT ", ", tmp.i);				\
     }									\
   fprintf(ref_file, " }\n");						\
   DUMP4GCC_FP(MSG,T,W,N,FMT);
