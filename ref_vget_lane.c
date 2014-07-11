@@ -38,6 +38,12 @@ void exec_vget_lane (void)
   VAR(var, T1, W) = vget##Q##_lane_##T2##W(VECT_VAR(vector, T1, W, N), L); \
   fprintf(ref_file, "%s: %" PRIx##W "\n", "vget"STR(Q)"_lane_"STR(T2##W), VAR(var, T1, W))
 
+  /* Special variant for poly* types, to clear sign bits in output.  */
+#define TEST_VGET_LANE_POLY(Q, T1, T2, W, N, L)				\
+  VAR(var, T1, W) = vget##Q##_lane_##T2##W(VECT_VAR(vector, T1, W, N), L); \
+    fprintf(ref_file, "%s: %" PRIx##W "\n", "vget"STR(Q)"_lane_"STR(T2##W), \
+	    (uint##W##_t)VAR(var, T1, W))
+
   /* Special variant for floating-point */
   union {
     uint32_t var_int32;
@@ -83,8 +89,8 @@ void exec_vget_lane (void)
   TEST_VGET_LANE(, uint, u, 16, 4, 2);
   TEST_VGET_LANE(, uint, u, 32, 2, 1);
   TEST_VGET_LANE(, uint, u, 64, 1, 0);
-  TEST_VGET_LANE(, poly, p, 8, 8, 6);
-  TEST_VGET_LANE(, poly, p, 16, 4, 2);
+  TEST_VGET_LANE_POLY(, poly, p, 8, 8, 6);
+  TEST_VGET_LANE_POLY(, poly, p, 16, 4, 2);
   TEST_VGET_LANE_F(, float, f, 32, 2, 1);
 
   TEST_VGET_LANE(q, int, s, 8, 16, 15);
@@ -95,8 +101,8 @@ void exec_vget_lane (void)
   TEST_VGET_LANE(q, uint, u, 16, 8, 6);
   TEST_VGET_LANE(q, uint, u, 32, 4, 2);
   TEST_VGET_LANE(q, uint, u, 64, 2, 1);
-  TEST_VGET_LANE(q, poly, p, 8, 16, 14);
-  TEST_VGET_LANE(q, poly, p, 16, 8, 6);
+  TEST_VGET_LANE_POLY(q, poly, p, 8, 16, 14);
+  TEST_VGET_LANE_POLY(q, poly, p, 16, 8, 6);
   TEST_VGET_LANE_F(q, float, f, 32, 4, 3);
 
   fprintf(ref_file, "\n");

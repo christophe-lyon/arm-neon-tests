@@ -45,6 +45,13 @@ void exec_vreinterpret (void)
 		    VECT_VAR(vector_res, T1, W, N));			\
   DUMP(TEST_MSG, T1, W, N, PRIx##W);
 
+#define TEST_VREINTERPRET_POLY(Q, T1, T2, W, N, TS1, TS2, WS, NS)	\
+  VECT_VAR(vector_res, T1, W, N) =					\
+    vreinterpret##Q##_##T2##W##_##TS2##WS(VECT_VAR(vector, TS1, WS, NS)); \
+  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),				\
+		    VECT_VAR(vector_res, T1, W, N));			\
+  DUMP_POLY(TEST_MSG, T1, W, N, PRIx##W);
+
 #define TEST_VREINTERPRET_FP(Q, T1, T2, W, N, TS1, TS2, WS, NS)		\
   VECT_VAR(vector_res, T1, W, N) =					\
     vreinterpret##Q##_##T2##W##_##TS2##WS(VECT_VAR(vector, TS1, WS, NS)); \
@@ -178,26 +185,26 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, uint, u, 64, 1, poly, p, 16, 4);
 
   /* vreinterpret_p8_xx */
-  TEST_VREINTERPRET(, poly, p, 8, 8, int, s, 8, 8);
-  TEST_VREINTERPRET(, poly, p, 8, 8, int, s, 16, 4);
-  TEST_VREINTERPRET(, poly, p, 8, 8, int, s, 32, 2);
-  TEST_VREINTERPRET(, poly, p, 8, 8, int, s, 64, 1);
-  TEST_VREINTERPRET(, poly, p, 8, 8, uint, u, 8, 8);
-  TEST_VREINTERPRET(, poly, p, 8, 8, uint, u, 16, 4);
-  TEST_VREINTERPRET(, poly, p, 8, 8, uint, u, 32, 2);
-  TEST_VREINTERPRET(, poly, p, 8, 8, uint, u, 64, 1);
-  TEST_VREINTERPRET(, poly, p, 8, 8, poly, p, 16, 4);
+  TEST_VREINTERPRET_POLY(, poly, p, 8, 8, int, s, 8, 8);
+  TEST_VREINTERPRET_POLY(, poly, p, 8, 8, int, s, 16, 4);
+  TEST_VREINTERPRET_POLY(, poly, p, 8, 8, int, s, 32, 2);
+  TEST_VREINTERPRET_POLY(, poly, p, 8, 8, int, s, 64, 1);
+  TEST_VREINTERPRET_POLY(, poly, p, 8, 8, uint, u, 8, 8);
+  TEST_VREINTERPRET_POLY(, poly, p, 8, 8, uint, u, 16, 4);
+  TEST_VREINTERPRET_POLY(, poly, p, 8, 8, uint, u, 32, 2);
+  TEST_VREINTERPRET_POLY(, poly, p, 8, 8, uint, u, 64, 1);
+  TEST_VREINTERPRET_POLY(, poly, p, 8, 8, poly, p, 16, 4);
 
   /* vreinterpret_p16_xx */
-  TEST_VREINTERPRET(, poly, p, 16, 4, int, s, 8, 8);
-  TEST_VREINTERPRET(, poly, p, 16, 4, int, s, 16, 4);
-  TEST_VREINTERPRET(, poly, p, 16, 4, int, s, 32, 2);
-  TEST_VREINTERPRET(, poly, p, 16, 4, int, s, 64, 1);
-  TEST_VREINTERPRET(, poly, p, 16, 4, uint, u, 8, 8);
-  TEST_VREINTERPRET(, poly, p, 16, 4, uint, u, 16, 4);
-  TEST_VREINTERPRET(, poly, p, 16, 4, uint, u, 32, 2);
-  TEST_VREINTERPRET(, poly, p, 16, 4, uint, u, 64, 1);
-  TEST_VREINTERPRET(, poly, p, 16, 4, poly, p, 8, 8);
+  TEST_VREINTERPRET_POLY(, poly, p, 16, 4, int, s, 8, 8);
+  TEST_VREINTERPRET_POLY(, poly, p, 16, 4, int, s, 16, 4);
+  TEST_VREINTERPRET_POLY(, poly, p, 16, 4, int, s, 32, 2);
+  TEST_VREINTERPRET_POLY(, poly, p, 16, 4, int, s, 64, 1);
+  TEST_VREINTERPRET_POLY(, poly, p, 16, 4, uint, u, 8, 8);
+  TEST_VREINTERPRET_POLY(, poly, p, 16, 4, uint, u, 16, 4);
+  TEST_VREINTERPRET_POLY(, poly, p, 16, 4, uint, u, 32, 2);
+  TEST_VREINTERPRET_POLY(, poly, p, 16, 4, uint, u, 64, 1);
+  TEST_VREINTERPRET_POLY(, poly, p, 16, 4, poly, p, 8, 8);
 
   /* vreinterpretq_s8_xx */
   TEST_VREINTERPRET(q, int, s, 8, 16, int, s, 16, 8);
@@ -320,8 +327,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, uint, u, 16, 4, float, f, 32, 2);
   TEST_VREINTERPRET(, uint, u, 32, 2, float, f, 32, 2);
   TEST_VREINTERPRET(, uint, u, 64, 1, float, f, 32, 2);
-  TEST_VREINTERPRET(, poly, p, 8, 8, float, f, 32, 2);
-  TEST_VREINTERPRET(, poly, p, 16, 4, float, f, 32, 2);
+  TEST_VREINTERPRET_POLY(, poly, p, 8, 8, float, f, 32, 2);
+  TEST_VREINTERPRET_POLY(, poly, p, 16, 4, float, f, 32, 2);
 
   /* vreinterpretq_xx_f32 */
   TEST_VREINTERPRET(q, int, s, 8, 16, float, f, 32, 4);
@@ -332,8 +339,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(q, uint, u, 16, 8, float, f, 32, 4);
   TEST_VREINTERPRET(q, uint, u, 32, 4, float, f, 32, 4);
   TEST_VREINTERPRET(q, uint, u, 64, 2, float, f, 32, 4);
-  TEST_VREINTERPRET(q, poly, p, 8, 16, float, f, 32, 4);
-  TEST_VREINTERPRET(q, poly, p, 16, 8, float, f, 32, 4);
+  TEST_VREINTERPRET_POLY(q, poly, p, 8, 16, float, f, 32, 4);
+  TEST_VREINTERPRET_POLY(q, poly, p, 16, 8, float, f, 32, 4);
 
 #if __ARM_NEON_FP16_INTRINSICS
   /* vreinterpret_f16_xx */
@@ -371,8 +378,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(, uint, u, 16, 4, float, f, 16, 4);
   TEST_VREINTERPRET(, uint, u, 32, 2, float, f, 16, 4);
   TEST_VREINTERPRET(, uint, u, 64, 1, float, f, 16, 4);
-  TEST_VREINTERPRET(, poly, p, 8, 8, float, f, 16, 4);
-  TEST_VREINTERPRET(, poly, p, 16, 4, float, f, 16, 4);
+  TEST_VREINTERPRET_POLY(, poly, p, 8, 8, float, f, 16, 4);
+  TEST_VREINTERPRET_POLY(, poly, p, 16, 4, float, f, 16, 4);
   TEST_VREINTERPRET_FP(, float, f, 32, 2, float, f, 16, 4);
 
   /* vreinterpretq_xx_f16 */
@@ -384,8 +391,8 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET(q, uint, u, 16, 8, float, f, 16, 8);
   TEST_VREINTERPRET(q, uint, u, 32, 4, float, f, 16, 8);
   TEST_VREINTERPRET(q, uint, u, 64, 2, float, f, 16, 8);
-  TEST_VREINTERPRET(q, poly, p, 8, 16, float, f, 16, 8);
-  TEST_VREINTERPRET(q, poly, p, 16, 8, float, f, 16, 8);
+  TEST_VREINTERPRET_POLY(q, poly, p, 8, 16, float, f, 16, 8);
+  TEST_VREINTERPRET_POLY(q, poly, p, 16, 8, float, f, 16, 8);
   TEST_VREINTERPRET_FP(q, float, f, 32, 4, float, f, 16, 8);
 #endif
 }

@@ -85,6 +85,18 @@ static int result_idx = 0;
   fprintf(ref_file, " }\n");						\
   DUMP4GCC(MSG,T,W,N,FMT);
 
+/* Use casts for remove sign bits */
+#define DUMP_POLY(MSG,T,W,N,FMT)					\
+  fprintf(ref_file, "%s:%d:%s [] = { ", MSG, result_idx++,		\
+	  STR(VECT_VAR(result, T, W, N)));				\
+  for(i=0; i<N ; i++)							\
+    {									\
+      fprintf(ref_file, "%" FMT ", ",					\
+	      (uint##W##_t)VECT_VAR(result, T, W, N)[i]);		\
+    }									\
+  fprintf(ref_file, " }\n");						\
+  DUMP4GCC(MSG,T,W,N,FMT);
+
 #define DUMP_FP(MSG,T,W,N,FMT)						\
   fprintf(ref_file, "%s:%d:%s [] = { ", MSG, result_idx++,		\
 	  STR(VECT_VAR(result, T, W, N)));				\
@@ -450,8 +462,8 @@ static void dump_results (char *test_name)
   DUMP(test_name, uint, 16, 4, PRIu16);
   DUMP(test_name, uint, 32, 2, PRIu32);
   DUMP(test_name, uint, 64, 1, PRIu64);
-  DUMP(test_name, poly, 8, 8, PRIu8);
-  DUMP(test_name, poly, 16, 4, PRIu16);
+  DUMP_POLY(test_name, poly, 8, 8, PRIu8);
+  DUMP_POLY(test_name, poly, 16, 4, PRIu16);
   DUMP_FP(test_name, float, 32, 2, PRIx32);
 #if __ARM_NEON_FP16_INTRINSICS
   DUMP_FP16(test_name, float, 16, 4, PRIu16);
@@ -465,8 +477,8 @@ static void dump_results (char *test_name)
   DUMP(test_name, uint, 16, 8, PRIu16);
   DUMP(test_name, uint, 32, 4, PRIu32);
   DUMP(test_name, uint, 64, 2, PRIu64);
-  DUMP(test_name, poly, 8, 16, PRIu8);
-  DUMP(test_name, poly, 16, 8, PRIu16);
+  DUMP_POLY(test_name, poly, 8, 16, PRIu8);
+  DUMP_POLY(test_name, poly, 16, 8, PRIu16);
   DUMP_FP(test_name, float, 32, 4, PRIx32);
 #if __ARM_NEON_FP16_INTRINSICS
   DUMP_FP16(test_name, float, 16, 8, PRIu16);
@@ -489,8 +501,8 @@ static void dump_results_hex2 (const char *test_name, const char* comment)
   DUMP(test_name, uint, 16, 4, PRIx16);
   DUMP(test_name, uint, 32, 2, PRIx32);
   DUMP(test_name, uint, 64, 1, PRIx64);
-  DUMP(test_name, poly, 8, 8, PRIx8);
-  DUMP(test_name, poly, 16, 4, PRIx16);
+  DUMP_POLY(test_name, poly, 8, 8, PRIx8);
+  DUMP_POLY(test_name, poly, 16, 4, PRIx16);
   DUMP_FP(test_name, float, 32, 2, PRIx32);
 #if __ARM_NEON_FP16_INTRINSICS
   DUMP_FP16(test_name, float, 16, 4, PRIx16);
@@ -504,8 +516,8 @@ static void dump_results_hex2 (const char *test_name, const char* comment)
   DUMP(test_name, uint, 16, 8, PRIx16);
   DUMP(test_name, uint, 32, 4, PRIx32);
   DUMP(test_name, uint, 64, 2, PRIx64);
-  DUMP(test_name, poly, 8, 16, PRIx8);
-  DUMP(test_name, poly, 16, 8, PRIx16);
+  DUMP_POLY(test_name, poly, 8, 16, PRIx8);
+  DUMP_POLY(test_name, poly, 16, 8, PRIx16);
   DUMP_FP(test_name, float, 32, 4, PRIx32);
 #if __ARM_NEON_FP16_INTRINSICS
   DUMP_FP16(test_name, float, 16, 8, PRIx16);
