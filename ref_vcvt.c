@@ -107,7 +107,6 @@ void exec_vcvt (void)
   TEST_VLOAD(vector, buffer, q, float, f, 16, 8);
 #endif
 
-#if __ARM_NEON_FP16_INTRINSICS
   /* Make sure some elements have a fractional part, to exercise
      integer conversions */
   TEST_VSET_LANE(vector, , float, f, 32, 2, 0, -15.3f);
@@ -115,6 +114,7 @@ void exec_vcvt (void)
   TEST_VSET_LANE(vector, q, float, f, 32, 4, 2, -15.3f);
   TEST_VSET_LANE(vector, q, float, f, 32, 4, 3, 5.3f);
 
+#if __ARM_NEON_FP16_INTRINSICS
   /* FP16 tests.  */
   /* There is no vdup_n_f16, so we need another initialization
      method.  */
