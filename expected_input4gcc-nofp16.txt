@@ -7039,7 +7039,6 @@ VECT_VAR_DECL(expected,uint,32,4) [] = { 0x0, 0x0, 0x0, 0x0 };
 VCVT/VCVTQ output:
 VECT_VAR_DECL(expected,hfloat,32,2) [] = { 0xc1800000, 0xc1700000 };
 VECT_VAR_DECL(expected,hfloat,32,2) [] = { 0x4f800000, 0x4f800000 };
-VECT_VAR_DECL(expected,hfloat,32,4) [] = { 0x41720000, 0xc1720000, 0x0, 0x80000000 };
 VECT_VAR_DECL(expected,hfloat,32,4) [] = { 0xc1800000, 0xc1700000, 0xc1600000, 0xc1500000 };
 VECT_VAR_DECL(expected,hfloat,32,4) [] = { 0x4f800000, 0x4f800000, 0x4f800000, 0x4f800000 };
 VECT_VAR_DECL(expected,int,32,2) [] = { 0xfffffff1, 0x5 };
@@ -7066,7 +7065,6 @@ VECT_VAR_DECL(expected,int,32,4) [] = { 0xfbccc, 0xfbccc, 0xfbccc, 0xfbccc };
 VECT_VAR_DECL(expected,uint,32,4) [] = { 0xfbccc, 0xfbccc, 0xfbccc, 0xfbccc };
 VECT_VAR_DECL(expected,int,32,2) [] = { 0x7fffffff, 0x7fffffff };
 VECT_VAR_DECL(expected,int,32,4) [] = { 0x7fffffff, 0x7fffffff, 0x7fffffff, 0x7fffffff };
-VECT_VAR_DECL(expected,hfloat,32,4) [] = { 0x38640000, 0x7f800000, 0x7fc00000, 0xff800000 };
 
 VRECPS/VRECPSQ output:
 VECT_VAR_DECL(expected,hfloat,32,2) [] = { 0xc2e19eb7, 0xc2e19eb7 };
