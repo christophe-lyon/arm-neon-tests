@@ -43,7 +43,7 @@ void exec_vst1_lane (void)
   /* With ARM RVCT, we need to declare variables before any executable
      statement */
   DECL_VARIABLE_ALL_VARIANTS(vector);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   DECL_VARIABLE(vector, float, 16, 4);
   DECL_VARIABLE(vector, float, 16, 8);
 #endif
@@ -62,7 +62,7 @@ void exec_vst1_lane (void)
   TEST_VST1_LANE(, poly, p, 8, 8, 6);
   TEST_VST1_LANE(, poly, p, 16, 4, 2);
   TEST_VST1_LANE(, float, f, 32, 2, 1);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_VST1_LANE(, float, f, 16, 4, 2);
 #endif
 
@@ -77,7 +77,7 @@ void exec_vst1_lane (void)
   TEST_VST1_LANE(q, poly, p, 8, 16, 10);
   TEST_VST1_LANE(q, poly, p, 16, 8, 4);
   TEST_VST1_LANE(q, float, f, 32, 4, 1);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_VST1_LANE(q, float, f, 16, 8, 5);
 #endif
 

@@ -43,7 +43,7 @@ void exec_vld1 (void)
   /* With ARM RVCT, we need to declare variables before any executable
      statement */
   DECL_VARIABLE_ALL_VARIANTS(vector);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   DECL_VARIABLE(vector, float, 16, 4);
   DECL_VARIABLE(vector, float, 16, 8);
 #endif
@@ -55,7 +55,7 @@ void exec_vld1 (void)
   TEST_VLD1(vector, buffer, , float, f, 32, 2);
   TEST_VLD1(vector, buffer, q, float, f, 32, 4);
 
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_VLD1(vector, buffer, , float, f, 16, 4);
   TEST_VLD1(vector, buffer, q, float, f, 16, 8);
 #endif

@@ -44,14 +44,14 @@ void exec_vget_high (void)
      statement */
   DECL_VARIABLE_64BITS_VARIANTS(vector64);
   DECL_VARIABLE_128BITS_VARIANTS(vector128);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   DECL_VARIABLE(vector64, float, 16, 4);
   DECL_VARIABLE(vector128, float, 16, 8);
 #endif
 
   TEST_MACRO_128BITS_VARIANTS_2_5(TEST_VLOAD, vector128, buffer);
   TEST_VLOAD(vector128, buffer, q, float, f, 32, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_VLOAD(vector128, buffer, q, float, f, 16, 8);
 #endif
 
@@ -68,7 +68,7 @@ void exec_vget_high (void)
   TEST_VGET_HIGH(poly, p, 8, 8, 16);
   TEST_VGET_HIGH(poly, p, 16, 4, 8);
   TEST_VGET_HIGH(float, f, 32, 2, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_VGET_HIGH(float, f, 16, 4, 8);
 #endif
 

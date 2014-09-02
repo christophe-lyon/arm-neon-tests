@@ -143,7 +143,7 @@ VECT_VAR_DECL_INIT(buffer, uint, 64, 1);
 PAD(buffer_pad, uint, 64, 1);
 VECT_VAR_DECL_INIT(buffer, float, 32, 2);
 PAD(buffer_pad, float, 32, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 /* We need a different initialization for ARMCC, because the compiler
    performs the conversion to half-precision internal
    representation.  */
@@ -177,7 +177,7 @@ VECT_VAR_DECL_INIT(buffer, poly, 16, 8);
 PAD(buffer_pad, poly, 16, 8);
 VECT_VAR_DECL_INIT(buffer, float, 32, 4);
 PAD(buffer_pad, float, 32, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_float16x8[8] = {-16, -15, -14, -13, -12, -11, -10, -9};
 #else
@@ -214,7 +214,7 @@ VECT_VAR_DECL_INIT(buffer_dup, poly, 16, 4);
 VECT_VAR_DECL(buffer_dup_pad, poly, 16, 4);
 VECT_VAR_DECL_INIT4(buffer_dup, float, 32, 2);
 VECT_VAR_DECL(buffer_dup_pad, float, 32, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_dup_float16x4[4] = {-16, -15, -14, -13};
 #else
@@ -245,7 +245,7 @@ VECT_VAR_DECL_INIT(buffer_dup, poly, 16, 8);
 VECT_VAR_DECL(buffer_dup_pad, poly, 16, 8);
 VECT_VAR_DECL_INIT(buffer_dup, float, 32, 4);
 VECT_VAR_DECL(buffer_dup_pad, float, 32, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_dup_float16x8[8] = {-16, -15, -14, -13, -12, -11, -10, -9};
 #else
@@ -280,7 +280,7 @@ VECT_ARRAY_INIT2(buffer_vld2, poly, 16, 4);
 PAD(buffer_vld2_pad, poly, 16, 4);
 VECT_ARRAY_INIT2(buffer_vld2, float, 32, 2);
 PAD(buffer_vld2_pad, float, 32, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_vld2_float16x4x2[4*2] = {-16, -15, -14, -13, -12, -11, -10, -9};
 #else
@@ -313,7 +313,7 @@ VECT_ARRAY_INIT2(buffer_vld2, poly, 16, 8);
 PAD(buffer_vld2_pad, poly, 16, 8);
 VECT_ARRAY_INIT2(buffer_vld2, float, 32, 4);
 PAD(buffer_vld2_pad, float, 32, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_vld2_float16x8x2[8*2] = {-16, -15, -14, -13, -12, -11, -10, -9,
 				       -8, -7, -6, -5, -4, -3, -2, -1};
@@ -353,7 +353,7 @@ VECT_ARRAY_INIT3(buffer_vld3, poly, 16, 4);
 PAD(buffer_vld3_pad, poly, 16, 4);
 VECT_ARRAY_INIT3(buffer_vld3, float, 32, 2);
 PAD(buffer_vld3_pad, float, 32, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_vld3_float16x4x3[4*3] = {-16, -15, -14, -13, -12, -11, -10, -9,
 				       -8, -7, -6, -5};
@@ -389,7 +389,7 @@ VECT_ARRAY_INIT3(buffer_vld3, poly, 16, 8);
 PAD(buffer_vld3_pad, poly, 16, 8);
 VECT_ARRAY_INIT3(buffer_vld3, float, 32, 4);
 PAD(buffer_vld3_pad, float, 32, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_vld3_float16x8x3[8*3] = {-16, -15, -14, -13, -12, -11, -10, -9,
 				       -8, -7, -6, -5, -4, -3, -2, -1,
@@ -434,7 +434,7 @@ VECT_ARRAY_INIT4(buffer_vld4, poly, 16, 4);
 PAD(buffer_vld4_pad, poly, 16, 4);
 VECT_ARRAY_INIT4(buffer_vld4, float, 32, 2);
 PAD(buffer_vld4_pad, float, 32, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_vld4_float16x4x4[4*4] = {-16, -15, -14, -13, -12, -11, -10, -9,
 				       -8, -7, -6, -5, -4, -3, -2, -1};
@@ -472,7 +472,7 @@ VECT_ARRAY_INIT4(buffer_vld4, poly, 16, 8);
 PAD(buffer_vld4_pad, poly, 16, 8);
 VECT_ARRAY_INIT4(buffer_vld4, float, 32, 4);
 PAD(buffer_vld4_pad, float, 32, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_vld4_float16x8x4[8*4] = {-16, -15, -14, -13, -12, -11, -10, -9,
 				       -8, -7, -6, -5, -4, -3, -2, -1,
@@ -511,7 +511,7 @@ VECT_VAR_DECL_INIT(buffer_vld2_lane, uint, 64, 2);
 VECT_VAR_DECL_INIT(buffer_vld2_lane, poly, 8, 2);
 VECT_VAR_DECL_INIT(buffer_vld2_lane, poly, 16, 2);
 VECT_VAR_DECL_INIT(buffer_vld2_lane, float, 32, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_vld2_lane_float16x2[2] = {-16, -15};
 #else
@@ -532,7 +532,7 @@ VECT_VAR_DECL_INIT(buffer_vld3_lane, uint, 64, 3);
 VECT_VAR_DECL_INIT(buffer_vld3_lane, poly, 8, 3);
 VECT_VAR_DECL_INIT(buffer_vld3_lane, poly, 16, 3);
 VECT_VAR_DECL_INIT(buffer_vld3_lane, float, 32, 3);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_vld3_lane_float16x3[3] = {-16, -15, -14};
 #else
@@ -554,7 +554,7 @@ VECT_VAR_DECL_INIT(buffer_vld4_lane, uint, 64, 4);
 VECT_VAR_DECL_INIT(buffer_vld4_lane, poly, 8, 4);
 VECT_VAR_DECL_INIT(buffer_vld4_lane, poly, 16, 4);
 VECT_VAR_DECL_INIT(buffer_vld4_lane, float, 32, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #ifdef __ARMCC_VERSION
 __fp16 buffer_vld4_lane_float16x4[4] = {-16, -15, -14, -13};
 #else

@@ -89,7 +89,7 @@ void exec_vldX_lane (void)
   DECL_VLDX_LANE(float, 32, 2, X);		\
   DECL_VLDX_LANE(float, 32, 4, X)
 
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #define DECL_ALL_VLDX_LANE_FP16(X)		\
   DECL_VLDX_LANE(float, 16, 4, X);		\
   DECL_VLDX_LANE(float, 16, 8, X)
@@ -122,7 +122,7 @@ void exec_vldX_lane (void)
   TEST_VLDX_LANE(, float, f, 32, 2, X, 0);	\
   TEST_VLDX_LANE(q, float, f, 32, 4, X, 2)
 
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #define TEST_ALL_VLDX_LANE_FP16(X)		\
   TEST_VLDX_LANE(, float, f, 16, 4, X, 0);	\
   TEST_VLDX_LANE(q, float, f, 16, 8, X, 2)
@@ -145,7 +145,7 @@ void exec_vldX_lane (void)
   TEST_EXTRA_CHUNK(float, 32, 2, X, Y);		\
   TEST_EXTRA_CHUNK(float, 32, 4, X, Y)
 
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #define TEST_ALL_EXTRA_CHUNKS_FP16(X, Y)	\
   TEST_EXTRA_CHUNK(float, 16, 4, X, Y);		\
   TEST_EXTRA_CHUNK(float, 16, 8, X, Y)
@@ -155,7 +155,7 @@ void exec_vldX_lane (void)
   DECL_ALL_VLDX_LANE(2);
   DECL_ALL_VLDX_LANE(3);
   DECL_ALL_VLDX_LANE(4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   DECL_ALL_VLDX_LANE_FP16(2);
   DECL_ALL_VLDX_LANE_FP16(3);
   DECL_ALL_VLDX_LANE_FP16(4);
@@ -177,7 +177,7 @@ void exec_vldX_lane (void)
   DUMMY_ARRAY(buffer_src, poly, 16, 8, 4);
   DUMMY_ARRAY(buffer_src, float, 32, 2, 4);
   DUMMY_ARRAY(buffer_src, float, 32, 4, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   DUMMY_ARRAY(buffer_src, float, 16, 4, 4);
   DUMMY_ARRAY(buffer_src, float, 16, 8, 4);
 #endif
@@ -186,12 +186,12 @@ void exec_vldX_lane (void)
   clean_results ();
 #define TEST_MSG "VLD2_LANE/VLD2Q_LANE"
   TEST_ALL_VLDX_LANE(2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_ALL_VLDX_LANE_FP16(2);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 0");
   TEST_ALL_EXTRA_CHUNKS(2, 1);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_ALL_EXTRA_CHUNKS_FP16(2, 1);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 1");
@@ -201,17 +201,17 @@ void exec_vldX_lane (void)
 #undef TEST_MSG
 #define TEST_MSG "VLD3_LANE/VLD3Q_LANE"
   TEST_ALL_VLDX_LANE(3);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_ALL_VLDX_LANE_FP16(3);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 0");
   TEST_ALL_EXTRA_CHUNKS(3, 1);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_ALL_EXTRA_CHUNKS_FP16(3, 1);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 1");
   TEST_ALL_EXTRA_CHUNKS(3, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_ALL_EXTRA_CHUNKS_FP16(3, 2);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 2");
@@ -221,22 +221,22 @@ void exec_vldX_lane (void)
 #undef TEST_MSG
 #define TEST_MSG "VLD4_LANE/VLD4Q_LANE"
   TEST_ALL_VLDX_LANE(4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_ALL_VLDX_LANE_FP16(4);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 0");
   TEST_ALL_EXTRA_CHUNKS(4, 1);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_ALL_EXTRA_CHUNKS_FP16(4, 1);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 1");
   TEST_ALL_EXTRA_CHUNKS(4, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_ALL_EXTRA_CHUNKS_FP16(4, 2);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 2");
   TEST_ALL_EXTRA_CHUNKS(4, 3);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_ALL_EXTRA_CHUNKS_FP16(4, 3);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 3");

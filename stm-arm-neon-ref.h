@@ -150,11 +150,8 @@ static int result_idx = 0;
     fprintf(gcc_tests_file, " };\n");					\
   }
 
-/* ARMCC has internal knowledge of half-precision type. Define this
-   alias to avoid having to duplicate declarations.  */
-#ifdef __ARMCC_VERSION
+#if defined(__ARM_FP16_FORMAT_IEEE)
 #define float16_t __fp16
-#endif
 
 #define DUMP_FP16(MSG,T,W,N,FMT)					\
   fprintf(ref_file, "%s:%d:%s [] = { ", MSG, result_idx++,		\
@@ -182,6 +179,7 @@ static int result_idx = 0;
     fprintf(gcc_tests_file, "0x%" FMT, tmp);				\
     fprintf(gcc_tests_file, " };\n");					\
   }
+#endif
 
 #define CLEAN_PATTERN_8  0x33
 #define CLEAN_PATTERN_16 0x3333
@@ -228,7 +226,7 @@ extern ARRAY(buffer, uint, 64, 1);
 extern ARRAY(buffer, poly, 8, 8);
 extern ARRAY(buffer, poly, 16, 4);
 extern ARRAY(buffer, float, 32, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern ARRAY(buffer, float, 16, 4);
 #endif
 extern ARRAY(buffer, int, 8, 16);
@@ -242,7 +240,7 @@ extern ARRAY(buffer, uint, 64, 2);
 extern ARRAY(buffer, poly, 8, 16);
 extern ARRAY(buffer, poly, 16, 8);
 extern ARRAY(buffer, float, 32, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern ARRAY(buffer, float, 16, 8);
 #endif
 
@@ -260,7 +258,7 @@ extern ARRAY4(buffer_dup, uint, 64, 1);
 extern ARRAY(buffer_dup, poly, 8, 8);
 extern ARRAY(buffer_dup, poly, 16, 4);
 extern ARRAY4(buffer_dup, float, 32, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern ARRAY4(buffer_dup, float, 16, 4);
 #endif
 extern ARRAY(buffer_dup, int, 8, 16);
@@ -274,7 +272,7 @@ extern ARRAY4(buffer_dup, uint, 64, 2);
 extern ARRAY(buffer_dup, poly, 8, 16);
 extern ARRAY(buffer_dup, poly, 16, 8);
 extern ARRAY(buffer_dup, float, 32, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern ARRAY(buffer_dup, float, 16, 8);
 #endif
 
@@ -290,7 +288,7 @@ extern VECT_ARRAY(buffer_vld2, uint, 64, 1, 2);
 extern VECT_ARRAY(buffer_vld2, poly, 8, 8, 2);
 extern VECT_ARRAY(buffer_vld2, poly, 16, 4, 2);
 extern VECT_ARRAY(buffer_vld2, float, 32, 2, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern VECT_ARRAY(buffer_vld2, float, 16, 4, 2);
 #endif
 extern VECT_ARRAY(buffer_vld2, int, 8, 16, 2);
@@ -304,7 +302,7 @@ extern VECT_ARRAY(buffer_vld2, uint, 64, 2, 2);
 extern VECT_ARRAY(buffer_vld2, poly, 8, 16, 2);
 extern VECT_ARRAY(buffer_vld2, poly, 16, 8, 2);
 extern VECT_ARRAY(buffer_vld2, float, 32, 4, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern VECT_ARRAY(buffer_vld2, float, 16, 8, 2);
 #endif
 
@@ -320,7 +318,7 @@ extern VECT_ARRAY(buffer_vld3, uint, 64, 1, 3);
 extern VECT_ARRAY(buffer_vld3, poly, 8, 8, 3);
 extern VECT_ARRAY(buffer_vld3, poly, 16, 4, 3);
 extern VECT_ARRAY(buffer_vld3, float, 32, 2, 3);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern VECT_ARRAY(buffer_vld3, float, 16, 4, 3);
 #endif
 extern VECT_ARRAY(buffer_vld3, int, 8, 16, 3);
@@ -334,7 +332,7 @@ extern VECT_ARRAY(buffer_vld3, uint, 64, 2, 3);
 extern VECT_ARRAY(buffer_vld3, poly, 8, 16, 3);
 extern VECT_ARRAY(buffer_vld3, poly, 16, 8, 3);
 extern VECT_ARRAY(buffer_vld3, float, 32, 4, 3);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern VECT_ARRAY(buffer_vld3, float, 16, 8, 3);
 #endif
 
@@ -350,7 +348,7 @@ extern VECT_ARRAY(buffer_vld4, uint, 64, 1, 4);
 extern VECT_ARRAY(buffer_vld4, poly, 8, 8, 4);
 extern VECT_ARRAY(buffer_vld4, poly, 16, 4, 4);
 extern VECT_ARRAY(buffer_vld4, float, 32, 2, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern VECT_ARRAY(buffer_vld4, float, 16, 4, 4);
 #endif
 extern VECT_ARRAY(buffer_vld4, int, 8, 16, 4);
@@ -364,7 +362,7 @@ extern VECT_ARRAY(buffer_vld4, uint, 64, 2, 4);
 extern VECT_ARRAY(buffer_vld4, poly, 8, 16, 4);
 extern VECT_ARRAY(buffer_vld4, poly, 16, 8, 4);
 extern VECT_ARRAY(buffer_vld4, float, 32, 4, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern VECT_ARRAY(buffer_vld4, float, 16, 8, 4);
 #endif
 
@@ -380,7 +378,7 @@ extern VECT_VAR_DECL(buffer_vld2_lane, uint, 64, 2)[2];
 extern VECT_VAR_DECL(buffer_vld2_lane, poly, 8, 2)[2];
 extern VECT_VAR_DECL(buffer_vld2_lane, poly, 16, 2)[2];
 extern VECT_VAR_DECL(buffer_vld2_lane, float, 32, 2)[2];
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern VECT_VAR_DECL(buffer_vld2_lane, float, 16, 2)[2];
 #endif
 
@@ -396,7 +394,7 @@ extern VECT_VAR_DECL(buffer_vld3_lane, uint, 64, 3)[3];
 extern VECT_VAR_DECL(buffer_vld3_lane, poly, 8, 3)[3];
 extern VECT_VAR_DECL(buffer_vld3_lane, poly, 16, 3)[3];
 extern VECT_VAR_DECL(buffer_vld3_lane, float, 32, 3)[3];
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern VECT_VAR_DECL(buffer_vld3_lane, float, 16, 3)[3];
 #endif
 
@@ -412,7 +410,7 @@ extern VECT_VAR_DECL(buffer_vld4_lane, uint, 64, 4)[4];
 extern VECT_VAR_DECL(buffer_vld4_lane, poly, 8, 4)[4];
 extern VECT_VAR_DECL(buffer_vld4_lane, poly, 16, 4)[4];
 extern VECT_VAR_DECL(buffer_vld4_lane, float, 32, 4)[4];
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 extern VECT_VAR_DECL(buffer_vld4_lane, float, 16, 4)[4];
 #endif
 
@@ -428,7 +426,7 @@ static ARRAY(result, uint, 64, 1);
 static ARRAY(result, poly, 8, 8);
 static ARRAY(result, poly, 16, 4);
 static ARRAY(result, float, 32, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 static ARRAY(result, float, 16, 4);
 #endif
 static ARRAY(result, int, 8, 16);
@@ -442,7 +440,7 @@ static ARRAY(result, uint, 64, 2);
 static ARRAY(result, poly, 8, 16);
 static ARRAY(result, poly, 16, 8);
 static ARRAY(result, float, 32, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
 static ARRAY(result, float, 16, 8);
 #endif
 
@@ -465,7 +463,7 @@ static void dump_results (char *test_name)
   DUMP_POLY(test_name, poly, 8, 8, PRIu8);
   DUMP_POLY(test_name, poly, 16, 4, PRIu16);
   DUMP_FP(test_name, float, 32, 2, PRIx32);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   DUMP_FP16(test_name, float, 16, 4, PRIu16);
 #endif
 
@@ -480,7 +478,7 @@ static void dump_results (char *test_name)
   DUMP_POLY(test_name, poly, 8, 16, PRIu8);
   DUMP_POLY(test_name, poly, 16, 8, PRIu16);
   DUMP_FP(test_name, float, 32, 4, PRIx32);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   DUMP_FP16(test_name, float, 16, 8, PRIu16);
 #endif
 }
@@ -504,7 +502,7 @@ static void dump_results_hex2 (const char *test_name, const char* comment)
   DUMP_POLY(test_name, poly, 8, 8, PRIx8);
   DUMP_POLY(test_name, poly, 16, 4, PRIx16);
   DUMP_FP(test_name, float, 32, 2, PRIx32);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   DUMP_FP16(test_name, float, 16, 4, PRIx16);
 #endif
 
@@ -519,7 +517,7 @@ static void dump_results_hex2 (const char *test_name, const char* comment)
   DUMP_POLY(test_name, poly, 8, 16, PRIx8);
   DUMP_POLY(test_name, poly, 16, 8, PRIx16);
   DUMP_FP(test_name, float, 32, 4, PRIx32);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   DUMP_FP16(test_name, float, 16, 8, PRIx16);
 #endif
 }

@@ -47,12 +47,12 @@ void exec_vld1_lane (void)
   /* With ARM RVCT, we need to declare variables before any executable
      statement */
   DECL_VARIABLE_ALL_VARIANTS(vector);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   DECL_VARIABLE(vector, float, 16, 4);
   DECL_VARIABLE(vector, float, 16, 8);
 #endif
   DECL_VARIABLE_ALL_VARIANTS(vector_src);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   DECL_VARIABLE(vector_src, float, 16, 4);
   DECL_VARIABLE(vector_src, float, 16, 8);
 #endif
@@ -68,7 +68,7 @@ void exec_vld1_lane (void)
   ARRAY(buffer_src, poly, 8, 8);
   ARRAY(buffer_src, poly, 16, 4);
   ARRAY(buffer_src, float, 32, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   ARRAY(buffer_src, float, 16, 4);
 #endif
 
@@ -83,7 +83,7 @@ void exec_vld1_lane (void)
   ARRAY(buffer_src, poly, 8, 16);
   ARRAY(buffer_src, poly, 16, 8);
   ARRAY(buffer_src, float, 32, 4);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   ARRAY(buffer_src, float, 16, 8);
 #endif
 
@@ -101,7 +101,7 @@ void exec_vld1_lane (void)
   TEST_VLD1_LANE(, poly, p, 8, 8, 7);
   TEST_VLD1_LANE(, poly, p, 16, 4, 3);
   TEST_VLD1_LANE(, float, f, 32, 2, 1);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_VLD1_LANE(, float, f, 16, 4, 2);
 #endif
 
@@ -116,7 +116,7 @@ void exec_vld1_lane (void)
   TEST_VLD1_LANE(q, poly, p, 8, 16, 12);
   TEST_VLD1_LANE(q, poly, p, 16, 8, 6);
   TEST_VLD1_LANE(q, float, f, 32, 4, 2);
-#if __ARM_NEON_FP16_INTRINSICS
+#if defined(__ARM_FP16_FORMAT_IEEE)
   TEST_VLD1_LANE(q, float, f, 16, 8, 5);
 #endif
 
