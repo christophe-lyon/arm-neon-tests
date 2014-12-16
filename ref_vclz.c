@@ -81,18 +81,18 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Fill input vector with arbitrary values */
-  TEST_VDUP(vector, , int, s, 8, 8, 0x84);
-  TEST_VDUP(vector, , int, s, 16, 4, 0x1234);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x5678);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0x34);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0x8234);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0x7654321);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0x34);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x1234);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x12345678);
-  TEST_VDUP(vector, q, uint, u, 8, 16, 0x13);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0x4);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0x1);
+  VDUP(vector, , int, s, 8, 8, 0x84);
+  VDUP(vector, , int, s, 16, 4, 0x1234);
+  VDUP(vector, , int, s, 32, 2, 0x5678);
+  VDUP(vector, , uint, u, 8, 8, 0x34);
+  VDUP(vector, , uint, u, 16, 4, 0x8234);
+  VDUP(vector, , uint, u, 32, 2, 0x7654321);
+  VDUP(vector, q, int, s, 8, 16, 0x34);
+  VDUP(vector, q, int, s, 16, 8, 0x1234);
+  VDUP(vector, q, int, s, 32, 4, 0x12345678);
+  VDUP(vector, q, uint, u, 8, 16, 0x13);
+  VDUP(vector, q, uint, u, 16, 8, 0x4);
+  VDUP(vector, q, uint, u, 32, 4, 0x1);
 
   /* Apply a unary operator named INSN_NAME  */
   TEST_UNARY_OP(INSN_NAME, , int, s, 8, 8);
@@ -111,18 +111,18 @@ FNNAME (INSN_NAME)
   dump_results_hex (TEST_MSG);
 
   /* Test with zero as input.  */
-  TEST_VDUP(vector, , int, s, 8, 8, 0);
-  TEST_VDUP(vector, , int, s, 16, 4, 0);
-  TEST_VDUP(vector, , int, s, 32, 2, 0);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0);
-  TEST_VDUP(vector, q, uint, u, 8, 16, 0);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0);
+  VDUP(vector, , int, s, 8, 8, 0);
+  VDUP(vector, , int, s, 16, 4, 0);
+  VDUP(vector, , int, s, 32, 2, 0);
+  VDUP(vector, , uint, u, 8, 8, 0);
+  VDUP(vector, , uint, u, 16, 4, 0);
+  VDUP(vector, , uint, u, 32, 2, 0);
+  VDUP(vector, q, int, s, 8, 16, 0);
+  VDUP(vector, q, int, s, 16, 8, 0);
+  VDUP(vector, q, int, s, 32, 4, 0);
+  VDUP(vector, q, uint, u, 8, 16, 0);
+  VDUP(vector, q, uint, u, 16, 8, 0);
+  VDUP(vector, q, uint, u, 32, 4, 0);
 
   /* Apply a unary operator named INSN_NAME  */
   TEST_UNARY_OP(INSN_NAME, , int, s, 8, 8);

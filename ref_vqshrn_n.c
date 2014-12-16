@@ -78,12 +78,12 @@ FNNAME (INSN)
 
   clean_results ();
 
-  TEST_VLOAD(vector, buffer, q, int, s, 16, 8);
-  TEST_VLOAD(vector, buffer, q, int, s, 32, 4);
-  TEST_VLOAD(vector, buffer, q, int, s, 64, 2);
-  TEST_VLOAD(vector, buffer, q, uint, u, 16, 8);
-  TEST_VLOAD(vector, buffer, q, uint, u, 32, 4);
-  TEST_VLOAD(vector, buffer, q, uint, u, 64, 2);
+  VLOAD(vector, buffer, q, int, s, 16, 8);
+  VLOAD(vector, buffer, q, int, s, 32, 4);
+  VLOAD(vector, buffer, q, int, s, 64, 2);
+  VLOAD(vector, buffer, q, uint, u, 16, 8);
+  VLOAD(vector, buffer, q, uint, u, 32, 4);
+  VLOAD(vector, buffer, q, uint, u, 64, 2);
 
   /* Choose shift amount arbitrarily  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
@@ -99,12 +99,12 @@ FNNAME (INSN)
 
 
   /* Another set of tests */
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x7FFF);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector, q, int, s, 16, 8, 0x7FFF);
+  VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
+  VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
+  VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
+  VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
 
   /* shift by 3 to exercise saturation code in the lib  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n",

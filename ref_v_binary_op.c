@@ -57,25 +57,25 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
 
   /* Fill input vector2 with arbitrary values */
-  TEST_VDUP(vector2, , int, s, 8, 8, 2);
-  TEST_VDUP(vector2, , int, s, 16, 4, -4);
-  TEST_VDUP(vector2, , int, s, 32, 2, 3);
-  TEST_VDUP(vector2, , int, s, 64, 1, 100);
-  TEST_VDUP(vector2, , uint, u, 8, 8, 20);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 30);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 40);
-  TEST_VDUP(vector2, , uint, u, 64, 1, 2);
-  TEST_VDUP(vector2, q, int, s, 8, 16, -10);
-  TEST_VDUP(vector2, q, int, s, 16, 8, -20);
-  TEST_VDUP(vector2, q, int, s, 32, 4, -30);
-  TEST_VDUP(vector2, q, int, s, 64, 2, 24);
-  TEST_VDUP(vector2, q, uint, u, 8, 16, 12);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 3);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 55);
-  TEST_VDUP(vector2, q, uint, u, 64, 2, 3);
+  VDUP(vector2, , int, s, 8, 8, 2);
+  VDUP(vector2, , int, s, 16, 4, -4);
+  VDUP(vector2, , int, s, 32, 2, 3);
+  VDUP(vector2, , int, s, 64, 1, 100);
+  VDUP(vector2, , uint, u, 8, 8, 20);
+  VDUP(vector2, , uint, u, 16, 4, 30);
+  VDUP(vector2, , uint, u, 32, 2, 40);
+  VDUP(vector2, , uint, u, 64, 1, 2);
+  VDUP(vector2, q, int, s, 8, 16, -10);
+  VDUP(vector2, q, int, s, 16, 8, -20);
+  VDUP(vector2, q, int, s, 32, 4, -30);
+  VDUP(vector2, q, int, s, 64, 2, 24);
+  VDUP(vector2, q, uint, u, 8, 16, 12);
+  VDUP(vector2, q, uint, u, 16, 8, 3);
+  VDUP(vector2, q, uint, u, 32, 4, 55);
+  VDUP(vector2, q, uint, u, 64, 2, 3);
 
   /* Apply a binary operator named INSN_NAME  */
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_BINARY_OP, INSN_NAME);

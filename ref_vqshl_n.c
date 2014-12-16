@@ -64,7 +64,7 @@ FNNAME (INSN)
 
   clean_results ();
 
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
 
   /* Choose shift amount arbitrarily  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
@@ -91,22 +91,22 @@ FNNAME (INSN)
 
 
   /* Fill input vector with max value, to check saturation on limits */
-  TEST_VDUP(vector, , int, s, 8, 8, 0x7F);
-  TEST_VDUP(vector, , int, s, 16, 4, 0x7FFF);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
-  TEST_VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0xFF);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0xFFFF);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
-  TEST_VDUP(vector, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0x7F);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x7FFF);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector, q, uint, u, 8, 16, 0xFF);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector, , int, s, 8, 8, 0x7F);
+  VDUP(vector, , int, s, 16, 4, 0x7FFF);
+  VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
+  VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, , uint, u, 8, 8, 0xFF);
+  VDUP(vector, , uint, u, 16, 4, 0xFFFF);
+  VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
+  VDUP(vector, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector, q, int, s, 8, 16, 0x7F);
+  VDUP(vector, q, int, s, 16, 8, 0x7FFF);
+  VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
+  VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, q, uint, u, 8, 16, 0xFF);
+  VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
+  VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
+  VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (check saturation with large positive input)");

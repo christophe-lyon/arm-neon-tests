@@ -73,9 +73,9 @@ FNNAME (INSN)
   clean_results ();
 
   /* Fill input vector with negative values, to check saturation on limits */
-  TEST_VDUP(vector, q, int, s, 16, 8, -2);
-  TEST_VDUP(vector, q, int, s, 32, 4, -3);
-  TEST_VDUP(vector, q, int, s, 64, 2, -4);
+  VDUP(vector, q, int, s, 16, 8, -2);
+  VDUP(vector, q, int, s, 32, 4, -3);
+  VDUP(vector, q, int, s, 64, 2, -4);
 
   /* Choose shift amount arbitrarily  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
@@ -88,9 +88,9 @@ FNNAME (INSN)
   dump_results_hex2 (TEST_MSG, " (negative input)");
 
   /* Fill input vector with max value, to check saturation on limits */
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x7FFF);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, q, int, s, 16, 8, 0x7FFF);
+  VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
+  VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
 
   /* shift by 1  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
@@ -113,9 +113,9 @@ FNNAME (INSN)
 
 
   /* Fill input vector with min value, to check saturation on limits */
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x8000);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x8000000000000000LL);
+  VDUP(vector, q, int, s, 16, 8, 0x8000);
+  VDUP(vector, q, int, s, 32, 4, 0x80000000);
+  VDUP(vector, q, int, s, 64, 2, 0x8000000000000000LL);
 
   /* shift by max  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
@@ -128,9 +128,9 @@ FNNAME (INSN)
 		     " (check cumulative saturation: shift by max, negative input)");
 
   /* Fill input vector with positive values, to check normal case */
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x1234);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x87654321);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0xDEADBEEF);
+  VDUP(vector, q, int, s, 16, 8, 0x1234);
+  VDUP(vector, q, int, s, 32, 4, 0x87654321);
+  VDUP(vector, q, int, s, 64, 2, 0xDEADBEEF);
 
   /* shift arbitrary amount  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);

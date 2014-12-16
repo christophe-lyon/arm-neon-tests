@@ -62,26 +62,26 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Initialize input "vector1" from "buffer"  */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector1, buffer);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector1, buffer);
 
   /* Choose arbitrary initialization values */
-  TEST_VDUP(vector2, , int, s, 8, 8, 0x11);
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x22);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x33);
-  TEST_VDUP(vector2, , int, s, 64, 1, 0x44);
-  TEST_VDUP(vector2, , uint, u, 8, 8, 0x55);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 0x66);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 0x77);
-  TEST_VDUP(vector2, , uint, u, 64, 1, 0x88);
+  VDUP(vector2, , int, s, 8, 8, 0x11);
+  VDUP(vector2, , int, s, 16, 4, 0x22);
+  VDUP(vector2, , int, s, 32, 2, 0x33);
+  VDUP(vector2, , int, s, 64, 1, 0x44);
+  VDUP(vector2, , uint, u, 8, 8, 0x55);
+  VDUP(vector2, , uint, u, 16, 4, 0x66);
+  VDUP(vector2, , uint, u, 32, 2, 0x77);
+  VDUP(vector2, , uint, u, 64, 1, 0x88);
 
-  TEST_VDUP(vector2, q, int, s, 8, 16, 0x11);
-  TEST_VDUP(vector2, q, int, s, 16, 8, 0x22);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 0x33);
-  TEST_VDUP(vector2, q, int, s, 64, 2, 0x44);
-  TEST_VDUP(vector2, q, uint, u, 8, 16, 0x55);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 0x66);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 0x77);
-  TEST_VDUP(vector2, q, uint, u, 64, 2, 0x88);
+  VDUP(vector2, q, int, s, 8, 16, 0x11);
+  VDUP(vector2, q, int, s, 16, 8, 0x22);
+  VDUP(vector2, q, int, s, 32, 4, 0x33);
+  VDUP(vector2, q, int, s, 64, 2, 0x44);
+  VDUP(vector2, q, uint, u, 8, 16, 0x55);
+  VDUP(vector2, q, uint, u, 16, 8, 0x66);
+  VDUP(vector2, q, uint, u, 32, 4, 0x77);
+  VDUP(vector2, q, uint, u, 64, 2, 0x88);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_BINARY_SAT_OP(INSN_NAME, , int, s, 8, 8);

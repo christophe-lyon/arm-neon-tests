@@ -66,47 +66,47 @@ void exec_vaba (void)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_VLOAD(vector1, buffer, , int, s, 8, 8);
-  TEST_VLOAD(vector1, buffer, , int, s, 16, 4);
-  TEST_VLOAD(vector1, buffer, , int, s, 32, 2);
-  TEST_VLOAD(vector1, buffer, , uint, u, 8, 8);
-  TEST_VLOAD(vector1, buffer, , uint, u, 16, 4);
-  TEST_VLOAD(vector1, buffer, , uint, u, 32, 2);
-  TEST_VLOAD(vector1, buffer, q, int, s, 8, 16);
-  TEST_VLOAD(vector1, buffer, q, int, s, 16, 8);
-  TEST_VLOAD(vector1, buffer, q, int, s, 32, 4);
-  TEST_VLOAD(vector1, buffer, q, uint, u, 8, 16);
-  TEST_VLOAD(vector1, buffer, q, uint, u, 16, 8);
-  TEST_VLOAD(vector1, buffer, q, uint, u, 32, 4);
+  VLOAD(vector1, buffer, , int, s, 8, 8);
+  VLOAD(vector1, buffer, , int, s, 16, 4);
+  VLOAD(vector1, buffer, , int, s, 32, 2);
+  VLOAD(vector1, buffer, , uint, u, 8, 8);
+  VLOAD(vector1, buffer, , uint, u, 16, 4);
+  VLOAD(vector1, buffer, , uint, u, 32, 2);
+  VLOAD(vector1, buffer, q, int, s, 8, 16);
+  VLOAD(vector1, buffer, q, int, s, 16, 8);
+  VLOAD(vector1, buffer, q, int, s, 32, 4);
+  VLOAD(vector1, buffer, q, uint, u, 8, 16);
+  VLOAD(vector1, buffer, q, uint, u, 16, 8);
+  VLOAD(vector1, buffer, q, uint, u, 32, 4);
 
 
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector2, , int, s, 8, 8, 1);
-  TEST_VDUP(vector2, , int, s, 16, 4, -13);
-  TEST_VDUP(vector2, , int, s, 32, 2, 8);
-  TEST_VDUP(vector2, , uint, u, 8, 8, 1);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 13);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 8);
-  TEST_VDUP(vector2, q, int, s, 8, 16, 10);
-  TEST_VDUP(vector2, q, int, s, 16, 8, -12);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 32);
-  TEST_VDUP(vector2, q, uint, u, 8, 16, 10);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 12);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 32);
+  VDUP(vector2, , int, s, 8, 8, 1);
+  VDUP(vector2, , int, s, 16, 4, -13);
+  VDUP(vector2, , int, s, 32, 2, 8);
+  VDUP(vector2, , uint, u, 8, 8, 1);
+  VDUP(vector2, , uint, u, 16, 4, 13);
+  VDUP(vector2, , uint, u, 32, 2, 8);
+  VDUP(vector2, q, int, s, 8, 16, 10);
+  VDUP(vector2, q, int, s, 16, 8, -12);
+  VDUP(vector2, q, int, s, 32, 4, 32);
+  VDUP(vector2, q, uint, u, 8, 16, 10);
+  VDUP(vector2, q, uint, u, 16, 8, 12);
+  VDUP(vector2, q, uint, u, 32, 4, 32);
 
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector3, , int, s, 8, 8, -5);
-  TEST_VDUP(vector3, , int, s, 16, 4, 25);
-  TEST_VDUP(vector3, , int, s, 32, 2, -40);
-  TEST_VDUP(vector3, , uint, u, 8, 8, 100);
-  TEST_VDUP(vector3, , uint, u, 16, 4, 2340);
-  TEST_VDUP(vector3, , uint, u, 32, 2, 0xffffffff);
-  TEST_VDUP(vector3, q, int, s, 8, 16, -100);
-  TEST_VDUP(vector3, q, int, s, 16, 8, -3000);
-  TEST_VDUP(vector3, q, int, s, 32, 4, 10000);
-  TEST_VDUP(vector3, q, uint, u, 8, 16, 2);
-  TEST_VDUP(vector3, q, uint, u, 16, 8, 3);
-  TEST_VDUP(vector3, q, uint, u, 32, 4, 4);
+  VDUP(vector3, , int, s, 8, 8, -5);
+  VDUP(vector3, , int, s, 16, 4, 25);
+  VDUP(vector3, , int, s, 32, 2, -40);
+  VDUP(vector3, , uint, u, 8, 8, 100);
+  VDUP(vector3, , uint, u, 16, 4, 2340);
+  VDUP(vector3, , uint, u, 32, 2, 0xffffffff);
+  VDUP(vector3, q, int, s, 8, 16, -100);
+  VDUP(vector3, q, int, s, 16, 8, -3000);
+  VDUP(vector3, q, int, s, 32, 4, 10000);
+  VDUP(vector3, q, uint, u, 8, 16, 2);
+  VDUP(vector3, q, uint, u, 16, 8, 3);
+  VDUP(vector3, q, uint, u, 32, 4, 4);
 
   TEST_VABA(, int, s, 8, 8);
   TEST_VABA(, int, s, 16, 4);

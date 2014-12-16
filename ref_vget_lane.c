@@ -74,9 +74,9 @@ void exec_vget_lane (void)
 
   clean_results ();
 
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
-  TEST_VLOAD(vector, buffer, , float, f, 32, 2);
-  TEST_VLOAD(vector, buffer, q, float, f, 32, 4);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
+  VLOAD(vector, buffer, , float, f, 32, 2);
+  VLOAD(vector, buffer, q, float, f, 32, 4);
 
   fprintf(ref_file, "\n%s output:\n", "VGET_LANE/VGETQ_LANE");
 

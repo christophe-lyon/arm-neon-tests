@@ -50,7 +50,7 @@ void exec_vrshr_n (void)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
 
   /* Choose shift amount arbitrarily  */
   TEST_VRSHR_N(, int, s, 8, 8, 1);
@@ -75,22 +75,22 @@ void exec_vrshr_n (void)
   dump_results_hex (TEST_MSG);
 
   /* Another set of tests */
-  TEST_VDUP(vector, , int, s, 8, 8, 0x7F);
-  TEST_VDUP(vector, , int, s, 16, 4, 0x7FFF);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
-  TEST_VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0xFF);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0xFFFF);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
-  TEST_VDUP(vector, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0x7F);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x7FFF);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector, q, uint, u, 8, 16, 0xFF);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector, , int, s, 8, 8, 0x7F);
+  VDUP(vector, , int, s, 16, 4, 0x7FFF);
+  VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
+  VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, , uint, u, 8, 8, 0xFF);
+  VDUP(vector, , uint, u, 16, 4, 0xFFFF);
+  VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
+  VDUP(vector, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector, q, int, s, 8, 16, 0x7F);
+  VDUP(vector, q, int, s, 16, 8, 0x7FFF);
+  VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
+  VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, q, uint, u, 8, 16, 0xFF);
+  VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
+  VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
+  VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
 
   /* Use max shift amount, to exercise saturation code in the lib */
   TEST_VRSHR_N(, int, s, 8, 8, 8);
@@ -155,22 +155,22 @@ void exec_vrshr_n (void)
   /* FIXME: only a few result buffers are used, but we output all of them */
   dump_results_hex2 (TEST_MSG, " (overflow test: shift by 3, positive input)");
 
-  TEST_VDUP(vector, , int, s, 8, 8, 0x80);
-  TEST_VDUP(vector, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x80000000);
-  TEST_VDUP(vector, , int, s, 64, 1, 0x8000000000000000LL);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0xFF);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0xFFFF);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
-  TEST_VDUP(vector, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0x80);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x8000);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x8000000000000000LL);
-  TEST_VDUP(vector, q, uint, u, 8, 16, 0xFF);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector, , int, s, 8, 8, 0x80);
+  VDUP(vector, , int, s, 16, 4, 0x8000);
+  VDUP(vector, , int, s, 32, 2, 0x80000000);
+  VDUP(vector, , int, s, 64, 1, 0x8000000000000000LL);
+  VDUP(vector, , uint, u, 8, 8, 0xFF);
+  VDUP(vector, , uint, u, 16, 4, 0xFFFF);
+  VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
+  VDUP(vector, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector, q, int, s, 8, 16, 0x80);
+  VDUP(vector, q, int, s, 16, 8, 0x8000);
+  VDUP(vector, q, int, s, 32, 4, 0x80000000);
+  VDUP(vector, q, int, s, 64, 2, 0x8000000000000000LL);
+  VDUP(vector, q, uint, u, 8, 16, 0xFF);
+  VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
+  VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
+  VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
 
 
   /* Use 1 as shift amount, to exercise saturation code in the lib */

@@ -83,12 +83,12 @@ void exec_vreinterpret (void)
 
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
-  TEST_VLOAD(vector, buffer, , float, f, 32, 2);
-  TEST_VLOAD(vector, buffer, q, float, f, 32, 4);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
+  VLOAD(vector, buffer, , float, f, 32, 2);
+  VLOAD(vector, buffer, q, float, f, 32, 4);
 #if defined(__ARM_FP16_FORMAT_IEEE)
-  TEST_VLOAD(vector, buffer, , float, f, 16, 4);
-  TEST_VLOAD(vector, buffer, q, float, f, 16, 8);
+  VLOAD(vector, buffer, , float, f, 16, 4);
+  VLOAD(vector, buffer, q, float, f, 16, 8);
 #endif
 
   /* The same result buffers are used multiple times, so output them

@@ -77,16 +77,16 @@ FNNAME (INSN)
 
   clean_results ();
 
-  TEST_VLOAD(vector, buffer, , int, s, 16, 4);
-  TEST_VLOAD(vector, buffer, , int, s, 32, 2);
-  TEST_VLOAD(vector, buffer, q, int, s, 16, 8);
-  TEST_VLOAD(vector, buffer, q, int, s, 32, 4);
+  VLOAD(vector, buffer, , int, s, 16, 4);
+  VLOAD(vector, buffer, , int, s, 32, 2);
+  VLOAD(vector, buffer, q, int, s, 16, 8);
+  VLOAD(vector, buffer, q, int, s, 32, 4);
 
   /* Initialize vector2 */
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x5555);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0xBB);
-  TEST_VDUP(vector2, q, int, s, 16, 8, 0x33);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 0x22);
+  VDUP(vector2, , int, s, 16, 4, 0x5555);
+  VDUP(vector2, , int, s, 32, 2, 0xBB);
+  VDUP(vector2, q, int, s, 16, 8, 0x33);
+  VDUP(vector2, q, int, s, 32, 4, 0x22);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQRDMULH(, int, s, 16, 4);
@@ -98,14 +98,14 @@ FNNAME (INSN)
      output all of them */
   dump_results_hex (TEST_MSG);
 
-  TEST_VDUP(vector, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x80000000);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x8000);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x80000000);
-  TEST_VDUP(vector2, q, int, s, 16, 8, 0x8000);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 0x80000000);
+  VDUP(vector, , int, s, 16, 4, 0x8000);
+  VDUP(vector, , int, s, 32, 2, 0x80000000);
+  VDUP(vector, q, int, s, 16, 8, 0x8000);
+  VDUP(vector, q, int, s, 32, 4, 0x80000000);
+  VDUP(vector2, , int, s, 16, 4, 0x8000);
+  VDUP(vector2, , int, s, 32, 2, 0x80000000);
+  VDUP(vector2, q, int, s, 16, 8, 0x8000);
+  VDUP(vector2, q, int, s, 32, 4, 0x80000000);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (check mul cumulative saturation)");
@@ -116,14 +116,14 @@ FNNAME (INSN)
   dump_results_hex2 (TEST_MSG, " (check mul cumulative saturation)");
 
 
-  TEST_VDUP(vector, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x80000000);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x8000);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x8001);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x80000001);
-  TEST_VDUP(vector2, q, int, s, 16, 8, 0x8001);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 0x80000001);
+  VDUP(vector, , int, s, 16, 4, 0x8000);
+  VDUP(vector, , int, s, 32, 2, 0x80000000);
+  VDUP(vector, q, int, s, 16, 8, 0x8000);
+  VDUP(vector, q, int, s, 32, 4, 0x80000000);
+  VDUP(vector2, , int, s, 16, 4, 0x8001);
+  VDUP(vector2, , int, s, 32, 2, 0x80000001);
+  VDUP(vector2, q, int, s, 16, 8, 0x8001);
+  VDUP(vector2, q, int, s, 32, 4, 0x80000001);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (check rounding cumulative saturation)");

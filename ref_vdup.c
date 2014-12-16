@@ -37,7 +37,6 @@ void exec_vdup (void)
   int i;
 
   /* Basic test: vec=vdup(x), then store the result.  */
-#undef TEST_VDUP
 #define TEST_VDUP(Q, T1, T2, W, N)					\
   VECT_VAR(vector, T1, W, N) =						\
     vdup##Q##_n_##T2##W(VECT_VAR(buffer_dup, T1, W, N)[i]);		\

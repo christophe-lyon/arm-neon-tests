@@ -85,20 +85,20 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_VLOAD(vector, buffer, , int, s, 8, 8);
-  TEST_VLOAD(vector, buffer, , int, s, 16, 4);
-  TEST_VLOAD(vector, buffer, , int, s, 32, 2);
-  TEST_VLOAD(vector, buffer, , uint, u, 8, 8);
-  TEST_VLOAD(vector, buffer, , uint, u, 16, 4);
-  TEST_VLOAD(vector, buffer, , uint, u, 32, 2);
-  TEST_VLOAD(vector, buffer, , poly, p, 8, 8);
-  TEST_VLOAD(vector, buffer, q, int, s, 8, 16);
-  TEST_VLOAD(vector, buffer, q, int, s, 16, 8);
-  TEST_VLOAD(vector, buffer, q, int, s, 32, 4);
-  TEST_VLOAD(vector, buffer, q, uint, u, 8, 16);
-  TEST_VLOAD(vector, buffer, q, uint, u, 16, 8);
-  TEST_VLOAD(vector, buffer, q, uint, u, 32, 4);
-  TEST_VLOAD(vector, buffer, q, poly, p, 8, 16);
+  VLOAD(vector, buffer, , int, s, 8, 8);
+  VLOAD(vector, buffer, , int, s, 16, 4);
+  VLOAD(vector, buffer, , int, s, 32, 2);
+  VLOAD(vector, buffer, , uint, u, 8, 8);
+  VLOAD(vector, buffer, , uint, u, 16, 4);
+  VLOAD(vector, buffer, , uint, u, 32, 2);
+  VLOAD(vector, buffer, , poly, p, 8, 8);
+  VLOAD(vector, buffer, q, int, s, 8, 16);
+  VLOAD(vector, buffer, q, int, s, 16, 8);
+  VLOAD(vector, buffer, q, int, s, 32, 4);
+  VLOAD(vector, buffer, q, uint, u, 8, 16);
+  VLOAD(vector, buffer, q, uint, u, 16, 8);
+  VLOAD(vector, buffer, q, uint, u, 32, 4);
+  VLOAD(vector, buffer, q, poly, p, 8, 16);
 
   /* Apply a unary operator named INSN_NAME  */
   TEST_UNARY_OP(INSN_NAME, , int, s, 8, 8);

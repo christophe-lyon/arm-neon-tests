@@ -61,11 +61,11 @@ void exec_vrecps(void)
   clean_results ();
 
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector, , float, f, 32, 2, 12.9f);
-  TEST_VDUP(vector, q, float, f, 32, 4, 9.2f);
+  VDUP(vector, , float, f, 32, 2, 12.9f);
+  VDUP(vector, q, float, f, 32, 4, 9.2f);
 
-  TEST_VDUP(vector2, , float, f, 32, 2, 8.9f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 3.2f);
+  VDUP(vector2, , float, f, 32, 2, 8.9f);
+  VDUP(vector2, q, float, f, 32, 4, 3.2f);
 
   /* Apply the operator */
   TEST_VRECPS(, float, f, 32, 2);
@@ -78,8 +78,8 @@ void exec_vrecps(void)
 
 
   /* Test FP variants with special input values (NaN) */
-  TEST_VDUP(vector, , float, f, 32, 2, NAN);
-  TEST_VDUP(vector2, q, float, f, 32, 4, NAN);
+  VDUP(vector, , float, f, 32, 2, NAN);
+  VDUP(vector2, q, float, f, 32, 4, NAN);
 
   /* Apply the operator */
   TEST_VRECPS(, float, f, 32, 2);
@@ -91,9 +91,9 @@ void exec_vrecps(void)
 
 
   /* Test FP variants with special input values (infinity, 0) */
-  TEST_VDUP(vector, , float, f, 32, 2, HUGE_VALF);
-  TEST_VDUP(vector, q, float, f, 32, 4, 0.0f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 3.2f); /* Restore a normal value */
+  VDUP(vector, , float, f, 32, 2, HUGE_VALF);
+  VDUP(vector, q, float, f, 32, 4, 0.0f);
+  VDUP(vector2, q, float, f, 32, 4, 3.2f); /* Restore a normal value */
 
   /* Apply the operator */
   TEST_VRECPS(, float, f, 32, 2);
@@ -105,10 +105,10 @@ void exec_vrecps(void)
 
 
   /* Test FP variants with only special input values (infinity, 0) */
-  TEST_VDUP(vector, , float, f, 32, 2, HUGE_VALF);
-  TEST_VDUP(vector, q, float, f, 32, 4, 0.0f);
-  TEST_VDUP(vector2, , float, f, 32, 2, 0.0f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, HUGE_VALF);
+  VDUP(vector, , float, f, 32, 2, HUGE_VALF);
+  VDUP(vector, q, float, f, 32, 4, 0.0f);
+  VDUP(vector2, , float, f, 32, 2, 0.0f);
+  VDUP(vector2, q, float, f, 32, 4, HUGE_VALF);
 
   /* Apply the operator */
   TEST_VRECPS(, float, f, 32, 2);

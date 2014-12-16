@@ -73,12 +73,12 @@ FNNAME (INSN)
   clean_results ();
 
   /* Initialize vector */
-  TEST_VDUP(vector, , int, s, 16, 4, 0x1000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x1000);
+  VDUP(vector, , int, s, 16, 4, 0x1000);
+  VDUP(vector, , int, s, 32, 2, 0x1000);
 
   /* Initialize vector2 */
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x4);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x2);
+  VDUP(vector2, , int, s, 16, 4, 0x4);
+  VDUP(vector2, , int, s, 32, 2, 0x2);
 
   /* Choose lane arbitrarily */
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
@@ -93,10 +93,10 @@ FNNAME (INSN)
 
 
 
-  TEST_VDUP(vector, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x80000000);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x80000000);
+  VDUP(vector, , int, s, 16, 4, 0x8000);
+  VDUP(vector2, , int, s, 16, 4, 0x8000);
+  VDUP(vector, , int, s, 32, 2, 0x80000000);
+  VDUP(vector2, , int, s, 32, 2, 0x80000000);
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (check mul cumulative saturation)");
   TEST_VQDMULL_LANE(int, s, 16, 32, 4, 2);

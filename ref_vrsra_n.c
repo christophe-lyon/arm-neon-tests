@@ -52,26 +52,26 @@ void exec_vrsra_n (void)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
 
   /* Choose arbitrary initialization values */
-  TEST_VDUP(vector2, , int, s, 8, 8, 0x11);
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x22);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x33);
-  TEST_VDUP(vector2, , int, s, 64, 1, 0x44);
-  TEST_VDUP(vector2, , uint, u, 8, 8, 0x55);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 0x66);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 0x77);
-  TEST_VDUP(vector2, , uint, u, 64, 1, 0x88);
+  VDUP(vector2, , int, s, 8, 8, 0x11);
+  VDUP(vector2, , int, s, 16, 4, 0x22);
+  VDUP(vector2, , int, s, 32, 2, 0x33);
+  VDUP(vector2, , int, s, 64, 1, 0x44);
+  VDUP(vector2, , uint, u, 8, 8, 0x55);
+  VDUP(vector2, , uint, u, 16, 4, 0x66);
+  VDUP(vector2, , uint, u, 32, 2, 0x77);
+  VDUP(vector2, , uint, u, 64, 1, 0x88);
 
-  TEST_VDUP(vector2, q, int, s, 8, 16, 0x11);
-  TEST_VDUP(vector2, q, int, s, 16, 8, 0x22);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 0x33);
-  TEST_VDUP(vector2, q, int, s, 64, 2, 0x44);
-  TEST_VDUP(vector2, q, uint, u, 8, 16, 0x55);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 0x66);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 0x77);
-  TEST_VDUP(vector2, q, uint, u, 64, 2, 0x88);
+  VDUP(vector2, q, int, s, 8, 16, 0x11);
+  VDUP(vector2, q, int, s, 16, 8, 0x22);
+  VDUP(vector2, q, int, s, 32, 4, 0x33);
+  VDUP(vector2, q, int, s, 64, 2, 0x44);
+  VDUP(vector2, q, uint, u, 8, 16, 0x55);
+  VDUP(vector2, q, uint, u, 16, 8, 0x66);
+  VDUP(vector2, q, uint, u, 32, 4, 0x77);
+  VDUP(vector2, q, uint, u, 64, 2, 0x88);
 
   /* Choose shift amount arbitrarily  */
   TEST_VRSRA_N(, int, s, 8, 8, 1);
@@ -96,40 +96,40 @@ void exec_vrsra_n (void)
   dump_results_hex (TEST_MSG);
 
   /* Initialize the accumulator with 0 */
-  TEST_VDUP(vector, , int, s, 8, 8, 0);
-  TEST_VDUP(vector, , int, s, 16, 4, 0);
-  TEST_VDUP(vector, , int, s, 32, 2, 0);
-  TEST_VDUP(vector, , int, s, 64, 1, 0);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0);
-  TEST_VDUP(vector, , uint, u, 64, 1, 0);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0);
-  TEST_VDUP(vector, q, uint, u, 8, 16, 0);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0);
+  VDUP(vector, , int, s, 8, 8, 0);
+  VDUP(vector, , int, s, 16, 4, 0);
+  VDUP(vector, , int, s, 32, 2, 0);
+  VDUP(vector, , int, s, 64, 1, 0);
+  VDUP(vector, , uint, u, 8, 8, 0);
+  VDUP(vector, , uint, u, 16, 4, 0);
+  VDUP(vector, , uint, u, 32, 2, 0);
+  VDUP(vector, , uint, u, 64, 1, 0);
+  VDUP(vector, q, int, s, 8, 16, 0);
+  VDUP(vector, q, int, s, 16, 8, 0);
+  VDUP(vector, q, int, s, 32, 4, 0);
+  VDUP(vector, q, int, s, 64, 2, 0);
+  VDUP(vector, q, uint, u, 8, 16, 0);
+  VDUP(vector, q, uint, u, 16, 8, 0);
+  VDUP(vector, q, uint, u, 32, 4, 0);
+  VDUP(vector, q, uint, u, 64, 2, 0);
 
   /* Initialize with max values to check overflow */
-  TEST_VDUP(vector2, , int, s, 8, 8, 0x7F);
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x7FFF);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x7FFFFFFF);
-  TEST_VDUP(vector2, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector2, , uint, u, 8, 8, 0xFF);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 0xFFFF);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 0xFFFFFFFF);
-  TEST_VDUP(vector2, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
-  TEST_VDUP(vector2, q, int, s, 8, 16, 0x7F);
-  TEST_VDUP(vector2, q, int, s, 16, 8, 0x7FFF);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 0x7FFFFFFF);
-  TEST_VDUP(vector2, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector2, q, uint, u, 8, 16, 0xFF);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 0xFFFF);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 0xFFFFFFFF);
-  TEST_VDUP(vector2, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector2, , int, s, 8, 8, 0x7F);
+  VDUP(vector2, , int, s, 16, 4, 0x7FFF);
+  VDUP(vector2, , int, s, 32, 2, 0x7FFFFFFF);
+  VDUP(vector2, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector2, , uint, u, 8, 8, 0xFF);
+  VDUP(vector2, , uint, u, 16, 4, 0xFFFF);
+  VDUP(vector2, , uint, u, 32, 2, 0xFFFFFFFF);
+  VDUP(vector2, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector2, q, int, s, 8, 16, 0x7F);
+  VDUP(vector2, q, int, s, 16, 8, 0x7FFF);
+  VDUP(vector2, q, int, s, 32, 4, 0x7FFFFFFF);
+  VDUP(vector2, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector2, q, uint, u, 8, 16, 0xFF);
+  VDUP(vector2, q, uint, u, 16, 8, 0xFFFF);
+  VDUP(vector2, q, uint, u, 32, 4, 0xFFFFFFFF);
+  VDUP(vector2, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
 
   /* Shift by 1 to check overflow with rounding constant  */
   TEST_VRSRA_N(, int, s, 8, 8, 1);
@@ -191,14 +191,14 @@ void exec_vrsra_n (void)
 
   dump_results_hex2 (TEST_MSG, " (checking overflow: shift by max, positive input)");
   /* Initialize with min values to check overflow */
-  TEST_VDUP(vector2, , int, s, 8, 8, 0x80);
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x80000000);
-  TEST_VDUP(vector2, , int, s, 64, 1, 0x8000000000000000LL);
-  TEST_VDUP(vector2, q, int, s, 8, 16, 0x80);
-  TEST_VDUP(vector2, q, int, s, 16, 8, 0x8000);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 0x80000000);
-  TEST_VDUP(vector2, q, int, s, 64, 2, 0x8000000000000000ULL);
+  VDUP(vector2, , int, s, 8, 8, 0x80);
+  VDUP(vector2, , int, s, 16, 4, 0x8000);
+  VDUP(vector2, , int, s, 32, 2, 0x80000000);
+  VDUP(vector2, , int, s, 64, 1, 0x8000000000000000LL);
+  VDUP(vector2, q, int, s, 8, 16, 0x80);
+  VDUP(vector2, q, int, s, 16, 8, 0x8000);
+  VDUP(vector2, q, int, s, 32, 4, 0x80000000);
+  VDUP(vector2, q, int, s, 64, 2, 0x8000000000000000ULL);
 
   /* Shift by 1 to check overflow with rounding constant  */
   TEST_VRSRA_N(, int, s, 8, 8, 1);

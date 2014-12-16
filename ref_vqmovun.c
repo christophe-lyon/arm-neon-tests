@@ -67,9 +67,9 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Fill input vector with arbitrary values */
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x34);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x5678);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x12345678);
+  VDUP(vector, q, int, s, 16, 8, 0x34);
+  VDUP(vector, q, int, s, 32, 4, 0x5678);
+  VDUP(vector, q, int, s, 64, 2, 0x12345678);
 
   /* Apply a unary operator named INSN_NAME  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
@@ -80,9 +80,9 @@ FNNAME (INSN_NAME)
   dump_results_hex (TEST_MSG);
 
   /* Fill input vector with negative values */
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x8234);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x87654321);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x8765432187654321LL);
+  VDUP(vector, q, int, s, 16, 8, 0x8234);
+  VDUP(vector, q, int, s, 32, 4, 0x87654321);
+  VDUP(vector, q, int, s, 64, 2, 0x8765432187654321LL);
 
   /* Apply a unary operator named INSN_NAME  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n",

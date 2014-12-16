@@ -60,13 +60,13 @@ FNNAME (INSN_NAME)
 
   clean_results ();
 
-  TEST_VLOAD(vector, buffer, , float, f, 32, 2);
-  TEST_VLOAD(vector, buffer, q, float, f, 32, 4);
+  VLOAD(vector, buffer, , float, f, 32, 2);
+  VLOAD(vector, buffer, q, float, f, 32, 4);
 
   /* Choose init value arbitrarily, will be used for vector
      comparison */
-  TEST_VDUP(vector2, , float, f, 32, 2, -16.0f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, -14.0f);
+  VDUP(vector2, , float, f, 32, 2, -16.0f);
+  VDUP(vector2, q, float, f, 32, 4, -14.0f);
 
   fprintf(ref_file, "\n%s output:\n", TEST_MSG);
   fprintf(gcc_tests_file, "\n%s output:\n", TEST_MSG);
@@ -76,8 +76,8 @@ FNNAME (INSN_NAME)
   TEST_VCOMP(INSN_NAME, q, float, f, uint, 32, 4);
   DUMP(TEST_MSG, uint, 32, 4, PRIx32);
 
-  TEST_VDUP(vector2, , float, f, 32, 2, -10.0f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 10.0f);
+  VDUP(vector2, , float, f, 32, 2, -10.0f);
+  VDUP(vector2, q, float, f, 32, 4, 10.0f);
 
   fprintf(ref_file, "\n%s output:\n", TEST_MSG);
   fprintf(gcc_tests_file, "\n%s output:\n", TEST_MSG);

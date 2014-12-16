@@ -81,33 +81,33 @@ FNNAME (INSN_NAME)
 
   clean_results ();
 
-  TEST_VLOAD(vector, buffer, , int, s, 16, 4);
-  TEST_VLOAD(vector, buffer, , int, s, 32, 2);
-  TEST_VLOAD(vector, buffer, , uint, u, 16, 4);
-  TEST_VLOAD(vector, buffer, , uint, u, 32, 2);
-  TEST_VLOAD(vector, buffer, q, int, s, 16, 8);
-  TEST_VLOAD(vector, buffer, q, int, s, 32, 4);
-  TEST_VLOAD(vector, buffer, q, uint, u, 16, 8);
-  TEST_VLOAD(vector, buffer, q, uint, u, 32, 4);
-  TEST_VLOAD(vector, buffer, , float, f, 32, 2);
-  TEST_VLOAD(vector, buffer, q, float, f, 32, 4);
+  VLOAD(vector, buffer, , int, s, 16, 4);
+  VLOAD(vector, buffer, , int, s, 32, 2);
+  VLOAD(vector, buffer, , uint, u, 16, 4);
+  VLOAD(vector, buffer, , uint, u, 32, 2);
+  VLOAD(vector, buffer, q, int, s, 16, 8);
+  VLOAD(vector, buffer, q, int, s, 32, 4);
+  VLOAD(vector, buffer, q, uint, u, 16, 8);
+  VLOAD(vector, buffer, q, uint, u, 32, 4);
+  VLOAD(vector, buffer, , float, f, 32, 2);
+  VLOAD(vector, buffer, q, float, f, 32, 4);
 
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x55);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x55);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 0x55);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 0x55);
-  TEST_VDUP(vector2, , float, f, 32, 2, 55.3f);
-  TEST_VDUP(vector2, q, int, s, 16, 8, 0x55);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 0x55);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 0x55);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 0x55);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 55.8f);
+  VDUP(vector2, , int, s, 16, 4, 0x55);
+  VDUP(vector2, , int, s, 32, 2, 0x55);
+  VDUP(vector2, , uint, u, 16, 4, 0x55);
+  VDUP(vector2, , uint, u, 32, 2, 0x55);
+  VDUP(vector2, , float, f, 32, 2, 55.3f);
+  VDUP(vector2, q, int, s, 16, 8, 0x55);
+  VDUP(vector2, q, int, s, 32, 4, 0x55);
+  VDUP(vector2, q, uint, u, 16, 8, 0x55);
+  VDUP(vector2, q, uint, u, 32, 4, 0x55);
+  VDUP(vector2, q, float, f, 32, 4, 55.8f);
 
-  TEST_VDUP(vector3, , int, s, 16, 4, 0xBB);
-  TEST_VDUP(vector3, , int, s, 32, 2, 0xBB);
-  TEST_VDUP(vector3, , uint, u, 16, 4, 0xBB);
-  TEST_VDUP(vector3, , uint, u, 32, 2, 0xBB);
-  TEST_VDUP(vector3, , float, f, 32, 2, 11.34f);
+  VDUP(vector3, , int, s, 16, 4, 0xBB);
+  VDUP(vector3, , int, s, 32, 2, 0xBB);
+  VDUP(vector3, , uint, u, 16, 4, 0xBB);
+  VDUP(vector3, , uint, u, 32, 2, 0xBB);
+  VDUP(vector3, , float, f, 32, 2, 11.34f);
 
   /* Choose lane arbitrarily */
   TEST_VMLX_LANE(INSN_NAME, , int, s, 16, 4, 4, 2);

@@ -69,19 +69,19 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Fill input vector1 and vector2 with arbitrary values */
-  TEST_VDUP(vector1, q, int, s, 16, 8, 50*(UINT8_MAX+1));
-  TEST_VDUP(vector1, q, int, s, 32, 4, 50*(UINT16_MAX+1));
-  TEST_VDUP(vector1, q, int, s, 64, 2, 24*((uint64_t)UINT32_MAX+1));
-  TEST_VDUP(vector1, q, uint, u, 16, 8, 3*(UINT8_MAX+1));
-  TEST_VDUP(vector1, q, uint, u, 32, 4, 55*(UINT16_MAX+1));
-  TEST_VDUP(vector1, q, uint, u, 64, 2, 3*((uint64_t)UINT32_MAX+1));
+  VDUP(vector1, q, int, s, 16, 8, 50*(UINT8_MAX+1));
+  VDUP(vector1, q, int, s, 32, 4, 50*(UINT16_MAX+1));
+  VDUP(vector1, q, int, s, 64, 2, 24*((uint64_t)UINT32_MAX+1));
+  VDUP(vector1, q, uint, u, 16, 8, 3*(UINT8_MAX+1));
+  VDUP(vector1, q, uint, u, 32, 4, 55*(UINT16_MAX+1));
+  VDUP(vector1, q, uint, u, 64, 2, 3*((uint64_t)UINT32_MAX+1));
 
-  TEST_VDUP(vector2, q, int, s, 16, 8, (uint16_t)UINT8_MAX);
-  TEST_VDUP(vector2, q, int, s, 32, 4, (uint32_t)UINT16_MAX);
-  TEST_VDUP(vector2, q, int, s, 64, 2, (uint64_t)UINT32_MAX);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, (uint16_t)UINT8_MAX);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, (uint32_t)UINT16_MAX);
-  TEST_VDUP(vector2, q, uint, u, 64, 2, (uint64_t)UINT32_MAX);
+  VDUP(vector2, q, int, s, 16, 8, (uint16_t)UINT8_MAX);
+  VDUP(vector2, q, int, s, 32, 4, (uint32_t)UINT16_MAX);
+  VDUP(vector2, q, int, s, 64, 2, (uint64_t)UINT32_MAX);
+  VDUP(vector2, q, uint, u, 16, 8, (uint16_t)UINT8_MAX);
+  VDUP(vector2, q, uint, u, 32, 4, (uint32_t)UINT16_MAX);
+  VDUP(vector2, q, uint, u, 64, 2, (uint64_t)UINT32_MAX);
 
   TEST_VADDHN(INSN_NAME, int, s, 16, 8, 8);
   TEST_VADDHN(INSN_NAME, int, s, 32, 16, 4);

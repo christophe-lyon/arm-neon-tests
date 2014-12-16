@@ -45,11 +45,11 @@ void exec_vadd_f32(void)
   DECL_VARIABLE(vector_res, float, 32, 2);
   DECL_VARIABLE(vector_res, float, 32, 4);
 
-  TEST_VDUP(vector, , float, f, 32, 2, 2.3f);
-  TEST_VDUP(vector, q, float, f, 32, 4, 3.4f);
+  VDUP(vector, , float, f, 32, 2, 2.3f);
+  VDUP(vector, q, float, f, 32, 4, 3.4f);
 
-  TEST_VDUP(vector2, , float, f, 32, 2, 4.5f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 5.6f);
+  VDUP(vector2, , float, f, 32, 2, 4.5f);
+  VDUP(vector2, q, float, f, 32, 4, 5.6f);
 
   TEST_BINARY_OP(INSN_NAME, , float, f, 32, 2);
   TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);

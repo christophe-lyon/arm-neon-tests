@@ -52,45 +52,45 @@ void exec_vbsl (void)
 
   clean_results ();
 
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
-  TEST_VLOAD(vector, buffer, , float, f, 32, 2);
-  TEST_VLOAD(vector, buffer, q, float, f, 32, 4);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
+  VLOAD(vector, buffer, , float, f, 32, 2);
+  VLOAD(vector, buffer, q, float, f, 32, 4);
 
   /* Choose init value arbitrarily, will be used for vector
      comparison. As we want different values for each type variant, we
      can't use generic initialization macros.  */
-  TEST_VDUP(vector2, , int, s, 8, 8, -10);
-  TEST_VDUP(vector2, , int, s, 16, 4, -14);
-  TEST_VDUP(vector2, , int, s, 32, 2, -30);
-  TEST_VDUP(vector2, , int, s, 64, 1, -33);
-  TEST_VDUP(vector2, , uint, u, 8, 8, 0xF3);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 0xFFF2);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 0xFFFFFFF0);
-  TEST_VDUP(vector2, , uint, u, 64, 1, 0xFFFFFFF3);
-  TEST_VDUP(vector2, , float, f, 32, 2, -30.3f);
-  TEST_VDUP(vector2, , poly, p, 8, 8, 0xF3);
-  TEST_VDUP(vector2, , poly, p, 16, 4, 0xFFF2);
+  VDUP(vector2, , int, s, 8, 8, -10);
+  VDUP(vector2, , int, s, 16, 4, -14);
+  VDUP(vector2, , int, s, 32, 2, -30);
+  VDUP(vector2, , int, s, 64, 1, -33);
+  VDUP(vector2, , uint, u, 8, 8, 0xF3);
+  VDUP(vector2, , uint, u, 16, 4, 0xFFF2);
+  VDUP(vector2, , uint, u, 32, 2, 0xFFFFFFF0);
+  VDUP(vector2, , uint, u, 64, 1, 0xFFFFFFF3);
+  VDUP(vector2, , float, f, 32, 2, -30.3f);
+  VDUP(vector2, , poly, p, 8, 8, 0xF3);
+  VDUP(vector2, , poly, p, 16, 4, 0xFFF2);
 
-  TEST_VDUP(vector2, q, int, s, 8, 16, -10);
-  TEST_VDUP(vector2, q, int, s, 16, 8, -14);
-  TEST_VDUP(vector2, q, int, s, 32, 4, -30);
-  TEST_VDUP(vector2, q, int, s, 64, 2, -33);
-  TEST_VDUP(vector2, q, uint, u, 8, 16, 0xF3);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 0xFFF2);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 0xFFFFFFF0);
-  TEST_VDUP(vector2, q, uint, u, 64, 2, 0xFFFFFFF3);
-  TEST_VDUP(vector2, q, poly, p, 8, 16, 0xF3);
-  TEST_VDUP(vector2, q, poly, p, 16, 8, 0xFFF2);
-  TEST_VDUP(vector2, q, float, f, 32, 4, -30.4f);
+  VDUP(vector2, q, int, s, 8, 16, -10);
+  VDUP(vector2, q, int, s, 16, 8, -14);
+  VDUP(vector2, q, int, s, 32, 4, -30);
+  VDUP(vector2, q, int, s, 64, 2, -33);
+  VDUP(vector2, q, uint, u, 8, 16, 0xF3);
+  VDUP(vector2, q, uint, u, 16, 8, 0xFFF2);
+  VDUP(vector2, q, uint, u, 32, 4, 0xFFFFFFF0);
+  VDUP(vector2, q, uint, u, 64, 2, 0xFFFFFFF3);
+  VDUP(vector2, q, poly, p, 8, 16, 0xF3);
+  VDUP(vector2, q, poly, p, 16, 8, 0xFFF2);
+  VDUP(vector2, q, float, f, 32, 4, -30.4f);
 
-  TEST_VDUP(vector_first, , uint, u, 8, 8, 0xF4);
-  TEST_VDUP(vector_first, , uint, u, 16, 4, 0xFFF6);
-  TEST_VDUP(vector_first, , uint, u, 32, 2, 0xFFFFFFF2);
-  TEST_VDUP(vector_first, , uint, u, 64, 1, 0xFFFFFFF2);
-  TEST_VDUP(vector_first, q, uint, u, 8, 16, 0xF4);
-  TEST_VDUP(vector_first, q, uint, u, 16, 8, 0xFFF6);
-  TEST_VDUP(vector_first, q, uint, u, 32, 4, 0xFFFFFFF2);
-  TEST_VDUP(vector_first, q, uint, u, 64, 2, 0xFFFFFFF2);
+  VDUP(vector_first, , uint, u, 8, 8, 0xF4);
+  VDUP(vector_first, , uint, u, 16, 4, 0xFFF6);
+  VDUP(vector_first, , uint, u, 32, 2, 0xFFFFFFF2);
+  VDUP(vector_first, , uint, u, 64, 1, 0xFFFFFFF2);
+  VDUP(vector_first, q, uint, u, 8, 16, 0xF4);
+  VDUP(vector_first, q, uint, u, 16, 8, 0xFFF6);
+  VDUP(vector_first, q, uint, u, 32, 4, 0xFFFFFFF2);
+  VDUP(vector_first, q, uint, u, 64, 2, 0xFFFFFFF2);
 
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VBSL, uint);
   TEST_VBSL(uint, , poly, p, 8, 8);

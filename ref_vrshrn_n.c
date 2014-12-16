@@ -62,12 +62,12 @@ void exec_vrshrn_n (void)
   clean_results ();
 
   /* Fill input vector with 0, to check behavior on limits */
-  TEST_VDUP(vector, q, int, s, 16, 8, 0);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0);
+  VDUP(vector, q, int, s, 16, 8, 0);
+  VDUP(vector, q, int, s, 32, 4, 0);
+  VDUP(vector, q, int, s, 64, 2, 0);
+  VDUP(vector, q, uint, u, 16, 8, 0);
+  VDUP(vector, q, uint, u, 32, 4, 0);
+  VDUP(vector, q, uint, u, 64, 2, 0);
 
   /* Choose shift amount arbitrarily  */
   TEST_VRSHRN_N(int, s, 16, 8, 8, 1);
@@ -80,12 +80,12 @@ void exec_vrshrn_n (void)
   dump_results_hex2 (TEST_MSG, " (with input = 0)");
 
   /* Test again, with predefined input values */
-  TEST_VLOAD(vector, buffer, q, int, s, 16, 8);
-  TEST_VLOAD(vector, buffer, q, int, s, 32, 4);
-  TEST_VLOAD(vector, buffer, q, int, s, 64, 2);
-  TEST_VLOAD(vector, buffer, q, uint, u, 16, 8);
-  TEST_VLOAD(vector, buffer, q, uint, u, 32, 4);
-  TEST_VLOAD(vector, buffer, q, uint, u, 64, 2);
+  VLOAD(vector, buffer, q, int, s, 16, 8);
+  VLOAD(vector, buffer, q, int, s, 32, 4);
+  VLOAD(vector, buffer, q, int, s, 64, 2);
+  VLOAD(vector, buffer, q, uint, u, 16, 8);
+  VLOAD(vector, buffer, q, uint, u, 32, 4);
+  VLOAD(vector, buffer, q, uint, u, 64, 2);
 
   /* Choose shift amount arbitrarily  */
   TEST_VRSHRN_N(int, s, 16, 8, 8, 1);
@@ -99,12 +99,12 @@ void exec_vrshrn_n (void)
   dump_results_hex (TEST_MSG);
 
   /* Fill input arbitrary values */
-  TEST_VDUP(vector, q, int, s, 16, 8, 30);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0xFFF0);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFF0);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0);
+  VDUP(vector, q, int, s, 16, 8, 30);
+  VDUP(vector, q, int, s, 32, 4, 0);
+  VDUP(vector, q, int, s, 64, 2, 0);
+  VDUP(vector, q, uint, u, 16, 8, 0xFFF0);
+  VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFF0);
+  VDUP(vector, q, uint, u, 64, 2, 0);
 
   /* Choose shift amount arbitrarily  */
   TEST_VRSHRN_N(int, s, 16, 8, 8, 7);

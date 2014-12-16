@@ -60,13 +60,13 @@ void exec_vmull (void)
 
   clean_results ();
 
-  TEST_VLOAD(vector, buffer, , int, s, 8, 8);
-  TEST_VLOAD(vector, buffer, , int, s, 16, 4);
-  TEST_VLOAD(vector, buffer, , int, s, 32, 2);
-  TEST_VLOAD(vector, buffer, , uint, u, 8, 8);
-  TEST_VLOAD(vector, buffer, , uint, u, 16, 4);
-  TEST_VLOAD(vector, buffer, , uint, u, 32, 2);
-  TEST_VLOAD(vector, buffer, , poly, p, 8, 8);
+  VLOAD(vector, buffer, , int, s, 8, 8);
+  VLOAD(vector, buffer, , int, s, 16, 4);
+  VLOAD(vector, buffer, , int, s, 32, 2);
+  VLOAD(vector, buffer, , uint, u, 8, 8);
+  VLOAD(vector, buffer, , uint, u, 16, 4);
+  VLOAD(vector, buffer, , uint, u, 32, 2);
+  VLOAD(vector, buffer, , poly, p, 8, 8);
 
   TEST_VMULL(int, s, 8, 16, 8);
   TEST_VMULL(int, s, 16, 32, 4);

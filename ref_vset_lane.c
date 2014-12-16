@@ -49,9 +49,9 @@ void exec_vset_lane (void)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
-  TEST_VLOAD(vector, buffer, , float, f, 32, 2);
-  TEST_VLOAD(vector, buffer, q, float, f, 32, 4);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
+  VLOAD(vector, buffer, , float, f, 32, 2);
+  VLOAD(vector, buffer, q, float, f, 32, 4);
 
   /* Choose value and lane arbitrarily  */
   TEST_VSET_LANE_HERE(, int, s, 8, 8, 0x11, 7);

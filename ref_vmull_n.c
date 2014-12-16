@@ -62,10 +62,10 @@ void exec_vmull_n (void)
   clean_results ();
 
   /* Initialize vector */
-  TEST_VDUP(vector, , int, s, 16, 4, 0x1000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x1000);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0x1000);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0x1000);
+  VDUP(vector, , int, s, 16, 4, 0x1000);
+  VDUP(vector, , int, s, 32, 2, 0x1000);
+  VDUP(vector, , uint, u, 16, 4, 0x1000);
+  VDUP(vector, , uint, u, 32, 2, 0x1000);
 
   /* Choose multiplier arbitrarily */
   TEST_VMULL_N(INSN_NAME, int, s, 16, 32, 4, 0x11);

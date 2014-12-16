@@ -69,12 +69,12 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Fill input vector with arbitrary values */
-  TEST_VDUP(vector, , int, s, 8, 8, 0xFF);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0x35);
-  TEST_VDUP(vector, , poly, p, 8, 8, 0x35);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0);
-  TEST_VDUP(vector, q, uint, u, 8, 16, 0xBD);
-  TEST_VDUP(vector, q, poly, p, 8, 16, 0xBD);
+  VDUP(vector, , int, s, 8, 8, 0xFF);
+  VDUP(vector, , uint, u, 8, 8, 0x35);
+  VDUP(vector, , poly, p, 8, 8, 0x35);
+  VDUP(vector, q, int, s, 8, 16, 0);
+  VDUP(vector, q, uint, u, 8, 16, 0xBD);
+  VDUP(vector, q, poly, p, 8, 16, 0xBD);
 
   /* Apply a unary operator named INSN_NAME  */
   TEST_UNARY_OP(INSN_NAME, , int, s, 8, 8);

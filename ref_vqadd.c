@@ -42,12 +42,12 @@ void vqadd_64(void)
   DECL_VARIABLE_ALL_VARIANTS(vector_res);
 
   /* Initialize input "vector1" from "buffer"  */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector1, buffer);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector1, buffer);
 
-  TEST_VDUP(vector2, , int, s, 64, 1, 0x0);
-  TEST_VDUP(vector2, , uint, u, 64, 1, 0x0);
-  TEST_VDUP(vector2, q, int, s, 64, 2, 0x0);
-  TEST_VDUP(vector2, q, uint, u, 64, 2, 0x0);
+  VDUP(vector2, , int, s, 64, 1, 0x0);
+  VDUP(vector2, , uint, u, 64, 1, 0x0);
+  VDUP(vector2, q, int, s, 64, 2, 0x0);
+  VDUP(vector2, q, uint, u, 64, 2, 0x0);
 
   fprintf(ref_file,
 	  "\n%s 64 bits saturation cumulative saturation output:\n", TEST_MSG);
@@ -63,10 +63,10 @@ void vqadd_64(void)
   DUMP(TEST_MSG, uint, 64, 2, PRIx64);
 
   /* Another set of tests */
-  TEST_VDUP(vector2, , int, s, 64, 1, 0x44);
-  TEST_VDUP(vector2, , uint, u, 64, 1, 0x88);
-  TEST_VDUP(vector2, q, int, s, 64, 2, 0x44);
-  TEST_VDUP(vector2, q, uint, u, 64, 2, 0x88);
+  VDUP(vector2, , int, s, 64, 1, 0x44);
+  VDUP(vector2, , uint, u, 64, 1, 0x88);
+  VDUP(vector2, q, int, s, 64, 2, 0x44);
+  VDUP(vector2, q, uint, u, 64, 2, 0x88);
 
   fprintf(ref_file,
 	  "\n%s 64 bits saturation cumulative saturation output:\n", TEST_MSG);
@@ -81,13 +81,13 @@ void vqadd_64(void)
   DUMP(TEST_MSG, uint, 64, 2, PRIx64);
 
   /* Another set of tests */
-  TEST_VDUP(vector2, , int, s, 64, 1, 0x8000000000000003LL);
-  TEST_VDUP(vector2, , uint, u, 64, 1, 0x88);
+  VDUP(vector2, , int, s, 64, 1, 0x8000000000000003LL);
+  VDUP(vector2, , uint, u, 64, 1, 0x88);
 
-  TEST_VDUP(vector1, q, int, s, 64, 2, 0x4000000000000000LL);
-  TEST_VDUP(vector2, q, int, s, 64, 2, 0x4000000000000000LL);
+  VDUP(vector1, q, int, s, 64, 2, 0x4000000000000000LL);
+  VDUP(vector2, q, int, s, 64, 2, 0x4000000000000000LL);
 
-  TEST_VDUP(vector2, q, uint, u, 64, 2, 0x22);
+  VDUP(vector2, q, uint, u, 64, 2, 0x22);
 
   fprintf(ref_file,
 	  "\n%s 64 bits saturation cumulative saturation output:\n", TEST_MSG);
@@ -102,12 +102,12 @@ void vqadd_64(void)
   DUMP(TEST_MSG, uint, 64, 2, PRIx64);
 
   /* To improve coverage, check saturation with less than 64 bits too */
-  TEST_VDUP(vector2, , int, s, 8, 8, 0x81);
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x8001);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x80000001);
-  TEST_VDUP(vector2, q, int, s, 8, 16, 0x81);
-  TEST_VDUP(vector2, q, int, s, 16, 8, 0x8001);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 0x80000001);
+  VDUP(vector2, , int, s, 8, 8, 0x81);
+  VDUP(vector2, , int, s, 16, 4, 0x8001);
+  VDUP(vector2, , int, s, 32, 2, 0x80000001);
+  VDUP(vector2, q, int, s, 8, 16, 0x81);
+  VDUP(vector2, q, int, s, 16, 8, 0x8001);
+  VDUP(vector2, q, int, s, 32, 4, 0x80000001);
 
   fprintf(ref_file, "\nless than 64 bits saturation:\n");
   TEST_BINARY_SAT_OP(INSN_NAME, , int, s, 8, 8);
@@ -124,19 +124,19 @@ void vqadd_64(void)
   DUMP(TEST_MSG, int, 16, 8, PRIx16);
   DUMP(TEST_MSG, int, 32, 4, PRIx32);
 
-  TEST_VDUP(vector1, , uint, u, 8, 8, 0xF0);
-  TEST_VDUP(vector1, , uint, u, 16, 4, 0xFFF0);
-  TEST_VDUP(vector1, , uint, u, 32, 2, 0xFFFFFFF0);
-  TEST_VDUP(vector1, q, uint, u, 8, 16, 0xF0);
-  TEST_VDUP(vector1, q, uint, u, 16, 8, 0xFFF0);
-  TEST_VDUP(vector1, q, uint, u, 32, 4, 0xFFFFFFF0);
+  VDUP(vector1, , uint, u, 8, 8, 0xF0);
+  VDUP(vector1, , uint, u, 16, 4, 0xFFF0);
+  VDUP(vector1, , uint, u, 32, 2, 0xFFFFFFF0);
+  VDUP(vector1, q, uint, u, 8, 16, 0xF0);
+  VDUP(vector1, q, uint, u, 16, 8, 0xFFF0);
+  VDUP(vector1, q, uint, u, 32, 4, 0xFFFFFFF0);
 
-  TEST_VDUP(vector2, , uint, u, 8, 8, 0x20);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 0x20);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 0x20);
-  TEST_VDUP(vector2, q, uint, u, 8, 16, 0x20);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 0x20);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 0x20);
+  VDUP(vector2, , uint, u, 8, 8, 0x20);
+  VDUP(vector2, , uint, u, 16, 4, 0x20);
+  VDUP(vector2, , uint, u, 32, 2, 0x20);
+  VDUP(vector2, q, uint, u, 8, 16, 0x20);
+  VDUP(vector2, q, uint, u, 16, 8, 0x20);
+  VDUP(vector2, q, uint, u, 32, 4, 0x20);
 
   fprintf(ref_file,
 	  "\n%s less than 64 bits saturation cumulative saturation output:\n",

@@ -65,28 +65,28 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
 #ifndef NO_FLOAT_VARIANT
-  TEST_VLOAD(vector, buffer, , float, f, 32, 2);
-  TEST_VLOAD(vector, buffer, q, float, f, 32, 4);
+  VLOAD(vector, buffer, , float, f, 32, 2);
+  VLOAD(vector, buffer, q, float, f, 32, 4);
 #endif
 
   /* Choose init value arbitrarily, will be used as comparison value */
-  TEST_VDUP(vector2, , int, s, 8, 8, -13);
-  TEST_VDUP(vector2, , int, s, 16, 4, -14);
-  TEST_VDUP(vector2, , int, s, 32, 2, -16);
-  TEST_VDUP(vector2, , uint, u, 8, 8, 0xf3);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 0xfff1);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 0xfffffff0);
-  TEST_VDUP(vector2, q, int, s, 8, 16, -12);
-  TEST_VDUP(vector2, q, int, s, 16, 8, -13);
-  TEST_VDUP(vector2, q, int, s, 32, 4, -15);
-  TEST_VDUP(vector2, q, uint, u, 8, 16, 0xf9);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 0xfff2);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 0xfffffff1);
+  VDUP(vector2, , int, s, 8, 8, -13);
+  VDUP(vector2, , int, s, 16, 4, -14);
+  VDUP(vector2, , int, s, 32, 2, -16);
+  VDUP(vector2, , uint, u, 8, 8, 0xf3);
+  VDUP(vector2, , uint, u, 16, 4, 0xfff1);
+  VDUP(vector2, , uint, u, 32, 2, 0xfffffff0);
+  VDUP(vector2, q, int, s, 8, 16, -12);
+  VDUP(vector2, q, int, s, 16, 8, -13);
+  VDUP(vector2, q, int, s, 32, 4, -15);
+  VDUP(vector2, q, uint, u, 8, 16, 0xf9);
+  VDUP(vector2, q, uint, u, 16, 8, 0xfff2);
+  VDUP(vector2, q, uint, u, 32, 4, 0xfffffff1);
 #ifndef NO_FLOAT_VARIANT
-  TEST_VDUP(vector2, , float, f, 32, 2, -15.5f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, -14.5f);
+  VDUP(vector2, , float, f, 32, 2, -15.5f);
+  VDUP(vector2, q, float, f, 32, 4, -14.5f);
 #endif
 
 #ifndef NO_FLOAT_VARIANT
@@ -120,33 +120,33 @@ FNNAME (INSN_NAME)
 
 #ifndef NO_FLOAT_VARIANT
   /* Extra FP tests with special values (NaN, ....) */
-  TEST_VDUP(vector, q, float, f, 32, 4, 1.0f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, NAN);
+  VDUP(vector, q, float, f, 32, 4, 1.0f);
+  VDUP(vector2, q, float, f, 32, 4, NAN);
   TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
   DUMP_FP(TEST_MSG " FP special (NaN)", float, 32, 4, PRIx32);
 
-  TEST_VDUP(vector, q, float, f, 32, 4, -NAN);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 1.0f);
+  VDUP(vector, q, float, f, 32, 4, -NAN);
+  VDUP(vector2, q, float, f, 32, 4, 1.0f);
   TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
   DUMP_FP(TEST_MSG " FP special (-NaN)", float, 32, 4, PRIx32);
 
-  TEST_VDUP(vector, q, float, f, 32, 4, 1.0f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, HUGE_VALF);
+  VDUP(vector, q, float, f, 32, 4, 1.0f);
+  VDUP(vector2, q, float, f, 32, 4, HUGE_VALF);
   TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
   DUMP_FP(TEST_MSG " FP special (inf)", float, 32, 4, PRIx32);
 
-  TEST_VDUP(vector, q, float, f, 32, 4, -HUGE_VALF);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 1.0f);
+  VDUP(vector, q, float, f, 32, 4, -HUGE_VALF);
+  VDUP(vector2, q, float, f, 32, 4, 1.0f);
   TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
   DUMP_FP(TEST_MSG " FP special (-inf)", float, 32, 4, PRIx32);
 
-  TEST_VDUP(vector, q, float, f, 32, 4, 0.0f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, -0.0f);
+  VDUP(vector, q, float, f, 32, 4, 0.0f);
+  VDUP(vector2, q, float, f, 32, 4, -0.0f);
   TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
   DUMP_FP(TEST_MSG " FP special (-0.0)", float, 32, 4, PRIx32);
 
-  TEST_VDUP(vector, q, float, f, 32, 4, -0.0f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 0.0f);
+  VDUP(vector, q, float, f, 32, 4, -0.0f);
+  VDUP(vector2, q, float, f, 32, 4, 0.0f);
   TEST_BINARY_OP(INSN_NAME, q, float, f, 32, 4);
   DUMP_FP(TEST_MSG " FP special (-0.0)", float, 32, 4, PRIx32);
 #endif

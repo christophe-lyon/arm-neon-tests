@@ -68,10 +68,10 @@ FNNAME (INSN)
 
   clean_results ();
 
-  TEST_VLOAD(vector, buffer, , int, s, 16, 4);
-  TEST_VLOAD(vector, buffer, , int, s, 32, 2);
-  TEST_VLOAD(vector2, buffer, , int, s, 16, 4);
-  TEST_VLOAD(vector2, buffer, , int, s, 32, 2);
+  VLOAD(vector, buffer, , int, s, 16, 4);
+  VLOAD(vector, buffer, , int, s, 32, 2);
+  VLOAD(vector2, buffer, , int, s, 16, 4);
+  VLOAD(vector2, buffer, , int, s, 32, 2);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_VQDMULL(int, s, 16, 32, 4);
@@ -81,10 +81,10 @@ FNNAME (INSN)
   dump_results_hex (TEST_MSG);
 
 
-  TEST_VDUP(vector, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x80000000);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x80000000);
+  VDUP(vector, , int, s, 16, 4, 0x8000);
+  VDUP(vector2, , int, s, 16, 4, 0x8000);
+  VDUP(vector, , int, s, 32, 2, 0x80000000);
+  VDUP(vector2, , int, s, 32, 2, 0x80000000);
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (check mul cumulative saturation)");
   TEST_VQDMULL(int, s, 16, 32, 4);

@@ -88,25 +88,25 @@ FNNAME (INSN_NAME)
 
   clean_results ();
 
-  TEST_VLOAD(vector, buffer, q, int, s, 16, 8);
-  TEST_VLOAD(vector, buffer, q, int, s, 32, 4);
-  TEST_VLOAD(vector, buffer, q, int, s, 64, 2);
-  TEST_VLOAD(vector, buffer, q, uint, u, 16, 8);
-  TEST_VLOAD(vector, buffer, q, uint, u, 32, 4);
-  TEST_VLOAD(vector, buffer, q, uint, u, 64, 2);
+  VLOAD(vector, buffer, q, int, s, 16, 8);
+  VLOAD(vector, buffer, q, int, s, 32, 4);
+  VLOAD(vector, buffer, q, int, s, 64, 2);
+  VLOAD(vector, buffer, q, uint, u, 16, 8);
+  VLOAD(vector, buffer, q, uint, u, 32, 4);
+  VLOAD(vector, buffer, q, uint, u, 64, 2);
 
-  TEST_VDUP(vector3, , int, s, 8, 8, 0x55);
-  TEST_VDUP(vector4, , int, s, 8, 8, 0xBB);
-  TEST_VDUP(vector3, , int, s, 16, 4, 0x55);
-  TEST_VDUP(vector4, , int, s, 16, 4, 0xBB);
-  TEST_VDUP(vector3, , int, s, 32, 2, 0x55);
-  TEST_VDUP(vector4, , int, s, 32, 2, 0xBB);
-  TEST_VDUP(vector3, , uint, u, 8, 8, 0x55);
-  TEST_VDUP(vector4, , uint, u, 8, 8, 0xBB);
-  TEST_VDUP(vector3, , uint, u, 16, 4, 0x55);
-  TEST_VDUP(vector4, , uint, u, 16, 4, 0xBB);
-  TEST_VDUP(vector3, , uint, u, 32, 2, 0x55);
-  TEST_VDUP(vector4, , uint, u, 32, 2, 0xBB);
+  VDUP(vector3, , int, s, 8, 8, 0x55);
+  VDUP(vector4, , int, s, 8, 8, 0xBB);
+  VDUP(vector3, , int, s, 16, 4, 0x55);
+  VDUP(vector4, , int, s, 16, 4, 0xBB);
+  VDUP(vector3, , int, s, 32, 2, 0x55);
+  VDUP(vector4, , int, s, 32, 2, 0xBB);
+  VDUP(vector3, , uint, u, 8, 8, 0x55);
+  VDUP(vector4, , uint, u, 8, 8, 0xBB);
+  VDUP(vector3, , uint, u, 16, 4, 0x55);
+  VDUP(vector4, , uint, u, 16, 4, 0xBB);
+  VDUP(vector3, , uint, u, 32, 2, 0x55);
+  VDUP(vector4, , uint, u, 32, 2, 0xBB);
 
   TEST_VMLXL(INSN_NAME, int, s, 16, 8, 8);
   TEST_VMLXL(INSN_NAME, int, s, 32, 16, 4);

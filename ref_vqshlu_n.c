@@ -66,14 +66,14 @@ FNNAME (INSN)
   clean_results ();
 
   /* Fill input vector with negative values, to check saturation on limits */
-  TEST_VDUP(vector, , int, s, 8, 8, -1);
-  TEST_VDUP(vector, , int, s, 16, 4, -2);
-  TEST_VDUP(vector, , int, s, 32, 2, -3);
-  TEST_VDUP(vector, , int, s, 64, 1, -4);
-  TEST_VDUP(vector, q, int, s, 8, 16, -1);
-  TEST_VDUP(vector, q, int, s, 16, 8, -2);
-  TEST_VDUP(vector, q, int, s, 32, 4, -3);
-  TEST_VDUP(vector, q, int, s, 64, 2, -4);
+  VDUP(vector, , int, s, 8, 8, -1);
+  VDUP(vector, , int, s, 16, 4, -2);
+  VDUP(vector, , int, s, 32, 2, -3);
+  VDUP(vector, , int, s, 64, 1, -4);
+  VDUP(vector, q, int, s, 8, 16, -1);
+  VDUP(vector, q, int, s, 16, 8, -2);
+  VDUP(vector, q, int, s, 32, 4, -3);
+  VDUP(vector, q, int, s, 64, 2, -4);
 
   /* Choose shift amount arbitrarily  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
@@ -92,14 +92,14 @@ FNNAME (INSN)
   dump_results_hex2 (TEST_MSG, " (negative input)");
 
   /* Fill input vector with max value, to check saturation on limits */
-  TEST_VDUP(vector, , int, s, 8, 8, 0x7F);
-  TEST_VDUP(vector, , int, s, 16, 4, 0x7FFF);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
-  TEST_VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0x7F);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x7FFF);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFULL);
+  VDUP(vector, , int, s, 8, 8, 0x7F);
+  VDUP(vector, , int, s, 16, 4, 0x7FFF);
+  VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
+  VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, q, int, s, 8, 16, 0x7F);
+  VDUP(vector, q, int, s, 16, 8, 0x7FFF);
+  VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
+  VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFULL);
 
   /* shift by 1  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
@@ -132,14 +132,14 @@ FNNAME (INSN)
   dump_results_hex2 (TEST_MSG, " (check cumulative saturation: shift by 2)");
 
   /* Fill input vector with positive values, to check normal case */
-  TEST_VDUP(vector, , int, s, 8, 8, 1);
-  TEST_VDUP(vector, , int, s, 16, 4, 2);
-  TEST_VDUP(vector, , int, s, 32, 2, 3);
-  TEST_VDUP(vector, , int, s, 64, 1, 4);
-  TEST_VDUP(vector, q, int, s, 8, 16, 5);
-  TEST_VDUP(vector, q, int, s, 16, 8, 6);
-  TEST_VDUP(vector, q, int, s, 32, 4, 7);
-  TEST_VDUP(vector, q, int, s, 64, 2, 8);
+  VDUP(vector, , int, s, 8, 8, 1);
+  VDUP(vector, , int, s, 16, 4, 2);
+  VDUP(vector, , int, s, 32, 2, 3);
+  VDUP(vector, , int, s, 64, 1, 4);
+  VDUP(vector, q, int, s, 8, 16, 5);
+  VDUP(vector, q, int, s, 16, 8, 6);
+  VDUP(vector, q, int, s, 32, 4, 7);
+  VDUP(vector, q, int, s, 64, 2, 8);
 
   /* shift arbitrary amount  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);

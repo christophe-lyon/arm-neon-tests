@@ -50,7 +50,7 @@ void exec_vshll_n (void)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
 
   /* Choose shift amount arbitrarily  */
   TEST_VSHLL_N(int, s, 8, 16, 8, 1);

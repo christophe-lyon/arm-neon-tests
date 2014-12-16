@@ -73,12 +73,12 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Fill input vector with arbitrary values */
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x12);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x1278);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x12345678);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0x82);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0x8765);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0x87654321);
+  VDUP(vector, q, int, s, 16, 8, 0x12);
+  VDUP(vector, q, int, s, 32, 4, 0x1278);
+  VDUP(vector, q, int, s, 64, 2, 0x12345678);
+  VDUP(vector, q, uint, u, 16, 8, 0x82);
+  VDUP(vector, q, uint, u, 32, 4, 0x8765);
+  VDUP(vector, q, uint, u, 64, 2, 0x87654321);
 
   /* Apply a unary operator named INSN_NAME  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
@@ -94,12 +94,12 @@ FNNAME (INSN_NAME)
 
   /* Fill input vector with arbitrary values which cause an cumulative
      saturation.  */
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x1234);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x12345678);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x1234567890ABLL);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0x8234);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0x87654321);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0x8765432187654321ULL);
+  VDUP(vector, q, int, s, 16, 8, 0x1234);
+  VDUP(vector, q, int, s, 32, 4, 0x12345678);
+  VDUP(vector, q, int, s, 64, 2, 0x1234567890ABLL);
+  VDUP(vector, q, uint, u, 16, 8, 0x8234);
+  VDUP(vector, q, uint, u, 32, 4, 0x87654321);
+  VDUP(vector, q, uint, u, 64, 2, 0x8765432187654321ULL);
 
   /* Apply a unary operator named INSN_NAME  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);

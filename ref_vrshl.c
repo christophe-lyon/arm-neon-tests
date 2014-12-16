@@ -51,65 +51,65 @@ void exec_vrshl (void)
   clean_results ();
 
   /* Fill input vector with 0, to check behavior on limits */
-  TEST_VDUP(vector, , int, s, 8, 8, 0);
-  TEST_VDUP(vector, , int, s, 16, 4, 0);
-  TEST_VDUP(vector, , int, s, 32, 2, 0);
-  TEST_VDUP(vector, , int, s, 64, 1, 0);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0);
-  TEST_VDUP(vector, , uint, u, 64, 1, 0);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0);
-  TEST_VDUP(vector, q, uint, u, 8, 16, 0);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0);
+  VDUP(vector, , int, s, 8, 8, 0);
+  VDUP(vector, , int, s, 16, 4, 0);
+  VDUP(vector, , int, s, 32, 2, 0);
+  VDUP(vector, , int, s, 64, 1, 0);
+  VDUP(vector, , uint, u, 8, 8, 0);
+  VDUP(vector, , uint, u, 16, 4, 0);
+  VDUP(vector, , uint, u, 32, 2, 0);
+  VDUP(vector, , uint, u, 64, 1, 0);
+  VDUP(vector, q, int, s, 8, 16, 0);
+  VDUP(vector, q, int, s, 16, 8, 0);
+  VDUP(vector, q, int, s, 32, 4, 0);
+  VDUP(vector, q, int, s, 64, 2, 0);
+  VDUP(vector, q, uint, u, 8, 16, 0);
+  VDUP(vector, q, uint, u, 16, 8, 0);
+  VDUP(vector, q, uint, u, 32, 4, 0);
+  VDUP(vector, q, uint, u, 64, 2, 0);
 
   /* Choose init value arbitrarily, will be used as shift amount */
   /* Use values equal to one-less-than the type width to check
      behaviour on limits */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, 7);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, 15);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, 31);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, 63);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, 7);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, 15);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, 31);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, 63);
+  VDUP(vector_shift, , int, s, 8, 8, 7);
+  VDUP(vector_shift, , int, s, 16, 4, 15);
+  VDUP(vector_shift, , int, s, 32, 2, 31);
+  VDUP(vector_shift, , int, s, 64, 1, 63);
+  VDUP(vector_shift, q, int, s, 8, 16, 7);
+  VDUP(vector_shift, q, int, s, 16, 8, 15);
+  VDUP(vector_shift, q, int, s, 32, 4, 31);
+  VDUP(vector_shift, q, int, s, 64, 2, 63);
 
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
 
   dump_results_hex2 (TEST_MSG, " (with input = 0)");
 
   /* Use negative shift amounts */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -1);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -2);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -3);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -4);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -7);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -11);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -13);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -20);
+  VDUP(vector_shift, , int, s, 8, 8, -1);
+  VDUP(vector_shift, , int, s, 16, 4, -2);
+  VDUP(vector_shift, , int, s, 32, 2, -3);
+  VDUP(vector_shift, , int, s, 64, 1, -4);
+  VDUP(vector_shift, q, int, s, 8, 16, -7);
+  VDUP(vector_shift, q, int, s, 16, 8, -11);
+  VDUP(vector_shift, q, int, s, 32, 4, -13);
+  VDUP(vector_shift, q, int, s, 64, 2, -20);
 
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
 
   dump_results_hex2 (TEST_MSG, " (input 0 and negative shift amount)");
 
   /* Test again, with predefined input values */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
 
   /* Choose init value arbitrarily, will be used as shift amount */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, 1);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, 3);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, 8);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -3);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, 10);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, 12);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, 32);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, 63);
+  VDUP(vector_shift, , int, s, 8, 8, 1);
+  VDUP(vector_shift, , int, s, 16, 4, 3);
+  VDUP(vector_shift, , int, s, 32, 2, 8);
+  VDUP(vector_shift, , int, s, 64, 1, -3);
+  VDUP(vector_shift, q, int, s, 8, 16, 10);
+  VDUP(vector_shift, q, int, s, 16, 8, 12);
+  VDUP(vector_shift, q, int, s, 32, 4, 32);
+  VDUP(vector_shift, q, int, s, 64, 2, 63);
 
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
 
@@ -117,102 +117,102 @@ void exec_vrshl (void)
 
 
   /* Use negative shift amounts */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -1);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -2);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -3);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -4);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -7);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -11);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -13);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -20);
+  VDUP(vector_shift, , int, s, 8, 8, -1);
+  VDUP(vector_shift, , int, s, 16, 4, -2);
+  VDUP(vector_shift, , int, s, 32, 2, -3);
+  VDUP(vector_shift, , int, s, 64, 1, -4);
+  VDUP(vector_shift, q, int, s, 8, 16, -7);
+  VDUP(vector_shift, q, int, s, 16, 8, -11);
+  VDUP(vector_shift, q, int, s, 32, 4, -13);
+  VDUP(vector_shift, q, int, s, 64, 2, -20);
 
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
 
   dump_results_hex2 (TEST_MSG, " (negative shift amount)");
 
   /* Fill input vector with max value, to check behavior on limits */
-  TEST_VDUP(vector, , int, s, 8, 8, 0x7F);
-  TEST_VDUP(vector, , int, s, 16, 4, 0x7FFF);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
-  TEST_VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0xFF);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0xFFFF);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
-  TEST_VDUP(vector, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0x7F);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x7FFF);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector, q, uint, u, 8, 16, 0xFF);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector, , int, s, 8, 8, 0x7F);
+  VDUP(vector, , int, s, 16, 4, 0x7FFF);
+  VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
+  VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, , uint, u, 8, 8, 0xFF);
+  VDUP(vector, , uint, u, 16, 4, 0xFFFF);
+  VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
+  VDUP(vector, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector, q, int, s, 8, 16, 0x7F);
+  VDUP(vector, q, int, s, 16, 8, 0x7FFF);
+  VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
+  VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, q, uint, u, 8, 16, 0xFF);
+  VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
+  VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
+  VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
 
   /* Use -1 shift amount to check overflow with round_const */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -1);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -1);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -1);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -1);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -1);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -1);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -1);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -1);
+  VDUP(vector_shift, , int, s, 8, 8, -1);
+  VDUP(vector_shift, , int, s, 16, 4, -1);
+  VDUP(vector_shift, , int, s, 32, 2, -1);
+  VDUP(vector_shift, , int, s, 64, 1, -1);
+  VDUP(vector_shift, q, int, s, 8, 16, -1);
+  VDUP(vector_shift, q, int, s, 16, 8, -1);
+  VDUP(vector_shift, q, int, s, 32, 4, -1);
+  VDUP(vector_shift, q, int, s, 64, 2, -1);
 
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
 
   dump_results_hex2 (TEST_MSG, " (checking round_const overflow: shift by -1)");
 
   /* Use -3 shift amount to check overflow with round_const */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -3);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -3);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -3);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -3);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -3);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -3);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -3);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -3);
+  VDUP(vector_shift, , int, s, 8, 8, -3);
+  VDUP(vector_shift, , int, s, 16, 4, -3);
+  VDUP(vector_shift, , int, s, 32, 2, -3);
+  VDUP(vector_shift, , int, s, 64, 1, -3);
+  VDUP(vector_shift, q, int, s, 8, 16, -3);
+  VDUP(vector_shift, q, int, s, 16, 8, -3);
+  VDUP(vector_shift, q, int, s, 32, 4, -3);
+  VDUP(vector_shift, q, int, s, 64, 2, -3);
 
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
 
   dump_results_hex2 (TEST_MSG, " (checking round_const overflow: shift by -3)");
 
   /* Use negative shift amount as large as input vector width */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -8);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -16);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -32);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -64);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -8);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -16);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -32);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -64);
+  VDUP(vector_shift, , int, s, 8, 8, -8);
+  VDUP(vector_shift, , int, s, 16, 4, -16);
+  VDUP(vector_shift, , int, s, 32, 2, -32);
+  VDUP(vector_shift, , int, s, 64, 1, -64);
+  VDUP(vector_shift, q, int, s, 8, 16, -8);
+  VDUP(vector_shift, q, int, s, 16, 8, -16);
+  VDUP(vector_shift, q, int, s, 32, 4, -32);
+  VDUP(vector_shift, q, int, s, 64, 2, -64);
 
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
 
   dump_results_hex2 (TEST_MSG, " (checking negative shift amount as large as input vector width)");
 
   /* Test large shift amount */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, 10);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, 20);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, 33);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, 65);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, 9);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, 16);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, 32);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, 64);
+  VDUP(vector_shift, , int, s, 8, 8, 10);
+  VDUP(vector_shift, , int, s, 16, 4, 20);
+  VDUP(vector_shift, , int, s, 32, 2, 33);
+  VDUP(vector_shift, , int, s, 64, 1, 65);
+  VDUP(vector_shift, q, int, s, 8, 16, 9);
+  VDUP(vector_shift, q, int, s, 16, 8, 16);
+  VDUP(vector_shift, q, int, s, 32, 4, 32);
+  VDUP(vector_shift, q, int, s, 64, 2, 64);
 
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
 
   dump_results_hex2 (TEST_MSG, " (large shift amount)");
 
   /* Test large negative shift amount */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -10);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -20);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -33);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -65);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -9);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -16);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -32);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -64);
+  VDUP(vector_shift, , int, s, 8, 8, -10);
+  VDUP(vector_shift, , int, s, 16, 4, -20);
+  VDUP(vector_shift, , int, s, 32, 2, -33);
+  VDUP(vector_shift, , int, s, 64, 1, -65);
+  VDUP(vector_shift, q, int, s, 8, 16, -9);
+  VDUP(vector_shift, q, int, s, 16, 8, -16);
+  VDUP(vector_shift, q, int, s, 32, 4, -32);
+  VDUP(vector_shift, q, int, s, 64, 2, -64);
 
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VRSHL, int);
 

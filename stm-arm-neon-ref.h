@@ -709,7 +709,7 @@ static void clean_results (void)
   DECL_VARIABLE_128BITS_UNSIGNED_VARIANTS(VAR)
 
 /* Helpers to initialize vectors */
-#define TEST_VDUP(VAR, Q, T1, T2, W, N, V)		\
+#define VDUP(VAR, Q, T1, T2, W, N, V)		\
   VECT_VAR(VAR, T1, W, N) = vdup##Q##_n_##T2##W(V)
 
 #define TEST_VSET_LANE(VAR, Q, T1, T2, W, N, L, V)			\
@@ -718,7 +718,7 @@ static void clean_results (void)
 						   L)
 
 /* We need to load initial values first, so rely on VLD1 */
-#define TEST_VLOAD(VAR, BUF, Q, T1, T2, W, N)				\
+#define VLOAD(VAR, BUF, Q, T1, T2, W, N)				\
   VECT_VAR(VAR, T1, W, N) = vld1##Q##_##T2##W(VECT_VAR(BUF, T1, W, N))
 
 /* Helpers for macros with 1 constant and 5 variable arguments */

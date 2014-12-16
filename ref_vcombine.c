@@ -53,28 +53,28 @@ void exec_vcombine (void)
   DECL_VARIABLE(vector128, float, 16, 8);
 #endif
 
-  TEST_MACRO_64BITS_VARIANTS_2_5(TEST_VLOAD, vector64_a, buffer);
-  TEST_VLOAD(vector64_a, buffer, , float, f, 32, 2);
+  TEST_MACRO_64BITS_VARIANTS_2_5(VLOAD, vector64_a, buffer);
+  VLOAD(vector64_a, buffer, , float, f, 32, 2);
 #if defined(__ARM_FP16_FORMAT_IEEE)
-  TEST_VLOAD(vector64_a, buffer, , float, f, 16, 4);
+  VLOAD(vector64_a, buffer, , float, f, 16, 4);
 #endif
 
-  TEST_VDUP(vector64_b, , int, s, 8, 8, 0x11);
-  TEST_VDUP(vector64_b, , int, s, 16, 4, 0x22);
-  TEST_VDUP(vector64_b, , int, s, 32, 2, 0x33);
-  TEST_VDUP(vector64_b, , int, s, 64, 1, 0x44);
-  TEST_VDUP(vector64_b, , uint, u, 8, 8, 0x55);
-  TEST_VDUP(vector64_b, , uint, u, 16, 4, 0x66);
-  TEST_VDUP(vector64_b, , uint, u, 32, 2, 0x77);
-  TEST_VDUP(vector64_b, , uint, u, 64, 1, 0x88);
-  TEST_VDUP(vector64_b, , poly, p, 8, 8, 0x55);
-  TEST_VDUP(vector64_b, , poly, p, 16, 4, 0x66);
-  TEST_VDUP(vector64_b, , float, f, 32, 2, 3.3f);
+  VDUP(vector64_b, , int, s, 8, 8, 0x11);
+  VDUP(vector64_b, , int, s, 16, 4, 0x22);
+  VDUP(vector64_b, , int, s, 32, 2, 0x33);
+  VDUP(vector64_b, , int, s, 64, 1, 0x44);
+  VDUP(vector64_b, , uint, u, 8, 8, 0x55);
+  VDUP(vector64_b, , uint, u, 16, 4, 0x66);
+  VDUP(vector64_b, , uint, u, 32, 2, 0x77);
+  VDUP(vector64_b, , uint, u, 64, 1, 0x88);
+  VDUP(vector64_b, , poly, p, 8, 8, 0x55);
+  VDUP(vector64_b, , poly, p, 16, 4, 0x66);
+  VDUP(vector64_b, , float, f, 32, 2, 3.3f);
 
 #if defined(__ARM_FP16_FORMAT_IEEE)
   /* There is no vdup_n_f16, so we need another initialization
      method.  */
-  TEST_VDUP(vector64_b_init, , uint, u, 16, 4, 0x4b80 /* 15 */);
+  VDUP(vector64_b_init, , uint, u, 16, 4, 0x4b80 /* 15 */);
   VECT_VAR(vector64_b, float, 16, 4) =
     vreinterpret_f16_u16(VECT_VAR(vector64_b_init, uint, 16, 4));
 #endif

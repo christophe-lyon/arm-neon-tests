@@ -49,10 +49,10 @@ void exec_vget_high (void)
   DECL_VARIABLE(vector128, float, 16, 8);
 #endif
 
-  TEST_MACRO_128BITS_VARIANTS_2_5(TEST_VLOAD, vector128, buffer);
-  TEST_VLOAD(vector128, buffer, q, float, f, 32, 4);
+  TEST_MACRO_128BITS_VARIANTS_2_5(VLOAD, vector128, buffer);
+  VLOAD(vector128, buffer, q, float, f, 32, 4);
 #if defined(__ARM_FP16_FORMAT_IEEE)
-  TEST_VLOAD(vector128, buffer, q, float, f, 16, 8);
+  VLOAD(vector128, buffer, q, float, f, 16, 8);
 #endif
 
   clean_results ();

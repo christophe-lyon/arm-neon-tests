@@ -69,36 +69,36 @@ void exec_vabd (void)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_VLOAD(vector1, buffer, , int, s, 8, 8);
-  TEST_VLOAD(vector1, buffer, , int, s, 16, 4);
-  TEST_VLOAD(vector1, buffer, , int, s, 32, 2);
-  TEST_VLOAD(vector1, buffer, , uint, u, 8, 8);
-  TEST_VLOAD(vector1, buffer, , uint, u, 16, 4);
-  TEST_VLOAD(vector1, buffer, , uint, u, 32, 2);
-  TEST_VLOAD(vector1, buffer, , float, f, 32, 2);
-  TEST_VLOAD(vector1, buffer, q, int, s, 8, 16);
-  TEST_VLOAD(vector1, buffer, q, int, s, 16, 8);
-  TEST_VLOAD(vector1, buffer, q, int, s, 32, 4);
-  TEST_VLOAD(vector1, buffer, q, uint, u, 8, 16);
-  TEST_VLOAD(vector1, buffer, q, uint, u, 16, 8);
-  TEST_VLOAD(vector1, buffer, q, uint, u, 32, 4);
-  TEST_VLOAD(vector1, buffer, q, float, f, 32, 4);
+  VLOAD(vector1, buffer, , int, s, 8, 8);
+  VLOAD(vector1, buffer, , int, s, 16, 4);
+  VLOAD(vector1, buffer, , int, s, 32, 2);
+  VLOAD(vector1, buffer, , uint, u, 8, 8);
+  VLOAD(vector1, buffer, , uint, u, 16, 4);
+  VLOAD(vector1, buffer, , uint, u, 32, 2);
+  VLOAD(vector1, buffer, , float, f, 32, 2);
+  VLOAD(vector1, buffer, q, int, s, 8, 16);
+  VLOAD(vector1, buffer, q, int, s, 16, 8);
+  VLOAD(vector1, buffer, q, int, s, 32, 4);
+  VLOAD(vector1, buffer, q, uint, u, 8, 16);
+  VLOAD(vector1, buffer, q, uint, u, 16, 8);
+  VLOAD(vector1, buffer, q, uint, u, 32, 4);
+  VLOAD(vector1, buffer, q, float, f, 32, 4);
 
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector2, , int, s, 8, 8, 1);
-  TEST_VDUP(vector2, , int, s, 16, 4, -13);
-  TEST_VDUP(vector2, , int, s, 32, 2, 8);
-  TEST_VDUP(vector2, , uint, u, 8, 8, 1);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 13);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 8);
-  TEST_VDUP(vector2, , float, f, 32, 2, 8.3f);
-  TEST_VDUP(vector2, q, int, s, 8, 16, 10);
-  TEST_VDUP(vector2, q, int, s, 16, 8, -12);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 32);
-  TEST_VDUP(vector2, q, uint, u, 8, 16, 10);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 12);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 32);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 32.12f);
+  VDUP(vector2, , int, s, 8, 8, 1);
+  VDUP(vector2, , int, s, 16, 4, -13);
+  VDUP(vector2, , int, s, 32, 2, 8);
+  VDUP(vector2, , uint, u, 8, 8, 1);
+  VDUP(vector2, , uint, u, 16, 4, 13);
+  VDUP(vector2, , uint, u, 32, 2, 8);
+  VDUP(vector2, , float, f, 32, 2, 8.3f);
+  VDUP(vector2, q, int, s, 8, 16, 10);
+  VDUP(vector2, q, int, s, 16, 8, -12);
+  VDUP(vector2, q, int, s, 32, 4, 32);
+  VDUP(vector2, q, uint, u, 8, 16, 10);
+  VDUP(vector2, q, uint, u, 16, 8, 12);
+  VDUP(vector2, q, uint, u, 32, 4, 32);
+  VDUP(vector2, q, float, f, 32, 4, 32.12f);
 
   TEST_VABD(, int, s, 8, 8);
   TEST_VABD(, int, s, 16, 4);
@@ -119,15 +119,15 @@ void exec_vabd (void)
 
 
   /* Extra FP tests with special values (-0.0, ....) */
-  TEST_VDUP(vector1, q, float, f, 32, 4, -0.0f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 0.0);
+  VDUP(vector1, q, float, f, 32, 4, -0.0f);
+  VDUP(vector2, q, float, f, 32, 4, 0.0);
   TEST_VABD(q, float, f, 32, 4);
   DUMP_FP(TEST_MSG " FP special (-0.0)", float, 32, 4, PRIx32);
 
 
   /* Extra FP tests with special values (-0.0, ....) */
-  TEST_VDUP(vector1, q, float, f, 32, 4, 0.0f);
-  TEST_VDUP(vector2, q, float, f, 32, 4, -0.0);
+  VDUP(vector1, q, float, f, 32, 4, 0.0f);
+  VDUP(vector2, q, float, f, 32, 4, -0.0);
   TEST_VABD(q, float, f, 32, 4);
   DUMP_FP(TEST_MSG " FP special (-0.0)", float, 32, 4, PRIx32);
 }

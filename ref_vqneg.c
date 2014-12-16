@@ -53,12 +53,12 @@ void vqneg_extra()
 
   /* Initialize input "vector" with max negative values to check
      saturation  */
-  TEST_VDUP(vector, , int, s, 8, 8, 0x80);
-  TEST_VDUP(vector, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x80000000);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0x80);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x8000);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
+  VDUP(vector, , int, s, 8, 8, 0x80);
+  VDUP(vector, , int, s, 16, 4, 0x8000);
+  VDUP(vector, , int, s, 32, 2, 0x80000000);
+  VDUP(vector, q, int, s, 8, 16, 0x80);
+  VDUP(vector, q, int, s, 16, 8, 0x8000);
+  VDUP(vector, q, int, s, 32, 4, 0x80000000);
 
   /* Apply a unary operator named INSN_NAME  */
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);

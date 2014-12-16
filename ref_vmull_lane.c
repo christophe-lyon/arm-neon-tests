@@ -61,16 +61,16 @@ void exec_vmull_lane (void)
   clean_results ();
 
   /* Initialize vector */
-  TEST_VDUP(vector, , int, s, 16, 4, 0x1000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x1000);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0x1000);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0x1000);
+  VDUP(vector, , int, s, 16, 4, 0x1000);
+  VDUP(vector, , int, s, 32, 2, 0x1000);
+  VDUP(vector, , uint, u, 16, 4, 0x1000);
+  VDUP(vector, , uint, u, 32, 2, 0x1000);
 
   /* Initialize vector2 */
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x4);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x2);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 0x4);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 0x2);
+  VDUP(vector2, , int, s, 16, 4, 0x4);
+  VDUP(vector2, , int, s, 32, 2, 0x2);
+  VDUP(vector2, , uint, u, 16, 4, 0x4);
+  VDUP(vector2, , uint, u, 32, 2, 0x2);
 
   /* Choose lane arbitrarily */
   TEST_VMULL_LANE(int, s, 16, 32, 4, 2);

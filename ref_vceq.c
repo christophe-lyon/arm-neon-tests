@@ -47,11 +47,11 @@ void exec_vceq_p8(void)
 
   clean_results ();
 
-  TEST_VLOAD(vector, buffer, , poly, p, 8, 8);
-  TEST_VLOAD(vector, buffer, q, poly, p, 8, 16);
+  VLOAD(vector, buffer, , poly, p, 8, 8);
+  VLOAD(vector, buffer, q, poly, p, 8, 16);
 
-  TEST_VDUP(vector2, , poly, p, 8, 8, 0xF3);
-  TEST_VDUP(vector2, q, poly, p, 8, 16, 0xF4);
+  VDUP(vector2, , poly, p, 8, 8, 0xF3);
+  VDUP(vector2, q, poly, p, 8, 16, 0xF4);
 
   fprintf(ref_file, "\n%s output:\n", TEST_MSG " p8");
   TEST_VCOMP(INSN_NAME, , poly, p, uint, 8, 8);

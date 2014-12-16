@@ -45,7 +45,7 @@ void exec_vmovn (void)
   DECL_VARIABLE_64BITS_VARIANTS(vector64);
   DECL_VARIABLE_128BITS_VARIANTS(vector128);
 
-  TEST_MACRO_128BITS_VARIANTS_2_5(TEST_VLOAD, vector128, buffer);
+  TEST_MACRO_128BITS_VARIANTS_2_5(VLOAD, vector128, buffer);
 
   clean_results ();
 

@@ -61,10 +61,10 @@ void exec_vrecpe(void)
   clean_results ();
 
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector, , uint, u, 32, 2, 0x12345678);
-  TEST_VDUP(vector, , float, f, 32, 2, 1.9f);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0xABCDEF10);
-  TEST_VDUP(vector, q, float, f, 32, 4, 125.0f);
+  VDUP(vector, , uint, u, 32, 2, 0x12345678);
+  VDUP(vector, , float, f, 32, 2, 1.9f);
+  VDUP(vector, q, uint, u, 32, 4, 0xABCDEF10);
+  VDUP(vector, q, float, f, 32, 4, 125.0f);
 
   /* Apply the operator */
   TEST_VRECPE(, uint, u, 32, 2);
@@ -79,10 +79,10 @@ void exec_vrecpe(void)
   DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
 
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
-  TEST_VDUP(vector, , float, f, 32, 2, -10.0f);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0x89081234);
-  TEST_VDUP(vector, q, float, f, 32, 4, -125.0f);
+  VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
+  VDUP(vector, , float, f, 32, 2, -10.0f);
+  VDUP(vector, q, uint, u, 32, 4, 0x89081234);
+  VDUP(vector, q, float, f, 32, 4, -125.0f);
 
   /* Apply the operator */
   TEST_VRECPE(, uint, u, 32, 2);
@@ -97,8 +97,8 @@ void exec_vrecpe(void)
   DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
 
   /* Test FP variants with special input values (NaN, infinity) */
-  TEST_VDUP(vector, , float, f, 32, 2, NAN);
-  TEST_VDUP(vector, q, float, f, 32, 4, HUGE_VALF);
+  VDUP(vector, , float, f, 32, 2, NAN);
+  VDUP(vector, q, float, f, 32, 4, HUGE_VALF);
 
   /* Apply the operator */
   TEST_VRECPE(, float, f, 32, 2);
@@ -109,8 +109,8 @@ void exec_vrecpe(void)
   DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
 
   /* Test FP variants with special input values (zero, large value) */
-  TEST_VDUP(vector, , float, f, 32, 2, 0.0f);
-  TEST_VDUP(vector, q, float, f, 32, 4, 9.0e37f);
+  VDUP(vector, , float, f, 32, 2, 0.0f);
+  VDUP(vector, q, float, f, 32, 4, 9.0e37f);
 
   /* Apply the operator */
   TEST_VRECPE(, float, f, 32, 2);
@@ -121,8 +121,8 @@ void exec_vrecpe(void)
   DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
 
   /* Test FP variants with special input values (-0, -infinity) */
-  TEST_VDUP(vector, , float, f, 32, 2, -0.0f);
-  TEST_VDUP(vector, q, float, f, 32, 4, -HUGE_VALF);
+  VDUP(vector, , float, f, 32, 2, -0.0f);
+  VDUP(vector, q, float, f, 32, 4, -HUGE_VALF);
 
   /* Apply the operator */
   TEST_VRECPE(, float, f, 32, 2);
@@ -133,7 +133,7 @@ void exec_vrecpe(void)
   DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
 
   /* Test FP variants with special input values (large negative value) */
-  TEST_VDUP(vector, , float, f, 32, 2, -9.0e37f);
+  VDUP(vector, , float, f, 32, 2, -9.0e37f);
 
   /* Apply the operator */
   TEST_VRECPE(, float, f, 32, 2);

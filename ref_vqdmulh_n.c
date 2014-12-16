@@ -75,10 +75,10 @@ FNNAME (INSN)
 
 
   /* Initialize vector */
-  TEST_VDUP(vector, , int, s, 16, 4, 0x1000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x100023);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x1000);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x100045);
+  VDUP(vector, , int, s, 16, 4, 0x1000);
+  VDUP(vector, , int, s, 32, 2, 0x100023);
+  VDUP(vector, q, int, s, 16, 8, 0x1000);
+  VDUP(vector, q, int, s, 32, 4, 0x100045);
 
   /* Choose multiplier arbitrarily */
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
@@ -96,10 +96,10 @@ FNNAME (INSN)
 
 
 
-  TEST_VDUP(vector, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x80000000);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x8000);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
+  VDUP(vector, , int, s, 16, 4, 0x8000);
+  VDUP(vector, , int, s, 32, 2, 0x80000000);
+  VDUP(vector, q, int, s, 16, 8, 0x8000);
+  VDUP(vector, q, int, s, 32, 4, 0x80000000);
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (check mul cumulative saturation)");
   TEST_VQDMULH_N(, int, s, 16, 4, 0x8000);

@@ -68,34 +68,34 @@ FNNAME (INSN)
   clean_results ();
 
   /* Fill input vector with 0, to check saturation on limits */
-  TEST_VDUP(vector, , int, s, 8, 8, 0);
-  TEST_VDUP(vector, , int, s, 16, 4, 0);
-  TEST_VDUP(vector, , int, s, 32, 2, 0);
-  TEST_VDUP(vector, , int, s, 64, 1, 0);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0);
-  TEST_VDUP(vector, , uint, u, 64, 1, 0);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0);
-  TEST_VDUP(vector, q, uint, u, 8, 16, 0);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0);
+  VDUP(vector, , int, s, 8, 8, 0);
+  VDUP(vector, , int, s, 16, 4, 0);
+  VDUP(vector, , int, s, 32, 2, 0);
+  VDUP(vector, , int, s, 64, 1, 0);
+  VDUP(vector, , uint, u, 8, 8, 0);
+  VDUP(vector, , uint, u, 16, 4, 0);
+  VDUP(vector, , uint, u, 32, 2, 0);
+  VDUP(vector, , uint, u, 64, 1, 0);
+  VDUP(vector, q, int, s, 8, 16, 0);
+  VDUP(vector, q, int, s, 16, 8, 0);
+  VDUP(vector, q, int, s, 32, 4, 0);
+  VDUP(vector, q, int, s, 64, 2, 0);
+  VDUP(vector, q, uint, u, 8, 16, 0);
+  VDUP(vector, q, uint, u, 16, 8, 0);
+  VDUP(vector, q, uint, u, 32, 4, 0);
+  VDUP(vector, q, uint, u, 64, 2, 0);
 
   /* Choose init value arbitrarily, will be used as shift amount */
   /* Use values equal or one-less-than the type width to check
      behaviour on limits */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, 7);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, 15);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, 31);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, 63);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, 8);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, 16);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, 32);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, 64);
+  VDUP(vector_shift, , int, s, 8, 8, 7);
+  VDUP(vector_shift, , int, s, 16, 4, 15);
+  VDUP(vector_shift, , int, s, 32, 2, 31);
+  VDUP(vector_shift, , int, s, 64, 1, 63);
+  VDUP(vector_shift, q, int, s, 8, 16, 8);
+  VDUP(vector_shift, q, int, s, 16, 8, 16);
+  VDUP(vector_shift, q, int, s, 32, 4, 32);
+  VDUP(vector_shift, q, int, s, 64, 2, 64);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (with input = 0)");
@@ -103,14 +103,14 @@ FNNAME (INSN)
   dump_results_hex2 (TEST_MSG, " (with input = 0)");
 
   /* Use negative shift amounts */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -1);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -2);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -3);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -4);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -7);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -11);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -13);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -20);
+  VDUP(vector_shift, , int, s, 8, 8, -1);
+  VDUP(vector_shift, , int, s, 16, 4, -2);
+  VDUP(vector_shift, , int, s, 32, 2, -3);
+  VDUP(vector_shift, , int, s, 64, 1, -4);
+  VDUP(vector_shift, q, int, s, 8, 16, -7);
+  VDUP(vector_shift, q, int, s, 16, 8, -11);
+  VDUP(vector_shift, q, int, s, 32, 4, -13);
+  VDUP(vector_shift, q, int, s, 64, 2, -20);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (input 0 and negative shift amount)");
@@ -118,31 +118,31 @@ FNNAME (INSN)
   dump_results_hex2 (TEST_MSG, " (input 0 and negative shift amount)");
 
   /* Test again, with predefined input values */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
 
   /* Choose init value arbitrarily, will be used as shift amount */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, 1);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, 3);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, 8);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, 3);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, 10);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, 12);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, 31);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, 63);
+  VDUP(vector_shift, , int, s, 8, 8, 1);
+  VDUP(vector_shift, , int, s, 16, 4, 3);
+  VDUP(vector_shift, , int, s, 32, 2, 8);
+  VDUP(vector_shift, , int, s, 64, 1, 3);
+  VDUP(vector_shift, q, int, s, 8, 16, 10);
+  VDUP(vector_shift, q, int, s, 16, 8, 12);
+  VDUP(vector_shift, q, int, s, 32, 4, 31);
+  VDUP(vector_shift, q, int, s, 64, 2, 63);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n", TEST_MSG);
   TEST_MACRO_ALL_VARIANTS_1_5(TEST_VQRSHL, int);
   dump_results_hex (TEST_MSG);
 
   /* Use negative shift amounts */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -2);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -2);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -3);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -4);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -7);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -11);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -13);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -20);
+  VDUP(vector_shift, , int, s, 8, 8, -2);
+  VDUP(vector_shift, , int, s, 16, 4, -2);
+  VDUP(vector_shift, , int, s, 32, 2, -3);
+  VDUP(vector_shift, , int, s, 64, 1, -4);
+  VDUP(vector_shift, q, int, s, 8, 16, -7);
+  VDUP(vector_shift, q, int, s, 16, 8, -11);
+  VDUP(vector_shift, q, int, s, 32, 4, -13);
+  VDUP(vector_shift, q, int, s, 64, 2, -20);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (negative shift amount)");
@@ -151,32 +151,32 @@ FNNAME (INSN)
 
 
   /* Fill input vector with max value, to check saturation on limits */
-  TEST_VDUP(vector, , int, s, 8, 8, 0x7F);
-  TEST_VDUP(vector, , int, s, 16, 4, 0x7FFF);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
-  TEST_VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector, , uint, u, 8, 8, 0xFF);
-  TEST_VDUP(vector, , uint, u, 16, 4, 0xFFFF);
-  TEST_VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
-  TEST_VDUP(vector, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0x7F);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x7FFF);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector, q, uint, u, 8, 16, 0xFF);
-  TEST_VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
-  TEST_VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector, , int, s, 8, 8, 0x7F);
+  VDUP(vector, , int, s, 16, 4, 0x7FFF);
+  VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
+  VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, , uint, u, 8, 8, 0xFF);
+  VDUP(vector, , uint, u, 16, 4, 0xFFFF);
+  VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
+  VDUP(vector, , uint, u, 64, 1, 0xFFFFFFFFFFFFFFFFULL);
+  VDUP(vector, q, int, s, 8, 16, 0x7F);
+  VDUP(vector, q, int, s, 16, 8, 0x7FFF);
+  VDUP(vector, q, int, s, 32, 4, 0x7FFFFFFF);
+  VDUP(vector, q, int, s, 64, 2, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, q, uint, u, 8, 16, 0xFF);
+  VDUP(vector, q, uint, u, 16, 8, 0xFFFF);
+  VDUP(vector, q, uint, u, 32, 4, 0xFFFFFFFF);
+  VDUP(vector, q, uint, u, 64, 2, 0xFFFFFFFFFFFFFFFFULL);
 
   /* Use -1 shift amount to check cumulative saturation with round_const */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -1);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -1);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -1);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -1);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -1);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -1);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -1);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -1);
+  VDUP(vector_shift, , int, s, 8, 8, -1);
+  VDUP(vector_shift, , int, s, 16, 4, -1);
+  VDUP(vector_shift, , int, s, 32, 2, -1);
+  VDUP(vector_shift, , int, s, 64, 1, -1);
+  VDUP(vector_shift, q, int, s, 8, 16, -1);
+  VDUP(vector_shift, q, int, s, 16, 8, -1);
+  VDUP(vector_shift, q, int, s, 32, 4, -1);
+  VDUP(vector_shift, q, int, s, 64, 2, -1);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (checking cumulative saturation: shift by -1)");
@@ -186,14 +186,14 @@ FNNAME (INSN)
 
 
   /* Use -3 shift amount to check cumulative saturation with round_const */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -3);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -3);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -3);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -3);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -3);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -3);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -3);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -3);
+  VDUP(vector_shift, , int, s, 8, 8, -3);
+  VDUP(vector_shift, , int, s, 16, 4, -3);
+  VDUP(vector_shift, , int, s, 32, 2, -3);
+  VDUP(vector_shift, , int, s, 64, 1, -3);
+  VDUP(vector_shift, q, int, s, 8, 16, -3);
+  VDUP(vector_shift, q, int, s, 16, 8, -3);
+  VDUP(vector_shift, q, int, s, 32, 4, -3);
+  VDUP(vector_shift, q, int, s, 64, 2, -3);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (checking cumulative saturation: shift by -3)");
@@ -203,14 +203,14 @@ FNNAME (INSN)
 
 
   /* Use large shift amount  */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, 10);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, 20);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, 40);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, 70);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, 10);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, 20);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, 40);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, 70);
+  VDUP(vector_shift, , int, s, 8, 8, 10);
+  VDUP(vector_shift, , int, s, 16, 4, 20);
+  VDUP(vector_shift, , int, s, 32, 2, 40);
+  VDUP(vector_shift, , int, s, 64, 1, 70);
+  VDUP(vector_shift, q, int, s, 8, 16, 10);
+  VDUP(vector_shift, q, int, s, 16, 8, 20);
+  VDUP(vector_shift, q, int, s, 32, 4, 40);
+  VDUP(vector_shift, q, int, s, 64, 2, 70);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (checking cumulative saturation: large shift amount)");
@@ -220,24 +220,24 @@ FNNAME (INSN)
 
 
   /* Fill input vector with negative values, to check saturation on limits */
-  TEST_VDUP(vector, , int, s, 8, 8, 0x80);
-  TEST_VDUP(vector, , int, s, 16, 4, 0x8000);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x80000000);
-  TEST_VDUP(vector, , int, s, 64, 1, 0x8000000000000000LL);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0x80);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x8000);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x8000000000000000LL);
+  VDUP(vector, , int, s, 8, 8, 0x80);
+  VDUP(vector, , int, s, 16, 4, 0x8000);
+  VDUP(vector, , int, s, 32, 2, 0x80000000);
+  VDUP(vector, , int, s, 64, 1, 0x8000000000000000LL);
+  VDUP(vector, q, int, s, 8, 16, 0x80);
+  VDUP(vector, q, int, s, 16, 8, 0x8000);
+  VDUP(vector, q, int, s, 32, 4, 0x80000000);
+  VDUP(vector, q, int, s, 64, 2, 0x8000000000000000LL);
 
   /* Use large shift amount  */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, 10);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, 20);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, 40);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, 70);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, 10);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, 20);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, 40);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, 70);
+  VDUP(vector_shift, , int, s, 8, 8, 10);
+  VDUP(vector_shift, , int, s, 16, 4, 20);
+  VDUP(vector_shift, , int, s, 32, 2, 40);
+  VDUP(vector_shift, , int, s, 64, 1, 70);
+  VDUP(vector_shift, q, int, s, 8, 16, 10);
+  VDUP(vector_shift, q, int, s, 16, 8, 20);
+  VDUP(vector_shift, q, int, s, 32, 4, 40);
+  VDUP(vector_shift, q, int, s, 64, 2, 70);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (checking cumulative saturation: large shift amount with negative input)");
@@ -248,24 +248,24 @@ FNNAME (INSN)
 
   /* Fill input vector with negative and positive values, to check
    * saturation on limits */
-  TEST_VDUP(vector, , int, s, 8, 8, 0x7F);
-  TEST_VDUP(vector, , int, s, 16, 4, 0x7FFF);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
-  TEST_VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0x80);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x8000);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x80000000);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0x8000000000000000LL);
+  VDUP(vector, , int, s, 8, 8, 0x7F);
+  VDUP(vector, , int, s, 16, 4, 0x7FFF);
+  VDUP(vector, , int, s, 32, 2, 0x7FFFFFFF);
+  VDUP(vector, , int, s, 64, 1, 0x7FFFFFFFFFFFFFFFLL);
+  VDUP(vector, q, int, s, 8, 16, 0x80);
+  VDUP(vector, q, int, s, 16, 8, 0x8000);
+  VDUP(vector, q, int, s, 32, 4, 0x80000000);
+  VDUP(vector, q, int, s, 64, 2, 0x8000000000000000LL);
 
   /* Use large negative shift amount  */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -10);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -20);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -40);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -70);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -10);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -20);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -40);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -70);
+  VDUP(vector_shift, , int, s, 8, 8, -10);
+  VDUP(vector_shift, , int, s, 16, 4, -20);
+  VDUP(vector_shift, , int, s, 32, 2, -40);
+  VDUP(vector_shift, , int, s, 64, 1, -70);
+  VDUP(vector_shift, q, int, s, 8, 16, -10);
+  VDUP(vector_shift, q, int, s, 16, 8, -20);
+  VDUP(vector_shift, q, int, s, 32, 4, -40);
+  VDUP(vector_shift, q, int, s, 64, 2, -70);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (checking cumulative saturation: large negative shift amount)");
@@ -276,24 +276,24 @@ FNNAME (INSN)
 
   /* Fill input vector with 0, to check saturation in case of large
    * shift amount */
-  TEST_VDUP(vector, , int, s, 8, 8, 0);
-  TEST_VDUP(vector, , int, s, 16, 4, 0);
-  TEST_VDUP(vector, , int, s, 32, 2, 0);
-  TEST_VDUP(vector, , int, s, 64, 1, 0);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0);
-  TEST_VDUP(vector, q, int, s, 64, 2, 0);
+  VDUP(vector, , int, s, 8, 8, 0);
+  VDUP(vector, , int, s, 16, 4, 0);
+  VDUP(vector, , int, s, 32, 2, 0);
+  VDUP(vector, , int, s, 64, 1, 0);
+  VDUP(vector, q, int, s, 8, 16, 0);
+  VDUP(vector, q, int, s, 16, 8, 0);
+  VDUP(vector, q, int, s, 32, 4, 0);
+  VDUP(vector, q, int, s, 64, 2, 0);
 
   /* Use large shift amount  */
-  TEST_VDUP(vector_shift, , int, s, 8, 8, -10);
-  TEST_VDUP(vector_shift, , int, s, 16, 4, -20);
-  TEST_VDUP(vector_shift, , int, s, 32, 2, -40);
-  TEST_VDUP(vector_shift, , int, s, 64, 1, -70);
-  TEST_VDUP(vector_shift, q, int, s, 8, 16, -10);
-  TEST_VDUP(vector_shift, q, int, s, 16, 8, -20);
-  TEST_VDUP(vector_shift, q, int, s, 32, 4, -40);
-  TEST_VDUP(vector_shift, q, int, s, 64, 2, -70);
+  VDUP(vector_shift, , int, s, 8, 8, -10);
+  VDUP(vector_shift, , int, s, 16, 4, -20);
+  VDUP(vector_shift, , int, s, 32, 2, -40);
+  VDUP(vector_shift, , int, s, 64, 1, -70);
+  VDUP(vector_shift, q, int, s, 8, 16, -10);
+  VDUP(vector_shift, q, int, s, 16, 8, -20);
+  VDUP(vector_shift, q, int, s, 32, 4, -40);
+  VDUP(vector_shift, q, int, s, 64, 2, -70);
 
   fprintf(ref_file, "\n%s cumulative saturation output:\n",
 	  TEST_MSG " (checking cumulative saturation: large shift amount with 0 input)");

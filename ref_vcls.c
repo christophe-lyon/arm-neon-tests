@@ -69,12 +69,12 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Fill input vector with arbitrary values */
-  TEST_VDUP(vector, , int, s, 8, 8, 0x1);
-  TEST_VDUP(vector, , int, s, 16, 4, 0x1234);
-  TEST_VDUP(vector, , int, s, 32, 2, 0x34);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0x1234);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0x678);
+  VDUP(vector, , int, s, 8, 8, 0x1);
+  VDUP(vector, , int, s, 16, 4, 0x1234);
+  VDUP(vector, , int, s, 32, 2, 0x34);
+  VDUP(vector, q, int, s, 8, 16, 0);
+  VDUP(vector, q, int, s, 16, 8, 0x1234);
+  VDUP(vector, q, int, s, 32, 4, 0x678);
 
   /* Apply a unary operator named INSN_NAME  */
   TEST_UNARY_OP(INSN_NAME, , int, s, 8, 8);
@@ -88,12 +88,12 @@ FNNAME (INSN_NAME)
 
 
   /* Fill input vector with arbitrary values (negative) */
-  TEST_VDUP(vector, , int, s, 8, 8, 0xFF);
-  TEST_VDUP(vector, , int, s, 16, 4, 0xC234);
-  TEST_VDUP(vector, , int, s, 32, 2, 0xDEAD0034);
-  TEST_VDUP(vector, q, int, s, 8, 16, 0x80);
-  TEST_VDUP(vector, q, int, s, 16, 8, 0xE234);
-  TEST_VDUP(vector, q, int, s, 32, 4, 0xBEEF0678);
+  VDUP(vector, , int, s, 8, 8, 0xFF);
+  VDUP(vector, , int, s, 16, 4, 0xC234);
+  VDUP(vector, , int, s, 32, 2, 0xDEAD0034);
+  VDUP(vector, q, int, s, 8, 16, 0x80);
+  VDUP(vector, q, int, s, 16, 8, 0xE234);
+  VDUP(vector, q, int, s, 32, 4, 0xBEEF0678);
 
   /* Apply a unary operator named INSN_NAME  */
   TEST_UNARY_OP(INSN_NAME, , int, s, 8, 8);

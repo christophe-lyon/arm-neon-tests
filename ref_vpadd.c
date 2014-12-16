@@ -75,13 +75,13 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_VLOAD(vector, buffer, , int, s, 8, 8);
-  TEST_VLOAD(vector, buffer, , int, s, 16, 4);
-  TEST_VLOAD(vector, buffer, , int, s, 32, 2);
-  TEST_VLOAD(vector, buffer, , uint, u, 8, 8);
-  TEST_VLOAD(vector, buffer, , uint, u, 16, 4);
-  TEST_VLOAD(vector, buffer, , uint, u, 32, 2);
-  TEST_VLOAD(vector, buffer, , float, f, 32, 2);
+  VLOAD(vector, buffer, , int, s, 8, 8);
+  VLOAD(vector, buffer, , int, s, 16, 4);
+  VLOAD(vector, buffer, , int, s, 32, 2);
+  VLOAD(vector, buffer, , uint, u, 8, 8);
+  VLOAD(vector, buffer, , uint, u, 16, 4);
+  VLOAD(vector, buffer, , uint, u, 32, 2);
+  VLOAD(vector, buffer, , float, f, 32, 2);
 
   /* Apply a unary operator named INSN_NAME  */
   TEST_VPADD(INSN_NAME, int, s, 8, 8);

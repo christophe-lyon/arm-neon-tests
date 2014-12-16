@@ -61,10 +61,10 @@ void exec_vrsqrte(void)
   clean_results ();
 
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector, , uint, u, 32, 2, 0x12345678);
-  TEST_VDUP(vector, , float, f, 32, 2, 25.799999f);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0xABCDEF10);
-  TEST_VDUP(vector, q, float, f, 32, 4, 18.2f);
+  VDUP(vector, , uint, u, 32, 2, 0x12345678);
+  VDUP(vector, , float, f, 32, 2, 25.799999f);
+  VDUP(vector, q, uint, u, 32, 4, 0xABCDEF10);
+  VDUP(vector, q, float, f, 32, 4, 18.2f);
 
   /* Apply the operator */
   TEST_VRSQRTE(, uint, u, 32, 2);
@@ -82,8 +82,8 @@ void exec_vrsqrte(void)
   /* Don't test FP variants with negative inputs: the result depends
      on the platform */
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0x89081234);
+  VDUP(vector, , uint, u, 32, 2, 0xFFFFFFFF);
+  VDUP(vector, q, uint, u, 32, 4, 0x89081234);
 
   /* Apply the operator */
   TEST_VRSQRTE(, uint, u, 32, 2);
@@ -94,8 +94,8 @@ void exec_vrsqrte(void)
   DUMP(TEST_MSG, uint, 32, 4, PRIx32);
 
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector, , uint, u, 32, 2, 0x80000000);
-  TEST_VDUP(vector, q, uint, u, 32, 4, 0x4ABCDEF0);
+  VDUP(vector, , uint, u, 32, 2, 0x80000000);
+  VDUP(vector, q, uint, u, 32, 4, 0x4ABCDEF0);
 
   /* Apply the operator */
   TEST_VRSQRTE(, uint, u, 32, 2);
@@ -106,8 +106,8 @@ void exec_vrsqrte(void)
   DUMP(TEST_MSG, uint, 32, 4, PRIx32);
 
   /* Test FP variants with special input values (NaNs, ...) */
-  TEST_VDUP(vector, , float, f, 32, 2, NAN);
-  TEST_VDUP(vector, q, float, f, 32, 4, 0.0f);
+  VDUP(vector, , float, f, 32, 2, NAN);
+  VDUP(vector, q, float, f, 32, 4, 0.0f);
 
   /* Apply the operator */
   TEST_VRSQRTE(, float, f, 32, 2);
@@ -118,8 +118,8 @@ void exec_vrsqrte(void)
   DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
 
   /* Test FP variants with special input values (negative, infinity) */
-  TEST_VDUP(vector, , float, f, 32, 2, -1.0f);
-  TEST_VDUP(vector, q, float, f, 32, 4, HUGE_VALF);
+  VDUP(vector, , float, f, 32, 2, -1.0f);
+  VDUP(vector, q, float, f, 32, 4, HUGE_VALF);
 
   /* Apply the operator */
   TEST_VRSQRTE(, float, f, 32, 2);
@@ -130,8 +130,8 @@ void exec_vrsqrte(void)
   DUMP_FP(TEST_MSG, float, 32, 4, PRIx32);
 
   /* Test FP variants with special input values (-0, -infinity) */
-  TEST_VDUP(vector, , float, f, 32, 2, -0.0f);
-  TEST_VDUP(vector, q, float, f, 32, 4, -HUGE_VALF);
+  VDUP(vector, , float, f, 32, 2, -0.0f);
+  VDUP(vector, q, float, f, 32, 4, -HUGE_VALF);
 
   /* Apply the operator */
   TEST_VRSQRTE(, float, f, 32, 2);

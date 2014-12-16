@@ -111,9 +111,9 @@ void exec_vtbX (void)
   }
 
   /* Choose init value arbitrarily, will be used as table index */
-  TEST_VDUP(vector, , int, s, 8, 8, 1);
-  TEST_VDUP(vector, , uint, u, 8, 8, 2);
-  TEST_VDUP(vector, , poly, p, 8, 8, 2);
+  VDUP(vector, , int, s, 8, 8, 1);
+  VDUP(vector, , uint, u, 8, 8, 2);
+  VDUP(vector, , poly, p, 8, 8, 2);
 
   /* To ensure code coverage of lib, add some indexes larger than 8,16 and 32 */
   /* except: lane 0 (by 6), lane 1 (by 8) and lane 2 (by 9) */
@@ -193,9 +193,9 @@ void exec_vtbX (void)
   TEST_VTBXX(poly, p, uint, 8, 8, X)
 
   /* Choose init value arbitrarily, will be used as default value */
-  TEST_VDUP(default_vector, , int, s, 8, 8, 0x33);
-  TEST_VDUP(default_vector, , uint, u, 8, 8, 0xCC);
-  TEST_VDUP(default_vector, , poly, p, 8, 8, 0xCC);
+  VDUP(default_vector, , int, s, 8, 8, 0x33);
+  VDUP(default_vector, , uint, u, 8, 8, 0xCC);
+  VDUP(default_vector, , poly, p, 8, 8, 0xCC);
 
   /* Check vtbx1 */
   clean_results ();

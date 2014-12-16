@@ -77,20 +77,20 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_VLOAD(vector, buffer, q, int, s, 16, 8);
-  TEST_VLOAD(vector, buffer, q, int, s, 32, 4);
-  TEST_VLOAD(vector, buffer, q, int, s, 64, 2);
-  TEST_VLOAD(vector, buffer, q, uint, u, 16, 8);
-  TEST_VLOAD(vector, buffer, q, uint, u, 32, 4);
-  TEST_VLOAD(vector, buffer, q, uint, u, 64, 2);
+  VLOAD(vector, buffer, q, int, s, 16, 8);
+  VLOAD(vector, buffer, q, int, s, 32, 4);
+  VLOAD(vector, buffer, q, int, s, 64, 2);
+  VLOAD(vector, buffer, q, uint, u, 16, 8);
+  VLOAD(vector, buffer, q, uint, u, 32, 4);
+  VLOAD(vector, buffer, q, uint, u, 64, 2);
 
   /* Choose init value arbitrarily */
-  TEST_VDUP(vector2, , int, s, 8, 8, -13);
-  TEST_VDUP(vector2, , int, s, 16, 4, -14);
-  TEST_VDUP(vector2, , int, s, 32, 2, -16);
-  TEST_VDUP(vector2, , uint, u, 8, 8, 0xf3);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 0xfff1);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 0xfffffff0);
+  VDUP(vector2, , int, s, 8, 8, -13);
+  VDUP(vector2, , int, s, 16, 4, -14);
+  VDUP(vector2, , int, s, 32, 2, -16);
+  VDUP(vector2, , uint, u, 8, 8, 0xf3);
+  VDUP(vector2, , uint, u, 16, 4, 0xfff1);
+  VDUP(vector2, , uint, u, 32, 2, 0xfffffff0);
 
   TEST_VADDW(INSN_NAME, int, s, 8, 16, 8);
   TEST_VADDW(INSN_NAME, int, s, 16, 32, 4);

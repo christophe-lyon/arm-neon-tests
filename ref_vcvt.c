@@ -99,12 +99,12 @@ void exec_vcvt (void)
 
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
-  TEST_VLOAD(vector, buffer, , float, f, 32, 2);
-  TEST_VLOAD(vector, buffer, q, float, f, 32, 4);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
+  VLOAD(vector, buffer, , float, f, 32, 2);
+  VLOAD(vector, buffer, q, float, f, 32, 4);
 #if defined(__ARM_FP16_FORMAT_IEEE)
-  TEST_VLOAD(vector, buffer, , float, f, 16, 4);
-  TEST_VLOAD(vector, buffer, q, float, f, 16, 8);
+  VLOAD(vector, buffer, , float, f, 16, 4);
+  VLOAD(vector, buffer, q, float, f, 16, 8);
 #endif
 
   /* Make sure some elements have a fractional part, to exercise
@@ -187,8 +187,8 @@ void exec_vcvt (void)
 #undef TEST_MSG
 #define TEST_MSG "VCVT/VCVTQ"
   fprintf(ref_file, "\n%s output:\n", TEST_MSG " (check rounding)");
-  TEST_VDUP(vector, , float, f, 32, 2, 10.4f);
-  TEST_VDUP(vector, q, float, f, 32, 4, 125.9f);
+  VDUP(vector, , float, f, 32, 2, 10.4f);
+  VDUP(vector, q, float, f, 32, 4, 125.9f);
   /* vcvt_xx_f32 */
   TEST_VCVT(, int, s, 32, 2, float, f);
   TEST_VCVT(, uint, u, 32, 2, float, f);

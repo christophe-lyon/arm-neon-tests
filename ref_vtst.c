@@ -64,21 +64,21 @@ FNNAME (INSN_NAME)
   clean_results ();
 
   /* Initialize input "vector" from "buffer"  */
-  TEST_MACRO_ALL_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
+  TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
 
   /* Choose init value arbitrarily, will be used as comparison value */
-  TEST_VDUP(vector2, , int, s, 8, 8, 15);
-  TEST_VDUP(vector2, , int, s, 16, 4, 5);
-  TEST_VDUP(vector2, , int, s, 32, 2, 1);
-  TEST_VDUP(vector2, , uint, u, 8, 8, 15);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 5);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 1);
-  TEST_VDUP(vector2, q, int, s, 8, 16, 15);
-  TEST_VDUP(vector2, q, int, s, 16, 8, 5);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 1);
-  TEST_VDUP(vector2, q, uint, u, 8, 16, 15);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 5);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 1);
+  VDUP(vector2, , int, s, 8, 8, 15);
+  VDUP(vector2, , int, s, 16, 4, 5);
+  VDUP(vector2, , int, s, 32, 2, 1);
+  VDUP(vector2, , uint, u, 8, 8, 15);
+  VDUP(vector2, , uint, u, 16, 4, 5);
+  VDUP(vector2, , uint, u, 32, 2, 1);
+  VDUP(vector2, q, int, s, 8, 16, 15);
+  VDUP(vector2, q, int, s, 16, 8, 5);
+  VDUP(vector2, q, int, s, 32, 4, 1);
+  VDUP(vector2, q, uint, u, 8, 16, 15);
+  VDUP(vector2, q, uint, u, 16, 8, 5);
+  VDUP(vector2, q, uint, u, 32, 4, 1);
 
 #define TEST_MACRO_NO64BIT_VARIANT_1_5(MACRO, VAR, T1, T2)	\
   MACRO(VAR, , T1, T2, 8, 8);				\

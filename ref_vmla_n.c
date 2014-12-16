@@ -74,27 +74,27 @@ FNNAME (INSN_NAME)
 
   clean_results ();
 
-  TEST_VLOAD(vector, buffer, , int, s, 16, 4);
-  TEST_VLOAD(vector, buffer, , int, s, 32, 2);
-  TEST_VLOAD(vector, buffer, , uint, u, 16, 4);
-  TEST_VLOAD(vector, buffer, , uint, u, 32, 2);
-  TEST_VLOAD(vector, buffer, , float, f, 32, 2);
-  TEST_VLOAD(vector, buffer, q, int, s, 16, 8);
-  TEST_VLOAD(vector, buffer, q, int, s, 32, 4);
-  TEST_VLOAD(vector, buffer, q, uint, u, 16, 8);
-  TEST_VLOAD(vector, buffer, q, uint, u, 32, 4);
-  TEST_VLOAD(vector, buffer, q, float, f, 32, 4);
+  VLOAD(vector, buffer, , int, s, 16, 4);
+  VLOAD(vector, buffer, , int, s, 32, 2);
+  VLOAD(vector, buffer, , uint, u, 16, 4);
+  VLOAD(vector, buffer, , uint, u, 32, 2);
+  VLOAD(vector, buffer, , float, f, 32, 2);
+  VLOAD(vector, buffer, q, int, s, 16, 8);
+  VLOAD(vector, buffer, q, int, s, 32, 4);
+  VLOAD(vector, buffer, q, uint, u, 16, 8);
+  VLOAD(vector, buffer, q, uint, u, 32, 4);
+  VLOAD(vector, buffer, q, float, f, 32, 4);
 
-  TEST_VDUP(vector2, , int, s, 16, 4, 0x55);
-  TEST_VDUP(vector2, , int, s, 32, 2, 0x55);
-  TEST_VDUP(vector2, , uint, u, 16, 4, 0x55);
-  TEST_VDUP(vector2, , uint, u, 32, 2, 0x55);
-  TEST_VDUP(vector2, , float, f, 32, 2, 55.2f);
-  TEST_VDUP(vector2, q, int, s, 16, 8, 0x55);
-  TEST_VDUP(vector2, q, int, s, 32, 4, 0x55);
-  TEST_VDUP(vector2, q, uint, u, 16, 8, 0x55);
-  TEST_VDUP(vector2, q, uint, u, 32, 4, 0x55);
-  TEST_VDUP(vector2, q, float, f, 32, 4, 55.9f);
+  VDUP(vector2, , int, s, 16, 4, 0x55);
+  VDUP(vector2, , int, s, 32, 2, 0x55);
+  VDUP(vector2, , uint, u, 16, 4, 0x55);
+  VDUP(vector2, , uint, u, 32, 2, 0x55);
+  VDUP(vector2, , float, f, 32, 2, 55.2f);
+  VDUP(vector2, q, int, s, 16, 8, 0x55);
+  VDUP(vector2, q, int, s, 32, 4, 0x55);
+  VDUP(vector2, q, uint, u, 16, 8, 0x55);
+  VDUP(vector2, q, uint, u, 32, 4, 0x55);
+  VDUP(vector2, q, float, f, 32, 4, 55.9f);
 
   /* Choose multiplier arbitrarily */
   TEST_VMLX_N(INSN_NAME, , int, s, 16, 4, 0x11);

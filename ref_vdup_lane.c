@@ -49,8 +49,8 @@ void exec_vdup_lane (void)
 
   clean_results ();
 
-  TEST_MACRO_64BITS_VARIANTS_2_5(TEST_VLOAD, vector, buffer);
-  TEST_VLOAD(vector, buffer, , float, f, 32, 2);
+  TEST_MACRO_64BITS_VARIANTS_2_5(VLOAD, vector, buffer);
+  VLOAD(vector, buffer, , float, f, 32, 2);
 
   /* Choose lane arbitrarily  */
   TEST_VDUP_LANE(, int, s, 8, 8, 8, 1);
