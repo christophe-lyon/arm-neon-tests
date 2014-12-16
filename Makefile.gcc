@@ -32,9 +32,11 @@
 # $ /path/to/qemu -L /path/to/sysroot/lib compute_ref.gccarm
 # $ diff stm-arm-neon.gccarm ref-rvct-neon.txt
 
+CPU=cortex-a9
+
 # GCC/ARM cross compiler
 CC.gccarm := arm-none-eabi-gcc
-CFLAGS.gccarm := -g -Wall -mcpu=cortex-a9 -mfloat-abi=hard -mfpu=neon -Wno-unused-variable -Wno-unused-function -ffast-math
+CFLAGS.gccarm := -g -Wall -mcpu=$(CPU) -mfloat-abi=hard -mfpu=neon -Wno-unused-variable -Wno-unused-function -ffast-math
 LD.gccarm := $(CC.gccarm)
 LDFLAGS.gccarm := $(CFLAGS.gccarm)
 
@@ -75,7 +77,7 @@ check-gccarm: $(REFGCCARM)
 	diff  $(REFGCCARM) ref-rvct-neon.txt
 
 SIM=qemu-system-arm
-SIMFLAGS=-cpu cortex-a9 -semihosting -nographic -kernel 
+SIMFLAGS=-cpu $(CPU) -semihosting -nographic -kernel 
 $(REFGCCARM): compute_ref.gccarm
 	$(SIM) $(SIMFLAGS) $^
 

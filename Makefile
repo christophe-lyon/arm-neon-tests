@@ -19,15 +19,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 
+CPU=cortex-a9
 # ARM RVCT
 CC.rvct := armcc
-CFLAGS.rvct = -g --cpu=cortex-a9 --fp16_format=ieee -Ono_special_regs_postregalloc -I.
+CFLAGS.rvct = -g --cpu=$(CPU) --fp16_format=ieee -Ono_special_regs_postregalloc -I.
 LD.rvct := armlink
-LDFLAGS.rvct := --cpu=cortex-a9 --entry 0x2000
+LDFLAGS.rvct := --cpu=$(CPU) --entry 0x2000
 
 # GCC/ARM cross compiler
 CC.gccarm := arm-none-eabi-gcc
-CFLAGS.gccarm := -g -Wall -mcpu=cortex-a9 -mfloat-abi=softfp -mfpu=neon -Wno-unused-variable -Wno-unused-function -ffast-math
+CFLAGS.gccarm := -g -Wall -mcpu=$(CPU) -mfloat-abi=softfp -mfpu=neon -Wno-unused-variable -Wno-unused-function -ffast-math
 #LD.gccarm := $(LD.rvct)
 #LDFLAGS.gccarm := $(LDFLAGS.rvct)
 LD.gccarm := $(CC.gccarm)
@@ -74,7 +75,7 @@ $(REFRVCT): compute_ref.axf
 	rvdebug -stdiolog=stdio.log -jou=journal.log -log=log.log -nologo -cmd -init @coretile.core.cpu0@RTSM -inc armscript.inc -exec $^
 
 $(REFRVCT).qemu: compute_ref.axf
-	qemu-system-arm -cpu cortex-a9 -semihosting -nographic -kernel $^
+	qemu-system-arm -cpu $(CPU) -semihosting -nographic -kernel $^
 # Avoid rebuilding compute_ref.axf if already present, for users who
 # don't have rvct
 .PRECIOUS .INTERMEDIATE: compute_ref.rvct.o retarget.rvct.o	\
