@@ -83,7 +83,7 @@ FNNAME (INSN_NAME)
   VLOAD(vector, buffer, , uint, u, 32, 2);
   VLOAD(vector, buffer, , float, f, 32, 2);
 
-  /* Apply a unary operator named INSN_NAME  */
+  /* Apply a binary operator named INSN_NAME  */
   TEST_VPADD(INSN_NAME, int, s, 8, 8);
   TEST_VPADD(INSN_NAME, int, s, 16, 4);
   TEST_VPADD(INSN_NAME, int, s, 32, 2);
