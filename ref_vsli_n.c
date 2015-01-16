@@ -35,7 +35,7 @@ void vsli_extra(void);
 void vsli_extra(void)
 {
     /* Test cases with maximum shift amount (this amount is different
-     * from vsri.  */
+       from vsri).  */
 
   /* With ARM RVCT, we need to declare variables before any executable
      statement */
