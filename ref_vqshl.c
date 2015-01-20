@@ -40,15 +40,15 @@ THE SOFTWARE.
 FNNAME (INSN)
 {
   /* Basic test: v3=vqshl(v1,v2), then store the result.  */
-#define TEST_VQSHL2(INSN, T3, Q, T1, T2, W, N)			\
-  Set_Neon_Cumulative_Sat(0);					\
-  VECT_VAR(vector_res, T1, W, N) =				\
-    INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N),		\
-		      VECT_VAR(vector_shift, T3, W, N));	\
-  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),			\
-		    VECT_VAR(vector_res, T1, W, N));		\
-  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##Q##_##T2##W),	\
-			   xSTR(T1), W, N)
+#define TEST_VQSHL2(INSN, T3, Q, T1, T2, W, N)				\
+  Set_Neon_Cumulative_Sat(0, VECT_VAR(vector_res, T1, W, N));		\
+  VECT_VAR(vector_res, T1, W, N) =					\
+    INSN##Q##_##T2##W(VECT_VAR(vector, T1, W, N),			\
+		      VECT_VAR(vector_shift, T3, W, N));		\
+  vst1##Q##_##T2##W(VECT_VAR(result, T1, W, N),				\
+		      VECT_VAR(vector_res, T1, W, N));			\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##Q##_##T2##W),		\
+			       xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */
 #define TEST_VQSHL1(INSN, T3, Q, T1, T2, W, N)	\

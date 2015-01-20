@@ -40,14 +40,14 @@ THE SOFTWARE.
 FNNAME (INSN)
 {
   /* Basic test: y=vqrshrun_n(x,v), then store the result.  */
-#define TEST_VQRSHRUN_N2(INSN, T1, T2, W, W2, N, V)		\
-  Set_Neon_Cumulative_Sat(0);					\
-  VECT_VAR(vector_res, uint, W2, N) =				\
-    INSN##_##T2##W(VECT_VAR(vector, T1, W, N),			\
-		   V);						\
-  vst1_u##W2(VECT_VAR(result, uint, W2, N),			\
-	     VECT_VAR(vector_res, uint, W2, N));		\
-  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##_##T2##W),	\
+#define TEST_VQRSHRUN_N2(INSN, T1, T2, W, W2, N, V)			\
+  Set_Neon_Cumulative_Sat(0, VECT_VAR(vector_res, uint, W2, N));	\
+  VECT_VAR(vector_res, uint, W2, N) =					\
+    INSN##_##T2##W(VECT_VAR(vector, T1, W, N),				\
+		   V);							\
+  vst1_u##W2(VECT_VAR(result, uint, W2, N),				\
+	     VECT_VAR(vector_res, uint, W2, N));			\
+  dump_neon_cumulative_sat(TEST_MSG, xSTR(INSN##_##T2##W),		\
 			   xSTR(T1), W, N)
 
   /* Two auxliary macros are necessary to expand INSN */

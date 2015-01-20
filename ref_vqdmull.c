@@ -40,7 +40,7 @@ FNNAME (INSN)
 {
   /* Basic test: y=vqdmull(x,x), then store the result.  */
 #define TEST_VQDMULL2(INSN, T1, T2, W, W2, N)			\
-  Set_Neon_Cumulative_Sat(0);					\
+  Set_Neon_Cumulative_Sat(0, VECT_VAR(vector_res, T1, W2, N));	\
   VECT_VAR(vector_res, T1, W2, N) =				\
     INSN##_##T2##W(VECT_VAR(vector, T1, W, N),			\
 		   VECT_VAR(vector2, T1, W, N));		\

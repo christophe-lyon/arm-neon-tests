@@ -41,7 +41,7 @@ FNNAME (INSN_NAME)
   /* vector_res = OP(vector1,vector2), then store the result.  */
 
 #define TEST_BINARY_SAT_OP1(INSN, Q, T1, T2, W, N)		\
-  Set_Neon_Cumulative_Sat(0);					\
+  Set_Neon_Cumulative_Sat(0, VECT_VAR(vector_res, T1, W, N));	\
   VECT_VAR(vector_res, T1, W, N) =				\
     INSN##Q##_##T2##W(VECT_VAR(vector1, T1, W, N),		\
 		      VECT_VAR(vector2, T1, W, N));		\

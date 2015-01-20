@@ -44,7 +44,7 @@ FNNAME (INSN_NAME)
   /* vector_res = vqdmlxl_n(vector, vector3, val),
      then store the result.  */
 #define TEST_VQDMLXL_N1(INSN, T1, T2, W, W2, N, V)		\
-  Set_Neon_Cumulative_Sat(0);					\
+  Set_Neon_Cumulative_Sat(0, VECT_VAR(vector_res, T1, W, N));	\
   VECT_VAR(vector_res, T1, W, N) =				\
     INSN##_##T2##W2(VECT_VAR(vector, T1, W, N),			\
 		    VECT_VAR(vector3, T1, W2, N),		\

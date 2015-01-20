@@ -41,7 +41,7 @@ FNNAME (INSN_NAME)
 {
   /* Basic test: y=OP(x), then store the result.  */
 #define TEST_UNARY_OP1(INSN, T1, T2, W, W2, N)			\
-  Set_Neon_Cumulative_Sat(0);					\
+  Set_Neon_Cumulative_Sat(0, VECT_VAR(vector_res, T1, W, N));	\
   VECT_VAR(vector_res, T1, W, N) =				\
     INSN##_s##W2(VECT_VAR(vector, int, W2, N));			\
   vst1##_##T2##W(VECT_VAR(result, T1, W, N),			\
