@@ -85,7 +85,7 @@ void exec_vldX (void)
   DECL_VLDX(poly, 16, 8, X);			\
   DECL_VLDX(float, 32, 4, X)
 
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
 #define DECL_ALL_VLDX_FP16(X)			\
   DECL_VLDX(float, 16, 4, X);			\
   DECL_VLDX(float, 16, 8, X)
@@ -113,7 +113,7 @@ void exec_vldX (void)
   TEST_VLDX(q, poly, p, 16, 8, X);		\
   TEST_VLDX(q, float, f, 32, 4, X)
 
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
 #define TEST_ALL_VLDX_FP16(X)			\
   TEST_VLDX(, float, f, 16, 4, X);		\
   TEST_VLDX(q, float, f, 16, 8, X)
@@ -141,7 +141,7 @@ void exec_vldX (void)
   TEST_EXTRA_CHUNK(poly, 16, 8, X, Y);		\
   TEST_EXTRA_CHUNK(float, 32, 4, X, Y)
 
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
 #define TEST_ALL_EXTRA_CHUNKS_FP16(X, Y)	\
   TEST_EXTRA_CHUNK(float, 16, 4, X, Y);		\
   TEST_EXTRA_CHUNK(float, 16, 8, X, Y)
@@ -151,7 +151,7 @@ void exec_vldX (void)
   DECL_ALL_VLDX(3);
   DECL_ALL_VLDX(4);
 
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   DECL_ALL_VLDX_FP16(2);
   DECL_ALL_VLDX_FP16(3);
   DECL_ALL_VLDX_FP16(4);
@@ -161,13 +161,13 @@ void exec_vldX (void)
   clean_results ();
 #define TEST_MSG "VLD2/VLD2Q"
   TEST_ALL_VLDX(2);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_ALL_VLDX_FP16(2);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 0");
 
   TEST_ALL_EXTRA_CHUNKS(2, 1);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_ALL_EXTRA_CHUNKS_FP16(2, 1);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 1");
@@ -177,18 +177,18 @@ void exec_vldX (void)
 #undef TEST_MSG
 #define TEST_MSG "VLD3/VLD3Q"
   TEST_ALL_VLDX(3);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_ALL_VLDX_FP16(3);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 0");
 
   TEST_ALL_EXTRA_CHUNKS(3, 1);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_ALL_EXTRA_CHUNKS_FP16(3, 1);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 1");
   TEST_ALL_EXTRA_CHUNKS(3, 2);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_ALL_EXTRA_CHUNKS_FP16(3, 2);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 2");
@@ -198,23 +198,23 @@ void exec_vldX (void)
 #undef TEST_MSG
 #define TEST_MSG "VLD4/VLD4Q"
   TEST_ALL_VLDX(4);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_ALL_VLDX_FP16(4);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 0");
 
   TEST_ALL_EXTRA_CHUNKS(4, 1);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_ALL_EXTRA_CHUNKS_FP16(4, 1);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 1");
   TEST_ALL_EXTRA_CHUNKS(4, 2);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_ALL_EXTRA_CHUNKS_FP16(4, 2);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 2");
   TEST_ALL_EXTRA_CHUNKS(4, 3);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_ALL_EXTRA_CHUNKS_FP16(4, 3);
 #endif
   dump_results_hex2 (TEST_MSG, " chunk 3");

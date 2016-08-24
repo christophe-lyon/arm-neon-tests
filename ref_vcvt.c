@@ -52,7 +52,7 @@ void exec_vcvt (void)
 		    VECT_VAR(vector_res, T1, W, N));		\
   DUMP_FP(TEST_MSG, T1, W, N, PRIx##W);
 
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
 #define TEST_VCVT_FP16(T1, T2, W1, W2, N)			\
   VECT_VAR(vector_res, T1, W1, N) =				\
     vcvt_##T2##W1##_##T2##W2(VECT_VAR(vector, T1, W2, N));	\
@@ -86,7 +86,7 @@ void exec_vcvt (void)
      statement */
   DECL_VARIABLE_ALL_VARIANTS(vector);
   DECL_VARIABLE_ALL_VARIANTS(vector_res);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   DECL_VARIABLE(vector_init, uint, 16, 4);
   DECL_VARIABLE(vector_init, uint, 16, 8);
   DECL_VARIABLE(vector, float, 16, 4);
@@ -102,7 +102,7 @@ void exec_vcvt (void)
   TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
   VLOAD(vector, buffer, , float, f, 32, 2);
   VLOAD(vector, buffer, q, float, f, 32, 4);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   VLOAD(vector, buffer, , float, f, 16, 4);
   VLOAD(vector, buffer, q, float, f, 16, 8);
 #endif
@@ -114,7 +114,7 @@ void exec_vcvt (void)
   TEST_VSET_LANE(vector, q, float, f, 32, 4, 2, -15.3f);
   TEST_VSET_LANE(vector, q, float, f, 32, 4, 3, 5.3f);
 
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   /* FP16 tests.  */
   /* There is no vdup_n_f16, so we need another initialization
      method.  */
@@ -136,7 +136,7 @@ void exec_vcvt (void)
   /* vcvt_f32_xx */
   TEST_VCVT_FP(, float, f, 32, 2, int, s);
   TEST_VCVT_FP(, float, f, 32, 2, uint, u);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_VCVT_FP16(float, f, 32, 16, 4);
 #endif
 
@@ -152,7 +152,7 @@ void exec_vcvt (void)
   TEST_VSET_LANE(vector, q, float, f, 32, 4, 1, -0.0f);
   TEST_VSET_LANE(vector, q, float, f, 32, 4, 2, 15.12f);
   TEST_VSET_LANE(vector, q, float, f, 32, 4, 3, -15.12f);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_VCVT_2FP16(float, f, 16, 32, 4);
 #endif
 
@@ -214,7 +214,7 @@ void exec_vcvt (void)
   /* vcvtq_n_xx_f32 */
   TEST_VCVT_N(q, int, s, 32, 4, float, f, 31);
 
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
 #undef TEST_MSG
 #define TEST_MSG "VCVT FP16"
   fprintf(ref_file, "\n%s output:\n", TEST_MSG " (check fp16-fp32 inf/nan/denormal)");

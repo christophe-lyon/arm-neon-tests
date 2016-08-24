@@ -46,7 +46,7 @@ void exec_vcombine (void)
   DECL_VARIABLE_64BITS_VARIANTS(vector64_a);
   DECL_VARIABLE_64BITS_VARIANTS(vector64_b);
   DECL_VARIABLE_128BITS_VARIANTS(vector128);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   DECL_VARIABLE(vector64_a, float, 16, 4);
   DECL_VARIABLE(vector64_b, float, 16, 4);
   DECL_VARIABLE(vector64_b_init, uint, 16, 4);
@@ -55,7 +55,7 @@ void exec_vcombine (void)
 
   TEST_MACRO_64BITS_VARIANTS_2_5(VLOAD, vector64_a, buffer);
   VLOAD(vector64_a, buffer, , float, f, 32, 2);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   VLOAD(vector64_a, buffer, , float, f, 16, 4);
 #endif
 
@@ -71,7 +71,7 @@ void exec_vcombine (void)
   VDUP(vector64_b, , poly, p, 16, 4, 0x66);
   VDUP(vector64_b, , float, f, 32, 2, 3.3f);
 
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   /* There is no vdup_n_f16, so we need another initialization
      method.  */
   VDUP(vector64_b_init, , uint, u, 16, 4, 0x4b80 /* 15 */);
@@ -92,7 +92,7 @@ void exec_vcombine (void)
   TEST_VCOMBINE(poly, p, 8, 8, 16);
   TEST_VCOMBINE(poly, p, 16, 4, 8);
   TEST_VCOMBINE(float, f, 32, 2, 4);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   TEST_VCOMBINE(float, f, 16, 4, 8);
 #endif
 

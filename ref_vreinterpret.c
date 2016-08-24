@@ -59,7 +59,7 @@ void exec_vreinterpret (void)
 		    VECT_VAR(vector_res, T1, W, N));			\
   DUMP_FP(TEST_MSG, T1, W, N, PRIx##W);
 
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
 #define TEST_VREINTERPRET_FP16(Q, T1, T2, W, N, TS1, TS2, WS, NS)	\
   VECT_VAR(vector_res, T1, W, N) =					\
     vreinterpret##Q##_##T2##W##_##TS2##WS(VECT_VAR(vector, TS1, WS, NS)); \
@@ -72,7 +72,7 @@ void exec_vreinterpret (void)
      statement */
   DECL_VARIABLE_ALL_VARIANTS(vector);
   DECL_VARIABLE_ALL_VARIANTS(vector_res);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   DECL_VARIABLE(vector, float, 16, 4);
   DECL_VARIABLE(vector_res, float, 16, 4);
   DECL_VARIABLE(vector, float, 16, 8);
@@ -86,7 +86,7 @@ void exec_vreinterpret (void)
   TEST_MACRO_ALL_VARIANTS_2_5(VLOAD, vector, buffer);
   VLOAD(vector, buffer, , float, f, 32, 2);
   VLOAD(vector, buffer, q, float, f, 32, 4);
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   VLOAD(vector, buffer, , float, f, 16, 4);
   VLOAD(vector, buffer, q, float, f, 16, 8);
 #endif
@@ -342,7 +342,7 @@ void exec_vreinterpret (void)
   TEST_VREINTERPRET_POLY(q, poly, p, 8, 16, float, f, 32, 4);
   TEST_VREINTERPRET_POLY(q, poly, p, 16, 8, float, f, 32, 4);
 
-#if defined(__ARM_FP16_FORMAT_IEEE)
+#if defined(__ARM_FP16_FORMAT_IEEE) && ( ((__ARM_FP & 0x2) != 0) || ((__ARM_NEON_FP16_INTRINSICS & 1) != 0) )
   /* vreinterpret_f16_xx */
   TEST_VREINTERPRET_FP16(, float, f, 16, 4, int, s, 8, 8);
   TEST_VREINTERPRET_FP16(, float, f, 16, 4, int, s, 16, 4);
