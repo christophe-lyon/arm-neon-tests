@@ -38,7 +38,7 @@ CPU=cortex-a9
 CC.gccarm := arm-none-eabi-gcc
 CFLAGS.gccarm := -g -Wall -mcpu=$(CPU) -mfloat-abi=hard -mfpu=neon -Wno-unused-variable -Wno-unused-function -ffast-math
 LD.gccarm := $(CC.gccarm)
-LDFLAGS.gccarm := $(CFLAGS.gccarm)
+LDFLAGS.gccarm := $(CFLAGS.gccarm) --specs=rdimon.specs
 
 # List of validated intrinsics
 REFNAMES = vld1 vadd vld1_lane vld1_dup vdup vget_high vget_low		\
