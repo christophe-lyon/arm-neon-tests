@@ -33,10 +33,11 @@
 # $ diff stm-arm-neon.gccarm ref-rvct-neon.txt
 
 CPU=cortex-a9
+OPTIMIZE_INTRINSICS=1
 
 # GCC/ARM cross compiler
 CC.gccarm := arm-none-eabi-gcc
-CFLAGS.gccarm := -g -Wall -mcpu=$(CPU) -mfloat-abi=hard -mfpu=neon -Wno-unused-variable -Wno-unused-function -ffast-math
+CFLAGS.gccarm := -g -Wall -mcpu=$(CPU) -mfloat-abi=hard -mfpu=neon -Wno-unused-variable -Wno-unused-function -ffast-math -DOPTIMIZE_INTRINSICS=$(OPTIMIZE_INTRINSICS)
 LD.gccarm := $(CC.gccarm)
 LDFLAGS.gccarm := $(CFLAGS.gccarm) --specs=rdimon.specs
 
