@@ -11,3 +11,7 @@ env:
   - OPTIMIZE_INTRINSICS=1
 
 script: make -f Makefile.gcc clean && make -f Makefile.gcc compute_ref.gccarm OPTIMIZE_INTRINSICS=${OPTIMIZE_INTRINSICS} && qemu-arm -cpu cortex-a9 compute_ref.gccarm && diff  stm-arm-neon.gccarm ref-rvct-neon-nofp16.txt
+
+notifications:
+  email:
+    on_success: always
