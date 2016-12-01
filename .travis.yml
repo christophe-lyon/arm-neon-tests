@@ -15,3 +15,5 @@ script: make -f Makefile.gcc clean && make -f Makefile.gcc compute_ref.gccarm OP
 notifications:
   email:
     on_success: always
+    recipients:
+      - christophelyon@gmail.com
